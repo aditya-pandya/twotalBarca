@@ -2,7 +2,20 @@
 
 A premium FC Barcelona editorial publication: article-first, culturally rooted, football-specific, and built as a digital magazine with a living archive.
 
-Status: planning/docs phase only.
+Status: working Next.js app with shared primitives, static editorial data, test coverage, and CI verification.
+
+Core engineering docs
+- `docs/engineering-architecture.md`
+- `docs/product-brief.md`
+- `docs/design-direction.md`
+- `docs/content-model.md`
+- `docs/implementation-roadmap.md`
+
+Local commands
+- `npm run dev`
+- `npm test`
+- `npm run build`
+- `npm run build:local` if iCloud-backed `.next` cleanup gets in the way
 
 Principles
 - Not a news wire
@@ -11,12 +24,6 @@ Principles
 - Longform first
 - Manual curation over feed logic
 - Barça-specific editorial system, not abstract moodboarding
-
-Initial docs
-- `docs/product-brief.md`
-- `docs/design-direction.md`
-- `docs/content-model.md`
-- `docs/implementation-roadmap.md`
 
 Current direction
 - Strongest visual reference: the article page (`The Weave of the Blau`)

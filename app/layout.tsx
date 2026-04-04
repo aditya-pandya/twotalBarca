@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { EditorialFooter } from "@/components/editorial-footer";
-import { EditorialHeader } from "@/components/editorial-header";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import { siteMeta } from "@/lib/site-data";
 import "./globals.css";
 
@@ -23,9 +23,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body>
         <div className="site-frame">
-          <EditorialHeader />
+          <SiteHeader />
           <main>{children}</main>
-          <EditorialFooter />
+          <SiteFooter />
         </div>
       </body>
     </html>

@@ -3,13 +3,19 @@ export type Story = {
   section: string;
   headline: string;
   excerpt: string;
+  href?: string;
   dek?: string;
   author?: string;
   date?: string;
   readingTime?: string;
 };
 
-export const navItems = [
+export type NavItem = {
+  href: string;
+  label: string;
+};
+
+export const navItems: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/#brief", label: "The Brief" },
   { href: "/#match-notes", label: "Match Notes" },
@@ -22,14 +28,7 @@ export const siteMeta = {
   name: "twotalBarça",
   description:
     "A premium FC Barcelona editorial publication: article-first, archive-minded, and football-specific.",
-  nav: [
-    { href: "/", label: "Home" },
-    { href: "/#brief", label: "The Brief" },
-    { href: "/#match-notes", label: "Match Notes" },
-    { href: "/#analysis", label: "Analysis" },
-    { href: "/#archive", label: "Archive" },
-    { href: "/about", label: "About" },
-  ],
+  nav: navItems,
 };
 
 export const homeLead: Story & { type: string; href: string } = {
@@ -88,6 +87,7 @@ export const analysisLead: Story = {
     "The best attacking sequences were not spectacular. They were disciplined, repeated, and timed a half-second earlier than the opposition could tolerate.",
   author: "Jordi Serra",
   readingTime: "7 min read",
+  href: "/article/the-weave-of-the-blau",
 };
 
 export const analysisSupport: Story[] = [
@@ -96,12 +96,14 @@ export const analysisSupport: Story[] = [
     section: "Notebook",
     headline: "Why the pivot looked calmer once the full-back stopped arriving at the same height",
     excerpt: "A close read of small structural choices that made the match feel calmer than it looked.",
+    href: "/article/the-weave-of-the-blau",
   },
   {
     slug: "striker-decoy-run",
     section: "Notebook",
     headline: "The striker’s best contribution was not the finish but the first decoy run",
     excerpt: "The move mattered because it bent the block before the pass ever arrived.",
+    href: "/article/the-weave-of-the-blau",
   },
 ];
 
@@ -112,6 +114,7 @@ export const reflections: Story[] = [
     headline: "What remains when the style falters",
     excerpt:
       "A club does not lose its identity in one bad month. It loses it when convenience replaces standards.",
+    href: "/article/the-weave-of-the-blau",
   },
   {
     slug: "crowd-knows-difference",
@@ -119,6 +122,7 @@ export const reflections: Story[] = [
     headline: "The crowd still knows the difference between speed and clarity",
     excerpt:
       "Barça’s supporters have always accepted risk more easily than confusion.",
+    href: "/article/the-weave-of-the-blau",
   },
 ];
 
@@ -140,7 +144,13 @@ export const vaultLinks = [
   "Notes on the old tunnel, the new distance",
 ];
 
-export const dispatch = {
+export type DispatchData = {
+  issue: string;
+  note: string;
+  items: string[];
+};
+
+export const dispatch: DispatchData = {
   issue: "The Week in Blaugrana, No. 12",
   note:
     "Barça has looked more coherent than fluent. That is not an insult. Coherence is usually the first honest sign of a team becoming itself again.",
@@ -153,7 +163,15 @@ export const dispatch = {
   ],
 };
 
-export const aboutData = {
+export type AboutData = {
+  intro: string;
+  why: string;
+  covers: string[];
+  standard: string;
+  memory: string;
+};
+
+export const aboutData: AboutData = {
   intro:
     "twotalBarça is a publication about FC Barcelona as football club, institution, memory, and place. We publish essays, analysis, archive work, and reflections that take the club seriously without surrendering to noise.",
   why:
@@ -171,7 +189,13 @@ export const aboutData = {
     "The archive is not a museum corner. It is the pressure of the past on the present: old shirts, old matches, old failures, old standards, still shaping what the club believes it is.",
 };
 
-export const contributors = [
+export type Contributor = {
+  name: string;
+  role: string;
+  bio: string;
+};
+
+export const contributors: Contributor[] = [
   {
     name: "Maury Vidal",
     role: "Editor",
@@ -189,7 +213,32 @@ export const contributors = [
   },
 ];
 
-export const article = {
+export type Article = {
+  slug: string;
+  headline: string;
+  dek: string;
+  excerpt: string;
+  section: string;
+  type: string;
+  author: string;
+  date: string;
+  readTime: string;
+  readingTime: string;
+  historicalEra: string;
+  heroCaption: string;
+  heroCredit: string;
+  ritual: string;
+  conviction: string;
+  body: string[];
+  quote: string;
+  pullQuote: string;
+  quoteBy: string;
+  topics: string[];
+  timeline: Array<{ year: string; note: string }>;
+  related: Story[];
+};
+
+export const article: Article = {
   slug: "the-weave-of-the-blau",
   headline: "The Weave of the Blau",
   dek:
@@ -242,18 +291,35 @@ export const article = {
       section: "Reflections",
       headline: "The Last of the Catalan Romantics",
       excerpt: "Exploring the bridge between the old world and the new.",
+      href: "/article/the-weave-of-the-blau",
     },
     {
       slug: "the-geometry-of-rinus-michels",
       section: "Tactics",
       headline: "The Geometry of Rinus Michels",
       excerpt: "How order became style before style became myth.",
+      href: "/article/the-weave-of-the-blau",
     },
     {
       slug: "the-hans-gamper-manifesto",
       section: "History",
       headline: "1899: The Hans Gamper Manifesto",
       excerpt: "The institutional imagination of the club before the institution hardened.",
+      href: "/article/the-weave-of-the-blau",
     },
   ] satisfies Story[],
 };
+
+export const articles = [article];
+
+export function getArticleSlugs() {
+  return articles.map((entry) => entry.slug);
+}
+
+export function getArticleBySlug(slug: string) {
+  return articles.find((entry) => entry.slug === slug);
+}
+
+export function getStoryHref(story: Pick<Story, "href">, fallback = "#") {
+  return story.href ?? fallback;
+}

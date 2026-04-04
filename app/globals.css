@@ -33,7 +33,7 @@ button, input { font: inherit; }
   flex-direction: column;
 }
 
-.shell, .section-inner {
+.shell, .section-inner, .container, .container-narrow {
   width: min(calc(100% - 2rem), var(--max));
   margin: 0 auto;
 }

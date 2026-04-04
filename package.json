@@ -5,8 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:local": "NEXT_DIST_DIR=.next-local next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "ci": "npm test && npm run build"
   },
   "dependencies": {
     "next": "16.2.2",
@@ -14,9 +18,13 @@
     "react-dom": "19.2.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/node": "24.6.0",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
-    "typescript": "5.9.3"
+    "jsdom": "^29.0.1",
+    "typescript": "5.9.3",
+    "vitest": "^4.1.2"
   }
 }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Eyebrow, SectionHeading, StoryCard } from "@/components/editorial-primitives";
+import { Eyebrow, SectionHeading, StoryCard } from "@/components/primitives";
 import {
   analysisLead,
   analysisSupport,
@@ -56,19 +56,13 @@ export default function HomePage() {
       <section className="section-block shell" id="analysis">
         <SectionHeading title="Analysis" linkLabel="Tactical board" linkHref="#" />
         <div className="story-grid">
-          <article className="featured-story-card">
-            <Eyebrow>Analysis & Tactics</Eyebrow>
-            <h3>{analysisLead.headline}</h3>
-            <p>{analysisLead.dek}</p>
-            <div className="card-meta">{analysisLead.author} · Match analysis</div>
-          </article>
+          <StoryCard
+            story={analysisLead}
+            href={analysisLead.href}
+            meta={`${analysisLead.author} · Match analysis`}
+          />
           {analysisSupport.map((item) => (
-            <StoryCard
-              key={item.slug}
-              section={item.section}
-              headline={item.headline}
-              excerpt={item.excerpt}
-            />
+            <StoryCard key={item.slug} story={item} />
           ))}
         </div>
       </section>
@@ -77,7 +71,7 @@ export default function HomePage() {
         <SectionHeading title="Reflections" />
         <div className="story-grid">
           {reflections.map((item) => (
-            <StoryCard key={item.headline} section="Reflection" headline={item.headline} excerpt={item.excerpt} />
+            <StoryCard key={item.slug} story={item} />
           ))}
           <article className="mission-card">
             <Eyebrow>Editorial stance</Eyebrow>

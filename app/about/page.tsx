@@ -1,4 +1,4 @@
-import { Eyebrow, SectionHeading } from "@/components/editorial-primitives";
+import { Eyebrow, SectionHeading, StoryCard } from "@/components/primitives";
 import { aboutData, contributors } from "@/lib/site-data";
 
 export default function AboutPage() {
@@ -52,11 +52,16 @@ export default function AboutPage() {
         <SectionHeading title="Contributors" />
         <div className="story-grid">
           {contributors.map((person) => (
-            <article className="story-card" key={person.name}>
-              <Eyebrow>{person.role}</Eyebrow>
-              <h3>{person.name}</h3>
-              <p>{person.bio}</p>
-            </article>
+            <StoryCard
+              key={person.name}
+              story={{
+                slug: person.name.toLowerCase().replace(/\s+/g, "-"),
+                section: person.role,
+                headline: person.name,
+                excerpt: person.bio,
+                href: "/about",
+              }}
+            />
           ))}
         </div>
       </section>

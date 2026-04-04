@@ -5,59 +5,65 @@ import {
   Container,
   Deck,
   Eyebrow,
+  FeaturedStoryCard,
   Figure,
   MetaRow,
   PageTitle,
   Rule,
   Section,
+  SectionHeading,
+  StoryCard,
 } from "@/components/primitives";
-import { StoryCard } from "@/components/story-card";
-import { article } from "@/lib/site-data";
+import { getArticleBySlug, getArticleSlugs, getStoryHref } from "@/lib/site-data";
 
 type ArticlePageProps = {
   params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
-  return [{ slug: article.slug }];
+  return getArticleSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: ArticlePageProps): Promise<Metadata> {
   const { slug } = await params;
+  const currentArticle = getArticleBySlug(slug);
 
-  if (slug !== article.slug) {
+  if (!currentArticle) {
     return {};
   }
 
   return {
-    title: article.headline,
-    description: article.excerpt,
+    title: currentArticle.headline,
+    description: currentArticle.excerpt,
   };
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
+  const currentArticle = getArticleBySlug(slug);
 
-  if (slug !== article.slug) {
+  if (!currentArticle) {
     notFound();
   }
+
+  const [featuredRelated, ...remainingRelated] = currentArticle.related;
 
   return (
     <>
       <Section>
         <Container narrow>
           <Eyebrow>
-            {article.section} / {article.type}
+            {currentArticle.section} / {currentArticle.type}
           </Eyebrow>
-          <PageTitle>{article.headline}</PageTitle>
-          <Deck>{article.dek}</Deck>
+          <PageTitle>{currentArticle.headline}</PageTitle>
+          <Deck>{currentArticle.dek}</Deck>
           <MetaRow
-            author={article.author}
-            date={article.date}
-            readingTime={article.readingTime}
-            section={article.historicalEra}
+            author={currentArticle.author}
+            date={currentArticle.date}
+            readingTime={currentArticle.readingTime}
+            section={currentArticle.historicalEra}
           />
         </Container>
       </Section>
@@ -65,9 +71,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <Section>
         <Container>
           <Figure
-            title={article.headline}
-            caption={article.heroCaption}
-            credit={article.heroCredit}
+            title={currentArticle.headline}
+            caption={currentArticle.heroCaption}
+            credit={currentArticle.heroCredit}
           >
             <div className="hero-art">
               <span className="hero-art-stripe navy" />
@@ -80,7 +86,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
       <Section>
         <Container narrow>
-          <ArticleBody paragraphs={article.body} pullQuote={article.pullQuote} />
+          <ArticleBody paragraphs={currentArticle.body} pullQuote={currentArticle.pullQuote} />
         </Container>
       </Section>
 
@@ -96,7 +102,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </p>
           </div>
           <div className="timeline-grid">
-            {article.timeline.map((item) => (
+            {currentArticle.timeline.map((item) => (
               <article key={item.year} className="timeline-card">
                 <p className="timeline-year">{item.year}</p>
                 <p>{item.note}</p>
@@ -105,7 +111,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </div>
           <Rule />
           <div className="topic-row">
-            {article.topics.map((topic) => (
+            {currentArticle.topics.map((topic) => (
               <span key={topic} className="topic-chip">
                 {topic}
               </span>
@@ -116,15 +122,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
       <Section>
         <Container>
-          <div className="section-heading-row">
-            <div>
-              <Eyebrow>Continue reading</Eyebrow>
-              <PageTitle>Related stories</PageTitle>
-            </div>
-          </div>
+          <SectionHeading title="Related stories" linkLabel="Back home" linkHref="/" />
           <div className="related-grid">
-            {article.related.map((story) => (
-              <StoryCard key={story.slug} story={story} href="/article/the-weave-of-the-blau" />
+            {featuredRelated ? (
+              <FeaturedStoryCard story={featuredRelated} href={getStoryHref(featuredRelated)} />
+            ) : null}
+            {remainingRelated.map((story) => (
+              <StoryCard key={story.slug} story={story} />
             ))}
           </div>
         </Container>
