@@ -3,27 +3,49 @@ import { EditorialLink, PullQuote } from "@/components/primitives";
 export function ArticleBody({
   paragraphs,
   pullQuote,
+  quoteBy,
+  heroCaption,
+  heroCredit,
+  conviction,
 }: {
   paragraphs: string[];
   pullQuote: string;
+  quoteBy: string;
+  heroCaption: string;
+  heroCredit: string;
+  conviction: string;
 }) {
   return (
-    <div className="article-grid">
-      <aside className="article-side-note">
-        <p className="eyebrow">Context</p>
-        <p>
-          A historical piece in The Vault, built to test longform rhythm, captions, pull quotes, and
-          structured editorial metadata.
-        </p>
+    <div className="article-layout">
+      <aside className="article-rail">
+        <div className="article-rail-block">
+          <p className="eyebrow">Field notes</p>
+          <p>
+            A historical reading of the Blaugrana shirt as object, signal, and public memory.
+          </p>
+        </div>
+        <div className="article-rail-block">
+          <p className="eyebrow">At stake</p>
+          <p>{conviction}</p>
+        </div>
         <EditorialLink href="/about" subtle>
           Our editorial standards
         </EditorialLink>
       </aside>
-      <div className="article-prose">
+      <div className="article-prose editorial-prose">
         {paragraphs.slice(0, 2).map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
         ))}
-        <PullQuote>{pullQuote}</PullQuote>
+        <figure className="article-insert">
+          <div className="article-insert-art" aria-hidden="true">
+            <div className="article-insert-weave" />
+          </div>
+          <figcaption>
+            <span>{heroCaption}</span>
+            <span>{heroCredit}</span>
+          </figcaption>
+        </figure>
+        <PullQuote cite={quoteBy}>{pullQuote}</PullQuote>
         {paragraphs.slice(2).map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
         ))}

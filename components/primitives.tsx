@@ -123,8 +123,16 @@ export function Figure({
   );
 }
 
-export function PullQuote({ children }: PropsWithChildren) {
-  return <blockquote className="pull-quote">{children}</blockquote>;
+export function PullQuote({
+  children,
+  cite,
+}: PropsWithChildren<{ cite?: string }>) {
+  return (
+    <figure className="pull-quote">
+      <blockquote>{children}</blockquote>
+      {cite ? <figcaption>{cite}</figcaption> : null}
+    </figure>
+  );
 }
 
 export function StoryCard({
