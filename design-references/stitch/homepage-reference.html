@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f6f3ee",
+                    "surface-container-highest": "#e5e2dd",
+                    "outline": "#78767e",
+                    "on-secondary-fixed": "#400013",
+                    "on-tertiary-container": "#9e803a",
+                    "surface-bright": "#fcf9f4",
+                    "on-secondary-container": "#771d34",
+                    "primary-container": "#191834",
+                    "on-tertiary-fixed": "#251a00",
+                    "inverse-on-surface": "#f3f0eb",
+                    "on-secondary-fixed-variant": "#81243b",
+                    "tertiary": "#000000",
+                    "error": "#ba1a1a",
+                    "on-surface": "#1c1c19",
+                    "primary-fixed": "#e3dfff",
+                    "surface-container-high": "#ebe8e3",
+                    "primary-fixed-dim": "#c6c3e8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface": "#fcf9f4",
+                    "on-primary-fixed": "#191834",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e5e2dd",
+                    "tertiary-container": "#251a00",
+                    "surface-dim": "#dcdad5",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#c6c3e8",
+                    "surface-container": "#f0ede9",
+                    "secondary-fixed": "#ffd9dd",
+                    "background": "#fcf9f4",
+                    "secondary-fixed-dim": "#ffb2bd",
+                    "on-primary-container": "#8280a2",
+                    "on-primary-fixed-variant": "#454462",
+                    "surface-tint": "#5d5b7b",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#fe869c",
+                    "tertiary-fixed": "#ffdf9d",
+                    "tertiary-fixed-dim": "#e6c275",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1c1c19",
+                    "secondary": "#9f3c52",
+                    "inverse-surface": "#31302d",
+                    "on-surface-variant": "#47464d",
+                    "primary": "#000000",
+                    "on-tertiary-fixed-variant": "#5b4300",
+                    "outline-variant": "#c8c5ce"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "0px"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader", "serif"],
+                    "body": ["Newsreader", "serif"],
+                    "label": ["Space Grotesk", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Newsreader', serif; background-color: #fcf9f4; }
+        .kern-tight { letter-spacing: -0.05em; }
+        .tracking-editorial { letter-spacing: 0.05em; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full flex justify-between items-center px-8 py-6 max-w-none bg-[#fcf9f4]/80 dark:bg-[#181733]/80 backdrop-blur-xl z-50">
+<div class="flex items-center gap-12">
+<span class="italic font-serif text-3xl tracking-tighter text-[#181733] dark:text-[#fcf9f4]">twotalBarça</span>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#181733] dark:text-[#fcf9f4] uppercase text-xs tracking-widest font-medium hover:text-[#7B2037] transition-colors duration-300" href="#">Match Review</a>
+<a class="text-[#181733] dark:text-[#fcf9f4] uppercase text-xs tracking-widest font-medium hover:text-[#7B2037] transition-colors duration-300" href="#">Cultural Heart</a>
+<a class="text-[#181733] dark:text-[#fcf9f4] uppercase text-xs tracking-widest font-medium hover:text-[#7B2037] transition-colors duration-300" href="#">Journalism</a>
+<a class="text-[#181733] dark:text-[#fcf9f4] uppercase text-xs tracking-widest font-medium hover:text-[#7B2037] transition-colors duration-300" href="#">Tickets</a>
+<a class="text-[#181733] dark:text-[#fcf9f4] uppercase text-xs tracking-widest font-medium hover:text-[#7B2037] transition-colors duration-300" href="#">Archive</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-[#181733] dark:text-[#fcf9f4]"><span class="material-symbols-outlined" data-icon="search">search</span></button>
+<button class="bg-primary-container text-white px-6 py-2 text-xs font-label uppercase tracking-widest hover:opacity-90">Subscribe</button>
+</div>
+</nav>
+<main class="pt-32 pb-20">
+<!-- Flagship Lead Story -->
+<section class="px-8 mb-24">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+<div class="lg:col-span-8">
+<div class="mb-6 flex items-center gap-4">
+<span class="font-label text-xs uppercase tracking-widest text-tertiary-fixed-dim">Longform Journalism</span>
+<span class="h-[1px] w-12 bg-outline-variant/30"></span>
+<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">14 Minute Read</span>
+</div>
+<h1 class="text-6xl md:text-8xl font-headline italic kern-tight mb-8 leading-[0.95] text-primary-container">
+                        The Last of the Catalan Romantics
+                    </h1>
+<p class="text-2xl md:text-3xl font-body text-on-surface leading-relaxed max-w-2xl mb-12">
+                        Inheritance is not merely about what is left behind, but what is carried forward with conviction. A deep dive into the ritual of identity at the modern Camp Nou.
+                    </p>
+<div class="flex items-center gap-6">
+<span class="text-lg italic font-headline">By Martí Perarnau</span>
+<a class="group flex items-center gap-2 font-label text-xs uppercase tracking-widest font-bold" href="#">
+                            Read the Story 
+                            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="lg:col-span-4">
+<div class="aspect-[3/4] bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover grayscale contrast-125" data-alt="dramatic high-contrast black and white shot of concrete stadium arches with sharp shadows and morning mist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8PKbGR5K3fjHL_XJo8kBBGWkAQnv_7VHEv5n309MxiLNJWOaepXFkdIWTTm7o7xlP5sNrH6hkNRKRruLSqLIx527bcU73glgIuEChx1e0s_WUIYuaqFh_QiWlj3rnh-ydpPbecyP39Zw_BNhLylzhHjyHhlNnVDnTMiUByLVZlX5FwkldKTchzgSyps1sdbr9Q1wWCpLip7FsOuuDxVJgGBlRK89SM2Fa-VEtdPuMczYQ7qpppSdvJgg5IW_KY6XbiOaOFKMrrFTJ"/>
+</div>
+</div>
+</div>
+</section>
+<!-- The Brief & Ticker -->
+<section class="bg-primary-container text-on-primary py-4 mb-24">
+<div class="flex overflow-hidden whitespace-nowrap">
+<div class="flex gap-16 animate-marquee">
+<span class="font-label uppercase tracking-widest text-sm flex items-center gap-3">
+<span class="w-2 h-2 bg-secondary"></span> Live: Tactical Rhythm Analysis — 14'
+                    </span>
+<span class="font-label uppercase tracking-widest text-sm flex items-center gap-3">
+<span class="w-2 h-2 bg-tertiary-fixed-dim"></span> Ticket Release: Mediterranean Derby — Oct 24
+                    </span>
+<span class="font-label uppercase tracking-widest text-sm flex items-center gap-3">
+<span class="w-2 h-2 bg-secondary"></span> Archive: The 1974 Ritual Re-examined
+                    </span>
+<span class="font-label uppercase tracking-widest text-sm flex items-center gap-3">
+<span class="w-2 h-2 bg-tertiary-fixed-dim"></span> Dispatch: Conviction in the Midfield
+                    </span>
+</div>
+</div>
+</section>
+<!-- Analysis & Culture Bento -->
+<section class="px-8 mb-32">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<!-- Analysis -->
+<div class="md:col-span-2 bg-surface-container-low p-12 flex flex-col justify-between">
+<div>
+<span class="font-label text-xs uppercase tracking-widest text-secondary mb-8 block">Analysis &amp; Tactics</span>
+<h3 class="text-4xl font-headline italic mb-6">The Geometry of Silence</h3>
+<p class="text-lg leading-relaxed text-on-surface-variant mb-8">
+                            How structural discipline creates the space for creative rebellion. A study of defensive positioning and collective soul.
+                        </p>
+</div>
+<div class="aspect-video bg-surface-container-highest mb-8">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-80" data-alt="aerial view of empty football pitch markings at dusk with long geometric shadows across the grass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwFBdCO85Tb4xlWqipX_mo3fyf2gZ3ikk1pOEgJGpT-7ivt4veXj8WmvIQAnvxkC4z-9jNpMxa5voEgccs3wJsy3jVYHOYXNIylBfJKyY335CvscGl_tiENZgtYmoDxZPd_Bh9C1F5hldwCze9wMyeSJYJkw-kewvW_jLChD6HaEhgolYnftvkYDXhFYiKzgr6oAgFLuIJVnZ3VoNFBuuO8epPiME6wwCY9gzewCsuzGGsEKeeiwfqCe37_c8Qnbit95zklFxL2SLx"/>
+</div>
+<a class="font-label text-xs uppercase tracking-widest border-b border-on-surface pb-1 self-start" href="#">Read Analysis</a>
+</div>
+<!-- Culture -->
+<div class="md:col-span-1 border-r border-outline-variant/20 pr-8">
+<span class="font-label text-xs uppercase tracking-widest text-tertiary-fixed-dim mb-8 block">Culture</span>
+<div class="space-y-12">
+<article>
+<h4 class="text-2xl font-headline mb-3">Rituals of the Rambla</h4>
+<p class="text-base text-on-surface-variant leading-relaxed">The pre-match liturgy that binds the city to the crest.</p>
+</article>
+<article>
+<h4 class="text-2xl font-headline mb-3">Concrete &amp; Soul</h4>
+<p class="text-base text-on-surface-variant leading-relaxed">The Brutalist poetry of the stadium's third tier.</p>
+</article>
+<article>
+<h4 class="text-2xl font-headline mb-3">Textiles of Identity</h4>
+<p class="text-base text-on-surface-variant leading-relaxed">The sensory history of the Blaugrana weave.</p>
+</article>
+</div>
+</div>
+<!-- The Brief Dispatches -->
+<div class="md:col-span-1">
+<span class="font-label text-xs uppercase tracking-widest text-on-surface mb-8 block">The Brief</span>
+<div class="space-y-8">
+<div class="bg-surface-container-highest p-6">
+<span class="font-label text-[10px] uppercase tracking-tighter text-on-secondary-fixed-variant block mb-2">10:42 AM — DISPATCH</span>
+<p class="text-sm font-body italic italic leading-snug">"The rhythm of the passing game is not a tactic; it is a philosophy of patience."</p>
+</div>
+<div class="p-6 border-b border-outline-variant/20">
+<span class="font-label text-[10px] uppercase tracking-tighter text-on-surface-variant block mb-2">Yesterday — DISPATCH</span>
+<p class="text-sm font-body italic leading-snug">New training ground rituals observed. Focus on silent communication.</p>
+</div>
+<div class="p-6 border-b border-outline-variant/20">
+<span class="font-label text-[10px] uppercase tracking-tighter text-on-surface-variant block mb-2">Oct 19 — DISPATCH</span>
+<p class="text-sm font-body italic leading-snug">Notes on the legacy of the Catalan youth system.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Vault (Archive) -->
+<section class="bg-primary-container text-on-primary py-24 px-8 overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="font-label text-xs uppercase tracking-widest text-tertiary-fixed-dim mb-4 block">The Vault</span>
+<h2 class="text-5xl font-headline italic leading-none">The Archive of Conviction</h2>
+</div>
+<button class="font-label text-xs uppercase tracking-widest border-b border-tertiary-fixed-dim pb-1">Enter Library</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-[#1c1c19] mb-6 overflow-hidden">
+<img class="w-full h-full object-cover opacity-60 grayscale group-hover:scale-105 transition-transform duration-700" data-alt="grainy vintage photography of a weathered blue football stadium gate with rusted iron details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSluL7_QGAmz3bQ8oZs10-zQm7AcaileH9H_kvujw8Xqynkx71uR_7bMUYJc2dPikwnAwcMUsSHm6_tcllHT87JEgDqZPpTWAC_aW5S2Z_3kEfbml6SDyXP7rQjFrMim0mw44hbEkHYZhXLpu1UWAi0da-fPle5VFIk2GMkjEj-cnAfyBs9Ba-sS-QAPDi_U-zk3jaEQ5hj5wGl3oakvCYeoy2Evvz9lB1qylFAFy0sdPCQxrugJnIBcFhyR00sJ553ZLQSykgAA-4"/>
+</div>
+<span class="font-label text-[10px] uppercase tracking-widest text-tertiary-fixed-dim">Issue 04, 1974</span>
+<h4 class="text-2xl font-headline italic mt-2">The Dutch Influence</h4>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-[#1c1c19] mb-6 overflow-hidden">
+<img class="w-full h-full object-cover opacity-60 grayscale group-hover:scale-105 transition-transform duration-700" data-alt="moody lighting on a folded vintage sports jersey with rich texture and embroidered crest detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9oV0w67ns25NYqiuop3nczZGkq-0ZrIbFMeN6h4dWdQnZRLHMosVVBHS8m9fa6_jQdpP6NYok6bjS7CIO7wHuc2yV2dOJS24kE0EsreuUaw09y37bcACaFS95ivufHvULlfh2YQkbDTKVcFIm8OqpkChxUm3MZbY8tiNv87TMeHBrUldERakEbeJ6W4FMrtk3P_tpDEUnTzO3bTdrOOe8qswKkG18_p8JA6V_QFBJBYrQRevqB7nSoiJTVpdrbhINHD4ui6Wc89Gu"/>
+</div>
+<span class="font-label text-[10px] uppercase tracking-widest text-tertiary-fixed-dim">Issue 12, 1992</span>
+<h4 class="text-2xl font-headline italic mt-2">Wembley’s Midnight Sun</h4>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-[#1c1c19] mb-6 overflow-hidden">
+<img class="w-full h-full object-cover opacity-60 grayscale group-hover:scale-105 transition-transform duration-700" data-alt="black and white close up of stadium floodlights glowing through thick evening fog" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_hv0tep9knrTq3gBczsOZEzWQ95RNSDKToJzu_2BMj_0S8U5fj8f3gKfI_Qe_R1GdzdyOsOVaWJu6OsiRYV7FF5-mKS72bgrsJatBzDKvYNOeKXUAnlIWOmUT3okfkt4dX2YS205p-htHuTjPrwssYhbyQQZVVLIWbOr0xDdfGg4zuzpgV6ilhDrg1dTOyttYG5TGeclFgvdii1_-FbXamAdc57MahODGSWSNC88pNfUFMHrEgNIllG0di4XAUwh0G_Z6MEuEkrlR"/>
+</div>
+<span class="font-label text-[10px] uppercase tracking-widest text-tertiary-fixed-dim">Issue 28, 2009</span>
+<h4 class="text-2xl font-headline italic mt-2">Rome and the Six Seals</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Reflections & Newsletter -->
+<section class="px-8 py-32 grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
+<div class="lg:col-span-7">
+<span class="font-label text-xs uppercase tracking-widest text-secondary mb-12 block">Reflections</span>
+<div class="space-y-16">
+<blockquote class="relative">
+<p class="text-3xl font-headline italic leading-snug text-primary-container mb-6">
+                            "To watch the team this season is to witness a return to the quiet confidence of the late 80s. It’s not just the wins; it’s the way the grass seems to settle after every pass."
+                        </p>
+<cite class="font-label text-xs uppercase tracking-widest not-italic text-on-surface-variant">— Jordi V., Member since 1982</cite>
+</blockquote>
+<blockquote class="relative border-t border-outline-variant/30 pt-16">
+<p class="text-3xl font-headline italic leading-snug text-primary-container mb-6">
+                            "Inheritance is a burden for some, but for us, it is the only way to breathe."
+                        </p>
+<cite class="font-label text-xs uppercase tracking-widest not-italic text-on-surface-variant">— Elena M., Journalism Fellow</cite>
+</blockquote>
+</div>
+</div>
+<div class="lg:col-span-5 bg-surface-container-high p-12">
+<h3 class="text-3xl font-headline italic mb-4">The Weekly Dispatch</h3>
+<p class="text-lg font-body leading-relaxed text-on-surface mb-8">
+                    Literary dispatches, tactical deep-dives, and club history delivered every Sunday morning. No noise. Just conviction.
+                </p>
+<form class="space-y-6">
+<div class="border-b border-on-surface/20 focus-within:border-primary transition-colors">
+<input class="w-full bg-transparent border-none py-4 px-0 focus:ring-0 font-label text-sm uppercase tracking-widest" placeholder="Your electronic mail" type="email"/>
+</div>
+<button class="w-full bg-primary-container text-white py-4 font-label text-xs uppercase tracking-widest hover:bg-on-primary-fixed-variant transition-colors">
+                        Subscribe to the Review
+                    </button>
+<p class="text-[10px] font-label uppercase tracking-tighter text-on-surface-variant text-center">
+                        Privacy is part of our ritual. We never share your data.
+                    </p>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-12 grid grid-cols-1 md:grid-cols-4 gap-12 bg-[#f6f3ee] dark:bg-[#0f0e1f] text-[#181733] dark:text-[#e5e2dd]">
+<div class="col-span-1">
+<span class="font-serif text-2xl text-[#181733] dark:text-[#fcf9f4] block mb-4">twotalBarça</span>
+<p class="font-body text-sm leading-relaxed mb-8">
+                The Cultural Monolith of FC Barcelona. An editorial pursuit of the soul behind the score.
+            </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-xl" data-icon="facebook">social_leaderboard</span>
+<span class="material-symbols-outlined text-xl" data-icon="x">crossword</span>
+<span class="material-symbols-outlined text-xl" data-icon="instagram">retweet</span>
+</div>
+</div>
+<div class="col-span-1">
+<h5 class="font-label text-xs uppercase tracking-widest font-bold mb-6">The Club</h5>
+<ul class="space-y-4">
+<li><a class="text-[#181733]/70 dark:text-[#e5e2dd]/70 font-label text-xs uppercase tracking-widest hover:text-[#7B2037] underline decoration-1 underline-offset-4" href="#">Editorial Policy</a></li>
+<li><a class="text-[#181733]/70 dark:text-[#e5e2dd]/70 font-label text-xs uppercase tracking-widest hover:text-[#7B2037] underline decoration-1 underline-offset-4" href="#">Membership</a></li>
+<li><a class="text-[#181733]/70 dark:text-[#e5e2dd]/70 font-label text-xs uppercase tracking-widest hover:text-[#7B2037] underline decoration-1 underline-offset-4" href="#">Board of Review</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h5 class="font-label text-xs uppercase tracking-widest font-bold mb-6">Journalism</h5>
+<ul class="space-y-4">
+<li><a class="text-[#181733]/70 dark:text-[#e5e2dd]/70 font-label text-xs uppercase tracking-widest hover:text-[#7B2037] underline decoration-1 underline-offset-4" href="#">Match Analysis</a></li>
+<li><a class="text-[#181733]/70 dark:text-[#e5e2dd]/70 font-label text-xs uppercase tracking-widest hover:text-[#7B2037] underline decoration-1 underline-offset-4" href="#">The Vault</a></li>
+<li><a class="text-[#181733]/70 dark:text-[#e5e2dd]/70 font-label text-xs uppercase tracking-widest hover:text-[#7B2037] underline decoration-1 underline-offset-4" href="#">Dispatch</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h5 class="font-label text-xs uppercase tracking-widest font-bold mb-6">Legal</h5>
+<ul class="space-y-4">
+<li><a class="text-[#181733]/70 dark:text-[#e5e2dd]/70 font-label text-xs uppercase tracking-widest hover:text-[#7B2037] underline decoration-1 underline-offset-4" href="#">Privacy</a></li>
+<li><a class="text-[#181733]/70 dark:text-[#e5e2dd]/70 font-label text-xs uppercase tracking-widest hover:text-[#7B2037] underline decoration-1 underline-offset-4" href="#">Terms of Service</a></li>
+<li><a class="text-[#181733]/70 dark:text-[#e5e2dd]/70 font-label text-xs uppercase tracking-widest hover:text-[#7B2037] underline decoration-1 underline-offset-4" href="#">Contact</a></li>
+</ul>
+</div>
+<div class="col-span-full pt-12 border-t border-outline-variant/20">
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">© 2024 twotalBarça. The Cultural Monolith of FC Barcelona.</p>
+</div>
+</footer>
+</body></html>

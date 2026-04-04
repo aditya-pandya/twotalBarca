@@ -24,7 +24,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <div className="site-frame">
           <SiteHeader />
-          <main>{children}</main>
+          <main className="site-main">{children}</main>
           <SiteFooter />
         </div>
       </body>

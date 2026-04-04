@@ -5,6 +5,10 @@ A premium FC Barcelona editorial publication: article-first, culturally rooted, 
 Status: working Next.js app with shared primitives, static editorial data, test coverage, and CI verification.
 
 Core engineering docs
+- `docs/START-HERE.md` ← shortest path for a new agent
+- `docs/agent-handoff.md` ← full project handoff/spec
+- `docs/prd.md` ← product-manager style PRD
+- `docs/implementation-checklist.md` ← execution checklist for the next agent
 - `docs/engineering-architecture.md`
 - `docs/product-brief.md`
 - `docs/design-direction.md`

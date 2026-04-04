@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import HomePage from "@/app/page";
 import { SiteHeader } from "@/components/site-header";
-import { homeLead } from "@/lib/site-data";
 
 vi.mock("next/navigation", () => ({
   usePathname: () => "/",
@@ -11,17 +10,19 @@ describe("UI smoke tests", () => {
   it("renders the homepage lead story", () => {
     render(<HomePage />);
 
-    expect(screen.getByRole("heading", { name: homeLead.headline })).toBeInTheDocument();
-    expect(screen.getByText(homeLead.dek ?? "")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "The Last of the Catalan Romantics" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "The Weekly Dispatch" })).toBeInTheDocument();
   });
 
-  it("renders the site header with the home link marked active", () => {
+  it("renders the site header actions and primary navigation", () => {
     render(<SiteHeader />);
 
-    const homeLink = screen.getByRole("link", { name: "Home" });
-    const dispatchLink = screen.getByRole("link", { name: "Weekly Dispatch" });
+    const archiveLink = screen.getByRole("link", { name: "Archive" });
+    const subscribeLink = screen.getByRole("link", { name: "Subscribe" });
+    const searchButton = screen.getByRole("button", { name: "Search" });
 
-    expect(homeLink).toHaveAttribute("data-active", "true");
-    expect(dispatchLink).toHaveAttribute("href", "/#dispatch");
+    expect(archiveLink).toHaveAttribute("href", "/#archive");
+    expect(subscribeLink).toHaveAttribute("href", "/#dispatch");
+    expect(searchButton).toBeInTheDocument();
   });
 });

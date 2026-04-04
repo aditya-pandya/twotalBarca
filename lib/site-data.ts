@@ -16,33 +16,32 @@ export type NavItem = {
 };
 
 export const navItems: NavItem[] = [
-  { href: "/", label: "Home" },
-  { href: "/#brief", label: "The Brief" },
-  { href: "/#match-notes", label: "Match Notes" },
-  { href: "/#analysis", label: "Analysis" },
+  { href: "/#match-review", label: "Match Review" },
+  { href: "/#cultural-heart", label: "Cultural Heart" },
+  { href: "/#journalism", label: "Journalism" },
+  { href: "/about", label: "Tickets" },
   { href: "/#archive", label: "Archive" },
-  { href: "/about", label: "About" },
 ];
 
 export const siteMeta = {
   name: "twotalBarça",
   description:
-    "A premium FC Barcelona editorial publication: article-first, archive-minded, and football-specific.",
+    "The Cultural Monolith of FC Barcelona. An editorial pursuit of the soul behind the score.",
   nav: navItems,
 };
 
 export const homeLead: Story & { type: string; href: string } = {
   slug: "the-last-of-the-catalan-romantics",
-  section: "Reflections",
-  type: "Feature",
+  section: "Longform Journalism",
+  type: "Flagship",
   headline: "The Last of the Catalan Romantics",
   dek:
-    "What the club inherits is not only a style of football, but a way of carrying pressure in public. In a season of noise, Barça is trying to remember how conviction is supposed to look.",
+    "Inheritance is not merely about what is left behind, but what is carried forward with conviction. A deep dive into the ritual of identity at the modern Camp Nou.",
   excerpt:
-    "The modern club is asked to perform certainty before it has earned it. Barça, because of its history, is judged by a harsher standard: not just whether it wins, but whether it recognizes itself while winning.",
-  author: "Maury Vidal",
-  date: "April 3, 2026",
-  readingTime: "9 min read",
+    "The modern club is asked to perform certainty before it has earned it. Barca, because of its history, is judged by a harsher standard: not just whether it wins, but whether it recognizes itself while winning.",
+  author: "Marti Perarnau",
+  date: "April 4, 2026",
+  readingTime: "14 minute read",
   href: "/article/the-weave-of-the-blau",
 };
 

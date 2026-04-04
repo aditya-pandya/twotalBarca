@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Living Archive | twotalBarça</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#191834",
+                        "primary": "#181733",
+                        "secondary-fixed-dim": "#ffb2bd",
+                        "surface-variant": "#e5e2dd",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#81243b",
+                        "surface-bright": "#fcf9f4",
+                        "on-primary-container": "#8280a2",
+                        "surface-container": "#f0ede9",
+                        "secondary": "#9f3c52",
+                        "on-background": "#1c1c19",
+                        "on-primary-fixed-variant": "#454462",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#9e803a",
+                        "surface": "#fcf9f4",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dcdad5",
+                        "surface-container-highest": "#e5e2dd",
+                        "on-surface-variant": "#47464d",
+                        "inverse-surface": "#31302d",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "on-tertiary-fixed": "#251a00",
+                        "tertiary": "#B19149",
+                        "on-secondary-container": "#771d34",
+                        "surface-tint": "#5d5b7b",
+                        "secondary-container": "#fe869c",
+                        "inverse-on-surface": "#f3f0eb",
+                        "background": "#fcf9f4",
+                        "on-secondary-fixed": "#400013",
+                        "tertiary-fixed": "#ffdf9d",
+                        "outline": "#78767e",
+                        "tertiary-container": "#251a00",
+                        "primary-fixed-dim": "#c6c3e8",
+                        "surface-container-high": "#ebe8e3",
+                        "outline-variant": "#c8c5ce",
+                        "primary-container": "#191834",
+                        "on-surface": "#1c1c19",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#c6c3e8",
+                        "surface-container-low": "#f6f3ee",
+                        "primary-fixed": "#e3dfff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ffd9dd",
+                        "tertiary-fixed-dim": "#e6c275"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Newsreader", "serif"],
+                        "label": ["Space Grotesk", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Newsreader', serif;
+            background-color: #fcf9f4;
+        }
+        .label-font { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center px-8 py-4 w-full sticky top-0 z-50 bg-[#fdfbf7] dark:bg-[#121212] border-b border-[#a68a56]/20 transition-colors duration-300">
+<div class="font-serif font-black italic text-2xl text-[#181733] dark:text-[#fdfbf7]">twotalBarça</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-[#181733]/70 dark:text-[#fdfbf7]/70 hover:text-[#181733] dark:hover:text-[#fdfbf7] font-serif italic text-lg tracking-tight hover:bg-[#a68a56]/5 transition-colors duration-300" href="#">La Masia</a>
+<a class="text-[#181733]/70 dark:text-[#fdfbf7]/70 hover:text-[#181733] dark:hover:text-[#fdfbf7] font-serif italic text-lg tracking-tight hover:bg-[#a68a56]/5 transition-colors duration-300" href="#">First Team</a>
+<a class="text-[#181733]/70 dark:text-[#fdfbf7]/70 hover:text-[#181733] dark:hover:text-[#fdfbf7] font-serif italic text-lg tracking-tight hover:bg-[#a68a56]/5 transition-colors duration-300" href="#">Tactics</a>
+<a class="text-[#181733]/70 dark:text-[#fdfbf7]/70 hover:text-[#181733] dark:hover:text-[#fdfbf7] font-serif italic text-lg tracking-tight hover:bg-[#a68a56]/5 transition-colors duration-300" href="#">History</a>
+<a class="text-[#181733]/70 dark:text-[#fdfbf7]/70 hover:text-[#181733] dark:hover:text-[#fdfbf7] font-serif italic text-lg tracking-tight hover:bg-[#a68a56]/5 transition-colors duration-300" href="#">Culture</a>
+<a class="text-[#a50044] dark:text-[#edbb00] font-bold border-b-2 border-[#a50044] dark:border-[#edbb00] pb-1 font-serif italic text-lg tracking-tight" href="#">About</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-[#181733] dark:text-[#fdfbf7] text-2xl">search</button>
+<button class="bg-[#181733] text-[#fdfbf7] px-6 py-2 label-font text-xs uppercase tracking-widest hover:opacity-80 transition-opacity">Subscribe</button>
+</div>
+</header>
+<main>
+<!-- Hero Section: The Last of the Catalan Romantics -->
+<section class="relative min-h-[870px] flex flex-col justify-center items-center px-6 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="FC Barcelona stadium tunnel" class="w-full h-full object-cover opacity-15 grayscale mix-blend-multiply" data-alt="atmospheric concrete tunnel leading to a football pitch with dramatic shadows and distant stadium floodlights glowing through the exit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz1qyhSAB8fbUX2byt7TIZ20Udgp_3-AH3j2ZS9i3qgwCQSLxmjcLdPN_-qKWUcsq-EHAr3UykLe1iy2uhaTZRL53ziY1gEu8SGv0cJAAYQ0dzVBf9PtN_UIpAVX_XGlrtrQlSIuFGN-J31eGSgG5pCupWZFqBdlnm1Xs-qNjSwZiZPhN02GZv8FC9HQ946JxUONc_8eCZV9rF51FrnaYEx3cLxzGMFhoTxCm73meCKuPTBy8LTf1OVnTGBLCMHWtt0WzaNbPKlevp"/>
+</div>
+<div class="relative z-10 max-w-5xl w-full text-center">
+<span class="label-font text-secondary font-semibold tracking-[0.3em] uppercase text-sm mb-8 block">Manifesto</span>
+<h1 class="font-headline text-7xl md:text-9xl text-primary italic font-black leading-tight tracking-tighter mb-8">
+                    The Living <br/> <span class="text-secondary">Archive.</span>
+</h1>
+<p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-3xl mx-auto leading-relaxed italic">
+                    "We are the last of the Catalan Romantics. Not because we live in the past, but because we refuse to let the past stop breathing."
+                </p>
+<div class="mt-12 w-24 h-px bg-tertiary mx-auto"></div>
+</div>
+</section>
+<!-- Mission & Editorial Philosophy -->
+<section class="py-24 px-6 md:px-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+<div class="relative group">
+<img alt="Kit fabric details" class="w-full aspect-[4/5] object-cover rounded-sm shadow-xl" data-alt="macro close-up of vintage Blaugrana football jersey fabric showing the rich woven textures of blue and garnet threads with a hint of gold embroidery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKv0gZs09qVKYOjmWpWLc-134rsNkQfuIoMga_C0g9Dl25sq92xmNmfZPUN9rUy1wF_BepB97qr_2g80s3H2iq5FoJwdWdPjRXFXKVXCgGXPwRXgZ3W7p3CcJxsXySADKH1puUVrXgWC-o4ZnLVWonB5LAehGtzy4dIJqpspY2b9_-kItZSCU-q43Cui_VpY7umIoKlQ-5uFRWUwV2rOAPOocswhYQBwy6jGR6UII7WCet-ip9XJd2rhpqnAJPaCUt3Nv5ARtKEbTx"/>
+<div class="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/5 -z-10"></div>
+</div>
+<div class="space-y-8">
+<h2 class="font-headline text-5xl text-primary font-bold">Rhythm &amp; Conviction</h2>
+<p class="font-body text-xl text-on-surface leading-loose">
+                        twotalBarça was born from a simple realization: in the rush for breaking news and transfer rumors, the club’s soul was being edited out. We believe that every pass recorded at the Les Corts stadium in 1922 informs the geometry of our modern midfield. 
+                    </p>
+<p class="font-body text-xl text-on-surface leading-loose">
+                        Our editorial philosophy is built on club memory. We don't just report; we curate the resonance of FC Barcelona. We seek the rhythm of the game and the conviction of the supporters who carried this badge through decades of silence and glory.
+                    </p>
+<div class="pt-6 border-l-4 border-secondary pl-6">
+<blockquote class="italic text-2xl font-headline text-primary-container">
+                            "Més que un club isn't a slogan; it's a structural responsibility."
+                        </blockquote>
+</div>
+</div>
+</div>
+</section>
+<!-- Principles Bento Grid -->
+<section class="py-24 px-6 md:px-12 bg-surface">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h3 class="label-font text-xs uppercase tracking-[0.4em] text-tertiary font-bold mb-4">Our Foundations</h3>
+<h2 class="font-headline text-5xl text-primary italic">The Three Pillars</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Patience -->
+<div class="p-10 border border-outline-variant bg-white flex flex-col justify-between hover:border-secondary transition-colors group">
+<div>
+<span class="material-symbols-outlined text-4xl text-secondary mb-6 block">hourglass_empty</span>
+<h4 class="font-headline text-3xl font-bold mb-4">Patience</h4>
+<p class="font-body text-lg text-on-surface-variant">We reject the 24-hour cycle. We wait for the dust to settle to see the movement clearly. Great stories, like great players, need time to mature.</p>
+</div>
+<div class="mt-12 h-1 w-0 bg-secondary transition-all group-hover:w-full"></div>
+</div>
+<!-- Integrity -->
+<div class="p-10 border border-outline-variant bg-white flex flex-col justify-between hover:border-primary transition-colors group">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block">shield</span>
+<h4 class="font-headline text-3xl font-bold mb-4">Integrity</h4>
+<p class="font-body text-lg text-on-surface-variant">Our loyalty is to the truth of the history, not the convenience of the board. We speak with a human voice, rooted in the concrete of the stands.</p>
+</div>
+<div class="mt-12 h-1 w-0 bg-primary transition-all group-hover:w-full"></div>
+</div>
+<!-- Permanence -->
+<div class="p-10 border border-outline-variant bg-white flex flex-col justify-between hover:border-tertiary transition-colors group">
+<div>
+<span class="material-symbols-outlined text-4xl text-tertiary mb-6 block">account_balance</span>
+<h4 class="font-headline text-3xl font-bold mb-4">Permanence</h4>
+<p class="font-body text-lg text-on-surface-variant">Players come and go; the philosophy remains. We document the lasting impact of the Culé identity across generations.</p>
+</div>
+<div class="mt-12 h-1 w-0 bg-tertiary transition-all group-hover:w-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Curators -->
+<section class="py-24 px-6 bg-[#181733] text-[#fdfbf7] overflow-hidden relative">
+<div class="absolute top-0 right-0 p-24 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[400px]">edit_note</span>
+</div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="mb-20">
+<h2 class="font-headline text-6xl italic font-bold mb-4">The Curators.</h2>
+<p class="font-body text-xl text-[#fdfbf7]/60 max-w-xl">The editorial board ensuring the Archive stays alive and the ink stays wet.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12">
+<div class="space-y-4">
+<div class="aspect-square bg-[#a68a56]/20 relative overflow-hidden group">
+<img alt="Editorial headshot" class="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500" data-alt="professional portrait of a man in his 40s with a thoughtful expression wearing a dark blazer, soft cinematic lighting, urban studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQD8S05SB4SypMZIMjCO6VrebwFo38dT5uSwQQ76F-Og8ZlHoYy1q9fVb9IPJBt1ONNO3VPbheqfVUzRsmf7_myw3n9KZc-9ma1vGsNQybaiXUWvcjWVvzzgSCLXOP-N7qLCnr3-_0rrp7911DTuSBFyaErdsmumXe_fYbvE-zcSZXzB3pF-pZcdn4HrYyZHGQ197XeAKTs1IysygDeKHOxNN-SpDeOQHH5ELMTyFJ-RYIjSZCUQCcocpxI9SnyFqTD0S1EM07s80f"/>
+</div>
+<p class="label-font text-xs tracking-widest text-[#edbb00]">EDITOR IN CHIEF</p>
+<h5 class="font-headline text-2xl italic">Jordi Terradas</h5>
+</div>
+<div class="space-y-4">
+<div class="aspect-square bg-[#a68a56]/20 relative overflow-hidden group">
+<img alt="Editorial headshot" class="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500" data-alt="portrait of a woman with intense focused gaze, dark hair, wearing a structured charcoal shirt, high-contrast black and white photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVEcn2K43JHoBWpkZZkLHSJ6ldpvFAulYjs86BN2BXQEWI9NuZ11AHfZh93sABTU4y2C2lukmkxGP3WaMIRa2U0AueOQze28OUVLU716JI71xJUYU7WPjG_W-oRS3wpR8du1nlOoO6qdwyIadXYOxA1yOr_izZgj0Fw_7T7eI_r5Qjsw1MQZaDvAskkn9mrJhCYV47X4zuQUXlz-JIYRGUpgJpYbzRyfnThtpEZ-kKBwaQQoyDpeC0l4dqtoQEpsT_2Kd7xk__EG0O"/>
+</div>
+<p class="label-font text-xs tracking-widest text-[#edbb00]">HISTORIAN</p>
+<h5 class="font-headline text-2xl italic">Elena Valls</h5>
+</div>
+<div class="space-y-4">
+<div class="aspect-square bg-[#a68a56]/20 relative overflow-hidden group">
+<img alt="Editorial headshot" class="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500" data-alt="portrait of a young man with a slight smile, artistic lighting casting gentle shadows, background of a library with leather-bound books" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAATFCVJGYUfhr5FyLovoSROiPtXn13Mkn9PuHuPkFf107bFmfl4mBNPo0JZl-qqPkUE5ng4BFjt818CLlvo8AYwEq_KlI5xj4fhTEOn41BiJC5ALQMveq7QxUakrMQtYwccWBp_q7h0pzIE4usfOpHWmYH2bGOiqnlwTV9Yixm3EnkRPT_SgHJNmQAedYyxoRilLPgWhoyHph2lDiQoPlS0cchiIfsQRjRm_XeO-dvkyRAlnlqC4rw_6LaTufXKq5aAO-x6HQWyXRd"/>
+</div>
+<p class="label-font text-xs tracking-widest text-[#edbb00]">TACTICAL ANALYST</p>
+<h5 class="font-headline text-2xl italic">Marc Rovira</h5>
+</div>
+<div class="space-y-4">
+<div class="aspect-square bg-[#a68a56]/20 relative overflow-hidden group">
+<img alt="Editorial headshot" class="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500" data-alt="woman looking away from camera with a reflective expression, natural daylight from a large window, soft focus background of Barcelona city rooftops" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoQHWUxoG9JJ0K5sdswTyngLy3v2EHPPtPSiGgviNFHX9KBgq9lPYj8vx2VghKOQbhxBnJxUcY2OwSo0aS-4f7OSkK0G0kVnFUW5XJrvlVF7aeYVl1TVnLkVsqlbbf4fRZoddXLftEb7FUFoK_MBfcv0Rsn8fEvkSxoep4bzh0jyjVJV58KucQkq6ZhVo6d8C46CPS7WhNxVHa3BpxKeJiNFEOTaioqmM7j6R-2XQqYOVAspmVxyogw-FHIuSj5gsfjIH3vVAqqm20"/>
+</div>
+<p class="label-font text-xs tracking-widest text-[#edbb00]">CULTURE CURATOR</p>
+<h5 class="font-headline text-2xl italic">Sofia Pujol</h5>
+</div>
+</div>
+</div>
+</section>
+<!-- Membership Invitation -->
+<section class="py-32 px-6">
+<div class="max-w-4xl mx-auto text-center border-4 border-primary p-12 md:p-24 relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-background px-8">
+<span class="material-symbols-outlined text-6xl text-primary" style="font-variation-settings: 'FILL' 1;">mail</span>
+</div>
+<h2 class="font-headline text-5xl md:text-6xl italic font-black text-primary mb-8">Join the Review.</h2>
+<p class="font-body text-2xl text-on-surface leading-relaxed mb-12">
+                    Subscribe to receive our monthly print edition and exclusive digital insights. No rumors, no noise—just the club, archived for the future.
+                </p>
+<form class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
+<input class="flex-1 bg-surface-container border-none p-4 font-body focus:ring-2 focus:ring-secondary text-lg" placeholder="Your email address" type="email"/>
+<button class="bg-secondary text-white px-10 py-4 label-font text-sm font-bold uppercase tracking-widest hover:bg-primary transition-colors" type="submit">Join Now</button>
+</form>
+<p class="mt-8 label-font text-xs text-on-surface-variant tracking-wider uppercase">Members receive the annual "Blue &amp; Garnet" Yearbook.</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="grid grid-cols-1 md:grid-cols-3 gap-12 px-12 py-16 w-full mt-auto bg-[#181733] dark:bg-[#0a0a0a] text-[#fdfbf7] border-t-4 border-[#a50044]">
+<div class="space-y-6">
+<div class="font-serif font-bold text-xl text-[#edbb00]">twotalBarça</div>
+<p class="font-serif text-sm leading-relaxed text-[#fdfbf7]/60">
+                A digital and print publication dedicated to the legacy, architecture, and romanticism of FC Barcelona.
+            </p>
+</div>
+<div class="flex flex-col gap-4">
+<h6 class="font-serif text-sm uppercase tracking-widest text-[#edbb00]">Navigations</h6>
+<div class="flex flex-col gap-2">
+<a class="text-[#fdfbf7]/60 hover:text-[#edbb00] transition-colors font-serif text-sm uppercase tracking-widest" href="#">About the Journal</a>
+<a class="text-[#fdfbf7]/60 hover:text-[#edbb00] transition-colors font-serif text-sm uppercase tracking-widest" href="#">Editorial Policy</a>
+<a class="text-[#fdfbf7]/60 hover:text-[#edbb00] transition-colors font-serif text-sm uppercase tracking-widest" href="#">Archive</a>
+<a class="text-[#fdfbf7]/60 hover:text-[#edbb00] transition-colors font-serif text-sm uppercase tracking-widest" href="#">Membership</a>
+<a class="text-[#fdfbf7]/60 hover:text-[#edbb00] transition-colors font-serif text-sm uppercase tracking-widest" href="#">Contact</a>
+</div>
+</div>
+<div class="space-y-6">
+<h6 class="font-serif text-sm uppercase tracking-widest text-[#edbb00]">Identity</h6>
+<p class="font-serif text-xs leading-loose text-[#fdfbf7]/50">
+                © 2024 twotalBarça Editorial. All rights reserved. Més que un club.
+            </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-2xl text-[#fdfbf7]/60 hover:text-[#edbb00] cursor-pointer">rss_feed</span>
+<span class="material-symbols-outlined text-2xl text-[#fdfbf7]/60 hover:text-[#edbb00] cursor-pointer">public</span>
+</div>
+</div>
+</footer>
+</body></html>
