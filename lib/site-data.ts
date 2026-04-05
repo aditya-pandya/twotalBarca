@@ -30,6 +30,203 @@ export const siteMeta = {
   nav: navItems,
 };
 
+export type HomeHero = {
+  section: string;
+  readingTime: string;
+  headline: string;
+  dek: string;
+  author: string;
+  href: string;
+  image: {
+    alt: string;
+    src: string;
+  };
+};
+
+export type HomeTickerItem = {
+  label: string;
+};
+
+export type HomeCultureStory = {
+  title: string;
+  excerpt: string;
+  href: string;
+};
+
+export type HomeDispatch = {
+  stamp: string;
+  body: string;
+  featured?: boolean;
+};
+
+export type HomeVaultItem = {
+  issue: string;
+  title: string;
+  image: string;
+  href: string;
+};
+
+export type HomeReflection = {
+  quote: string;
+  byline: string;
+};
+
+export type HomeFeatureCard = {
+  kicker: string;
+  headline: string;
+  body: string;
+  href: string;
+  ctaLabel: string;
+  image: {
+    alt: string;
+    src: string;
+  };
+};
+
+export type HomeVaultSection = {
+  kicker: string;
+  heading: string;
+  ctaLabel: string;
+  ctaHref: string;
+  items: HomeVaultItem[];
+};
+
+export type HomeNewsletter = {
+  heading: string;
+  body: string;
+  buttonLabel: string;
+  privacyNote: string;
+  inputLabel: string;
+  inputPlaceholder: string;
+};
+
+export type HomePageData = {
+  hero: HomeHero;
+  tickerItems: HomeTickerItem[];
+  analysisFeature: HomeFeatureCard;
+  cultureStories: HomeCultureStory[];
+  briefDispatches: HomeDispatch[];
+  vault: HomeVaultSection;
+  reflections: HomeReflection[];
+  newsletter: HomeNewsletter;
+};
+
+export const homePageData: HomePageData = {
+  hero: {
+    section: "Longform Journalism",
+    readingTime: "14 Minute Read",
+    headline: "The Last of the Catalan Romantics",
+    dek:
+      "Inheritance is not merely about what is left behind, but what is carried forward with conviction. A deep dive into the ritual of identity at the modern Camp Nou.",
+    author: "Martí Perarnau",
+    href: "/article/the-weave-of-the-blau",
+    image: {
+      alt: "Dramatic high-contrast black and white shot of concrete stadium arches with sharp shadows and morning mist",
+      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuD8PKbGR5K3fjHL_XJo8kBBGWkAQnv_7VHEv5n309MxiLNJWOaepXFkdIWTTm7o7xlP5sNrH6hkNRKRruLSqLIx527bcU73glgIuEChx1e0s_WUIYuaqFh_QiWlj3rnh-ydpPbecyP39Zw_BNhLylzhHjyHhlNnVDnTMiUByLVZlX5FwkldKTchzgSyps1sdbr9Q1wWCpLip7FsOuuDxVJgGBlRK89SM2Fa-VEtdPuMczYQ7qpppSdvJgg5IW_KY6XbiOaOFKMrrFTJ",
+    },
+  },
+  tickerItems: [
+    { label: "Live: Tactical Rhythm Analysis - 14'" },
+    { label: "Ticket Release: Mediterranean Derby - Oct 24" },
+    { label: "Archive: The 1974 Ritual Re-examined" },
+    { label: "Dispatch: Conviction in the Midfield" },
+  ],
+  analysisFeature: {
+    kicker: "Analysis & Tactics",
+    headline: "The Geometry of Silence",
+    body:
+      "How structural discipline creates the space for creative rebellion. A study of defensive positioning and collective soul.",
+    href: "/article/the-weave-of-the-blau",
+    ctaLabel: "Read Analysis",
+    image: {
+      alt: "Aerial view of empty football pitch markings at dusk with long geometric shadows across the grass",
+      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAwFBdCO85Tb4xlWqipX_mo3fyf2gZ3ikk1pOEgJGpT-7ivt4veXj8WmvIQAnvxkC4z-9jNpMxa5voEgccs3wJsy3jVYHOYXNIylBfJKyY335CvscGl_tiENZgtYmoDxZPd_Bh9C1F5hldwCze9wMyeSJYJkw-kewvW_jLChD6HaEhgolYnftvkYDXhFYiKzgr6oAgFLuIJVnZ3VoNFBuuO8epPiME6wwCY9gzewCsuzGGsEKeeiwfqCe37_c8Qnbit95zklFxL2SLx",
+    },
+  },
+  cultureStories: [
+    {
+      title: "Rituals of the Rambla",
+      excerpt: "The pre-match liturgy that binds the city to the crest.",
+      href: "/about",
+    },
+    {
+      title: "Concrete & Soul",
+      excerpt: "The Brutalist poetry of the stadium's third tier.",
+      href: "/article/the-weave-of-the-blau",
+    },
+    {
+      title: "Textiles of Identity",
+      excerpt: "The sensory history of the Blaugrana weave.",
+      href: "/article/the-weave-of-the-blau",
+    },
+  ],
+  briefDispatches: [
+    {
+      stamp: "10:42 AM - DISPATCH",
+      body: '"The rhythm of the passing game is not a tactic; it is a philosophy of patience."',
+      featured: true,
+    },
+    {
+      stamp: "Yesterday - DISPATCH",
+      body: "New training ground rituals observed. Focus on silent communication.",
+    },
+    {
+      stamp: "Oct 19 - DISPATCH",
+      body: "Notes on the legacy of the Catalan youth system.",
+    },
+  ],
+  vault: {
+    kicker: "The Vault",
+    heading: "The Archive of Conviction",
+    ctaLabel: "Enter Library",
+    ctaHref: "/article/the-weave-of-the-blau",
+    items: [
+      {
+        issue: "Issue 04, 1974",
+        title: "The Dutch Influence",
+        href: "/article/the-weave-of-the-blau",
+        image:
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuDSluL7_QGAmz3bQ8oZs10-zQm7AcaileH9H_kvujw8Xqynkx71uR_7bMUYJc2dPikwnAwcMUsSHm6_tcllHT87JEgDqZPpTWAC_aW5S2Z_3kEfbml6SDyXP7rQjFrMim0mw44hbEkHYZhXLpu1UWAi0da-fPle5VFIk2GMkjEj-cnAfyBs9Ba-sS-QAPDi_U-zk3jaEQ5hj5wGl3oakvCYeoy2Evvz9lB1qylFAFy0sdPCQxrugJnIBcFhyR00sJ553ZLQSykgAA-4",
+      },
+      {
+        issue: "Issue 12, 1992",
+        title: "Wembley's Midnight Sun",
+        href: "/article/the-weave-of-the-blau",
+        image:
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuB9oV0w67ns25NYqiuop3nczZGkq-0ZrIbFMeN6h4dWdQnZRLHMosVVBHS8m9fa6_jQdpP6NYok6bjS7CIO7wHuc2yV2dOJS24kE0EsreuUaw09y37bcACaFS95ivufHvULlfh2YQkbDTKVcFIm8OqpkChxUm3MZbY8tiNv87TMeHBrUldERakEbeJ6W4FMrtk3P_tpDEUnTzO3bTdrOOe8qswKkG18_p8JA6V_QFBJBYrQRevqB7nSoiJTVpdrbhINHD4ui6Wc89Gu",
+      },
+      {
+        issue: "Issue 28, 2009",
+        title: "Rome and the Six Seals",
+        href: "/article/the-weave-of-the-blau",
+        image:
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuC_hv0tep9knrTq3gBczsOZEzWQ95RNSDKToJzu_2BMj_0S8U5fj8f3gKfI_Qe_R1GdzdyOsOVaWJu6OsiRYV7FF5-mKS72bgrsJatBzDKvYNOeKXUAnlIWOmUT3okfkt4dX2YS205p-htHuTjPrwssYhbyQQZVVLIWbOr0xDdfGg4zuzpgV6ilhDrg1dTOyttYG5TGeclFgvdii1_-FbXamAdc57MahODGSWSNC88pNfUFMHrEgNIllG0di4XAUwh0G_Z6MEuEkrlR",
+      },
+    ],
+  },
+  reflections: [
+    {
+      quote:
+        "To watch the team this season is to witness a return to the quiet confidence of the late 80s. It's not just the wins; it's the way the grass seems to settle after every pass.",
+      byline: "Jordi V., Member since 1982",
+    },
+    {
+      quote:
+        "Inheritance is a burden for some, but for us, it is the only way to breathe.",
+      byline: "Elena M., Journalism Fellow",
+    },
+  ],
+  newsletter: {
+    heading: "The Weekly Dispatch",
+    body:
+      "Literary dispatches, tactical deep-dives, and club history delivered every Sunday morning. No noise. Just conviction.",
+    buttonLabel: "Subscribe to the Review",
+    privacyNote: "Privacy is part of our ritual. We never share your data.",
+    inputLabel: "Your electronic mail",
+    inputPlaceholder: "Your electronic mail",
+  },
+};
+
 export const homeLead: Story & { type: string; href: string } = {
   slug: "the-last-of-the-catalan-romantics",
   section: "Longform Journalism",

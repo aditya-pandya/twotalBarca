@@ -21,7 +21,7 @@ export default function AboutPage() {
           </article>
           <article className="about-grid-card">
             <h3>What we cover</h3>
-            <div style={{ display: "grid", gap: "0.65rem" }}>
+            <div className="about-cover-list">
               {aboutData.covers.map((item) => (
                 <p key={item}>{item}</p>
               ))}

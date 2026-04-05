@@ -2,14 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const headerItems = [
-  { href: "/#match-review", label: "Match Review" },
-  { href: "/#cultural-heart", label: "Cultural Heart" },
-  { href: "/#journalism", label: "Journalism" },
-  { href: "/about", label: "Tickets" },
-  { href: "/#archive", label: "Archive" },
-];
+import { navItems } from "@/lib/site-data";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -22,7 +15,7 @@ export function SiteHeader() {
             twotalBarça
           </Link>
           <nav className="nav-links" aria-label="Primary">
-            {headerItems.map((item) => {
+            {navItems.map((item) => {
               const routePath = item.href.replace(/#.*$/, "");
               const isHashOnly = item.href.startsWith("/#");
               const isActive = isHashOnly
