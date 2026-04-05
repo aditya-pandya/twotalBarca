@@ -9,13 +9,26 @@ export const metadata: Metadata = {
     default: siteMeta.name,
     template: `%s | ${siteMeta.name}`,
   },
+  metadataBase: new URL(siteMeta.url),
+  applicationName: siteMeta.name,
   description: siteMeta.description,
-  metadataBase: new URL("https://twotalbarca.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: siteMeta.name,
     description: siteMeta.description,
     type: "website",
+    url: siteMeta.url,
+    siteName: siteMeta.name,
+    locale: siteMeta.locale,
   },
+  twitter: {
+    card: "summary_large_image",
+    title: siteMeta.name,
+    description: siteMeta.description,
+  },
+  category: "sports",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

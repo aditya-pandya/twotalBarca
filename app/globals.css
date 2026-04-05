@@ -682,6 +682,44 @@ button, input { font: inherit; }
   color: white;
 }
 .about-panel p { color: rgba(255,255,255,0.76); }
+.about-intro-body {
+  max-width: 46rem;
+  margin: 1rem 0 0;
+  line-height: 1.75;
+}
+.about-grid-card--wide {
+  grid-column: span 2;
+}
+.mission-card h3,
+.about-grid-card h3 {
+  margin: 0 0 0.8rem;
+  color: var(--navy);
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+.contributor-card {
+  display: grid;
+  gap: 0.9rem;
+}
+.contributor-specialty {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--garnet) !important;
+}
+.contributor-trust {
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(71, 70, 77, 0.14);
+}
+.about-contact-card {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+.about-contact-cta {
+  justify-self: start;
+}
 .footer {
   margin-top: auto;
   padding: 3rem 0;
@@ -1287,6 +1325,9 @@ button, input { font: inherit; }
   .timeline-grid,
   .related-editorial-grid {
     grid-template-columns: 1fr;
+  }
+  .about-grid-card--wide {
+    grid-column: auto;
   }
   .article-hero {
     min-height: 560px;

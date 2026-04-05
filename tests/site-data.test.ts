@@ -1,11 +1,14 @@
 import {
   article,
+  aboutData,
+  footerLinkGroups,
   getArticleBySlug,
   getArticleSlugs,
   getStoryHref,
   homeLead,
   homePageData,
   navItems,
+  siteMeta,
 } from "@/lib/site-data";
 
 describe("site data helpers", () => {
@@ -31,12 +34,41 @@ describe("site data helpers", () => {
 
   it("keeps shared header nav hrefs stable", () => {
     expect(navItems.map((item) => item.href)).toEqual([
-      "/#match-review",
-      "/#cultural-heart",
-      "/#journalism",
+      "/#brief",
+      "/#match-notes",
+      "/#analysis",
+      "/#archive",
       "/about",
+    ]);
+  });
+
+  it("keeps shared footer groups publication-native and real", () => {
+    expect(footerLinkGroups.map((group) => group.title)).toEqual([
+      "Read",
+      "Publication",
+      "Dispatch",
+    ]);
+    expect(footerLinkGroups.flatMap((group) => group.links.map((link) => link.href))).toEqual([
+      "/#brief",
+      "/#analysis",
+      "/#archive",
+      "/about",
+      "/about#principles",
+      "/about#contributors",
+      "/#dispatch",
+      "/about#coverage",
+      "/about#contact",
+    ]);
+  });
+
+  it("keeps shared about and footer copy aligned with site-level metadata", () => {
+    expect(aboutData.contact.secondaryValue).toBe(siteMeta.contactEmail);
+    expect(siteMeta.footerMeta.socialLinks.map((link) => link.href)).toEqual([
+      "/about",
+      "/#dispatch",
       "/#archive",
     ]);
+    expect(siteMeta.footerMeta.legalNotice).toContain("FC Barcelona writing with memory");
   });
 
   it("exports homepage content through shared typed data", () => {

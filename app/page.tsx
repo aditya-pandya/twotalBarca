@@ -15,7 +15,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="home-hero home-shell" id="match-review">
+      <section className="home-hero home-shell">
         <div className="home-hero__copy">
           <div className="home-hero__meta">
             <span>{hero.section}</span>
@@ -49,7 +49,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-bento home-shell" id="cultural-heart">
+      <section className="home-bento home-shell" id="analysis">
         <article className="home-analysis-card">
           <div>
             <span className="home-kicker home-kicker--rose">{analysisFeature.kicker}</span>
@@ -119,7 +119,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-reflections home-shell" id="journalism">
+      <section className="home-reflections home-shell" id="reflections">
         <div className="home-reflections__quotes">
           <span className="home-kicker home-kicker--rose">Reflections</span>
           <div className="home-reflections__stack">

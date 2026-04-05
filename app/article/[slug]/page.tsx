@@ -6,7 +6,7 @@ import {
   Eyebrow,
   MetaRow,
 } from "@/components/primitives";
-import { getArticleBySlug, getArticleSlugs, getStoryHref } from "@/lib/site-data";
+import { getArticleBySlug, getArticleSlugs, getStoryHref, siteMeta } from "@/lib/site-data";
 
 type ArticlePageProps = {
   params: Promise<{ slug: string }>;
@@ -26,9 +26,32 @@ export async function generateMetadata({
     return {};
   }
 
+  const canonicalPath = `/article/${currentArticle.slug}`;
+  const publishedTime = new Date(currentArticle.date).toISOString();
+
   return {
-    title: currentArticle.headline,
-    description: currentArticle.excerpt,
+    title: currentArticle.seoTitle ?? currentArticle.headline,
+    description: currentArticle.metaDescription ?? currentArticle.excerpt,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      type: "article",
+      url: canonicalPath,
+      title: currentArticle.seoTitle ?? currentArticle.headline,
+      description: currentArticle.metaDescription ?? currentArticle.excerpt,
+      siteName: siteMeta.name,
+      locale: siteMeta.locale,
+      publishedTime,
+      authors: [currentArticle.author],
+      section: currentArticle.section,
+      tags: currentArticle.topics,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: currentArticle.seoTitle ?? currentArticle.headline,
+      description: currentArticle.metaDescription ?? currentArticle.excerpt,
+    },
   };
 }
 

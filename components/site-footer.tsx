@@ -1,31 +1,5 @@
 import Link from "next/link";
-
-const footerColumns = [
-  {
-    title: "The Club",
-    links: [
-      { href: "/about", label: "Editorial Policy" },
-      { href: "/#dispatch", label: "Membership" },
-      { href: "/about", label: "Board of Review" },
-    ],
-  },
-  {
-    title: "Journalism",
-    links: [
-      { href: "/#cultural-heart", label: "Match Analysis" },
-      { href: "/#archive", label: "The Vault" },
-      { href: "/#journalism", label: "Dispatch" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { href: "/about", label: "Privacy" },
-      { href: "/about", label: "Terms of Service" },
-      { href: "/about", label: "Contact" },
-    ],
-  },
-];
+import { siteMeta } from "@/lib/site-data";
 
 export function SiteFooter() {
   return (
@@ -36,17 +10,18 @@ export function SiteFooter() {
             twotalBarça
           </Link>
           <p className="footer-description">
-            The Cultural Monolith of FC Barcelona. An editorial pursuit of the soul
-            behind the score.
+            {siteMeta.tagline}
           </p>
           <div className="footer-socials" aria-label="Social links">
-            <Link href="/about">Journal</Link>
-            <Link href="/#dispatch">Dispatch</Link>
-            <Link href="/#archive">Archive</Link>
+            {siteMeta.footerMeta.socialLinks.map((link) => (
+              <Link href={link.href} key={link.href}>
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
 
-        {footerColumns.map((column) => (
+        {siteMeta.footer.map((column) => (
           <div key={column.title}>
             <h4>{column.title}</h4>
             <div className="footer-links">
@@ -60,7 +35,7 @@ export function SiteFooter() {
         ))}
 
         <div className="footer-legal">
-          <p>© 2024 twotalBarça. The Cultural Monolith of FC Barcelona.</p>
+          <p>{siteMeta.footerMeta.legalNotice}</p>
         </div>
       </div>
     </footer>

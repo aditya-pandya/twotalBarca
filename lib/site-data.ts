@@ -15,19 +15,73 @@ export type NavItem = {
   label: string;
 };
 
+export type FooterLinkGroup = {
+  title: string;
+  links: NavItem[];
+};
+
+export type FooterMeta = {
+  socialLinks: NavItem[];
+  legalNotice: string;
+};
+
 export const navItems: NavItem[] = [
-  { href: "/#match-review", label: "Match Review" },
-  { href: "/#cultural-heart", label: "Cultural Heart" },
-  { href: "/#journalism", label: "Journalism" },
-  { href: "/about", label: "Tickets" },
+  { href: "/#brief", label: "The Brief" },
+  { href: "/#match-notes", label: "Match Notes" },
+  { href: "/#analysis", label: "Analysis" },
   { href: "/#archive", label: "Archive" },
+  { href: "/about", label: "About" },
 ];
+
+export const footerLinkGroups: FooterLinkGroup[] = [
+  {
+    title: "Read",
+    links: [
+      { href: "/#brief", label: "The Brief" },
+      { href: "/#analysis", label: "Analysis" },
+      { href: "/#archive", label: "From the Archive" },
+    ],
+  },
+  {
+    title: "Publication",
+    links: [
+      { href: "/about", label: "About twotalBarça" },
+      { href: "/about#principles", label: "Editorial standards" },
+      { href: "/about#contributors", label: "Contributors" },
+    ],
+  },
+  {
+    title: "Dispatch",
+    links: [
+      { href: "/#dispatch", label: "Weekly Dispatch" },
+      { href: "/about#coverage", label: "What we cover" },
+      { href: "/about#contact", label: "Send a note" },
+    ],
+  },
+];
+
+export const footerMeta: FooterMeta = {
+  socialLinks: [
+    { href: "/about", label: "About" },
+    { href: "/#dispatch", label: "Dispatch" },
+    { href: "/#archive", label: "Archive" },
+  ],
+  legalNotice: "© 2026 twotalBarça. FC Barcelona writing with memory, clarity, and no churn.",
+};
 
 export const siteMeta = {
   name: "twotalBarça",
+  shortName: "twotalBarça",
+  url: "https://twotalbarca.vercel.app",
   description:
-    "The Cultural Monolith of FC Barcelona. An editorial pursuit of the soul behind the score.",
+    "A premium FC Barcelona editorial publication covering the first team, tactics, culture, and the club's long memory.",
+  tagline:
+    "A publication with memory for readers who want durable FC Barcelona writing, not churn.",
+  locale: "en_US",
+  contactEmail: "dispatch@twotalbarca.com",
   nav: navItems,
+  footer: footerLinkGroups,
+  footerMeta,
 };
 
 export type HomeHero = {
@@ -360,52 +414,178 @@ export const dispatch: DispatchData = {
 };
 
 export type AboutData = {
-  intro: string;
-  why: string;
-  covers: string[];
-  standard: string;
-  memory: string;
+  intro: {
+    eyebrow: string;
+    title: string;
+    dek: string;
+    body: string;
+  };
+  mission: {
+    title: string;
+    body: string;
+    companion: {
+      eyebrow: string;
+      body: string;
+    };
+  };
+  coverageTitle: string;
+  coverageEyebrow: string;
+  coverage: Array<{
+    title: string;
+    detail: string;
+  }>;
+  principlesTitle: string;
+  principlesEyebrow: string;
+  principles: Array<{
+    title: string;
+    detail: string;
+  }>;
+  contributorsTitle: string;
+  archiveTitle: string;
+  archiveEvidence: Array<{
+    label: string;
+    title: string;
+    detail: string;
+  }>;
+  contact: {
+    title: string;
+    body: string;
+    primaryCtaLabel: string;
+    primaryCtaHref: string;
+    secondaryLabel: string;
+    secondaryValue: string;
+  };
 };
 
 export const aboutData: AboutData = {
-  intro:
-    "twotalBarça is a publication about FC Barcelona as football club, institution, memory, and place. We publish essays, analysis, archive work, and reflections that take the club seriously without surrendering to noise.",
-  why:
-    "Barça generates more commentary than understanding. We are interested in the harder work: rhythm over chatter, memory over cliché, and writing that treats supporters like adults.",
-  covers: [
-    "the first team and Femení",
-    "tactics and squad construction",
-    "club governance and finance",
-    "history, identity, and Catalan context",
-    "the stadium, the city, and the rituals around matchday",
+  intro: {
+    eyebrow: "About the publication",
+    title: "twotalBarça is a publication about FC Barcelona in the present tense and the long tense.",
+    dek:
+      "We publish essays, match notes, tactical analysis, archive work, and reflections that take the club seriously without surrendering to noise.",
+    body:
+      "That means football first, memory close behind, and enough specificity that a supporter can tell we are writing about Barça rather than a generic idea of elite football.",
+  },
+  mission: {
+    title: "Mission",
+    body:
+      "Barça generates more commentary than understanding. We are interested in the harder work: rhythm over chatter, memory over cliché, and writing that treats supporters like adults. The aim is not to keep pace with the noise cycle. It is to leave behind analysis, reporting, and club memory worth returning to after the match has passed.",
+    companion: {
+      eyebrow: "What twotalBarça is",
+      body:
+        "An article-first Barça publication for readers who want present-tense football analysis, cultural context, and the pressure of the archive in the same place.",
+    },
+  },
+  coverageTitle: "What we cover",
+  coverageEyebrow: "Coverage map",
+  coverage: [
+    {
+      title: "First team and Femení",
+      detail:
+        "How the football looks, what the squad is becoming, and where the emotional temperature of the club really sits week to week.",
+    },
+    {
+      title: "Tactics and role clarity",
+      detail:
+        "Spacing, structure, pressing shapes, and the small decisions that turn a familiar Barça performance into either clarity or confusion.",
+    },
+    {
+      title: "Governance and finance",
+      detail:
+        "Club messaging, board decisions, and the financial context that supporters need explained in plain language rather than executive fog.",
+    },
+    {
+      title: "History, identity, and Catalan context",
+      detail:
+        "The political, civic, and cultural pressures that make Barça more than a shirt and more specific than a global superclub template.",
+    },
+    {
+      title: "Stadium, city, and matchday ritual",
+      detail:
+        "Camp Nou, Montjuïc, the walk to the ground, the soundscape, and the habits through which the club is actually lived.",
+    },
   ],
-  standard:
-    "We prefer clarity to speed, specificity to posture, and reporting that leaves a trace. If a piece sounds like a template, a slogan, or a lecture in borrowed theory, it does not belong here.",
-  memory:
-    "The archive is not a museum corner. It is the pressure of the past on the present: old shirts, old matches, old failures, old standards, still shaping what the club believes it is.",
+  principlesTitle: "Editorial principles",
+  principlesEyebrow: "Standard",
+  principles: [
+    {
+      title: "Clarity over speed",
+      detail:
+        "We would rather publish slightly later and say something legible than chase the tempo of transfer chatter, social fragments, or borrowed certainty.",
+    },
+    {
+      title: "Specificity over posture",
+      detail:
+        "If a piece sounds like a template, a slogan, or a lecture in borrowed theory, it does not belong here. Barça deserves plain, exact writing.",
+    },
+    {
+      title: "Memory with evidence",
+      detail:
+        "History is not decorative copy. When we invoke the club's past, we try to anchor it in matches, objects, eras, and standards that still press on the present.",
+    },
+  ],
+  contributorsTitle: "Contributors",
+  archiveTitle: "In the club's long memory",
+  archiveEvidence: [
+    {
+      label: "Archive feature",
+      title: "The Weave of the Blau",
+      detail:
+        "A material history of the shirt that treats identity as something worn, handled, and argued over, not just sloganized.",
+    },
+    {
+      label: "Vault shelf",
+      title: "Camp Nou before the rebuild",
+      detail:
+        "Reporting and essays on the ground, the old tunnel, and the civic meaning of a stadium that keeps changing shape without losing its charge.",
+    },
+    {
+      label: "Historical standard",
+      title: "Dream Team to the present",
+      detail:
+        "Pieces that connect old failures, old silhouettes, and old expectations to the questions the current club is still trying to answer.",
+    },
+  ],
+  contact: {
+    title: "Contact and dispatch",
+    body:
+      "If you want to send a note, point us toward archive material, or receive the weekly dispatch, this is the door. We are interested in smart leads, sharp corrections, and supporters who care about the club's memory as much as its next lineup.",
+    primaryCtaLabel: "Join the weekly dispatch",
+    primaryCtaHref: "/#dispatch",
+    secondaryLabel: "Email",
+    secondaryValue: siteMeta.contactEmail,
+  },
 };
 
 export type Contributor = {
   name: string;
   role: string;
+  specialty: string;
   bio: string;
+  trust: string;
 };
 
 export const contributors: Contributor[] = [
   {
     name: "Maury Vidal",
     role: "Editor",
+    specialty: "Club identity, longform editing, and the line between memory and performance.",
     bio: "Writes about Barça as an argument between memory and performance.",
+    trust: "Edits for tone, standards, and whether a piece still feels true once the match cycle noise has passed.",
   },
   {
     name: "Jordi Serra",
     role: "Analysis & Tactics",
+    specialty: "Spacing, role clarity, pressing structures, and the details coaches usually hide in plain sight.",
     bio: "Focuses on spacing, role clarity, and the small structural choices that decide matches.",
+    trust: "Brings the footballing evidence: why a pattern worked, what changed, and whether the explanation survives a second watch.",
   },
   {
     name: "Clara Montfort",
     role: "Vault",
+    specialty: "Club history, material culture, and the objects that carry Barça across generations.",
     bio: "Covers club history, material culture, and the objects that carry Barça across generations.",
+    trust: "Keeps the archive anchored in real artifacts, eras, and civic context so the past informs the present instead of decorating it.",
   },
 ];
 
@@ -430,6 +610,8 @@ export type Article = {
   pullQuote: string;
   quoteBy: string;
   topics: string[];
+  seoTitle?: string;
+  metaDescription?: string;
   timeline: Array<{ year: string; note: string }>;
   related: Story[];
 };
@@ -467,6 +649,9 @@ export const article: Article = {
     "The jersey is a second skin, woven not from polyester, but from the collective memory of a people who refused to be forgotten.",
   quoteBy: "Ferran Olivella, 1964",
   topics: ["History", "Identity", "Material culture"],
+  seoTitle: "The Weave of the Blau",
+  metaDescription:
+    "An archival twotalBarça feature on the shirt as material memory, tracing how Barça's colors carried civic meaning before they became global merchandise.",
   timeline: [
     {
       year: "1920s",
