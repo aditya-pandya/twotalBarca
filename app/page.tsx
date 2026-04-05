@@ -1,5 +1,13 @@
 import Link from "next/link";
-import { homePageData } from "@/lib/site-data";
+import type { Metadata } from "next";
+import { buildMetadata, homePageData } from "@/lib/site-data";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Home",
+  description:
+    "A curated front page of Barca essays, match notes, tactical analysis, archive work, and the weekly dispatch.",
+  path: "/",
+});
 
 export default function HomePage() {
   const {
@@ -26,7 +34,7 @@ export default function HomePage() {
           <p className="home-hero__dek">{hero.dek}</p>
           <div className="home-hero__byline">
             <span>By {hero.author}</span>
-            <Link href={hero.href}>Read the Story</Link>
+            <Link href={hero.href ?? "/"}>Read the Story</Link>
           </div>
         </div>
         <div className="home-hero__image">
@@ -39,10 +47,10 @@ export default function HomePage() {
           {[0, 1].map((index) => (
             <div className="home-ticker__group" key={index}>
               {tickerItems.map((item) => (
-                <span className="home-ticker__item" key={`${index}-${item.label}`}>
+                <Link className="home-ticker__item" href={item.href ?? "/"} key={`${index}-${item.label}`}>
                   <span className="home-ticker__dot" aria-hidden="true" />
                   {item.label}
-                </span>
+                </Link>
               ))}
             </div>
           ))}
@@ -68,9 +76,9 @@ export default function HomePage() {
           <span className="home-kicker home-kicker--gold">Culture</span>
           <div className="home-culture-column__stack">
             {cultureStories.map((story) => (
-              <article key={story.title}>
+              <article key={story.slug}>
                 <h3>
-                  <Link href={story.href}>{story.title}</Link>
+                  <Link href={story.href ?? "#"}>{story.headline}</Link>
                 </h3>
                 <p>{story.excerpt}</p>
               </article>
@@ -79,7 +87,9 @@ export default function HomePage() {
         </div>
 
         <div className="home-brief-column" id="brief">
-          <span className="home-kicker">The Brief</span>
+          <Link className="home-kicker" href="/dispatch">
+            The Brief
+          </Link>
           <div className="home-brief-column__stack">
             {briefDispatches.map((item) => (
               <article
@@ -87,7 +97,9 @@ export default function HomePage() {
                 key={item.stamp}
               >
                 <span>{item.stamp}</span>
-                <p>{item.body}</p>
+                <p>
+                  <Link href={item.href}>{item.body}</Link>
+                </p>
               </article>
             ))}
           </div>
@@ -148,11 +160,14 @@ export default function HomePage() {
                 type="email"
               />
             </div>
-            <button type="button">{newsletter.buttonLabel}</button>
-            <p className="home-newsletter__note">
-              {newsletter.privacyNote}
-            </p>
+            <Link className="header-cta" href="/dispatch">
+              {newsletter.buttonLabel}
+            </Link>
+            <p className="home-newsletter__note">{newsletter.privacyNote}</p>
           </form>
+          <Link className="home-inline-link" href="/dispatch">
+            Browse dispatch archive
+          </Link>
         </div>
       </section>
     </>

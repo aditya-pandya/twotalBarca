@@ -7,6 +7,7 @@ export function ArticleBody({
   heroCaption,
   heroCredit,
   conviction,
+  fieldNote,
 }: {
   paragraphs: string[];
   pullQuote: string;
@@ -14,15 +15,14 @@ export function ArticleBody({
   heroCaption: string;
   heroCredit: string;
   conviction: string;
+  fieldNote: string;
 }) {
   return (
     <div className="article-layout">
       <aside className="article-rail">
         <div className="article-rail-block">
           <p className="eyebrow">Field notes</p>
-          <p>
-            A historical reading of the Blaugrana shirt as object, signal, and public memory.
-          </p>
+          <p>{fieldNote}</p>
         </div>
         <div className="article-rail-block">
           <p className="eyebrow">At stake</p>

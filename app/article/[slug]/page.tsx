@@ -2,23 +2,18 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArticleBody } from "@/components/article-body";
-import {
-  Eyebrow,
-  MetaRow,
-} from "@/components/primitives";
-import { getArticleBySlug, getArticleSlugs, getStoryHref, siteMeta } from "@/lib/site-data";
+import { Eyebrow, FallbackState, MetaRow } from "@/components/primitives";
+import { buildMetadata, getArticleBySlug, getArticleSlugs, getStoryHref } from "@/lib/site-data";
 
 type ArticlePageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateStaticParams() {
-  return getArticleSlugs().map((slug) => ({ slug }));
+export function generateStaticParams() {
+  return getArticleSlugs().map((slug: string) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: ArticlePageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
   const { slug } = await params;
   const currentArticle = getArticleBySlug(slug);
 
@@ -26,33 +21,16 @@ export async function generateMetadata({
     return {};
   }
 
-  const canonicalPath = `/article/${currentArticle.slug}`;
-  const publishedTime = new Date(currentArticle.date).toISOString();
-
-  return {
+  return buildMetadata({
     title: currentArticle.seoTitle ?? currentArticle.headline,
     description: currentArticle.metaDescription ?? currentArticle.excerpt,
-    alternates: {
-      canonical: canonicalPath,
-    },
-    openGraph: {
-      type: "article",
-      url: canonicalPath,
-      title: currentArticle.seoTitle ?? currentArticle.headline,
-      description: currentArticle.metaDescription ?? currentArticle.excerpt,
-      siteName: siteMeta.name,
-      locale: siteMeta.locale,
-      publishedTime,
-      authors: [currentArticle.author],
-      section: currentArticle.section,
-      tags: currentArticle.topics,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: currentArticle.seoTitle ?? currentArticle.headline,
-      description: currentArticle.metaDescription ?? currentArticle.excerpt,
-    },
-  };
+    path: `/article/${currentArticle.slug}`,
+    type: "article",
+    publishedTime: new Date(currentArticle.date).toISOString(),
+    authors: [currentArticle.author],
+    section: currentArticle.section,
+    tags: currentArticle.topics,
+  });
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
@@ -84,7 +62,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <MetaRow
               author={currentArticle.author}
               date={currentArticle.date}
-              readingTime={currentArticle.readingTime}
+              readingTime={currentArticle.readTime}
               section={currentArticle.historicalEra}
             />
           </div>
@@ -114,7 +92,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </div>
             <div className="article-meta-card">
               <span>Filed under</span>
-              <p>{currentArticle.historicalEra}</p>
+              <p>{currentArticle.historicalEra ?? currentArticle.section}</p>
             </div>
           </aside>
 
@@ -123,12 +101,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <p className="article-standfirst">{currentArticle.excerpt}</p>
             </div>
             <ArticleBody
+              conviction={currentArticle.conviction}
+              fieldNote={currentArticle.ritual}
+              heroCaption={currentArticle.heroCaption}
+              heroCredit={currentArticle.heroCredit}
               paragraphs={currentArticle.body}
               pullQuote={currentArticle.pullQuote}
               quoteBy={currentArticle.quoteBy}
-              heroCaption={currentArticle.heroCaption}
-              heroCredit={currentArticle.heroCredit}
-              conviction={currentArticle.conviction}
             />
           </div>
         </div>
@@ -141,23 +120,21 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <Eyebrow>Archive notes</Eyebrow>
               <h2>Three moments in the shirt&apos;s public life</h2>
             </div>
-            <p>
-              A factual layer grounds the essay in observable changes to silhouette, circulation, and public meaning.
-            </p>
+            <p>A factual layer grounds the essay in observable changes to silhouette, circulation, and public meaning.</p>
           </div>
           <div className="timeline-grid">
             {currentArticle.timeline.map((item) => (
-              <article key={item.year} className="timeline-card">
+              <article key={`${item.year}-${item.note}`} className="timeline-card">
                 <p className="timeline-year">{item.year}</p>
                 <p>{item.note}</p>
               </article>
             ))}
           </div>
           <div className="topic-row">
-            {currentArticle.topics.map((topic) => (
-              <span key={topic} className="topic-chip">
-                {topic}
-              </span>
+            {currentArticle.topicSlugs.map((topic) => (
+              <Link href={`/topic/${topic}`} key={topic} className="topic-chip">
+                {topic.replace(/-/g, " ")}
+              </Link>
             ))}
           </div>
         </div>
@@ -173,8 +150,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             Back home
           </Link>
         </div>
-        <div className="related-editorial-grid">
-          {featuredRelated ? (
+        {featuredRelated ? (
+          <div className="related-editorial-grid">
             <article className="related-feature">
               <Link href={getStoryHref(featuredRelated)} className="related-feature-visual">
                 <div className="related-feature-copy">
@@ -184,19 +161,35 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 </div>
               </Link>
             </article>
-          ) : null}
-          <div className="related-stack">
-            {remainingRelated.map((story) => (
-              <article key={story.slug} className="related-story-card">
-                <Eyebrow>{story.section}</Eyebrow>
-                <h3>
-                  <Link href={getStoryHref(story)}>{story.headline}</Link>
-                </h3>
-                <p>{story.excerpt}</p>
-              </article>
-            ))}
+            <div className="related-stack">
+              {remainingRelated.length > 0 ? (
+                remainingRelated.map((story) => (
+                  <article key={story.slug} className="related-story-card">
+                    <Eyebrow>{story.section}</Eyebrow>
+                    <h3>
+                      <Link href={getStoryHref(story)}>{story.headline}</Link>
+                    </h3>
+                    <p>{story.excerpt}</p>
+                  </article>
+                ))
+              ) : (
+                <FallbackState
+                  title="More related reading is on the way"
+                  body="The article graph is seeded, but this shelf can still grow as the archive fills out."
+                  actionLabel="Browse archive"
+                  actionHref="/archive"
+                />
+              )}
+            </div>
           </div>
-        </div>
+        ) : (
+          <FallbackState
+            title="No related reads were found"
+            body="The article is live, but the connected reading shelf still needs more seeds."
+            actionLabel="Browse archive"
+            actionHref="/archive"
+          />
+        )}
       </section>
     </>
   );

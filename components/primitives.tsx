@@ -65,6 +65,27 @@ export function Rule() {
   return <div className="editorial-rule" aria-hidden="true" />;
 }
 
+export function FallbackState({
+  title,
+  body,
+  actionLabel,
+  actionHref,
+}: {
+  title: string;
+  body: string;
+  actionLabel?: string;
+  actionHref?: string;
+}) {
+  return (
+    <article className="fallback-state" aria-live="polite">
+      <Eyebrow>Still building the shelf</Eyebrow>
+      <h3>{title}</h3>
+      <p>{body}</p>
+      {actionLabel && actionHref ? <EditorialLink href={actionHref}>{actionLabel}</EditorialLink> : null}
+    </article>
+  );
+}
+
 export function MetaRow({
   author,
   date,

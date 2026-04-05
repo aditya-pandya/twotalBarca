@@ -1,79 +1,111 @@
 import {
-  article,
   aboutData,
+  archiveCollections,
+  collections,
+  dispatchIssues,
   footerLinkGroups,
+  getArchiveArticles,
+  getArchiveCollectionStories,
   getArticleBySlug,
   getArticleSlugs,
+  getArticlesByPerson,
+  getArticlesBySeason,
+  getArticlesByTopic,
+  getCollectionArticles,
+  getDispatchItemsAsStories,
+  getLatestDispatchIssue,
+  getPersonBySlug,
+  getPersonSlugs,
+  getSeasonBySlug,
+  getSeasonSlugs,
+  getSectionBySlug,
+  getSectionSlugs,
   getStoryHref,
-  homeLead,
+  getTopicBySlug,
+  getTopicSlugs,
   homePageData,
   navItems,
   siteMeta,
 } from "@/lib/site-data";
 
 describe("site data helpers", () => {
-  it("returns the seeded article slug list", () => {
+  it("returns seeded route slugs across article, section, topic, season, and person surfaces", () => {
     expect(getArticleSlugs()).toContain("the-weave-of-the-blau");
+    expect(getSectionSlugs()).toEqual(
+      expect.arrayContaining(["brief", "match-notes", "analysis", "culture", "archive"]),
+    );
+    expect(getSectionSlugs()).not.toContain("dispatch");
+    expect(getTopicSlugs()).toContain("identity");
+    expect(getSeasonSlugs()).toContain("2025-26");
+    expect(getPersonSlugs()).toContain("maury-vidal");
   });
 
-  it("finds the seeded article by slug", () => {
-    expect(getArticleBySlug("the-weave-of-the-blau")).toMatchObject({
-      headline: article.headline,
-      section: article.section,
-    });
-  });
-
-  it("returns undefined for unknown slugs", () => {
+  it("finds seeded records and returns undefined for unknown values", () => {
+    expect(getArticleBySlug("the-weave-of-the-blau")?.headline).toBe("The Weave of the Blau");
+    expect(getSectionBySlug("analysis")?.name).toBe("Analysis");
+    expect(getTopicBySlug("identity")?.name).toBe("Identity");
+    expect(getSeasonBySlug("2025-26")?.label).toBe("2025-26");
+    expect(getPersonBySlug("gavi")?.name).toBe("Gavi");
     expect(getArticleBySlug("missing-story")).toBeUndefined();
+    expect(getTopicBySlug("missing-topic")).toBeUndefined();
+    expect(getSeasonBySlug("missing-season")).toBeUndefined();
+    expect(getPersonBySlug("missing-person")).toBeUndefined();
   });
 
   it("uses story href when present and fallback when absent", () => {
-    expect(getStoryHref(homeLead)).toBe("/article/the-weave-of-the-blau");
+    expect(getStoryHref(homePageData.hero)).toBe("/article/the-last-of-the-catalan-romantics");
     expect(getStoryHref({ href: undefined }, "/fallback")).toBe("/fallback");
   });
 
-  it("keeps shared header nav hrefs stable", () => {
+  it("keeps shared header and footer links pointed at live publication surfaces", () => {
     expect(navItems.map((item) => item.href)).toEqual([
-      "/#brief",
-      "/#match-notes",
-      "/#analysis",
-      "/#archive",
+      "/section/brief",
+      "/section/match-notes",
+      "/section/analysis",
+      "/dispatch",
+      "/archive",
       "/about",
     ]);
+    expect(footerLinkGroups.flatMap((group) => group.links).map((link) => link.href)).not.toContain(
+      "/dispatch/week-in-blaugrana-12",
+    );
+    expect(siteMeta.footerMeta.socialLinks.map((link) => link.href)).toEqual(["/about", "/dispatch", "/archive"]);
   });
 
-  it("keeps shared footer groups publication-native and real", () => {
-    expect(footerLinkGroups.map((group) => group.title)).toEqual([
-      "Read",
-      "Publication",
-      "Dispatch",
-    ]);
-    expect(footerLinkGroups.flatMap((group) => group.links.map((link) => link.href))).toEqual([
-      "/#brief",
-      "/#analysis",
-      "/#archive",
-      "/about",
-      "/about#principles",
-      "/about#contributors",
-      "/#dispatch",
-      "/about#coverage",
-      "/about#contact",
-    ]);
-  });
-
-  it("keeps shared about and footer copy aligned with site-level metadata", () => {
-    expect(aboutData.contact.secondaryValue).toBe(siteMeta.contactEmail);
-    expect(siteMeta.footerMeta.socialLinks.map((link) => link.href)).toEqual([
-      "/about",
-      "/#dispatch",
-      "/#archive",
-    ]);
-    expect(siteMeta.footerMeta.legalNotice).toContain("FC Barcelona writing with memory");
-  });
-
-  it("exports homepage content through shared typed data", () => {
+  it("exports homepage, about, archive, and dispatch content through shared typed data", () => {
     expect(homePageData.hero.headline).toBe("The Last of the Catalan Romantics");
-    expect(homePageData.vault.items).toHaveLength(3);
+    expect(homePageData.analysisFeature.href).toBe("/section/analysis");
+    expect(homePageData.vault.ctaHref).toBe("/archive");
     expect(homePageData.newsletter.heading).toBe("The Weekly Dispatch");
+    expect(aboutData.contact.primaryCtaHref).toBe("/dispatch");
+    expect(dispatchIssues[0].items.length).toBeGreaterThan(3);
+    expect(getArchiveCollectionStories(archiveCollections[0]).length).toBeGreaterThan(1);
+  });
+
+  it("keeps article and taxonomy graphs aligned", () => {
+    expect(getArticlesByTopic("identity").map((articleItem) => articleItem.slug)).toEqual(
+      expect.arrayContaining([
+        "the-weave-of-the-blau",
+        "the-last-of-the-catalan-romantics",
+        "gavis-return-changes-the-rhythm",
+      ]),
+    );
+    expect(getArticlesBySeason("2025-26").length).toBeGreaterThan(0);
+    expect(getArticlesByPerson("maury-vidal").length).toBeGreaterThan(0);
+  });
+
+  it("preserves shared collection and dispatch relationships", () => {
+    expect(getArchiveArticles().map((articleItem) => articleItem.slug)).toEqual(
+      expect.arrayContaining(["the-weave-of-the-blau", "home-and-the-sacred"]),
+    );
+    expect(getCollectionArticles(collections[0]).map((articleItem) => articleItem.slug)).toEqual(
+      collections[0].itemArticleSlugs,
+    );
+
+    const latestIssue = getLatestDispatchIssue();
+    expect(latestIssue.slug).toBe(dispatchIssues[0].slug);
+    expect(getDispatchItemsAsStories(latestIssue).map((story) => story.href)).toEqual(
+      latestIssue.items.map((item) => item.link),
+    );
   });
 });
