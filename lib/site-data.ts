@@ -1,3 +1,6 @@
+import type { NewsroomGeneratedSitePayload } from "@/lib/newsroom-types";
+import newsroomSiteContent from "@/newsroom/generated/site-content.json";
+
 export type NavItem = {
   label: string;
   href: string;
@@ -248,6 +251,94 @@ function storyFromSeed(seed: ArticleSeed): Story {
     readingTime: seed.readingTime,
     image: seed.heroImage,
   };
+}
+
+const generatedNewsroomPayload = newsroomSiteContent as NewsroomGeneratedSitePayload;
+
+function compareContentDateDesc(left?: string, right?: string) {
+  const leftTime = left ? Date.parse(left) : 0;
+  const rightTime = right ? Date.parse(right) : 0;
+  return rightTime - leftTime;
+}
+
+function toArticleSeed(record: NewsroomGeneratedSitePayload["articles"][number]): ArticleSeed {
+  return {
+    id: record.id,
+    slug: record.slug,
+    headline: record.headline,
+    dek: record.dek,
+    excerpt: record.excerpt,
+    section: record.section,
+    sectionSlug: record.sectionSlug,
+    type: record.type,
+    author: record.author,
+    date: record.date,
+    readTime: record.readTime,
+    readingTime: record.readingTime,
+    heroImage: record.heroImage,
+    heroCaption: record.heroCaption,
+    heroCredit: record.heroCredit,
+    body: record.body,
+    pullQuote: record.pullQuote,
+    quoteBy: record.quoteBy,
+    conviction: record.conviction,
+    ritual: record.ritual,
+    timeline: record.timeline,
+    topics: record.topics,
+    topicSlugs: record.topicSlugs,
+    seasonSlug: record.seasonSlug,
+    personSlugs: record.personSlugs,
+    historicalEra: record.historicalEra,
+    seoTitle: record.seoTitle,
+    metaDescription: record.metaDescription,
+    relatedSlugs: record.relatedSlugs,
+  };
+}
+
+function toDispatchIssue(record: NewsroomGeneratedSitePayload["dispatchIssues"][number]): DispatchIssue {
+  return {
+    id: record.id,
+    slug: record.slug,
+    issueTitle: record.issueTitle,
+    issueNumber: record.issueNumber,
+    editorsNote: record.editorsNote,
+    publishDate: record.publishDate,
+    leadStorySlug: record.leadStorySlug,
+    items: record.items,
+    status: "published",
+  };
+}
+
+function mergeArticleSeedLists(baseSeeds: ArticleSeed[], generatedRecords: NewsroomGeneratedSitePayload["articles"]) {
+  return [...baseSeeds, ...generatedRecords.map(toArticleSeed)]
+    .reduce<ArticleSeed[]>((accumulator, seed) => {
+      const existingIndex = accumulator.findIndex((entry) => entry.slug === seed.slug);
+
+      if (existingIndex >= 0) {
+        accumulator[existingIndex] = seed;
+      } else {
+        accumulator.push(seed);
+      }
+
+      return accumulator;
+    }, [])
+    .sort((left, right) => compareContentDateDesc(left.date, right.date));
+}
+
+function mergeDispatchIssueLists(baseIssues: DispatchIssue[], generatedRecords: NewsroomGeneratedSitePayload["dispatchIssues"]) {
+  return [...baseIssues, ...generatedRecords.map(toDispatchIssue)]
+    .reduce<DispatchIssue[]>((accumulator, issue) => {
+      const existingIndex = accumulator.findIndex((entry) => entry.slug === issue.slug);
+
+      if (existingIndex >= 0) {
+        accumulator[existingIndex] = issue;
+      } else {
+        accumulator.push(issue);
+      }
+
+      return accumulator;
+    }, [])
+    .sort((left, right) => compareContentDateDesc(left.publishDate, right.publishDate));
 }
 
 const articleSeeds: ArticleSeed[] = [
@@ -553,7 +644,8 @@ const articleSeeds: ArticleSeed[] = [
   },
 ];
 
-const articleSeedMap = new Map(articleSeeds.map((seed) => [seed.slug, seed]));
+const mergedArticleSeeds = mergeArticleSeedLists(articleSeeds, generatedNewsroomPayload.articles ?? []);
+const articleSeedMap = new Map(mergedArticleSeeds.map((seed) => [seed.slug, seed]));
 
 function relatedStoriesFor(seed: ArticleSeed): Story[] {
   return seed.relatedSlugs
@@ -562,7 +654,7 @@ function relatedStoriesFor(seed: ArticleSeed): Story[] {
     .map((entry) => storyFromSeed(entry));
 }
 
-export const articles: Article[] = articleSeeds.map((seed) => ({
+export const articles: Article[] = mergedArticleSeeds.map((seed) => ({
   ...seed,
   href: `/article/${seed.slug}`,
   related: relatedStoriesFor(seed),
@@ -608,7 +700,7 @@ export const archiveCollections: ArchiveCollection[] = [
   { id: "collection-rebuild-notebook", title: "The Rebuild Notebook", slug: "rebuild-notebook", description: "Pieces tracking whether the current side is becoming coherent enough to be judged seriously.", collectionType: "Dossier", itemSlugs: ["the-last-of-the-catalan-romantics", "how-barca-found-the-free-man", "flicks-back-line-is-holding-higher", "gavis-return-changes-the-rhythm"] },
 ];
 
-export const dispatchIssues: DispatchIssue[] = [
+const seededDispatchIssues: DispatchIssue[] = [
   {
     id: "dispatch-12",
     slug: "week-in-blaugrana-12",
@@ -642,6 +734,11 @@ export const dispatchIssues: DispatchIssue[] = [
     ],
   },
 ];
+
+export const dispatchIssues: DispatchIssue[] = mergeDispatchIssueLists(
+  seededDispatchIssues,
+  generatedNewsroomPayload.dispatchIssues ?? [],
+);
 
 export const siteSections: SectionRecord[] = [
   sections[0]!,
@@ -798,19 +895,110 @@ export const aboutData: AboutData = {
   },
 };
 
-export const homePageData: HomePageData = {
-  hero: {
-    ...storyFromSeed(articleSeedMap.get("the-last-of-the-catalan-romantics")!),
-    section: "Culture",
-    readingTime: "9 min read",
-    image: articleSeedMap.get("the-last-of-the-catalan-romantics")!.heroImage,
-  },
-  tickerItems: [
+function getFrontPageArticle(slug?: string) {
+  return slug ? articleSeedMap.get(slug) : undefined;
+}
+
+function buildFrontPageHero() {
+  const heroSeed =
+    getFrontPageArticle(generatedNewsroomPayload.frontPagePlan?.heroArticleSlug) ??
+    articleSeedMap.get("the-last-of-the-catalan-romantics")!;
+
+  return {
+    ...storyFromSeed(heroSeed),
+    section: heroSeed.section,
+    readingTime: heroSeed.readingTime,
+    image: heroSeed.heroImage,
+  };
+}
+
+function buildTickerItems() {
+  const overrideSeeds = (generatedNewsroomPayload.frontPagePlan?.tickerArticleSlugs ?? [])
+    .map((slug) => getFrontPageArticle(slug))
+    .filter((item): item is ArticleSeed => Boolean(item));
+
+  if (overrideSeeds.length > 0) {
+    return overrideSeeds.map((seed) => ({
+      label: `${seed.section}: ${seed.headline}`,
+      href: `/article/${seed.slug}`,
+    }));
+  }
+
+  return [
     { label: "Match Notes: The line only holds when the ball can rest", href: "/match-notes" },
     { label: "Analysis: The free man appears two passes before the switch", href: "/analysis" },
     { label: "Culture: Public pressure still shapes how conviction looks", href: "/culture" },
     { label: "Archive: The shirt still behaves like public memory", href: "/archive" },
-  ],
+  ];
+}
+
+function buildCultureStories() {
+  const overrideSeeds = (generatedNewsroomPayload.frontPagePlan?.cultureStorySlugs ?? [])
+    .map((slug) => getFrontPageArticle(slug))
+    .filter((item): item is ArticleSeed => Boolean(item));
+
+  if (overrideSeeds.length > 0) {
+    return overrideSeeds.map((seed) => storyFromSeed(seed));
+  }
+
+  return [storyFromSeed(articleSeedMap.get("the-camp-nou-exile-soundscape")!), storyFromSeed(articleSeedMap.get("home-and-the-sacred")!)];
+}
+
+function buildBriefDispatches() {
+  const overrideSeeds = (generatedNewsroomPayload.frontPagePlan?.briefArticleSlugs ?? [])
+    .map((slug) => getFrontPageArticle(slug))
+    .filter((item): item is ArticleSeed => Boolean(item));
+
+  if (overrideSeeds.length > 0) {
+    return overrideSeeds.slice(0, 3).map((seed, index) => ({
+      stamp: `${seed.section} / ${seed.date}`,
+      body: seed.headline,
+      href: `/article/${seed.slug}`,
+      featured: index === 0,
+    }));
+  }
+
+  return [
+    { stamp: "The Brief / April 2", body: "Gavi's return changes the rhythm before it changes the lineup.", href: "/article/gavis-return-changes-the-rhythm", featured: true },
+    { stamp: "Match Notes / April 1", body: "Flick's back line is holding higher, but only when the midfield can rest with the ball.", href: "/article/flicks-back-line-is-holding-higher" },
+    { stamp: "Governance / March 18", body: "The club's finance messaging needs plainer nouns.", href: "/article/why-finance-needs-plain-terms" },
+  ];
+}
+
+function buildVaultItems() {
+  const overrideSeeds = (generatedNewsroomPayload.frontPagePlan?.vaultArticleSlugs ?? [])
+    .map((slug) => getFrontPageArticle(slug))
+    .filter((item): item is ArticleSeed => Boolean(item));
+
+  if (overrideSeeds.length > 0) {
+    return overrideSeeds.slice(0, 3).map((seed, index) => ({
+      issue: index === 0 ? "Vault shelf" : index === 1 ? "Ground study" : "Present archive",
+      title: seed.headline,
+      href: `/article/${seed.slug}`,
+      image: seed.heroImage.src,
+    }));
+  }
+
+  return [
+    { issue: "Vault shelf", title: "The Weave of the Blau", href: "/article/the-weave-of-the-blau", image: articleSeedMap.get("the-weave-of-the-blau")!.heroImage.src },
+    { issue: "Ground study", title: "Home and the Sacred", href: "/article/home-and-the-sacred", image: articleSeedMap.get("home-and-the-sacred")!.heroImage.src },
+    { issue: "Present archive", title: "Camp Nou's temporary exile has altered the soundscape of matchday", href: "/article/the-camp-nou-exile-soundscape", image: articleSeedMap.get("the-camp-nou-exile-soundscape")!.heroImage.src },
+  ];
+}
+
+function getFeaturedDispatchHref() {
+  const featuredDispatchSlug = generatedNewsroomPayload.frontPagePlan?.featuredDispatchSlug;
+
+  if (featuredDispatchSlug && dispatchIssues.some((issue) => issue.slug === featuredDispatchSlug)) {
+    return `/dispatch/${featuredDispatchSlug}`;
+  }
+
+  return dispatchIssues[0] ? `/dispatch/${dispatchIssues[0].slug}` : "/dispatch";
+}
+
+export const homePageData: HomePageData = {
+  hero: buildFrontPageHero(),
+  tickerItems: buildTickerItems(),
   analysisFeature: {
     kicker: "Analysis / Tactical Board",
     headline: "How Barça Found the Free Man on the Far Side",
@@ -819,26 +1007,24 @@ export const homePageData: HomePageData = {
     ctaLabel: "Read Analysis",
     image: articleSeedMap.get("how-barca-found-the-free-man")!.heroImage,
   },
-  cultureStories: [storyFromSeed(articleSeedMap.get("the-camp-nou-exile-soundscape")!), storyFromSeed(articleSeedMap.get("home-and-the-sacred")!)],
-  briefDispatches: [
-    { stamp: "The Brief / April 2", body: "Gavi's return changes the rhythm before it changes the lineup.", href: "/article/gavis-return-changes-the-rhythm", featured: true },
-    { stamp: "Match Notes / April 1", body: "Flick's back line is holding higher, but only when the midfield can rest with the ball.", href: "/article/flicks-back-line-is-holding-higher" },
-    { stamp: "Governance / March 18", body: "The club's finance messaging needs plainer nouns.", href: "/article/why-finance-needs-plain-terms" },
-  ],
+  cultureStories: buildCultureStories(),
+  briefDispatches: buildBriefDispatches(),
   vault: {
     kicker: "From the Archive",
     heading: "The vault stays close to the present tense.",
     ctaLabel: "Enter Archive",
     ctaHref: "/archive",
-    items: [
-      { issue: "Vault shelf", title: "The Weave of the Blau", href: "/article/the-weave-of-the-blau", image: articleSeedMap.get("the-weave-of-the-blau")!.heroImage.src },
-      { issue: "Ground study", title: "Home and the Sacred", href: "/article/home-and-the-sacred", image: articleSeedMap.get("home-and-the-sacred")!.heroImage.src },
-      { issue: "Present archive", title: "Camp Nou's temporary exile has altered the soundscape of matchday", href: "/article/the-camp-nou-exile-soundscape", image: articleSeedMap.get("the-camp-nou-exile-soundscape")!.heroImage.src },
-    ],
+    items: buildVaultItems(),
   },
   reflections: [
-    { quote: "A club does not lose its identity in one bad month. It loses it when convenience replaces standards.", byline: "From The Last of the Catalan Romantics" },
-    { quote: "The crowd still knows the difference between speed and clarity, even when the club pretends it does not.", byline: "From the weekly notebook" },
+    {
+      quote: "A club does not lose its identity in one bad month. It loses it when convenience replaces standards.",
+      byline: "From The Last of the Catalan Romantics",
+    },
+    {
+      quote: "The crowd still knows the difference between speed and clarity, even when the club pretends it does not.",
+      byline: "From the weekly notebook",
+    },
   ],
   newsletter: {
     eyebrow: "Dispatch",
@@ -847,7 +1033,7 @@ export const homePageData: HomePageData = {
     ctaLabel: "Open the dispatch archive",
     ctaHref: "/dispatch",
     secondaryLinkLabel: "Read the latest issue",
-    secondaryLinkHref: dispatchIssues[0] ? `/dispatch/${dispatchIssues[0].slug}` : "/dispatch",
+    secondaryLinkHref: getFeaturedDispatchHref(),
     note: "This static build keeps the dispatch as a readable archive surface: no fake signup form, no inbox sludge, one careful issue at a time.",
   },
   missionPanel: {
@@ -871,7 +1057,7 @@ export const homePageData: HomePageData = {
     primaryLinkLabel: "Read about the publication",
     primaryLinkHref: "/about",
     secondaryLinkLabel: "Browse the latest dispatch",
-    secondaryLinkHref: dispatchIssues[0] ? `/dispatch/${dispatchIssues[0].slug}` : "/dispatch",
+    secondaryLinkHref: getFeaturedDispatchHref(),
   },
 };
 

@@ -1,0 +1,23 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Turn the recent improvement in rest defense into a clean tactical analysis with repeatable football evidence and no false certainty.",
+  "createdAt": "2026-04-05T08:30:00.000Z",
+  "deadline": "2026-04-05T14:00:00.000Z",
+  "deliverables": [
+    "One published analysis article",
+    "Front-page-ready dek and excerpt",
+    "Dispatch-ready summary sentence"
+  ],
+  "dependencies": [
+    "copy-chief review",
+    "editor-in-chief approval"
+  ],
+  "id": "assignment-rest-defense-analysis",
+  "kind": "article",
+  "owner": "tactics-analyst",
+  "priority": "high",
+  "slug": "rest-defense-analysis",
+  "status": "done",
+  "title": "Rest defense analysis lead",
+  "updatedAt": "2026-04-05T18:12:00.000Z"
+}

@@ -32,6 +32,14 @@ It runs as a compact but serious newsroom for FC Barcelona coverage:
 - distribution that respects the editorial line instead of chasing cheap clicks
 - community operations that protect the tone of the publication
 
+Local operating artifacts:
+- assignments are real files in `newsroom/assignments/`
+- article and dispatch records are real files in `newsroom/content/`
+- approvals are stored in `newsroom/approvals/`
+- homepage overrides live in `newsroom/state/frontpage.json`
+- the compiled publish surface lives in `newsroom/generated/site-content.json`
+- outbound distribution remains deferred and is specified in `docs/distribution-spec.md`
+
 Core editorial rules:
 - Do not publish fabricated reporting, made-up quotes, invented injury details, or unsourced transfer claims.
 - Do not treat rumors as facts. Label uncertainty plainly and push uncertain items to research or hold.

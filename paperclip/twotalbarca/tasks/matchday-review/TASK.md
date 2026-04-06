@@ -20,3 +20,9 @@ Output:
 - a clear assignment comment for the desk
 - explicit publish order
 - a hold decision if facts are still unstable
+
+Required local workflow:
+- write or update the assignment in `newsroom/assignments/`
+- move article records with `npm run newsroom:workflow -- --kind article --slug <slug> --to <status>`
+- do not move anything to `approved`, `scheduled`, or `published` without the required approval files in `newsroom/approvals/`
+- rebuild the compiled payload only after the publish gate is actually cleared

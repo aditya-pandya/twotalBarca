@@ -40,7 +40,7 @@ describe("UI smoke tests", () => {
   it("renders the homepage lead story and browse links", () => {
     render(<HomePage />);
 
-    expect(screen.getByRole("heading", { name: "The Last of the Catalan Romantics" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Barca's Rest Defense Is Learning to Breathe" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "The Weekly Dispatch" })).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
@@ -52,7 +52,7 @@ describe("UI smoke tests", () => {
     expect(screen.getByRole("link", { name: "Open the dispatch archive" })).toHaveAttribute("href", "/dispatch");
     expect(screen.getByRole("link", { name: "Read the latest issue" })).toHaveAttribute(
       "href",
-      "/dispatch/week-in-blaugrana-12",
+      "/dispatch/week-in-blaugrana-13",
     );
   });
 

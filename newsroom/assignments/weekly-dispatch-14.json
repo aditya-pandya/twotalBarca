@@ -1,0 +1,23 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Plan the next dispatch issue without forcing publication before the culture column and match queue settle.",
+  "createdAt": "2026-04-06T08:00:00.000Z",
+  "deadline": "2026-04-12T16:00:00.000Z",
+  "deliverables": [
+    "Planning dispatch issue record",
+    "Open questions for the desk",
+    "No outbound distribution work"
+  ],
+  "dependencies": [
+    "Desk review of open coverage",
+    "At least one approved lead story"
+  ],
+  "id": "assignment-weekly-dispatch-14",
+  "kind": "dispatch",
+  "owner": "distribution-audience-lead",
+  "priority": "medium",
+  "slug": "weekly-dispatch-14",
+  "status": "active",
+  "title": "Weekly Dispatch issue 14 planning",
+  "updatedAt": "2026-04-06T08:15:00.000Z"
+}

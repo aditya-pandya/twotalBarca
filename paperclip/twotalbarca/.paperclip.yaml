@@ -199,6 +199,11 @@ agents:
           requirement: optional
           default: .
           description: Relative repo root for local coding work when the adapter needs an explicit working tree path.
+        TWOTALBARCA_NEWSROOM_ROOT:
+          kind: plain
+          requirement: optional
+          default: newsroom
+          description: Relative path to the committed newsroom backend containing assignments, approvals, state, and generated payloads.
 projects:
   editorial-desk:
     status: in_progress

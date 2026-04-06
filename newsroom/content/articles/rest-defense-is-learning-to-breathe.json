@@ -1,0 +1,77 @@
+{
+  "approvalIds": [
+    "approval-article-rest-defense-copy",
+    "approval-article-rest-defense-editor"
+  ],
+  "assignmentIds": [
+    "assignment-rest-defense-analysis"
+  ],
+  "author": "Jordi Serra",
+  "body": [
+    "Barca's rest defense has looked calmer because the team is finally holding fewer contradictory instructions at once. The first line presses with enough conviction to slow the counter, and the players behind it are leaving cleaner distances instead of improvising rescue runs.",
+    "That matters because rest defense is not a separate defensive trick. It is the shape left behind by attacking choices. When the full-back arrives on time rather than early, and the pivot does not chase the same lane as the interior, the team can lose the ball without losing its geometry.",
+    "The recent matches have not produced perfection. They have produced something more useful: repeatable spacing after turnovers. Barca is conceding fewer completely naked transitions because the structure behind the ball is now built to absorb one bad touch without turning the whole phase into a sprint.",
+    "The next test is whether this steadier posture survives a match in which possession gets messy. A strong rest defense is proven when the side can keep breathing even after the rhythm breaks."
+  ],
+  "conviction": "Rest defense becomes believable when attacking ambition still leaves enough shape behind the ball to survive a mistake.",
+  "createdAt": "2026-04-05T09:00:00.000Z",
+  "date": "April 5, 2026",
+  "dek": "The improvement is not about drama. It is about whether Barca can leave enough shape behind the ball to survive the first bad turnover.",
+  "distributionStatus": "deferred",
+  "excerpt": "The side is conceding fewer naked transitions because the attacking structure is finally leaving a calmer shape behind the ball.",
+  "headline": "Barca's Rest Defense Is Learning to Breathe",
+  "heroCaption": "A settled rest-defense line gives the next phase a chance to survive.",
+  "heroCredit": "Tactical study for twotalBarca",
+  "heroImage": {
+    "alt": "Barcelona players resetting shape behind the ball during open play.",
+    "caption": "A settled rest-defense line gives the next phase a chance to survive.",
+    "credit": "Tactical study for twotalBarca",
+    "src": "https://images.unsplash.com/photo-1570498839593-e565b39455fc?auto=format&fit=crop&w=1200&q=80"
+  },
+  "id": "article-rest-defense-breathe",
+  "kind": "article",
+  "metaDescription": "A tactical read on why Barca's rest defense has become calmer, cleaner, and more repeatable in possession-heavy matches.",
+  "personSlugs": [
+    "jordi-serra",
+    "hansi-flick"
+  ],
+  "publishAt": "2026-04-05T14:00:00.000Z",
+  "publishedAt": "2026-04-05T14:05:00.000Z",
+  "pullQuote": "A credible rest defense is simply the attack admitting that the ball may be lost.",
+  "quoteBy": "Jordi Serra",
+  "readTime": "6 min",
+  "readingTime": "6 min read",
+  "relatedSlugs": [],
+  "ritual": "The ball can be lost. The question is whether the shape behind it still looks prepared for that fact.",
+  "schemaVersion": 1,
+  "seasonSlug": "2025-26",
+  "section": "Analysis",
+  "sectionSlug": "analysis",
+  "seoTitle": "Barca's Rest Defense Is Learning to Breathe | twotalBarca",
+  "slug": "rest-defense-is-learning-to-breathe",
+  "status": "published",
+  "timeline": [
+    {
+      "note": "The first presser slows the release rather than chasing a steal.",
+      "year": "First wave"
+    },
+    {
+      "note": "The pivot and center-backs keep stagger instead of collapsing into one line.",
+      "year": "Rest shape"
+    },
+    {
+      "note": "The structure survives one bad touch without becoming a full retreat.",
+      "year": "Turnover test"
+    }
+  ],
+  "topicSlugs": [
+    "tactics",
+    "first-team"
+  ],
+  "topics": [
+    "Tactics",
+    "First Team"
+  ],
+  "type": "Analysis",
+  "updatedAt": "2026-04-05T14:06:00.000Z"
+}

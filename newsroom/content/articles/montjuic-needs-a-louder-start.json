@@ -1,0 +1,73 @@
+{
+  "approvalIds": [
+    "approval-article-montjuic-copy"
+  ],
+  "assignmentIds": [
+    "assignment-montjuic-culture-column"
+  ],
+  "author": "Maury Vidal",
+  "body": [
+    "Montjuic has not failed Barca. It has exposed how slowly the current matchday atmosphere warms into conviction. The first ten minutes often feel like the crowd is still climbing toward the game.",
+    "That is not a sentimental complaint about a temporary home. It is an operational one. The stadium asks the club to manufacture urgency earlier because the building itself no longer does the job for free.",
+    "The question is whether the publication should treat that as a logistics note, a cultural adjustment, or a footballing pressure on how the team starts matches."
+  ],
+  "conviction": "A temporary ground changes the timing of atmosphere, and the team should be judged with that reality in view.",
+  "createdAt": "2026-04-05T16:00:00.000Z",
+  "date": "April 6, 2026",
+  "dek": "The crowd is still arriving emotionally after kickoff, and the team is being asked to solve that gap in real time.",
+  "distributionStatus": "deferred",
+  "excerpt": "Montjuic alters when the atmosphere reaches the pitch, and that changes what the team has to carry for itself early in matches.",
+  "headline": "Montjuic Needs a Louder Start",
+  "heroCaption": "Temporary homes change when the crowd reaches the match.",
+  "heroCredit": "Matchday observation for twotalBarca",
+  "heroImage": {
+    "alt": "Supporters entering a football stadium before kickoff.",
+    "caption": "Temporary homes change when the crowd reaches the match.",
+    "credit": "Matchday observation for twotalBarca",
+    "src": "https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=1200&q=80"
+  },
+  "id": "article-montjuic-louder-start",
+  "kind": "article",
+  "metaDescription": "A draft culture column on how Montjuic changes the timing and feel of Barca's matchday atmosphere.",
+  "notes": "Waiting on Editor in Chief packaging notes before approval.",
+  "personSlugs": [
+    "maury-vidal"
+  ],
+  "pullQuote": "A stadium can delay the crowd without silencing it.",
+  "quoteBy": "Maury Vidal",
+  "readTime": "4 min",
+  "readingTime": "4 min read",
+  "relatedSlugs": [],
+  "ritual": "Atmosphere is route, repetition, and timing as much as raw volume.",
+  "schemaVersion": 1,
+  "seasonSlug": "2025-26",
+  "section": "Culture",
+  "sectionSlug": "culture",
+  "seoTitle": "Montjuic Needs a Louder Start | twotalBarca",
+  "slug": "montjuic-needs-a-louder-start",
+  "status": "copy_review",
+  "timeline": [
+    {
+      "note": "The walk and arrival sequence delay emotional buildup.",
+      "year": "Arrival"
+    },
+    {
+      "note": "The first phase of the match often has to generate its own heat.",
+      "year": "Kickoff"
+    },
+    {
+      "note": "Packaging still needs a clearer thesis before approval.",
+      "year": "Desk note"
+    }
+  ],
+  "topicSlugs": [
+    "culture-catalonia",
+    "stadium-city"
+  ],
+  "topics": [
+    "Culture & Catalonia",
+    "Stadium / City"
+  ],
+  "type": "Column",
+  "updatedAt": "2026-04-06T09:10:00.000Z"
+}

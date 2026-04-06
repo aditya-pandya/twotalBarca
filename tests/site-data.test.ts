@@ -31,6 +31,7 @@ import {
 describe("site data helpers", () => {
   it("returns seeded route slugs across article, section, topic, season, and person surfaces", () => {
     expect(getArticleSlugs()).toContain("the-weave-of-the-blau");
+    expect(getArticleSlugs()).toContain("rest-defense-is-learning-to-breathe");
     expect(getSectionSlugs()).toEqual(
       expect.arrayContaining(["brief", "match-notes", "analysis", "culture", "archive"]),
     );
@@ -53,7 +54,7 @@ describe("site data helpers", () => {
   });
 
   it("uses story href when present and fallback when absent", () => {
-    expect(getStoryHref(homePageData.hero)).toBe("/article/the-last-of-the-catalan-romantics");
+    expect(getStoryHref(homePageData.hero)).toBe("/article/rest-defense-is-learning-to-breathe");
     expect(getStoryHref({ href: undefined }, "/fallback")).toBe("/fallback");
   });
 
@@ -69,19 +70,19 @@ describe("site data helpers", () => {
     expect(navItems.map((item) => item.label)).toContain("Culture");
     expect(navItems.map((item) => item.label)).not.toContain("Weekly Dispatch");
     expect(footerLinkGroups.flatMap((group) => group.links).map((link) => link.href)).toContain(
-      "/dispatch/week-in-blaugrana-12",
+      "/dispatch/week-in-blaugrana-13",
     );
     expect(siteMeta.footerMeta.socialLinks.map((link) => link.href)).toEqual(["/about", "/dispatch", "/archive"]);
   });
 
   it("exports homepage, about, archive, and dispatch content through shared typed data", () => {
-    expect(homePageData.hero.headline).toBe("The Last of the Catalan Romantics");
+    expect(homePageData.hero.headline).toBe("Barca's Rest Defense Is Learning to Breathe");
     expect(homePageData.analysisFeature.href).toBe("/analysis");
     expect(homePageData.vault.ctaHref).toBe("/archive");
     expect(homePageData.newsletter.heading).toBe("The Weekly Dispatch");
     expect(homePageData.newsletter.ctaHref).toBe("/dispatch");
     expect(homePageData.missionPanel.primaryLinkHref).toBe("/about");
-    expect(homePageData.missionPanel.secondaryLinkHref).toBe("/dispatch/week-in-blaugrana-12");
+    expect(homePageData.missionPanel.secondaryLinkHref).toBe("/dispatch/week-in-blaugrana-13");
     expect(aboutData.contact.primaryCtaHref).toBe("/dispatch");
     expect(dispatchIssues[0].items.length).toBeGreaterThan(3);
     expect(getArchiveCollectionStories(archiveCollections[0]).length).toBeGreaterThan(1);
@@ -109,6 +110,7 @@ describe("site data helpers", () => {
 
     const latestIssue = getLatestDispatchIssue();
     expect(latestIssue.slug).toBe(dispatchIssues[0].slug);
+    expect(latestIssue.slug).toBe("week-in-blaugrana-13");
     expect(getDispatchItemsAsStories(latestIssue).map((story) => story.href)).toEqual(
       latestIssue.items.map((item) => item.link),
     );

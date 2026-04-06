@@ -13,6 +13,7 @@ Check:
 - claims are sourced or clearly framed as observation
 - headlines and standfirsts do not overclaim
 - the prose says something concrete
+- the record's approval file in `newsroom/approvals/` describes the decision plainly
 
 Block on:
 - fabricated quotes
@@ -25,3 +26,7 @@ Result format:
 - `approved`
 - `approved with line edits`
 - `blocked`, with the shortest list of required fixes
+
+If approved:
+- record the decision in `newsroom/approvals/<approval-id>.json`
+- only then allow `npm run newsroom:workflow` to move the story toward `approved`

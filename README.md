@@ -20,6 +20,9 @@ Local commands
 - `npm test`
 - `npm run build`
 - `npm run build:local` if iCloud-backed `.next` cleanup gets in the way
+- `npm run newsroom:validate`
+- `npm run newsroom:build`
+- `npm run newsroom:dashboard`
 
 Principles
 - Not a news wire
@@ -33,3 +36,8 @@ Current direction
 - Strongest visual reference: the article page (`The Weave of the Blau`)
 - Homepage should feel like a real publication front, not a concept board
 - About/manifesto should explain the publication clearly without drifting into gallery/institution language
+
+Newsroom backend
+- repo-local editorial backend lives in `newsroom/`
+- published newsroom records compile into `newsroom/generated/site-content.json`
+- the site consumes that payload when valid and falls back to seeded content otherwise

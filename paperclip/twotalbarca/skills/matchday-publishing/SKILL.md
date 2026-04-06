@@ -13,6 +13,7 @@ Sequence:
 3. Decide whether a tactics follow-up is justified by the evidence.
 4. Route the draft to Copy Chief review.
 5. Publish in order: match notes first, tactics second if warranted, archive or dispatch packaging after.
+6. Update newsroom records and state files instead of leaving the workflow implicit.
 
 Timing rules:
 - fast is good, false is unacceptable
@@ -23,3 +24,10 @@ Quality rules:
 - the reader should know what happened quickly
 - keep the piece rooted in observable match developments
 - mark uncertainty clearly instead of hiding it
+
+Local file expectations:
+- assignments in `newsroom/assignments/`
+- story records in `newsroom/content/articles/`
+- approvals in `newsroom/approvals/`
+- workflow transitions through `npm run newsroom:workflow`
+- compiled site payload refreshed by `npm run newsroom:build`

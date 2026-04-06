@@ -14,11 +14,13 @@ Workflow:
 4. State the deadline and what "done" means.
 5. List the dependencies or blockers.
 6. Say whether the work can publish immediately after copy review or needs Editor in Chief approval.
+7. Create the real assignment file with `npm run newsroom:assignment -- --title "<title>" --owner <owner> --approver <approver> --kind <kind> --deadline <date>`.
 
 Do:
 - create one primary owner
 - keep the assignment narrow enough to finish
 - specify the exact match, player, tactical question, or archive hook
+- point the operator at the exact file that should be updated under `newsroom/`
 
 Do not:
 - assign the same lead to multiple agents

@@ -1,0 +1,33 @@
+{
+  "statuses": [
+    "draft",
+    "assigned",
+    "in_progress",
+    "in_review",
+    "copy_review",
+    "approved",
+    "scheduled",
+    "published",
+    "killed"
+  ],
+  "transitions": {
+    "draft": ["assigned", "killed"],
+    "assigned": ["in_progress", "killed"],
+    "in_progress": ["in_review", "killed"],
+    "in_review": ["copy_review", "in_progress", "killed"],
+    "copy_review": ["approved", "in_review", "killed"],
+    "approved": ["scheduled", "published", "in_review", "killed"],
+    "scheduled": ["published", "in_review", "killed"],
+    "published": [],
+    "killed": []
+  },
+  "requiredApprovals": {
+    "article": ["copy-chief", "editor-in-chief"],
+    "dispatch": ["copy-chief", "editor-in-chief"]
+  },
+  "distribution": {
+    "status": "deferred",
+    "specPath": "docs/distribution-spec.md",
+    "queueDir": "newsroom/generated/distribution-queue"
+  }
+}
