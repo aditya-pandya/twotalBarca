@@ -1,0 +1,280 @@
+schema: "paperclip/v1"
+company:
+  requireBoardApprovalForNewAgents: true
+agents:
+  ceo-publisher:
+    role: ceo
+    adapter:
+      type: hermes_local
+      config:
+        model: gpt-5
+    runtime:
+      heartbeat:
+        intervalSec: 14400
+        cooldownSec: 30
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    budgetMonthlyCents: 3000
+    permissions:
+      approvals:
+        canRequestStrategyApproval: true
+        canRequestHiringApproval: true
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+          description: Optional key for Hermes or OpenAI-compatible local operation.
+  editor-in-chief:
+    role: pm
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-5
+    runtime:
+      heartbeat:
+        intervalSec: 10800
+        cooldownSec: 20
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    budgetMonthlyCents: 2500
+    permissions:
+      publishing:
+        canApproveEditorialQueue: true
+    inputs:
+      env:
+        ANTHROPIC_API_KEY:
+          kind: secret
+          requirement: optional
+          description: Optional key for Claude local adapter runs.
+  match-notes-lead:
+    role: general
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-5
+    runtime:
+      heartbeat:
+        intervalSec: 7200
+        cooldownSec: 15
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    budgetMonthlyCents: 1800
+    inputs:
+      env:
+        ANTHROPIC_API_KEY:
+          kind: secret
+          requirement: optional
+  tactics-analyst:
+    role: researcher
+    adapter:
+      type: hermes_local
+      config:
+        model: gpt-5
+    runtime:
+      heartbeat:
+        intervalSec: 10800
+        cooldownSec: 20
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    budgetMonthlyCents: 1800
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+  archive-researcher:
+    role: researcher
+    adapter:
+      type: hermes_local
+      config:
+        model: gpt-5-mini
+    runtime:
+      heartbeat:
+        intervalSec: 21600
+        cooldownSec: 20
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    budgetMonthlyCents: 1200
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+  copy-chief:
+    role: qa
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-5
+    runtime:
+      heartbeat:
+        intervalSec: 10800
+        cooldownSec: 10
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    budgetMonthlyCents: 1500
+    permissions:
+      publishing:
+        canBlockOnStandards: true
+    inputs:
+      env:
+        ANTHROPIC_API_KEY:
+          kind: secret
+          requirement: optional
+  distribution-audience-lead:
+    role: cmo
+    adapter:
+      type: hermes_local
+      config:
+        model: gpt-5-mini
+    runtime:
+      heartbeat:
+        intervalSec: 21600
+        cooldownSec: 20
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    budgetMonthlyCents: 1200
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+  community-moderation-lead:
+    role: general
+    adapter:
+      type: hermes_local
+      config:
+        model: gpt-5-mini
+    runtime:
+      heartbeat:
+        intervalSec: 21600
+        cooldownSec: 15
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    budgetMonthlyCents: 1000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+  site-platform-engineer:
+    role: engineer
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5-codex
+    runtime:
+      heartbeat:
+        intervalSec: 14400
+        cooldownSec: 20
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+        wakeOnAutomation: true
+        maxConcurrentRuns: 1
+    budgetMonthlyCents: 2200
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+        TWOTALBARCA_REPO_ROOT:
+          kind: plain
+          requirement: optional
+          default: .
+          description: Relative repo root for local coding work when the adapter needs an explicit working tree path.
+projects:
+  editorial-desk:
+    status: in_progress
+  matchday-ops:
+    status: in_progress
+  archive-lab:
+    status: planned
+  audience-ops:
+    status: in_progress
+  platform-ops:
+    status: in_progress
+tasks:
+  matchday-review:
+    status: todo
+    priority: critical
+  weekly-dispatch:
+    status: todo
+    priority: high
+  archive-resurfacing:
+    status: todo
+    priority: medium
+  moderation-sweep:
+    status: todo
+    priority: high
+  front-page-check:
+    status: todo
+    priority: high
+routines:
+  matchday-review:
+    priority: critical
+    concurrencyPolicy: skip_if_active
+    variables:
+      - name: match_window
+        label: Match Window
+        type: select
+        defaultValue: auto
+        required: true
+        options:
+          - auto
+          - pre_match
+          - post_match
+    triggers:
+      - kind: schedule
+        label: Morning matchday scan
+        cronExpression: "0 7 * * *"
+        timezone: America/New_York
+      - kind: schedule
+        label: Evening matchday scan
+        cronExpression: "0 18 * * *"
+        timezone: America/New_York
+  weekly-dispatch:
+    priority: high
+    triggers:
+      - kind: schedule
+        label: Friday dispatch prep
+        cronExpression: "0 9 * * 5"
+        timezone: America/New_York
+  archive-resurfacing:
+    priority: medium
+    triggers:
+      - kind: schedule
+        label: Tuesday archive scan
+        cronExpression: "0 10 * * 2"
+        timezone: America/New_York
+  moderation-sweep:
+    priority: high
+    concurrencyPolicy: coalesce_if_active
+    triggers:
+      - kind: schedule
+        label: Repeating moderation pass
+        cronExpression: "0 */6 * * *"
+        timezone: America/New_York
+  front-page-check:
+    priority: high
+    triggers:
+      - kind: schedule
+        label: Daily front review
+        cronExpression: "0 8 * * *"
+        timezone: America/New_York

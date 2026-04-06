@@ -60,13 +60,13 @@ describe("site data helpers", () => {
   it("keeps shared header and footer links pointed at live publication surfaces", () => {
     expect(navItems.map((item) => item.href)).toEqual([
       "/section/brief",
-      "/section/match-notes",
-      "/section/analysis",
+      "/match-notes",
+      "/analysis",
       "/dispatch",
       "/archive",
       "/about",
     ]);
-    expect(footerLinkGroups.flatMap((group) => group.links).map((link) => link.href)).not.toContain(
+    expect(footerLinkGroups.flatMap((group) => group.links).map((link) => link.href)).toContain(
       "/dispatch/week-in-blaugrana-12",
     );
     expect(siteMeta.footerMeta.socialLinks.map((link) => link.href)).toEqual(["/about", "/dispatch", "/archive"]);
@@ -74,9 +74,10 @@ describe("site data helpers", () => {
 
   it("exports homepage, about, archive, and dispatch content through shared typed data", () => {
     expect(homePageData.hero.headline).toBe("The Last of the Catalan Romantics");
-    expect(homePageData.analysisFeature.href).toBe("/section/analysis");
+    expect(homePageData.analysisFeature.href).toBe("/analysis");
     expect(homePageData.vault.ctaHref).toBe("/archive");
     expect(homePageData.newsletter.heading).toBe("The Weekly Dispatch");
+    expect(homePageData.newsletter.ctaHref).toBe("/dispatch");
     expect(aboutData.contact.primaryCtaHref).toBe("/dispatch");
     expect(dispatchIssues[0].items.length).toBeGreaterThan(3);
     expect(getArchiveCollectionStories(archiveCollections[0]).length).toBeGreaterThan(1);

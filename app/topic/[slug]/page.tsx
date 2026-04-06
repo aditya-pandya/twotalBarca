@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BrowseDetailPage } from "@/components/browse-detail-page";
-import { buildMetadata, getArticlesByTopic, getTopicBySlug, getTopicSlugs, people, sections } from "@/lib/site-data";
+import {
+  buildMetadata,
+  getArticlesByTopic,
+  getSectionHref,
+  getTopicBySlug,
+  getTopicSlugs,
+  people,
+  sections,
+} from "@/lib/site-data";
 
 type TopicPageProps = {
   params: Promise<{ slug: string }>;
@@ -47,7 +55,7 @@ export default async function TopicPage({ params }: TopicPageProps) {
           eyebrow: "Section",
           title: section.name,
           body: section.description,
-          href: `/section/${section.slug}`,
+          href: getSectionHref(section.slug),
           label: "Browse section",
         })),
         ...relatedPeople.map((person) => ({

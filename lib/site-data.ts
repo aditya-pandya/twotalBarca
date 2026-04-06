@@ -202,12 +202,14 @@ export type HomePageData = {
   };
   reflections: Array<{ quote: string; byline: string }>;
   newsletter: {
+    eyebrow: string;
     heading: string;
     body: string;
-    inputLabel: string;
-    inputPlaceholder: string;
-    buttonLabel: string;
-    privacyNote: string;
+    ctaLabel: string;
+    ctaHref: string;
+    secondaryLinkLabel: string;
+    secondaryLinkHref: string;
+    note: string;
   };
 };
 
@@ -636,7 +638,7 @@ export const siteSections: SectionRecord[] = [
     eyebrow: "Publication / Dispatch",
     description: "The Weekly Dispatch archive: lead reads, archive picks, and the useful line of argument from the week.",
     landingDek: "Dispatch is the publication's weekly issue surface: curated, finite, and built to circulate the strongest work back into the present.",
-    featuredArticleSlug: dispatchIssues[0]!.leadStorySlug,
+    featuredArticleSlug: dispatchIssues[0]?.leadStorySlug ?? "the-last-of-the-catalan-romantics",
   },
 ];
 
@@ -659,10 +661,10 @@ export const collections: Collection[] = archiveCollections.map((collection) => 
 }));
 
 export const navItems: NavItem[] = [
+  { label: "The Brief", href: "/section/brief" },
   { label: "Match Notes", href: "/match-notes" },
   { label: "Analysis", href: "/analysis" },
-  { label: "Culture", href: "/culture" },
-  { label: "Dispatch", href: "/dispatch" },
+  { label: "Weekly Dispatch", href: "/dispatch" },
   { label: "Archive", href: "/archive" },
   { label: "About", href: "/about" },
 ];
@@ -671,6 +673,7 @@ export const footerLinkGroups: FooterLinkGroup[] = [
   {
     title: "Read",
     links: [
+      { label: "The Brief", href: "/section/brief" },
       { label: "Match Notes", href: "/match-notes" },
       { label: "Analysis", href: "/analysis" },
       { label: "Culture", href: "/culture" },
@@ -680,6 +683,7 @@ export const footerLinkGroups: FooterLinkGroup[] = [
   {
     title: "Publication",
     links: [
+      { label: "Weekly Dispatch", href: "/dispatch" },
       { label: "Archive", href: "/archive" },
       { label: "About", href: "/about" },
       { label: "Editorial principles", href: "/about#principles" },
@@ -688,7 +692,7 @@ export const footerLinkGroups: FooterLinkGroup[] = [
   {
     title: "Dispatch",
     links: [
-      { label: "Weekly Dispatch", href: "/dispatch" },
+      { label: "Latest issue", href: dispatchIssues[0] ? `/dispatch/${dispatchIssues[0].slug}` : "/dispatch" },
       { label: "Dispatch archive", href: "/dispatch" },
       { label: "Coverage map", href: "/about#coverage" },
       { label: "Contact", href: "/about#contact" },
@@ -707,7 +711,7 @@ export const siteMeta = {
   footerMeta: {
     socialLinks: [
       { label: "About", href: "/about" },
-      { label: "Dispatch", href: "/dispatch" },
+      { label: "Weekly Dispatch", href: "/dispatch" },
       { label: "Archive", href: "/archive" },
     ],
     legalNotice: "FC Barcelona writing with memory, football specificity, and no tolerance for template noise.",
@@ -811,12 +815,14 @@ export const homePageData: HomePageData = {
     { quote: "The crowd still knows the difference between speed and clarity, even when the club pretends it does not.", byline: "From the weekly notebook" },
   ],
   newsletter: {
+    eyebrow: "Dispatch",
     heading: "The Weekly Dispatch",
-    body: "A concise editorial issue each week with the pieces worth reading, one archive pick, and the line of argument that actually held after the noise burned off.",
-    inputLabel: "Email address",
-    inputPlaceholder: "EMAIL ADDRESS",
-    buttonLabel: "Browse dispatch archive",
-    privacyNote: "No spam, no transfer sludge, no synthetic urgency. One careful issue each week.",
+    body: "A concise weekly issue with one lead read, one archive return, and the line of argument that still holds after the noise burns off.",
+    ctaLabel: "Open the dispatch archive",
+    ctaHref: "/dispatch",
+    secondaryLinkLabel: "Read the latest issue",
+    secondaryLinkHref: dispatchIssues[0] ? `/dispatch/${dispatchIssues[0].slug}` : "/dispatch",
+    note: "This static build keeps the dispatch as a readable archive surface: no fake signup form, no inbox sludge, one careful issue at a time.",
   },
 };
 
@@ -833,11 +839,21 @@ export function getStoryHref(story: Pick<Story, "href">, fallback = "/archive") 
 }
 
 export function getSectionBySlug(slug: string) {
-  return sections.find((item) => item.slug === slug) ?? siteSections.find((item) => item.slug === slug);
+  return sections.find((item) => item.slug === slug);
+}
+
+export function getSectionHref(slug: string) {
+  const aliasMap: Record<string, string> = {
+    analysis: "/analysis",
+    culture: "/culture",
+    "match-notes": "/match-notes",
+  };
+
+  return aliasMap[slug] ?? `/section/${slug}`;
 }
 
 export function getSectionSlugs() {
-  return siteSections.filter((item) => item.slug !== "brief").map((item) => item.slug);
+  return sections.map((item) => item.slug);
 }
 
 export function getTopicBySlug(slug: string) {
@@ -881,7 +897,7 @@ export function getDispatchIssueSlugs() {
 }
 
 export function getLatestDispatchIssue() {
-  return dispatchIssues[0]!;
+  return dispatchIssues[0];
 }
 
 export function getArticlesBySection(sectionSlug: string) {

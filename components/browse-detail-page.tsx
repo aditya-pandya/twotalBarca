@@ -70,20 +70,29 @@ export function BrowseDetailPage({
         <div className="section-head">
           <h2>{asideTitle}</h2>
         </div>
-        <div className="story-grid">
-          {asideItems.map((item) => (
-            <article className="mission-card" key={`${item.title}-${item.body}`}>
-              {item.eyebrow ? <Eyebrow>{item.eyebrow}</Eyebrow> : null}
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-              {item.href && item.label ? (
-                <a className="editorial-link subtle" href={item.href}>
-                  {item.label}
-                </a>
-              ) : null}
-            </article>
-          ))}
-        </div>
+        {asideItems.length > 0 ? (
+          <div className="story-grid">
+            {asideItems.map((item) => (
+              <article className="mission-card" key={`${item.title}-${item.body}`}>
+                {item.eyebrow ? <Eyebrow>{item.eyebrow}</Eyebrow> : null}
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+                {item.href && item.label ? (
+                  <a className="editorial-link subtle" href={item.href}>
+                    {item.label}
+                  </a>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        ) : (
+          <FallbackState
+            title="Related material is still being filed"
+            body="This page already resolves, but its secondary shelf can expand as more routes and cross-links are seeded."
+            actionLabel="Browse the archive"
+            actionHref="/archive"
+          />
+        )}
       </section>
     </>
   );

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Eyebrow, FeaturedStoryCard, StoryCard } from "@/components/primitives";
+import { Eyebrow, FallbackState, FeaturedStoryCard, StoryCard } from "@/components/primitives";
 import {
   archiveCollections,
   buildMetadata,
@@ -55,7 +55,16 @@ export default function ArchivePage() {
         <div className="section-head">
           <h2>Lead archive essay</h2>
         </div>
-        {featuredArchiveStory ? <FeaturedStoryCard story={featuredArchiveStory} /> : null}
+        {featuredArchiveStory ? (
+          <FeaturedStoryCard story={featuredArchiveStory} />
+        ) : (
+          <FallbackState
+            title="The archive lead is still being selected"
+            body="The archive surface is live, but it should always open with a seeded lead essay."
+            actionLabel="Return to the front page"
+            actionHref="/"
+          />
+        )}
       </section>
 
       <section className="section-block shell">

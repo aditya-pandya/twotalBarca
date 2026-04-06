@@ -10,3 +10,4 @@ pnpm-debug.log*
 .vercel
 .migration_backup_twotalBarca_nested/
 scratch/
+.paperclip-runtime/

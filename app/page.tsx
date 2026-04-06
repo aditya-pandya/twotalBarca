@@ -146,28 +146,18 @@ export default function HomePage() {
 
         <div className="home-newsletter">
           <div id="dispatch" />
+          <span className="home-kicker home-kicker--gold">{newsletter.eyebrow}</span>
           <h2>{newsletter.heading}</h2>
           <p>{newsletter.body}</p>
-          <form>
-            <label className="sr-only" htmlFor="dispatch-email">
-              {newsletter.inputLabel}
-            </label>
-            <div className="home-newsletter__field">
-              <input
-                id="dispatch-email"
-                name="email"
-                placeholder={newsletter.inputPlaceholder}
-                type="email"
-              />
-            </div>
-            <Link className="header-cta" href="/dispatch">
-              {newsletter.buttonLabel}
+          <div className="home-newsletter__actions">
+            <Link className="header-cta" href={newsletter.ctaHref}>
+              {newsletter.ctaLabel}
             </Link>
-            <p className="home-newsletter__note">{newsletter.privacyNote}</p>
-          </form>
-          <Link className="home-inline-link" href="/dispatch">
-            Browse dispatch archive
-          </Link>
+            <Link className="home-inline-link" href={newsletter.secondaryLinkHref}>
+              {newsletter.secondaryLinkLabel}
+            </Link>
+          </div>
+          <p className="home-newsletter__note">{newsletter.note}</p>
         </div>
       </section>
     </>

@@ -2,12 +2,38 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { navItems } from "@/lib/site-data";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const mobileNavId = useId();
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!isMenuOpen) {
+      document.body.style.removeProperty("overflow");
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.removeProperty("overflow");
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMenuOpen]);
 
   function getIsActive(href: string) {
     const routePath = href.replace(/#.*$/, "");
@@ -38,22 +64,27 @@ export function SiteHeader() {
 
         <div className="header-actions">
           <button
-            aria-controls="mobile-navigation"
+            aria-controls={mobileNavId}
             aria-expanded={isMenuOpen}
-            aria-label="Toggle navigation"
+            aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
             className="header-search header-menu-toggle"
             onClick={() => setIsMenuOpen((current) => !current)}
             type="button"
           >
-            Menu
+            {isMenuOpen ? "Close" : "Menu"}
           </button>
           <Link className="header-cta" href="/dispatch">
-            Subscribe
+            Weekly Dispatch
           </Link>
         </div>
       </div>
 
-      <div className="mobile-nav-shell" data-open={isMenuOpen ? "true" : undefined} id="mobile-navigation">
+      <div
+        aria-hidden={!isMenuOpen}
+        className="mobile-nav-shell"
+        data-open={isMenuOpen ? "true" : undefined}
+        id={mobileNavId}
+      >
         <nav aria-label="Mobile primary" className="mobile-nav-links">
           {navItems.map((item) => (
             <Link
@@ -66,7 +97,7 @@ export function SiteHeader() {
             </Link>
           ))}
           <Link className="mobile-nav-dispatch" href="/dispatch" onClick={() => setIsMenuOpen(false)}>
-            Open the latest dispatch
+            Read the latest issue
           </Link>
         </nav>
       </div>

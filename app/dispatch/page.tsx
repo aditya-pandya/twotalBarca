@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Eyebrow, FeaturedStoryCard, StoryCard } from "@/components/primitives";
+import { Eyebrow, FallbackState, FeaturedStoryCard, StoryCard } from "@/components/primitives";
 import { buildMetadata, dispatchIssues, getDispatchLeadStory, getDispatchStories } from "@/lib/site-data";
 
 export const metadata: Metadata = buildMetadata({
@@ -78,7 +78,16 @@ export default function DispatchPage() {
             </div>
           </section>
         </>
-      ) : null}
+      ) : (
+        <section className="section-block shell">
+          <FallbackState
+            title="No dispatch issues are published yet"
+            body="The dispatch route is live and ready, but this build does not currently have an issue seeded into the archive."
+            actionLabel="Browse the homepage"
+            actionHref="/"
+          />
+        </section>
+      )}
     </>
   );
 }

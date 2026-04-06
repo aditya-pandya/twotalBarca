@@ -7,6 +7,7 @@ import {
   getArticlesBySection,
   getFeaturedArticleForRecord,
   getSectionBySlug,
+  getSectionHref,
   getSectionSlugs,
   topics,
 } from "@/lib/site-data";
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: SectionPageProps): Promise<Me
   return buildMetadata({
     title: section.name,
     description: section.description,
-    path: `/section/${section.slug}`,
+    path: getSectionHref(section.slug),
     section: section.name,
   });
 }
