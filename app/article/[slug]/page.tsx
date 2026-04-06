@@ -2,8 +2,17 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArticleBody } from "@/components/article-body";
+import { JsonLd } from "@/components/json-ld";
 import { Eyebrow, FallbackState, MetaRow } from "@/components/primitives";
-import { buildMetadata, getArticleBySlug, getArticleSlugs, getStoryHref } from "@/lib/site-data";
+import {
+  buildMetadata,
+  getArticleBySlug,
+  getArticleCompanionCopy,
+  getArticleSlugs,
+  getStoryHref,
+  getTopicLabel,
+} from "@/lib/site-data";
+import { buildArticleSchema } from "@/lib/schema";
 
 type ArticlePageProps = {
   params: Promise<{ slug: string }>;
@@ -42,6 +51,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   }
 
   const [featuredRelated, ...remainingRelated] = currentArticle.related;
+  const companionCopy = getArticleCompanionCopy(currentArticle);
 
   return (
     <>
@@ -100,11 +110,22 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <div className="article-intro">
               <p className="article-standfirst">{currentArticle.excerpt}</p>
             </div>
+            <figure className="article-hero-media">
+              <img
+                alt={currentArticle.heroImage.alt}
+                className="article-hero-media__image"
+                src={currentArticle.heroImage.src}
+              />
+              <figcaption className="article-hero-media__caption">
+                <span>{currentArticle.heroCaption}</span>
+                <span>{currentArticle.heroCredit}</span>
+              </figcaption>
+            </figure>
             <ArticleBody
               conviction={currentArticle.conviction}
+              convictionLabel={companionCopy.convictionLabel}
               fieldNote={currentArticle.ritual}
-              heroCaption={currentArticle.heroCaption}
-              heroCredit={currentArticle.heroCredit}
+              fieldNoteLabel={companionCopy.fieldNoteLabel}
               paragraphs={currentArticle.body}
               pullQuote={currentArticle.pullQuote}
               quoteBy={currentArticle.quoteBy}
@@ -117,10 +138,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <div className="article-notes">
           <div className="article-notes-head">
             <div>
-              <Eyebrow>Archive notes</Eyebrow>
-              <h2>Three moments in the shirt&apos;s public life</h2>
+              <Eyebrow>{companionCopy.notebookEyebrow}</Eyebrow>
+              <h2>{companionCopy.notebookTitle}</h2>
             </div>
-            <p>A factual layer grounds the essay in observable changes to silhouette, circulation, and public meaning.</p>
+            <p>{companionCopy.notebookDescription}</p>
           </div>
           <div className="timeline-grid">
             {currentArticle.timeline.map((item) => (
@@ -133,7 +154,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <div className="topic-row">
             {currentArticle.topicSlugs.map((topic) => (
               <Link href={`/topic/${topic}`} key={topic} className="topic-chip">
-                {topic.replace(/-/g, " ")}
+                {getTopicLabel(topic)}
               </Link>
             ))}
           </div>
@@ -191,6 +212,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           />
         )}
       </section>
+
+      <JsonLd data={buildArticleSchema(currentArticle)} />
     </>
   );
 }

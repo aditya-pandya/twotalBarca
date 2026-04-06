@@ -33,7 +33,9 @@ export function SiteFooter() {
         ))}
 
         <div className="footer-legal">
-          <p className="footer-legal__line">Publication routes stay explicit: Brief, Match Notes, Analysis, Dispatch, Archive.</p>
+          <p className="footer-legal__line">
+            Publication routes stay explicit: The Brief, Match Notes, Analysis, Culture, Archive, and the Weekly Dispatch.
+          </p>
           <p>{siteMeta.footerMeta.legalNotice}</p>
         </div>
       </div>

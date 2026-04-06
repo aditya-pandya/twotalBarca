@@ -211,6 +211,24 @@ export type HomePageData = {
     secondaryLinkHref: string;
     note: string;
   };
+  missionPanel: {
+    eyebrow: string;
+    heading: string;
+    body: string;
+    points: Array<{ title: string; detail: string }>;
+    primaryLinkLabel: string;
+    primaryLinkHref: string;
+    secondaryLinkLabel: string;
+    secondaryLinkHref: string;
+  };
+};
+
+export type ArticleCompanionCopy = {
+  fieldNoteLabel: string;
+  convictionLabel: string;
+  notebookEyebrow: string;
+  notebookTitle: string;
+  notebookDescription: string;
 };
 
 function media(src: string, alt: string, caption?: string, credit?: string): MediaAsset {
@@ -664,7 +682,7 @@ export const navItems: NavItem[] = [
   { label: "The Brief", href: "/section/brief" },
   { label: "Match Notes", href: "/match-notes" },
   { label: "Analysis", href: "/analysis" },
-  { label: "Weekly Dispatch", href: "/dispatch" },
+  { label: "Culture", href: "/culture" },
   { label: "Archive", href: "/archive" },
   { label: "About", href: "/about" },
 ];
@@ -707,6 +725,14 @@ export const siteMeta = {
   description: "A premium FC Barcelona publication for essays, match notes, archive work, and analysis rooted in football rather than noise.",
   tagline: "FC Barcelona writing in the present tense and the club's long memory.",
   contactEmail: "editor@twotalbarca.com",
+  keywords: [
+    "FC Barcelona",
+    "Barca analysis",
+    "Barca culture",
+    "Barca archive",
+    "football writing",
+    "Weekly Dispatch",
+  ],
   footer: footerLinkGroups,
   footerMeta: {
     socialLinks: [
@@ -823,6 +849,29 @@ export const homePageData: HomePageData = {
     secondaryLinkLabel: "Read the latest issue",
     secondaryLinkHref: dispatchIssues[0] ? `/dispatch/${dispatchIssues[0].slug}` : "/dispatch",
     note: "This static build keeps the dispatch as a readable archive surface: no fake signup form, no inbox sludge, one careful issue at a time.",
+  },
+  missionPanel: {
+    eyebrow: "Why twotalBarça exists",
+    heading: "A Barça publication with memory, standards, and a clear reason for every shelf.",
+    body: "twotalBarça is built for readers who want present-tense football analysis, cultural context, and archive work in the same publication without the churn of a generic sports feed.",
+    points: [
+      {
+        title: "Curated, not crowded",
+        detail: "The homepage is a deliberate front page: one lead argument, a few strong rails, and no fake urgency.",
+      },
+      {
+        title: "Football stays central",
+        detail: "Even the culture and archive shelves are there to sharpen how we read the current club.",
+      },
+      {
+        title: "Weekly rhythm, long memory",
+        detail: "The Dispatch keeps the week's strongest line of argument alive while the vault keeps older work active.",
+      },
+    ],
+    primaryLinkLabel: "Read about the publication",
+    primaryLinkHref: "/about",
+    secondaryLinkLabel: "Browse the latest dispatch",
+    secondaryLinkHref: dispatchIssues[0] ? `/dispatch/${dispatchIssues[0].slug}` : "/dispatch",
   },
 };
 
@@ -1000,6 +1049,53 @@ export function getRelatedArticles(articleItem: Article) {
     .filter((slug): slug is string => Boolean(slug))
     .map((slug) => getArticleBySlug(slug))
     .filter((item): item is Article => Boolean(item));
+}
+
+export function getArticleCompanionCopy(articleItem: Article): ArticleCompanionCopy {
+  const sectionLabel = getSectionLabel(articleItem.sectionSlug);
+  const archiveContext = articleItem.historicalEra ? `the ${articleItem.historicalEra} era` : "the club's long memory";
+
+  if (articleItem.sectionSlug === "archive") {
+    return {
+      fieldNoteLabel: "Long-memory note",
+      convictionLabel: "Why it endures",
+      notebookEyebrow: "Archive notes",
+      notebookTitle: `Three reference points in ${archiveContext}`,
+      notebookDescription:
+        "A short chronology keeps the archive grounded in usable evidence: dates, thresholds, and the concrete pressures that still reach the present club.",
+    };
+  }
+
+  if (articleItem.sectionSlug === "analysis") {
+    return {
+      fieldNoteLabel: "Tactical note",
+      convictionLabel: "Why it matters",
+      notebookEyebrow: "Analysis notebook",
+      notebookTitle: `Three reference points behind ${articleItem.headline}`,
+      notebookDescription:
+        "A short notebook keeps the tactical argument tied to repeatable sequences, timings, and the pressures that made the pattern visible.",
+    };
+  }
+
+  if (articleItem.sectionSlug === "match-notes") {
+    return {
+      fieldNoteLabel: "Match note",
+      convictionLabel: "At stake",
+      notebookEyebrow: "Match notebook",
+      notebookTitle: `Three checkpoints around ${articleItem.headline}`,
+      notebookDescription:
+        "The match notebook keeps the piece close to observable details: when the shift appeared, how it held, and where the next stress point sits.",
+    };
+  }
+
+  return {
+    fieldNoteLabel: `${sectionLabel} note`,
+    convictionLabel: "Why it matters",
+    notebookEyebrow: `${sectionLabel} notes`,
+    notebookTitle: `Three reference points around ${articleItem.headline}`,
+    notebookDescription:
+      "A short editorial notebook keeps the piece anchored in dates, pressures, and recurring signals instead of letting the argument float free of the football context around it.",
+  };
 }
 
 export function buildMetadata({

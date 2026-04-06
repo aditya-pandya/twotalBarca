@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/json-ld";
 import { buildMetadata, homePageData } from "@/lib/site-data";
+import { buildHomePageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
   title: "Home",
@@ -160,6 +162,34 @@ export default function HomePage() {
           <p className="home-newsletter__note">{newsletter.note}</p>
         </div>
       </section>
+
+      <section className="home-mission home-shell" id="mission">
+        <div className="home-mission__card">
+          <div className="home-mission__intro">
+            <span className="home-kicker home-kicker--gold">{homePageData.missionPanel.eyebrow}</span>
+            <h2>{homePageData.missionPanel.heading}</h2>
+            <p>{homePageData.missionPanel.body}</p>
+          </div>
+          <div className="home-mission__points" aria-label="Publication orientation points">
+            {homePageData.missionPanel.points.map((point) => (
+              <article className="home-mission__point" key={point.title}>
+                <h3>{point.title}</h3>
+                <p>{point.detail}</p>
+              </article>
+            ))}
+          </div>
+          <div className="home-mission__actions">
+            <Link className="home-inline-link" href={homePageData.missionPanel.primaryLinkHref}>
+              {homePageData.missionPanel.primaryLinkLabel}
+            </Link>
+            <Link className="home-inline-link" href={homePageData.missionPanel.secondaryLinkHref}>
+              {homePageData.missionPanel.secondaryLinkLabel}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <JsonLd data={buildHomePageSchema(homePageData)} />
     </>
   );
 }

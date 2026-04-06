@@ -62,10 +62,12 @@ describe("site data helpers", () => {
       "/section/brief",
       "/match-notes",
       "/analysis",
-      "/dispatch",
+      "/culture",
       "/archive",
       "/about",
     ]);
+    expect(navItems.map((item) => item.label)).toContain("Culture");
+    expect(navItems.map((item) => item.label)).not.toContain("Weekly Dispatch");
     expect(footerLinkGroups.flatMap((group) => group.links).map((link) => link.href)).toContain(
       "/dispatch/week-in-blaugrana-12",
     );
@@ -78,6 +80,8 @@ describe("site data helpers", () => {
     expect(homePageData.vault.ctaHref).toBe("/archive");
     expect(homePageData.newsletter.heading).toBe("The Weekly Dispatch");
     expect(homePageData.newsletter.ctaHref).toBe("/dispatch");
+    expect(homePageData.missionPanel.primaryLinkHref).toBe("/about");
+    expect(homePageData.missionPanel.secondaryLinkHref).toBe("/dispatch/week-in-blaugrana-12");
     expect(aboutData.contact.primaryCtaHref).toBe("/dispatch");
     expect(dispatchIssues[0].items.length).toBeGreaterThan(3);
     expect(getArchiveCollectionStories(archiveCollections[0]).length).toBeGreaterThan(1);

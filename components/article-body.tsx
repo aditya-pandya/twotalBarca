@@ -4,28 +4,28 @@ export function ArticleBody({
   paragraphs,
   pullQuote,
   quoteBy,
-  heroCaption,
-  heroCredit,
   conviction,
   fieldNote,
+  convictionLabel,
+  fieldNoteLabel,
 }: {
   paragraphs: string[];
   pullQuote: string;
   quoteBy: string;
-  heroCaption: string;
-  heroCredit: string;
   conviction: string;
   fieldNote: string;
+  convictionLabel: string;
+  fieldNoteLabel: string;
 }) {
   return (
     <div className="article-layout">
       <aside className="article-rail">
         <div className="article-rail-block">
-          <p className="eyebrow">Field notes</p>
+          <p className="eyebrow">{fieldNoteLabel}</p>
           <p>{fieldNote}</p>
         </div>
         <div className="article-rail-block">
-          <p className="eyebrow">At stake</p>
+          <p className="eyebrow">{convictionLabel}</p>
           <p>{conviction}</p>
         </div>
         <EditorialLink href="/about" subtle>
@@ -36,15 +36,6 @@ export function ArticleBody({
         {paragraphs.slice(0, 2).map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
         ))}
-        <figure className="article-insert">
-          <div className="article-insert-art" aria-hidden="true">
-            <div className="article-insert-weave" />
-          </div>
-          <figcaption>
-            <span>{heroCaption}</span>
-            <span>{heroCredit}</span>
-          </figcaption>
-        </figure>
         <PullQuote cite={quoteBy}>{pullQuote}</PullQuote>
         {paragraphs.slice(2).map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>

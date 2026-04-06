@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { siteMeta } from "@/lib/site-data";
+import { buildSiteSchemas } from "@/lib/schema";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -35,9 +37,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
+        <JsonLd data={buildSiteSchemas()} />
         <div className="site-frame">
           <SiteHeader />
-          <main className="site-main">{children}</main>
+          <main className="site-main" id="main-content">
+            {children}
+          </main>
           <SiteFooter />
         </div>
       </body>

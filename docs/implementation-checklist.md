@@ -1,6 +1,6 @@
 # twotalBarça — Technical Implementation Checklist
 
-Last updated: 2026-04-04
+Last updated: 2026-04-06
 
 Use this as the execution checklist for the next agent.
 It is intentionally practical and split by system, pages, and components.
@@ -50,8 +50,8 @@ Before finishing:
 ### 2.2 Data architecture
 - [x] `lib/site-data.ts` provides typed article/about/navigation data
 - [~] Homepage still contains page-local content arrays that should be normalized
-- [ ] Create a coherent homepage content contract in shared data
-- [ ] Remove stale/duplicated homepage content definitions after normalization
+- [x] Create a coherent homepage content contract in shared data
+- [x] Remove stale/duplicated homepage content definitions after normalization
 - [ ] Define future dispatch/archive/topic structures cleanly
 - [ ] Prepare for CMS migration only after contracts stabilize
 
@@ -66,10 +66,10 @@ Before finishing:
 ### 2.4 Testing
 - [x] Seed data helper tests exist
 - [x] UI smoke tests exist
-- [ ] Add nav-anchor regression tests
-- [ ] Add article route rendering assertions
+- [x] Add nav-anchor regression tests
+- [x] Add article route rendering assertions
 - [ ] Add About page smoke assertions
-- [ ] Add metadata-level checks where useful
+- [x] Add metadata-level checks where useful
 
 ---
 
@@ -85,6 +85,7 @@ Checklist:
 - [x] Shared header/footer mounted globally
 - [x] Shared font loading configured
 - [x] Main content offset accounts for fixed header
+- [x] Real skip link exists and lands on main content
 - [ ] Audit route-level metadata completeness beyond the seeded basics
 
 ### 3.2 Header
@@ -99,9 +100,9 @@ Checklist:
 - [x] CTA present
 - [x] Search affordance present
 - [~] Current labels mirror Stitch-ish wording in places
-- [ ] Reconcile long-term taxonomy if product naming changes
+- [x] Reconcile long-term taxonomy if product naming changes
 - [ ] Confirm active-state behavior remains correct for all non-hash routes
-- [ ] Add tests for header link destinations if nav changes again
+- [x] Add tests for header link destinations if nav changes again
 
 ### 3.3 Footer
 Files:
@@ -113,7 +114,7 @@ Checklist:
 - [x] Multi-column link layout exists
 - [x] Brand statement exists
 - [~] Footer content still partly placeholder/editorial demo copy
-- [ ] Reconcile footer taxonomy if top-level nav changes
+- [x] Reconcile footer taxonomy if top-level nav changes
 - [ ] Ensure footer links map to real routes/anchors
 
 ---
@@ -144,9 +145,9 @@ Current status:
 ### 4.2 Content/anchors
 - [x] Section anchors exist for major surfaces
 - [~] Some naming is fidelity-driven rather than ideal long-term taxonomy
-- [ ] Normalize homepage section naming if a final taxonomy decision is made
+- [x] Normalize homepage section naming if a final taxonomy decision is made
 - [ ] Keep links and anchor ids consistent across header, footer, and page sections
-- [ ] Move homepage content arrays into shared typed data structures
+- [x] Move homepage content arrays into shared typed data structures
 
 ### 4.3 UX / editorial quality
 - [x] Homepage feels curated rather than feed-dense
@@ -156,8 +157,8 @@ Current status:
 - [ ] Ensure archive material feels integral, not decorative
 
 ### 4.4 Technical follow-up
-- [ ] Add regression tests for homepage section links/anchors
-- [ ] Add smoke assertions for key modules
+- [x] Add regression tests for homepage section links/anchors
+- [x] Add smoke assertions for key modules
 - [ ] Review for any avoidable hardcoded duplication after content normalization
 
 ---
@@ -192,7 +193,7 @@ Current status:
 
 ### 5.3 Future improvements
 - [ ] Add richer metadata rendering rules
-- [ ] Add stronger hero/caption/credit discipline
+- [x] Add stronger hero/caption/credit discipline
 - [ ] Add optional factual modules (timeline, stats, notes) where appropriate
 - [ ] Consider structured author/archive references later
 
