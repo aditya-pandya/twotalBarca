@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-04-06T11:12:37.196Z",
+  "items": [
+    {
+      "diagnostics": [
+        "Missing latest draft binding."
+      ],
+      "id": "publish-article-rest-defense-is-learning-to-breathe",
+      "maxRetries": 3,
+      "publishAt": "2026-04-05T14:00:00.000Z",
+      "publishedAt": "2026-04-05T14:05:00.000Z",
+      "recordId": "article-rest-defense-breathe",
+      "recordKind": "article",
+      "retryCount": 0,
+      "schemaVersion": 1,
+      "slug": "rest-defense-is-learning-to-breathe",
+      "status": "published"
+    },
+    {
+      "diagnostics": [
+        "Missing latest draft binding."
+      ],
+      "id": "publish-dispatch-week-in-blaugrana-13",
+      "maxRetries": 3,
+      "publishAt": "2026-04-05T18:00:00.000Z",
+      "publishedAt": "2026-04-05T18:10:00.000Z",
+      "recordId": "dispatch-13",
+      "recordKind": "dispatch",
+      "retryCount": 0,
+      "schemaVersion": 1,
+      "slug": "week-in-blaugrana-13",
+      "status": "published"
+    }
+  ],
+  "schemaVersion": 1
+}

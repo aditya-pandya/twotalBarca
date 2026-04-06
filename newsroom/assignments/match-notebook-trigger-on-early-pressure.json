@@ -1,0 +1,25 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Turn the latest match-note pattern into a notebook or analysis assignment if the desk wants a new lead before the next dispatch.",
+  "createdAt": "2026-04-06T11:10:26.101Z",
+  "deadline": "2026-04-08T12:50:00.000Z",
+  "deliverables": [
+    "One assignment brief",
+    "Supporting observation list",
+    "Dispatch relevance note"
+  ],
+  "dependencies": [
+    "signal:signal-match-notes-watch-early-pressure-pattern"
+  ],
+  "id": "assignment-match-notebook-trigger-on-early-pressure",
+  "kind": "article",
+  "owner": "match-notes-lead",
+  "priority": "medium",
+  "recordKind": "article",
+  "slug": "match-notebook-trigger-on-early-pressure",
+  "sourceSignalId": "signal-match-notes-watch-early-pressure-pattern",
+  "status": "open",
+  "targetSlug": "match-notebook-trigger-on-early-pressure",
+  "title": "Match notebook trigger on early pressure",
+  "updatedAt": "2026-04-06T11:10:26.101Z"
+}

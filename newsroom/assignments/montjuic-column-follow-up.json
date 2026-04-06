@@ -1,0 +1,25 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Package a follow-up note that resolves the desk's copy edits and prepares the column for approval.",
+  "createdAt": "2026-04-06T11:10:26.100Z",
+  "deadline": "2026-04-07T15:20:00.000Z",
+  "deliverables": [
+    "Montjuic revision follow-up",
+    "Updated packaging line",
+    "Approval-ready summary"
+  ],
+  "dependencies": [
+    "signal:signal-editorial-follow-ups"
+  ],
+  "id": "assignment-montjuic-column-follow-up",
+  "kind": "article",
+  "owner": "editor-in-chief",
+  "priority": "high",
+  "recordKind": "article",
+  "slug": "montjuic-column-follow-up",
+  "sourceSignalId": "signal-editorial-follow-ups",
+  "status": "open",
+  "targetSlug": "montjuic-column-follow-up",
+  "title": "Montjuic column follow-up",
+  "updatedAt": "2026-04-06T11:10:26.100Z"
+}

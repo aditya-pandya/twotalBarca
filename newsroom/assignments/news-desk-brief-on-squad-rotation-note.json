@@ -1,0 +1,25 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Prepare a concise news desk assignment tied to the current local publication angles.",
+  "createdAt": "2026-04-06T11:10:26.104Z",
+  "deadline": "2026-04-07T12:30:00.000Z",
+  "deliverables": [
+    "One news desk assignment",
+    "Signal summary",
+    "Reader value note"
+  ],
+  "dependencies": [
+    "signal:signal-news-desk-watch"
+  ],
+  "id": "assignment-news-desk-brief-on-squad-rotation-note",
+  "kind": "article",
+  "owner": "editor-in-chief",
+  "priority": "medium",
+  "recordKind": "article",
+  "slug": "news-desk-brief-on-squad-rotation-note",
+  "sourceSignalId": "signal-news-desk-watch",
+  "status": "open",
+  "targetSlug": "news-desk-brief-on-squad-rotation-note",
+  "title": "News desk brief on squad rotation note",
+  "updatedAt": "2026-04-06T11:10:26.104Z"
+}

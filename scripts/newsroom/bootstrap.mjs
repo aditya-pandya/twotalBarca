@@ -1,30 +1,21 @@
-import { mkdir, access } from "node:fs/promises";
-import path from "node:path";
-import { buildGeneratedSitePayload } from "../../lib/newsroom-io.ts";
+import { access } from "node:fs/promises";
+import { buildGeneratedSitePayload, ensureNewsroomDirectories, writePublishQueue, writeReviewSummary } from "../../lib/newsroom-io.ts";
 
 const rootDir = process.cwd();
-const directories = [
-  "newsroom/config",
-  "newsroom/content/articles",
-  "newsroom/content/dispatch",
-  "newsroom/state",
-  "newsroom/assignments",
-  "newsroom/approvals",
-  "newsroom/generated",
-];
 
-for (const relativeDir of directories) {
-  await mkdir(path.join(rootDir, relativeDir), { recursive: true });
-}
+await ensureNewsroomDirectories(rootDir);
 
 try {
-  await access(path.join(rootDir, "newsroom/config/workflow.json"));
+  await access("newsroom/config/workflow.json");
 } catch {
   console.error("Missing newsroom/config/workflow.json. Bootstrap expects the newsroom contracts to be committed.");
   process.exit(1);
 }
 
 const { issues, outputPath, payload } = await buildGeneratedSitePayload(rootDir);
+await writePublishQueue(rootDir);
+await writeReviewSummary(rootDir);
+
 const errors = issues.filter((issue) => issue.severity === "error");
 
 console.log(`Newsroom bootstrap complete. Output: ${outputPath}`);

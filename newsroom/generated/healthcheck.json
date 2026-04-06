@@ -1,0 +1,29 @@
+{
+  "checks": [
+    {
+      "detail": "0 errors, 0 warnings",
+      "name": "validation",
+      "ok": true
+    },
+    {
+      "detail": "6 enabled sources, 6 signals",
+      "name": "signals",
+      "ok": true
+    },
+    {
+      "detail": "1 open review artifact(s) tracked",
+      "name": "reviews",
+      "ok": true
+    },
+    {
+      "detail": "0 blocked queue item(s)",
+      "name": "publishing",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "generatedAt": "2026-04-06T11:16:27.276Z",
+  "healthy": true,
+  "schemaVersion": 1,
+  "warnings": []
+}

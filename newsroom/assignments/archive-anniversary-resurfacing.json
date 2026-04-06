@@ -1,0 +1,25 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Resurface an archive anniversary item with fresh framing for the internal dispatch queue.",
+  "createdAt": "2026-04-06T11:10:26.097Z",
+  "deadline": "2026-04-10T07:15:00.000Z",
+  "deliverables": [
+    "One archive research assignment",
+    "Anniversary angle note",
+    "Front-page shelf recommendation"
+  ],
+  "dependencies": [
+    "signal:signal-archive-lab-watch"
+  ],
+  "id": "assignment-archive-anniversary-resurfacing",
+  "kind": "article",
+  "owner": "archive-researcher",
+  "priority": "medium",
+  "recordKind": "article",
+  "slug": "archive-anniversary-resurfacing",
+  "sourceSignalId": "signal-archive-lab-watch",
+  "status": "open",
+  "targetSlug": "archive-anniversary-resurfacing",
+  "title": "Archive anniversary resurfacing",
+  "updatedAt": "2026-04-06T11:10:26.097Z"
+}

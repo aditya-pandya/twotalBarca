@@ -1,0 +1,35 @@
+{
+  "assignmentId": "assignment-montjuic-atmosphere-column",
+  "assignmentSuggestion": {
+    "approver": "editor-in-chief",
+    "brief": "Turn the matchday observation into a culture column that stays specific about atmosphere timing and early-game pressure.",
+    "deadline": "2026-04-07T01:45:00.000Z",
+    "deliverables": [
+      "A revised culture column draft",
+      "A homepage-safe headline and dek",
+      "A dispatch inclusion recommendation"
+    ],
+    "kind": "article",
+    "owner": "maury-vidal",
+    "title": "Montjuic atmosphere column"
+  },
+  "confidence": 0.78,
+  "createdAt": "2026-04-06T11:10:20.790Z",
+  "eventAt": "2026-04-06T07:45:00.000Z",
+  "id": "signal-montjuic-arrival-pattern",
+  "schemaVersion": 1,
+  "signalType": "match",
+  "slug": "montjuic-arrival-pattern",
+  "sourceId": "source-montjuic-arrival-pattern",
+  "sourceSlug": "montjuic-arrival-pattern",
+  "status": "converted",
+  "summary": "Supporters reached full voice later than usual, leaving the opening phase emotionally flat compared with Camp Nou rhythms.",
+  "tags": [
+    "culture",
+    "stadium",
+    "matchday"
+  ],
+  "title": "Montjuic arrival pattern still delays the emotional kickoff",
+  "updatedAt": "2026-04-06T11:12:37.132Z",
+  "urgency": "medium"
+}

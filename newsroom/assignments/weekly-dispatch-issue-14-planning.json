@@ -1,0 +1,25 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Keep the next dispatch issue in planning mode until at least one more story clears review and publishing.",
+  "createdAt": "2026-04-06T11:10:26.099Z",
+  "deadline": "2026-04-09T08:50:00.000Z",
+  "deliverables": [
+    "Updated dispatch planning draft",
+    "Lead-story recommendation",
+    "No outbound distribution work"
+  ],
+  "dependencies": [
+    "signal:signal-dispatch-14-follow-up"
+  ],
+  "id": "assignment-weekly-dispatch-issue-14-planning",
+  "kind": "dispatch",
+  "owner": "distribution-audience-lead",
+  "priority": "medium",
+  "recordKind": "dispatch",
+  "slug": "weekly-dispatch-issue-14-planning",
+  "sourceSignalId": "signal-dispatch-14-follow-up",
+  "status": "open",
+  "targetSlug": "weekly-dispatch-issue-14-planning",
+  "title": "Weekly Dispatch issue 14 planning",
+  "updatedAt": "2026-04-06T11:10:26.099Z"
+}
