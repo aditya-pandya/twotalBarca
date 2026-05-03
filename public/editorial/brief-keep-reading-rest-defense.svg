@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+
+  <defs>
+    <linearGradient id="bg-brief-keep-reading-rest-defense" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#08101d"/>
+      <stop offset="56%" stop-color="#193152"/>
+      <stop offset="100%" stop-color="#58152f"/>
+    </linearGradient>
+    <radialGradient id="glow-a-brief-keep-reading-rest-defense" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1260 204) rotate(90) scale(170)">
+      <stop stop-color="#f0d897" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#f0d897" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-b-brief-keep-reading-rest-defense" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(280 220) rotate(90) scale(120)">
+      <stop stop-color="#7dd0ec" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#7dd0ec" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pitch-brief-keep-reading-rest-defense" x1="800" y1="640" x2="800" y2="980" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#12324a"/>
+      <stop offset="100%" stop-color="#091826"/>
+    </linearGradient>
+    <linearGradient id="paper-brief-keep-reading-rest-defense" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fcf4e7"/>
+      <stop offset="100%" stop-color="#e8dcc5"/>
+    </linearGradient>
+    <linearGradient id="vignette-brief-keep-reading-rest-defense" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#02040a" stop-opacity="0.38"/>
+    </linearGradient>
+    <pattern id="grid-brief-keep-reading-rest-defense" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    </pattern>
+    <filter id="blur-brief-keep-reading-rest-defense" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+    
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg-brief-keep-reading-rest-defense)"/>
+  <rect width="1600" height="1000" fill="url(#grid-brief-keep-reading-rest-defense)" opacity="0.46"/>
+  <rect width="1600" height="1000" fill="url(#vignette-brief-keep-reading-rest-defense)"/>
+  <circle cx="1260" cy="204" r="170" fill="url(#glow-a-brief-keep-reading-rest-defense)" filter="url(#blur-brief-keep-reading-rest-defense)"/>
+  <circle cx="280" cy="220" r="120" fill="url(#glow-b-brief-keep-reading-rest-defense)" filter="url(#blur-brief-keep-reading-rest-defense)"/>
+  <rect x="158" y="122" width="1284" height="756" fill="rgba(9,17,33,0.62)" rx="28" stroke="rgba(248,242,233,0.14)" stroke-width="2"/><polygon points="400,256 1200,256 1270,846 330,846" fill="url(#pitch-brief-keep-reading-rest-defense)" opacity="0.96"/><polygon points="400,256 1200,256 1270,846 330,846" fill="none" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3"/><line x1="800.0" y1="270" x2="800.0" y2="818" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3" stroke-linecap="round" opacity="0.5"/><circle cx="800.0" cy="563.0" r="74" fill="none" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3"/><path d="M470 384 Q595 470 520 610" fill="none" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M1130 384 Q1005 470 1080 610" fill="none" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="490" cy="370" r="13" fill="#f1d999" opacity="0.96"/><circle cx="654" cy="412" r="13" fill="#f1d999" opacity="0.96"/><circle cx="800" cy="458" r="13" fill="#f1d999" opacity="0.96"/><circle cx="946" cy="508" r="13" fill="#f1d999" opacity="0.96"/><circle cx="1098" cy="566" r="13" fill="#f1d999" opacity="0.96"/><circle cx="550" cy="610" r="11" fill="#7bd1ee" opacity="0.82"/><circle cx="724" cy="570" r="11" fill="#7bd1ee" opacity="0.82"/><circle cx="906" cy="614" r="11" fill="#7bd1ee" opacity="0.82"/><circle cx="1038" cy="680" r="11" fill="#7bd1ee" opacity="0.82"/><path d="M490 370 C560 398 612 412 654 412 C712 412 756 434 800 458 C860 492 904 508 946 508 C1018 506 1056 540 1098 566" fill="none" stroke="rgba(240,217,150,0.9)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="14 16"/><path d="M550 610 C638 590 700 582 764 584 C848 588 912 618 1038 680" fill="none" stroke="rgba(123,208,236,0.72)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="804" cy="460" r="120" fill="none" opacity="0.78" stroke="rgba(240,217,150,0.26)" stroke-width="4"/><rect x="248" y="172" width="236" height="14" fill="rgba(248,242,233,0.12)" rx="7"/><rect x="248" y="204" width="320" height="10" fill="rgba(248,242,233,0.1)" rx="5"/>
+  <rect x="34" y="34" width="1532" height="932" rx="18" stroke="rgba(250,244,236,0.18)" stroke-width="2"/>
+  <path d="M62 1180V62H180" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+  <path d="M1418 62H1538V182" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+</svg>

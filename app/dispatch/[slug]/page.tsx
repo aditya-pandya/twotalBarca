@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { DispatchIssuePage } from "@/components/browse-detail-page";
-import { buildMetadata, getDispatchBySlug, getDispatchLeadStory, getDispatchSlugs, getDispatchStories } from "@/lib/site-data";
+import { WeeklyDispatchReader } from "@/components/weekly-dispatch-reader";
+import {
+  buildMetadata,
+  dispatchIssues,
+  getDispatchBySlug,
+  getDispatchSlugs,
+  getDispatchStories,
+  matchContext,
+} from "@/lib/site-data";
 
 type DispatchIssuePageProps = {
   params: Promise<{ slug: string }>;
@@ -34,5 +41,14 @@ export default async function DispatchIssuePageRoute({ params }: DispatchIssuePa
     notFound();
   }
 
-  return <DispatchIssuePage issue={issue} leadStory={getDispatchLeadStory(issue)} stories={getDispatchStories(issue)} />;
+  return (
+    <WeeklyDispatchReader
+      archive={dispatchIssues}
+      issue={issue}
+      recentMatch={matchContext.recent[0]}
+      stories={getDispatchStories(issue)}
+      surface="issue"
+      upcomingMatch={matchContext.upcoming[0]}
+    />
+  );
 }

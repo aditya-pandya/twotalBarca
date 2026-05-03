@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+
+  <defs>
+    <linearGradient id="bg-home-week-soundscape" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#08111e"/>
+      <stop offset="56%" stop-color="#172b4c"/>
+      <stop offset="100%" stop-color="#5b1430"/>
+    </linearGradient>
+    <radialGradient id="glow-a-home-week-soundscape" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1202 214) rotate(90) scale(180)">
+      <stop stop-color="#f0d799" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#f0d799" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-b-home-week-soundscape" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(298 246) rotate(90) scale(120)">
+      <stop stop-color="#87d5ef" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#87d5ef" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pitch-home-week-soundscape" x1="800" y1="640" x2="800" y2="980" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#12324a"/>
+      <stop offset="100%" stop-color="#091826"/>
+    </linearGradient>
+    <linearGradient id="paper-home-week-soundscape" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fcf4e7"/>
+      <stop offset="100%" stop-color="#e8dcc5"/>
+    </linearGradient>
+    <linearGradient id="vignette-home-week-soundscape" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#02040a" stop-opacity="0.38"/>
+    </linearGradient>
+    <pattern id="grid-home-week-soundscape" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    </pattern>
+    <filter id="blur-home-week-soundscape" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+    
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg-home-week-soundscape)"/>
+  <rect width="1600" height="1000" fill="url(#grid-home-week-soundscape)" opacity="0.46"/>
+  <rect width="1600" height="1000" fill="url(#vignette-home-week-soundscape)"/>
+  <circle cx="1202" cy="214" r="180" fill="url(#glow-a-home-week-soundscape)" filter="url(#blur-home-week-soundscape)"/>
+  <circle cx="298" cy="246" r="120" fill="url(#glow-b-home-week-soundscape)" filter="url(#blur-home-week-soundscape)"/>
+  <path d="M0 816 C208 758 318 714 456 682 C588 650 732 648 872 664 C1038 682 1188 700 1370 628 C1468 588 1540 550 1600 492 L1600 1000 L0 1000 Z" fill="rgba(9,14,29,0.84)"/><ellipse cx="806" cy="686" rx="330" ry="116" fill="rgba(9,17,34,0.86)" opacity="0.96" stroke="rgba(240,217,150,0.34)" stroke-width="5"/><path d="M590.0 540 Q800 430 1010.0 540" fill="none" stroke="rgba(125,201,231,0.54)" stroke-width="6.0" stroke-linecap="round" stroke-linejoin="round" opacity="0.55" stroke-dasharray="8 18"/><path d="M520.0 572 Q800 394 1080.0 572" fill="none" stroke="rgba(240,217,150,0.46)" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.48000000000000004" stroke-dasharray="8 18"/><path d="M440.0 604 Q800 358 1160.0 604" fill="none" stroke="rgba(125,201,231,0.54)" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.41000000000000003" stroke-dasharray="8 18"/><path d="M350.0 636 Q800 322 1250.0 636" fill="none" stroke="rgba(240,217,150,0.46)" stroke-width="3.5999999999999996" stroke-linecap="round" stroke-linejoin="round" opacity="0.34" stroke-dasharray="8 18"/><path d="M194 786 L296 724 L384 748 L470 680 L550 710 L654 640 L742 670 L842 622 L928 658 L1030 612 L1132 648 L1242 594 L1338 626 L1412 586 L1510 612" fill="none" stroke="rgba(248,242,233,0.18)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="786" cy="684" r="18" fill="#f6df9a" opacity="0.9"/><rect x="118" y="150" width="188" height="16" fill="rgba(248,242,233,0.12)" rx="8"/><rect x="118" y="182" width="272" height="10" fill="rgba(248,242,233,0.1)" rx="5"/>
+  <rect x="34" y="34" width="1532" height="932" rx="18" stroke="rgba(250,244,236,0.18)" stroke-width="2"/>
+  <path d="M62 1180V62H180" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+  <path d="M1418 62H1538V182" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+</svg>

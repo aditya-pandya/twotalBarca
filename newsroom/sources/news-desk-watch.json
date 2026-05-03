@@ -22,7 +22,8 @@
   "signalPreference": "suggest",
   "slug": "news-desk-watch",
   "sourceName": "News Desk Watch",
-  "status": "active",
+  "enabled": false,
+  "status": "ignored",
   "summary": "A squad-rotation note is relevant enough for assignment triage but not yet for direct publishing.",
   "tags": [
     "news",

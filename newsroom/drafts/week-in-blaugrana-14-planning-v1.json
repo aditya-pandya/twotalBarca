@@ -1,0 +1,28 @@
+{
+  "assignmentId": "assignment-weekly-dispatch-14",
+  "body": [
+    "Planning issue for the next weekly package. Hold until the culture column and match notes queue stabilize.",
+    "Montjuic Needs a Louder Start: Possible culture lead if copy review clears and the desk keeps the thesis.",
+    "Front page note: Do not repeat the homepage hero without a new editorial angle.",
+    "Desk brief: Plan the next dispatch issue without forcing publication before the culture column and match queue settle."
+  ],
+  "createdAt": "2026-04-08T02:26:56.396Z",
+  "dek": "Planning issue for the next weekly package. Hold until the culture column and match notes queue stabilize.",
+  "excerpt": "Dispatch planning draft for issue 2.",
+  "id": "draft-week-in-blaugrana-14-planning-v1",
+  "latest": true,
+  "notes": [
+    "Generated from assignment assignment-weekly-dispatch-14.",
+    "No linked signals were available."
+  ],
+  "recordId": "dispatch-14-planning",
+  "recordKind": "dispatch",
+  "schemaVersion": 1,
+  "slug": "week-in-blaugrana-14-planning-v1",
+  "sourceIds": [],
+  "sourceSignalIds": [],
+  "status": "ready_for_review",
+  "title": "The Week in Blaugrana, No. 2",
+  "updatedAt": "2026-04-08T02:26:56.396Z",
+  "version": 1
+}

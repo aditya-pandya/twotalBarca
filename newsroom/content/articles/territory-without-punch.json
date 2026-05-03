@@ -1,0 +1,82 @@
+{
+  "approvalIds": [
+    "approval-article-territory-without-punch-copy",
+    "approval-article-territory-without-punch-editor"
+  ],
+  "assignmentIds": [
+    "assignment-territory-without-punch"
+  ],
+  "author": "Jordi Serra",
+  "body": [
+    "Barcelona's problem after the first leg is not mysterious. They had 58.3 percent of the ball, took 18 shots, put seven on target, and won seven corners. The numbers describe territorial control. They do not describe a side that kept Atlético under decisive pressure once the match bent against it.",
+    "That distinction matters because the post-match temptation is to treat every attack as equal. It is not. After the sending-off, Barcelona still arrived around the box often enough, but too many attacks ended with the wrong runner isolated, the last pass delayed, or the finish taken from a position that let Atlético reset the story.",
+    "The live signal around Dani Olmo is useful because it keeps the discussion anchored on who can turn possession into threat rather than simply keep the ball warm. Olmo, Rashford, Yamal, and Lewandowski do not need a new slogan; they need cleaner sequences that put one receiver facing goal instead of three receivers waiting for rescue.",
+    "That is why Espanyol matters as an attacking rehearsal as much as a derby. Barcelona do not need to prove that they can own territory. They already did. They need to prove that territory can still harden into punch when the match starts asking for something expensive."
+  ],
+  "conviction": "Territory only matters if the next pass forces the match to acknowledge it.",
+  "createdAt": "2026-04-10T10:15:00.000Z",
+  "date": "April 10, 2026",
+  "dek": "The first leg showed the gap between volume and threat: Barcelona had enough possession, shots, and corners, but not enough decisive punch once the game turned.",
+  "distributionStatus": "deferred",
+  "excerpt": "Barcelona had territory after Atlético. The live question is whether that territory can become punch again before Madrid.",
+  "headline": "Territory Without Punch Is Still Barça's Problem",
+  "heroCaption": "Control on the ball still has to turn into damage at the far end of the move.",
+  "heroCredit": "Illustration: totalBarca studio",
+  "heroImage": {
+    "alt": "Rest-defense diagram drawn over a dark pitch with gold passing lanes.",
+    "caption": "Control on the ball still has to turn into damage at the far end of the move.",
+    "credit": "Illustration: totalBarca studio",
+    "src": "/editorial/brief-keep-reading-rest-defense.svg"
+  },
+  "id": "article-territory-without-punch",
+  "kind": "article",
+  "metaDescription": "An analysis of why Barcelona's possession and shot volume still lacked decisive punch after the first leg against Atlético.",
+  "notes": "Published from the live attack signal to replace the stale placeholder analysis package.",
+  "personSlugs": [
+    "jordi-serra",
+    "hansi-flick"
+  ],
+  "publishAt": "2026-04-10T10:45:00.000Z",
+  "publishedAt": "2026-04-10T10:45:00.000Z",
+  "pullQuote": "The ball was there often enough. The expensive action still arrived too late.",
+  "quoteBy": "Jordi Serra",
+  "readTime": "6 min",
+  "readingTime": "6 min read",
+  "relatedSlugs": [
+    "espanyol-between-the-legs",
+    "five-points-before-espanyol-and-madrid",
+    "one-opponent-four-days-two-different-truths"
+  ],
+  "ritual": "The attack has to arrive with better sequence, not louder emotion.",
+  "schemaVersion": 1,
+  "seasonSlug": "2025-26",
+  "section": "Analysis",
+  "sectionSlug": "analysis",
+  "seoTitle": "Territory Without Punch Is Still Barça's Problem | totalBarca",
+  "slug": "territory-without-punch",
+  "status": "published",
+  "timeline": [
+    {
+      "note": "Barcelona show enough ball progression and finishing volume to sound healthy on paper.",
+      "year": "Apr 8"
+    },
+    {
+      "note": "The problem becomes how slowly the best attackers receive the decisive pass.",
+      "year": "After the red"
+    },
+    {
+      "note": "Espanyol becomes the first chance to restore sequence before Madrid demands it.",
+      "year": "Apr 11"
+    }
+  ],
+  "topicSlugs": [
+    "tactics",
+    "first-team"
+  ],
+  "topics": [
+    "Tactics",
+    "First Team"
+  ],
+  "type": "Analysis",
+  "updatedAt": "2026-04-10T10:45:00.000Z"
+}

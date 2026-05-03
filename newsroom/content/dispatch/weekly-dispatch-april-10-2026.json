@@ -1,0 +1,57 @@
+{
+  "approvalIds": [
+    "approval-dispatch-weekly-dispatch-april-10-2026-copy",
+    "approval-dispatch-weekly-dispatch-april-10-2026-editor"
+  ],
+  "assignmentIds": [
+    "assignment-weekly-dispatch-april-10-2026"
+  ],
+  "createdAt": "2026-04-10T11:20:00.000Z",
+  "distributionStatus": "deferred",
+  "editorsNote": "This week does not need dramatics; it needs order. Espanyol is the selection and rhythm test before Madrid, the attack question is about punch rather than volume, the Atlético split-screen keeps the tie football-sized, and the women's side already has Bayern on the horizon. These five pieces put the week back in sequence.",
+  "id": "dispatch-weekly-dispatch-april-10-2026",
+  "issueNumber": 1,
+  "issueTitle": "Weekly Dispatch / April 10, 2026",
+  "items": [
+    {
+      "headline": "Espanyol is the real selection test between the legs",
+      "itemType": "must-read",
+      "link": "/article/espanyol-between-the-legs",
+      "summary": "The derby matters because minute management, tempo, and attacking trust now decide how much of the tie survives into Madrid."
+    },
+    {
+      "headline": "Territory still has to become punch",
+      "itemType": "note",
+      "link": "/article/territory-without-punch",
+      "summary": "Barcelona had the ball, the shots, and the corners; the live repair job is turning that volume back into decisive threat."
+    },
+    {
+      "headline": "Five points before the week narrows again",
+      "itemType": "note",
+      "link": "/brief",
+      "summary": "The Brief compresses selection, leverage, Femení context, and the only weekly line worth defending after the first leg."
+    },
+    {
+      "headline": "Atlético already showed the tie's two truths",
+      "itemType": "watchlist",
+      "link": "/article/one-opponent-four-days-two-different-truths",
+      "summary": "The recent meetings explain how the same opponent can produce one navigable match and one punishing one, depending on leverage."
+    },
+    {
+      "headline": "Femení already has Bayern in view",
+      "itemType": "watchlist",
+      "link": "/article/femen-bayern-pulse",
+      "summary": "Official scheduling and the Bonmatí conversation have already turned the semifinal into the next real benchmark for the side."
+    }
+  ],
+  "kind": "dispatch",
+  "leadStorySlug": "espanyol-between-the-legs",
+  "notes": "Current public dispatch issue for the Apr. 10 rescue window. Distribution remains deferred.",
+  "publishAt": "2026-04-10T11:30:00.000Z",
+  "publishDate": "April 10, 2026",
+  "publishedAt": "2026-04-10T11:30:00.000Z",
+  "schemaVersion": 1,
+  "slug": "weekly-dispatch-april-10-2026",
+  "status": "published",
+  "updatedAt": "2026-04-10T11:30:00.000Z"
+}

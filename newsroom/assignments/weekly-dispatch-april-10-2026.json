@@ -1,0 +1,27 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Publish one current Weekly Dispatch issue from the live Apr. 10 signals: Espanyol selection, attacking punch, the Atlético split-screen, the five-point Brief, and the Femení Bayern pulse. Keep it to exactly five public-safe links.",
+  "createdAt": "2026-04-10T11:15:00.000Z",
+  "deadline": "2026-04-10T12:00:00.000Z",
+  "deliverables": [
+    "One public Weekly Dispatch issue",
+    "Exactly five item links",
+    "One coherent editor's note"
+  ],
+  "dependencies": [
+    "signal:signal-barca-live-scout-espanyol-between-the-legs",
+    "signal:signal-barca-live-scout-territory-without-punch",
+    "signal:signal-barca-live-scout-one-opponent-four-days-two-truths",
+    "signal:signal-barca-live-scout-femeni-bayern-pulse"
+  ],
+  "id": "assignment-weekly-dispatch-april-10-2026",
+  "kind": "dispatch",
+  "owner": "editor-in-chief",
+  "priority": "critical",
+  "recordKind": "dispatch",
+  "slug": "weekly-dispatch-april-10-2026",
+  "status": "done",
+  "targetSlug": "weekly-dispatch-april-10-2026",
+  "title": "Weekly Dispatch / April 10, 2026",
+  "updatedAt": "2026-04-10T11:32:00.000Z"
+}

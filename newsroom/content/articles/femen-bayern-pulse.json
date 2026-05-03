@@ -1,0 +1,81 @@
+{
+  "approvalIds": [
+    "approval-article-femen-bayern-pulse-copy",
+    "approval-article-femen-bayern-pulse-editor"
+  ],
+  "assignmentIds": [
+    "assignment-femen-bayern-pulse"
+  ],
+  "author": "Maury Vidal",
+  "body": [
+    "The Femení signal is different from the men's rush around Espanyol and Madrid, but it is no less current. Bayern is already the benchmark on the horizon, and the live conversation around the semifinal is forming earlier than the calendar might suggest.",
+    "Official club messaging has already pinned down the first-leg date and time, which matters because good buildup starts with something concrete. Community chatter is doing the rest: not in the sense of wild panic, but in the way supporters are already reading form, fit, and the possible timing of Aitana Bonmatí's return against the shape of the tie.",
+    "That makes the next weeks a tone-setting stretch rather than a waiting room. Barcelona Femení do not need borrowed drama to make Bayern relevant. They need the squad to keep the standard visible enough that the semifinal feels like a football question — control, availability, and big-match sharpness — instead of a vague act of destiny.",
+    "The desk should treat this as an early pulse, not a final verdict. The corroboration bench is still thinner than it should be, but the direction is clear enough: Bayern is the next real test, and every discussion around the side is already bending toward it."
+  ],
+  "conviction": "Bayern matters now because the benchmark is already shaping how Barça Femení are being read.",
+  "createdAt": "2026-04-10T10:05:00.000Z",
+  "date": "April 10, 2026",
+  "dek": "The semifinal is already entering focus: official scheduling is set, community attention is rising, and the Bonmatí conversation sits inside the tie's rhythm.",
+  "distributionStatus": "deferred",
+  "excerpt": "Bayern is the next real benchmark for Barça Femení, and the pulse around the tie is already visible in live signals.",
+  "headline": "Femení's Bayern Pulse Is Already Building",
+  "heroCaption": "The next European benchmark is visible before kickoff arrives.",
+  "heroCredit": "Photo: Unsplash",
+  "heroImage": {
+    "alt": "A football pitch moments before kickoff with the crowd arriving.",
+    "caption": "The next European benchmark is visible before kickoff arrives.",
+    "credit": "Photo: Unsplash",
+    "src": "https://images.unsplash.com/photo-1518604666860-9ed391f76460?auto=format&fit=crop&w=1200&q=80"
+  },
+  "id": "article-femen-bayern-pulse",
+  "kind": "article",
+  "metaDescription": "A current pulse piece on Barça Femení, the Bayern semifinal benchmark, and the growing attention around the tie.",
+  "notes": "Published from the live Femení scout so the public shelves reflect both current senior-team tracks.",
+  "personSlugs": [
+    "maury-vidal"
+  ],
+  "publishAt": "2026-04-10T10:35:00.000Z",
+  "publishedAt": "2026-04-10T10:35:00.000Z",
+  "pullQuote": "The benchmark arrives before kickoff, in the way the squad is already being read against Bayern.",
+  "quoteBy": "Maury Vidal",
+  "readTime": "5 min",
+  "readingTime": "5 min read",
+  "relatedSlugs": [
+    "five-points-before-espanyol-and-madrid",
+    "espanyol-between-the-legs",
+    "territory-without-punch"
+  ],
+  "ritual": "European ties begin as tone and availability long before they become scoreline.",
+  "schemaVersion": 1,
+  "seasonSlug": "2025-26",
+  "section": "Analysis",
+  "sectionSlug": "analysis",
+  "seoTitle": "Femení's Bayern Pulse Is Already Building | totalBarca",
+  "slug": "femen-bayern-pulse",
+  "status": "published",
+  "timeline": [
+    {
+      "note": "The club confirms the first-leg Bayern date and time, giving the tie a clear public horizon.",
+      "year": "Apr 4"
+    },
+    {
+      "note": "Supporter chatter sharpens around Aitana Bonmatí and what the semifinal will ask of the squad.",
+      "year": "Apr 9"
+    },
+    {
+      "note": "The semifinal now reads as the next real benchmark instead of a distant fixture list line.",
+      "year": "Apr 25 onward"
+    }
+  ],
+  "topicSlugs": [
+    "femeni",
+    "identity"
+  ],
+  "topics": [
+    "Femení",
+    "Identity"
+  ],
+  "type": "Feature",
+  "updatedAt": "2026-04-10T10:35:00.000Z"
+}

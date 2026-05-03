@@ -1,0 +1,99 @@
+{
+  "assignmentId": "assignment-femen-bayern-pulse-8",
+  "assignmentSuggestion": {
+    "approver": "editor-in-chief",
+    "brief": "Use official Femení reporting, trusted X, and community chatter to frame why the Bayern meeting is the next real football test and which players are setting the tone for it.",
+    "deadline": "2026-05-04T02:31:52.497Z",
+    "deliverables": [
+      "One publishable article draft",
+      "Exact match/player/topic framing",
+      "Dispatch recommendation grounded in the live scout"
+    ],
+    "kind": "article",
+    "owner": "editor-in-chief",
+    "title": "Femení Bayern pulse"
+  },
+  "assignmentTopic": "FC Barcelona Femení / Bayern / Champions League pulse",
+  "confidence": 0.97,
+  "createdAt": "2026-04-24T22:05:05.214Z",
+  "discoveryMode": "live",
+  "eventAt": "2026-05-03T18:09:52.000Z",
+  "evidence": [
+    {
+      "engagement": 323,
+      "excerpt": "Gol del Bayern. ⚽️ 4-3 | ⏱️ 90’ #BayernBarça",
+      "label": "FCBfemeni: Gol del Bayern. ⚽️ 4-3 | ⏱️ 90’ #BayernBarça",
+      "publishedAt": "2026-05-03T16:19:16.000Z",
+      "source": "x:official-club-women",
+      "url": "https://x.com/FCBfemeni/status/2050973476551307313"
+    },
+    {
+      "engagement": 107,
+      "excerpt": "Barcelona Femeni will compete in their sixth consecutive Champions League final. After last week's draw in Germany, they beat Bayern Munich 4-2 at Camp Nou, progressing 5-3 on aggregate. They will face Lyon, who beat Arsenal in their semi-final tie. https://t.co/6zK95I0MtD",
+      "image": {
+        "alt": "Barcelona Femeni will compete in their sixth consecutive Champions League final. After last week's draw in Germany, they beat Bayern Munich 4-2 at Camp Nou, progressing 5-3 on aggregate. They will face Lyon, who beat Arsenal in their semi-final tie. https://t.co/6zK95I0MtD",
+        "href": "https://x.com/TheAthleticFC/status/2051001310091391418",
+        "label": "TheAthleticFC preview",
+        "note": "Internal review only until licensing is confirmed.",
+        "source": "x:trusted-football-media",
+        "src": "https://pbs.twimg.com/media/HHae0m2boAA6w0u.jpg",
+        "status": "review-needed-social-preview"
+      },
+      "label": "TheAthleticFC: Barcelona Femeni will compete in their sixth consecutive Champions League final. After last week's draw in Germany, they beat Bayern Munich 4-2 at Camp Nou, progressing 5-3 on aggregate. They will face Lyon, who beat Arsenal in their semi-final tie. https://t.co/6zK95I0MtD",
+      "publishedAt": "2026-05-03T18:09:52.000Z",
+      "source": "x:trusted-football-media",
+      "url": "https://x.com/TheAthleticFC/status/2051001310091391418"
+    },
+    {
+      "engagement": 25,
+      "excerpt": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick From the second leg of the UWCL Final",
+      "label": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick",
+      "publishedAt": "2026-05-03T15:52:25.000Z",
+      "source": "reddit:r/FCBFemeni:new",
+      "url": "https://www.reddit.com/r/FCBFemeni/comments/1t2p5fa/fc_barcelona_4_1_fc_bayern_58_alexia_putellas/"
+    },
+    {
+      "engagement": 68,
+      "excerpt": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick From the second leg of the UWCL Final",
+      "label": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick",
+      "publishedAt": "2026-05-03T15:51:08.000Z",
+      "source": "reddit:r/WomensSoccer:barca-search",
+      "url": "https://www.reddit.com/r/WomensSoccer/comments/1t2p46m/fc_barcelona_4_1_fc_bayern_58_alexia_putellas/"
+    },
+    {
+      "engagement": 151,
+      "excerpt": "Barça Femeni will face Lyon in the Women’s Champions League Final.",
+      "label": "Barça Femeni will face Lyon in the Women’s Champions League Final.",
+      "publishedAt": "2026-05-03T16:33:47.000Z",
+      "source": "reddit:r/Barca:new",
+      "url": "https://www.reddit.com/r/Barca/comments/1t2q8s4/barça_femeni_will_face_lyon_in_the_womens/"
+    }
+  ],
+  "id": "signal-barca-live-scout-femeni-bayern-pulse",
+  "priorityReason": "Matched 11 live evidence item(s) across reddit, x. Strongest feeds: FC Barcelona Femení X; Trusted football media X; Reddit /r/FCBFemeni new.",
+  "priorityScore": 100,
+  "schemaVersion": 1,
+  "signalType": "match",
+  "slug": "barca-live-scout-femeni-bayern-pulse",
+  "sourceId": "source-barca-live-scout",
+  "sourceSlug": "barca-live-scout",
+  "status": "converted",
+  "summary": "The scout now keeps a live eye on Femení too, and the cleanest current angle is how official club signals and community chatter are already converging on the Bayern benchmark.",
+  "tags": [
+    "barca",
+    "live",
+    "scout",
+    "trusted-sources",
+    "official",
+    "reddit",
+    "femeni",
+    "women",
+    "aitana",
+    "alexia",
+    "bayern",
+    "uwcl"
+  ],
+  "title": "Femení's Bayern pulse is already building",
+  "updatedAt": "2026-05-03T18:32:04.477Z",
+  "urgency": "critical"
+}

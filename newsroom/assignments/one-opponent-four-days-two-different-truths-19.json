@@ -1,0 +1,25 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Compare the recent Atlético meetings to explain what changed in game state, control, and threat rather than writing another generic reaction piece.",
+  "createdAt": "2026-05-01T00:48:15.072Z",
+  "deadline": "2026-05-01T08:48:04.916Z",
+  "deliverables": [
+    "One publishable article draft",
+    "Exact match/player/topic framing",
+    "Dispatch recommendation grounded in the live scout"
+  ],
+  "dependencies": [
+    "signal:signal-barca-live-scout-one-opponent-four-days-two-truths"
+  ],
+  "id": "assignment-one-opponent-four-days-two-different-truths-19",
+  "kind": "article",
+  "owner": "editor-in-chief",
+  "priority": "critical",
+  "recordKind": "article",
+  "slug": "one-opponent-four-days-two-different-truths-19",
+  "sourceSignalId": "signal-barca-live-scout-one-opponent-four-days-two-truths",
+  "status": "open",
+  "targetSlug": "one-opponent-four-days-two-different-truths-19",
+  "title": "One opponent, four days, two different truths",
+  "updatedAt": "2026-05-01T00:48:15.072Z"
+}

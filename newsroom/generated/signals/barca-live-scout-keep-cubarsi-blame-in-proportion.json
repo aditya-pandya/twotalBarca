@@ -1,0 +1,81 @@
+{
+  "assignmentId": "assignment-keep-cubars-blame-in-proportion-15",
+  "assignmentSuggestion": {
+    "approver": "editor-in-chief",
+    "brief": "Keep the Cubarsí conversation measured: separate the sending-off from the wider performance and explain why the blame story should stay in proportion.",
+    "deadline": "2026-05-04T02:31:52.497Z",
+    "deliverables": [
+      "One publishable article draft",
+      "Exact match/player/topic framing",
+      "Dispatch recommendation grounded in the live scout"
+    ],
+    "kind": "article",
+    "owner": "editor-in-chief",
+    "title": "Keep Cubarsí blame in proportion"
+  },
+  "assignmentTopic": "Pau Cubarsí red card / supporter response",
+  "confidence": 0.93,
+  "createdAt": "2026-05-03T18:32:04.477Z",
+  "discoveryMode": "live",
+  "eventAt": "2026-05-03T18:29:46.000Z",
+  "evidence": [
+    {
+      "engagement": 27,
+      "excerpt": "Arne Slot believes Liverpool have suffered from a succession of contentious video assistant referee decisions this season — but admits they only had themselves to blame for Sunday’s 3-2 defeat to Manchester United. The Dutch head coach was unhappy that Benjamin Sesko’s goal was a",
+      "image": {
+        "alt": "Arne Slot believes Liverpool have suffered from a succession of contentious video assistant referee decisions this season — but admits they only had themselves to blame for Sunday’s 3-2 defeat to Manchester United. The Dutch head coach was unhappy that Benjamin Sesko’s goal was allowed to stand at Old Trafford when replays appeared to show the ball hit the striker’s fingers before going over the line. “I don’t think it’s a surprise to anyone this season that if there’s a VAR intervention or if there’s something that could be left or right (50-50) then the decision goes against us,\" Slot told reporters post-match. \"That has been the whole season, every single time the same.\" More from @JamesPearceLFC 🔗 https://t.co/Yl2AW3kiqh",
+        "href": "https://x.com/TheAthleticFC/status/2051006317775434084",
+        "label": "TheAthleticFC preview",
+        "note": "Internal review only until licensing is confirmed.",
+        "source": "x:trusted-football-media",
+        "src": "https://pbs.twimg.com/media/HHajTQtWYAAF2UO.jpg",
+        "status": "review-needed-social-preview"
+      },
+      "label": "TheAthleticFC: Arne Slot believes Liverpool have suffered from a succession of contentious video assistant referee decisions this season — but admits they only had themselves to blame for Sunday’s 3-2 defeat to Manchester United. The Dutch head coach was unhappy that Benjamin Sesko’s goal was allowed to stand at Old Trafford when replays appeared to show the ball hit the striker’s fingers before going over the line. “I don’t think it’s a surprise to anyone this season that if there’s a VAR intervention or if there’s something that could be left or right (50-50) then the decision goes against us,\" Slot told reporters post-match. \"That has been the whole season, every single time the same.\" More from @JamesPearceLFC 🔗 https://t.co/Yl2AW3kiqh",
+      "publishedAt": "2026-05-03T18:29:46.000Z",
+      "source": "x:trusted-football-media",
+      "url": "https://x.com/TheAthleticFC/status/2051006317775434084"
+    },
+    {
+      "engagement": 25,
+      "excerpt": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick From the second leg of the UWCL Final",
+      "label": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick",
+      "publishedAt": "2026-05-03T15:52:25.000Z",
+      "source": "reddit:r/FCBFemeni:new",
+      "url": "https://www.reddit.com/r/FCBFemeni/comments/1t2p5fa/fc_barcelona_4_1_fc_bayern_58_alexia_putellas/"
+    },
+    {
+      "engagement": 68,
+      "excerpt": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick From the second leg of the UWCL Final",
+      "label": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick",
+      "publishedAt": "2026-05-03T15:51:08.000Z",
+      "source": "reddit:r/WomensSoccer:barca-search",
+      "url": "https://www.reddit.com/r/WomensSoccer/comments/1t2p46m/fc_barcelona_4_1_fc_bayern_58_alexia_putellas/"
+    }
+  ],
+  "id": "signal-barca-live-scout-keep-cubarsi-blame-in-proportion",
+  "priorityReason": "Matched 10 live evidence item(s) across reddit, x. Strongest feeds: Trusted football media X; Reddit /r/FCBFemeni new; Reddit /r/WomensSoccer Barça search.",
+  "priorityScore": 93,
+  "schemaVersion": 1,
+  "signalType": "match",
+  "slug": "barca-live-scout-keep-cubarsi-blame-in-proportion",
+  "sourceId": "source-barca-live-scout",
+  "sourceSlug": "barca-live-scout",
+  "status": "converted",
+  "summary": "The live reaction around Cubarsí is real, but the usable editorial angle is proportion: what belongs to the red card, what belongs to the broader game, and how supporters are framing him.",
+  "tags": [
+    "barca",
+    "live",
+    "scout",
+    "trusted-sources",
+    "official",
+    "reddit",
+    "cubarsi",
+    "supporter",
+    "perspective",
+    "ucl"
+  ],
+  "title": "Keep Cubarsí blame in proportion",
+  "updatedAt": "2026-05-03T18:32:04.477Z",
+  "urgency": "critical"
+}

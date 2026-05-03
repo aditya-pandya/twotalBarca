@@ -1,0 +1,25 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Frame Espanyol as the real selection problem between Champions League legs: who can start, who should be protected, and what the derby means for the title race and Madrid return.",
+  "createdAt": "2026-04-27T11:43:42.671Z",
+  "deadline": "2026-04-27T19:43:31.216Z",
+  "deliverables": [
+    "One publishable article draft",
+    "Exact match/player/topic framing",
+    "Dispatch recommendation grounded in the live scout"
+  ],
+  "dependencies": [
+    "signal:signal-barca-live-scout-espanyol-between-the-legs"
+  ],
+  "id": "assignment-espanyol-between-the-legs-2",
+  "kind": "article",
+  "owner": "editor-in-chief",
+  "priority": "critical",
+  "recordKind": "article",
+  "slug": "espanyol-between-the-legs-2",
+  "sourceSignalId": "signal-barca-live-scout-espanyol-between-the-legs",
+  "status": "open",
+  "targetSlug": "espanyol-between-the-legs-2",
+  "title": "Espanyol between the legs",
+  "updatedAt": "2026-04-27T11:43:42.671Z"
+}

@@ -2,14 +2,14 @@
 schema: agentcompanies/v1
 name: twotalBarca
 slug: twotalbarca
-description: FC Barcelona editorial newsroom operated as a practical Paperclip company package.
+description: FC Barcelona weekly dispatch operated as a practical Paperclip company package.
 version: 0.1.0
 authors:
   - name: twotalBarca
 goals:
-  - Publish sharp Barcelona match notes, tactics, archive, and distribution output without becoming a rumor mill.
-  - Run a disciplined editorial desk with human-style approvals, fact gates, and repeatable routines.
-  - Keep the publication surface, archive, and audience operations aligned around quality rather than volume.
+  - Publish one sharp weekly Barça dispatch with exactly five evidence-backed topics and minimal match context.
+  - Run a disciplined editorial desk with real approvals, fact gates, and repeatable weekly routines.
+  - Keep the public product calm and narrow instead of drifting back into churn-heavy article sprawl.
 requirements:
   secrets:
     - OPENAI_API_KEY
@@ -18,40 +18,42 @@ tags:
   - football
   - editorial
   - barcelona
-  - newsroom
+  - weekly-dispatch
   - paperclip
 ---
 
+Last updated: 2026-05-02
+
 twotalBarca is not a generic football content farm.
 
-It runs as a compact but serious newsroom for FC Barcelona coverage:
-- match notes after the whistle
-- tactical analysis with evidence, not buzzwords
-- archive research that surfaces context, not nostalgia sludge
+The active company/package mission is narrow:
+- one weekly dispatch
+- exactly five topic items
+- one minimal last-match capsule
+- one minimal next-match capsule
 - clean copy and standards review before publication
-- distribution that respects the editorial line instead of chasing cheap clicks
-- community operations that protect the tone of the publication
 
 Local operating artifacts:
 - assignments are real files in `newsroom/assignments/`
-- article and dispatch records are real files in `newsroom/content/`
+- dispatch records are real files in `newsroom/content/dispatch/`
+- legacy article records may still exist in `newsroom/content/articles/`, but they are dormant unless explicitly reintroduced
 - approvals are stored in `newsroom/approvals/`
+- live discovery can start from `newsroom/generated/barca-live-source.json` and `newsroom/generated/barca-scout-report.json`
 - homepage overrides live in `newsroom/state/frontpage.json`
 - the compiled publish surface lives in `newsroom/generated/site-content.json`
 - outbound distribution remains deferred and is specified in `docs/distribution-spec.md`
 
 Core editorial rules:
 - Do not publish fabricated reporting, made-up quotes, invented injury details, or unsourced transfer claims.
-- Do not treat rumors as facts. Label uncertainty plainly and push uncertain items to research or hold.
-- Always anchor match coverage to competition, opponent, venue, date, and the visible sequence of the match.
-- Treat Barça Femeni, the academy, and the men's first team as part of one publication, but only cover what is actually supported by source material and assignment priority.
-- Prefer fewer pieces with higher conviction over noisy feed behavior.
+- Do not treat rumors as facts.
+- Every dispatch topic must have a real point and current evidence behind it.
+- Treat the men's first team, Femení, La Masia, tactics, governance, and culture as eligible angles only when they sharpen the week's five-topic package.
+- Prefer one coherent issue over noisy surface expansion.
 
 Approval model:
-- The CEO / Publisher sets priorities and budget, but does not bypass editorial review for published copy.
-- The Editor in Chief is the publishing gate for major editorial output.
+- The CEO / Publisher sets priorities, but does not bypass editorial review for published copy.
+- The Editor in Chief is the publishing gate for the weekly issue.
 - The Copy Chief can block publication on factual sloppiness, attribution gaps, or house-style failures.
-- The Community Lead can escalate sensitive moderation issues directly to the CEO and Editor in Chief.
-- The Site / Platform Engineer ships tooling and operational fixes, but does not change editorial standards unilaterally.
+- The Site / Platform Engineer ships tooling and operational fixes, but does not expand editorial scope unilaterally.
 
-Success looks like a calm, daily-operating Barça publication with a repeatable matchday rhythm, a living archive, and a clear quality bar.
+Success looks like a calm weekly Barça product with a repeatable issue rhythm and a clear quality bar.

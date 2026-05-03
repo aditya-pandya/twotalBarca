@@ -1,0 +1,82 @@
+{
+  "approvalIds": [
+    "approval-article-espanyol-between-the-legs-copy",
+    "approval-article-espanyol-between-the-legs-editor"
+  ],
+  "assignmentIds": [
+    "assignment-espanyol-between-the-legs"
+  ],
+  "author": "Maury Vidal",
+  "body": [
+    "Derbies are usually sold as mood. This one is selection. Barcelona come out of a 0-2 first-leg loss to Atlético with the tie still alive, but the only useful way to treat Espanyol is as a controlled stress test. The staff need ninety minutes that tell them who can handle the start, who should only carry an hour, and which attacking relationships can be trusted again by Tuesday.",
+    "That is why the lineup debate matters more than the derby slogans around it. Pedri, Frenkie de Jong, Dani Olmo, Lamine Yamal, Rashford, and the back line all sit inside the same question: not who can look brave on a teamsheet, but who can play with enough clarity to restore Barcelona's tempo without leaving the return leg short of legs.",
+    "The live signals around the match all point toward minute management. Official club and fixture feeds set the calendar plainly; trusted statistical context on Espanyol's last outing suggests a game that can stay live for long stretches; community chatter is already circling substitutions and protected workloads. The desk does not need to copy every speculative lineup to recognize the real football consequence underneath them.",
+    "Espanyol, then, is the real selection test between the legs. If Barcelona can turn the derby into a match of clean circulation, repeatable pressure, and sensible minute distribution, the trip to Madrid stays football-sized. If the weekend becomes frantic or wasteful, the first leg will start dictating the second before a ball is kicked."
+  ],
+  "conviction": "The derby matters because it can restore order to the tie, not because it offers theatrical redemption.",
+  "createdAt": "2026-04-10T10:20:00.000Z",
+  "date": "April 10, 2026",
+  "dek": "The derby is less about chest-beating than minute management: who can start, who needs protection, and which combinations can restore pressure before Madrid.",
+  "distributionStatus": "deferred",
+  "excerpt": "Barcelona's next match is not a distraction from the quarter-final. It is the practical exam that decides how much rhythm, freshness, and attacking trust can travel into the return leg.",
+  "headline": "Espanyol Between the Legs Is the Real Selection Test",
+  "heroCaption": "The next match is a selection problem before it becomes a derby spectacle.",
+  "heroCredit": "Illustration: totalBarca studio",
+  "heroImage": {
+    "alt": "Blaugrana silhouettes and motion arcs gathering around a bright derby spotlight.",
+    "caption": "The next match is a selection problem before it becomes a derby spectacle.",
+    "credit": "Illustration: totalBarca studio",
+    "src": "/editorial/home-brief-derby-rhythm.svg"
+  },
+  "id": "article-espanyol-between-the-legs",
+  "kind": "article",
+  "metaDescription": "A match notebook on why Espanyol is Barcelona's real selection test between the Atlético legs.",
+  "notes": "Published from the live Apr. 10 scout to reset the public homepage around the current derby and second-leg calendar.",
+  "personSlugs": [
+    "maury-vidal",
+    "hansi-flick"
+  ],
+  "publishAt": "2026-04-10T10:50:00.000Z",
+  "publishedAt": "2026-04-10T10:50:00.000Z",
+  "pullQuote": "Espanyol is less a sideshow than the team sheet's first honest answer.",
+  "quoteBy": "Maury Vidal",
+  "readTime": "5 min",
+  "readingTime": "5 min read",
+  "relatedSlugs": [
+    "five-points-before-espanyol-and-madrid",
+    "territory-without-punch",
+    "one-opponent-four-days-two-different-truths"
+  ],
+  "ritual": "Selection is part of the argument now: start fast, share the minutes, keep Tuesday alive.",
+  "schemaVersion": 1,
+  "seasonSlug": "2025-26",
+  "section": "Match Notes",
+  "sectionSlug": "match-notes",
+  "seoTitle": "Espanyol Between the Legs Is the Real Selection Test | totalBarca",
+  "slug": "espanyol-between-the-legs",
+  "status": "published",
+  "timeline": [
+    {
+      "note": "Barcelona lose the first leg 0-2 and the second leg becomes a week-long selection problem.",
+      "year": "Apr 8"
+    },
+    {
+      "note": "Espanyol offers the first chance to rebuild tempo, pressure, and minute allocation.",
+      "year": "Apr 11"
+    },
+    {
+      "note": "Madrid asks whether the derby's decisions actually protected the tie.",
+      "year": "Apr 14"
+    }
+  ],
+  "topicSlugs": [
+    "first-team",
+    "tactics"
+  ],
+  "topics": [
+    "First Team",
+    "Tactics"
+  ],
+  "type": "Match Notebook",
+  "updatedAt": "2026-04-10T10:50:00.000Z"
+}

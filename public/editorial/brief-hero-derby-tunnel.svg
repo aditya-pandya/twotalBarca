@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+
+  <defs>
+    <linearGradient id="bg-brief-hero-derby-tunnel" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#050d1a"/>
+      <stop offset="56%" stop-color="#162a49"/>
+      <stop offset="100%" stop-color="#611534"/>
+    </linearGradient>
+    <radialGradient id="glow-a-brief-hero-derby-tunnel" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(804 282) rotate(90) scale(220)">
+      <stop stop-color="#f0d999" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#f0d999" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-b-brief-hero-derby-tunnel" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1118 162) rotate(90) scale(100)">
+      <stop stop-color="#88d7ef" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#88d7ef" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pitch-brief-hero-derby-tunnel" x1="800" y1="640" x2="800" y2="980" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#12324a"/>
+      <stop offset="100%" stop-color="#091826"/>
+    </linearGradient>
+    <linearGradient id="paper-brief-hero-derby-tunnel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fcf4e7"/>
+      <stop offset="100%" stop-color="#e8dcc5"/>
+    </linearGradient>
+    <linearGradient id="vignette-brief-hero-derby-tunnel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#02040a" stop-opacity="0.38"/>
+    </linearGradient>
+    <pattern id="grid-brief-hero-derby-tunnel" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    </pattern>
+    <filter id="blur-brief-hero-derby-tunnel" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+    
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg-brief-hero-derby-tunnel)"/>
+  <rect width="1600" height="1000" fill="url(#grid-brief-hero-derby-tunnel)" opacity="0.46"/>
+  <rect width="1600" height="1000" fill="url(#vignette-brief-hero-derby-tunnel)"/>
+  <circle cx="804" cy="282" r="220" fill="url(#glow-a-brief-hero-derby-tunnel)" filter="url(#blur-brief-hero-derby-tunnel)"/>
+  <circle cx="1118" cy="162" r="100" fill="url(#glow-b-brief-hero-derby-tunnel)" filter="url(#blur-brief-hero-derby-tunnel)"/>
+  <path d="M0 0 L530 0 L690 1000 L0 1000 Z" fill="rgba(8,13,24,0.84)"/><path d="M1600 0 L1070 0 L910 1000 L1600 1000 Z" fill="rgba(7,13,26,0.86)"/><path d="M532 0 L772 1000 L594 1000 L396 0 Z" fill="rgba(102,23,55,0.34)"/><path d="M1068 0 L828 1000 L1010 1000 L1202 0 Z" fill="rgba(29,67,112,0.28)"/><path d="M612 252 L988 252 L1176 1000 L424 1000 Z" fill="rgba(6,18,31,0.54)" stroke="rgba(240,217,150,0.18)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polygon points="630,458 972,458 1042,988 560,988" fill="url(#pitch-brief-hero-derby-tunnel)" opacity="0.96"/><polygon points="630,458 972,458 1042,988 560,988" fill="none" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3"/><line x1="801.0" y1="472" x2="801.0" y2="960" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3" stroke-linecap="round" opacity="0.5"/><circle cx="801.0" cy="735.0" r="74" fill="none" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3"/><path d="M700 586 Q825 672 750 812" fill="none" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M902 586 Q777 672 852 812" fill="none" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="800" cy="352" r="152" fill="rgba(255,243,214,0.22)" filter="url(#blur-brief-hero-derby-tunnel)"/><circle cx="800" cy="352" r="72" fill="rgba(255,244,216,0.88)" opacity="0.96"/><polygon points="668,616 639.2,715.2 696.8,715.2" fill="rgba(11,18,35,0.96)" opacity="0.85"/><polygon points="802,546 767.8,663.8 836.2,663.8" fill="rgba(11,18,35,0.98)" opacity="0.85"/><polygon points="944,632 917.9,721.9 970.1,721.9" fill="rgba(11,18,35,0.94)" opacity="0.85"/><path d="M516 282 C636 358 728 430 800 560" fill="none" stroke="rgba(125,201,231,0.52)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 16"/>
+  <rect x="34" y="34" width="1532" height="932" rx="18" stroke="rgba(250,244,236,0.18)" stroke-width="2"/>
+  <path d="M62 1180V62H180" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+  <path d="M1418 62H1538V182" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+</svg>

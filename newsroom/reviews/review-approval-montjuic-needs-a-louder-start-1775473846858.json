@@ -7,7 +7,9 @@
   "recordKind": "article",
   "requestedAt": "2026-04-06T11:10:46.858Z",
   "requestedBy": "editor-in-chief",
+  "resolvedAt": "2026-04-08T02:28:00.000Z",
+  "resultingDraftId": "draft-montjuic-needs-a-louder-start-v2",
   "schemaVersion": 1,
-  "status": "open",
+  "status": "resolved",
   "summary": "Approval requested from newsroom review queue."
 }

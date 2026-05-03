@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+
+  <defs>
+    <linearGradient id="bg-about-read-brief" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#08101c"/>
+      <stop offset="56%" stop-color="#183050"/>
+      <stop offset="100%" stop-color="#59152f"/>
+    </linearGradient>
+    <radialGradient id="glow-a-about-read-brief" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1208 210) rotate(90) scale(170)">
+      <stop stop-color="#f0d799" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#f0d799" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-b-about-read-brief" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(342 212) rotate(90) scale(110)">
+      <stop stop-color="#83d1eb" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#83d1eb" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pitch-about-read-brief" x1="800" y1="640" x2="800" y2="980" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#12324a"/>
+      <stop offset="100%" stop-color="#091826"/>
+    </linearGradient>
+    <linearGradient id="paper-about-read-brief" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fcf4e7"/>
+      <stop offset="100%" stop-color="#e8dcc5"/>
+    </linearGradient>
+    <linearGradient id="vignette-about-read-brief" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#02040a" stop-opacity="0.38"/>
+    </linearGradient>
+    <pattern id="grid-about-read-brief" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    </pattern>
+    <filter id="blur-about-read-brief" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+    
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg-about-read-brief)"/>
+  <rect width="1600" height="1000" fill="url(#grid-about-read-brief)" opacity="0.46"/>
+  <rect width="1600" height="1000" fill="url(#vignette-about-read-brief)"/>
+  <circle cx="1208" cy="210" r="170" fill="url(#glow-a-about-read-brief)" filter="url(#blur-about-read-brief)"/>
+  <circle cx="342" cy="212" r="110" fill="url(#glow-b-about-read-brief)" filter="url(#blur-about-read-brief)"/>
+  <rect x="230" y="120" width="1140" height="760" fill="rgba(10,17,33,0.58)" rx="28" stroke="rgba(248,242,233,0.12)" stroke-width="2"/><rect x="332" y="184" width="504" height="612" fill="#f6edde" rx="20" stroke="rgba(17,25,42,0.14)" stroke-width="2" transform="rotate(-5 584 490)"/><circle cx="430" cy="286" r="24" fill="#f0d898" opacity="0.95"/><line x1="474" y1="286" x2="716" y2="286" stroke="rgba(17,25,42,0.36)" stroke-width="6" stroke-linecap="round" opacity="0.56"/><line x1="474" y1="312" x2="664" y2="312" stroke="rgba(17,25,42,0.26)" stroke-width="4" stroke-linecap="round" opacity="0.5"/><circle cx="430" cy="378" r="24" fill="#f0d898" opacity="0.95"/><line x1="474" y1="378" x2="716" y2="378" stroke="rgba(17,25,42,0.36)" stroke-width="6" stroke-linecap="round" opacity="0.56"/><line x1="474" y1="404" x2="664" y2="404" stroke="rgba(17,25,42,0.26)" stroke-width="4" stroke-linecap="round" opacity="0.5"/><circle cx="430" cy="470" r="24" fill="#f0d898" opacity="0.95"/><line x1="474" y1="470" x2="716" y2="470" stroke="rgba(17,25,42,0.36)" stroke-width="6" stroke-linecap="round" opacity="0.56"/><line x1="474" y1="496" x2="664" y2="496" stroke="rgba(17,25,42,0.26)" stroke-width="4" stroke-linecap="round" opacity="0.5"/><circle cx="430" cy="562" r="24" fill="#f0d898" opacity="0.95"/><line x1="474" y1="562" x2="716" y2="562" stroke="rgba(17,25,42,0.36)" stroke-width="6" stroke-linecap="round" opacity="0.56"/><line x1="474" y1="588" x2="664" y2="588" stroke="rgba(17,25,42,0.26)" stroke-width="4" stroke-linecap="round" opacity="0.5"/><circle cx="430" cy="654" r="24" fill="#f0d898" opacity="0.95"/><line x1="474" y1="654" x2="716" y2="654" stroke="rgba(17,25,42,0.36)" stroke-width="6" stroke-linecap="round" opacity="0.56"/><line x1="474" y1="680" x2="664" y2="680" stroke="rgba(17,25,42,0.26)" stroke-width="4" stroke-linecap="round" opacity="0.5"/><polygon points="956,270 1190,270 1260,814 886,814" fill="url(#pitch-about-read-brief)" opacity="0.96"/><polygon points="956,270 1190,270 1260,814 886,814" fill="none" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3"/><line x1="1073.0" y1="284" x2="1073.0" y2="786" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3" stroke-linecap="round" opacity="0.5"/><circle cx="1073.0" cy="554.0" r="74" fill="none" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3"/><path d="M1026 398 Q1151 484 1076 624" fill="none" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M1120 398 Q995 484 1070 624" fill="none" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="958" cy="380" r="12" fill="#7fd1ec" opacity="0.84"/><circle cx="1014" cy="460" r="12" fill="#7fd1ec" opacity="0.84"/><circle cx="1092" cy="520" r="12" fill="#7fd1ec" opacity="0.84"/><circle cx="1176" cy="620" r="12" fill="#7fd1ec" opacity="0.84"/><path d="M958 380 C1000 420 1026 444 1014 460 C1046 470 1070 486 1092 520 C1140 548 1160 582 1176 620" fill="none" stroke="rgba(240,217,150,0.82)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="14 16"/>
+  <rect x="34" y="34" width="1532" height="932" rx="18" stroke="rgba(250,244,236,0.18)" stroke-width="2"/>
+  <path d="M62 1180V62H180" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+  <path d="M1418 62H1538V182" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+</svg>

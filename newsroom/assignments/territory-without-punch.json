@@ -1,0 +1,25 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Use the shot, on-target, and possession context to explain why Barcelona owned territory without creating enough punch, and connect it to the attack discussion around Olmo and Rashford.",
+  "createdAt": "2026-04-09T18:36:06.386Z",
+  "deadline": "2026-04-10T02:36:04.591Z",
+  "deliverables": [
+    "One publishable article draft",
+    "Exact match/player/topic framing",
+    "Dispatch recommendation grounded in the live scout"
+  ],
+  "dependencies": [
+    "signal:signal-barca-live-scout-territory-without-punch"
+  ],
+  "id": "assignment-territory-without-punch",
+  "kind": "article",
+  "owner": "editor-in-chief",
+  "priority": "critical",
+  "recordKind": "article",
+  "slug": "territory-without-punch",
+  "sourceSignalId": "signal-barca-live-scout-territory-without-punch",
+  "status": "open",
+  "targetSlug": "territory-without-punch",
+  "title": "Territory without punch",
+  "updatedAt": "2026-04-09T18:36:06.386Z"
+}

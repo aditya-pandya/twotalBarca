@@ -1,41 +1,24 @@
-# twotalBarca Paperclip Package
+# twotalBarca Paperclip package
 
-This directory is a portable Paperclip company package for running twotalBarca as an AI-operated newsroom.
+Last updated: 2026-05-02
 
-Contents:
-- `COMPANY.md`: company mission, operating model, and import root
-- `agents/`: agent roles and instructions
-- `projects/`: seeded operating lanes for the newsroom
-- `tasks/`: recurring newsroom routines as starter Paperclip tasks
-- `skills/`: shared newsroom workflows
-- `.paperclip.yaml`: Paperclip-specific adapter, runtime, env-input, and routine fidelity
-- `../../newsroom/`: the repo-local editorial backend this package is meant to operate
+This directory is a portable Paperclip company package for running the internal workflow behind totalBarca.
 
-This package is designed to be imported into a local Paperclip instance with:
+Scope note:
+- active product support = one weekly dispatch with exactly five topics plus minimal last/next match capsules
+- broader daily article/newsroom behavior is dormant unless explicitly reintroduced
 
-```bash
-npm run paperclip:bootstrap
-```
+What is inside:
+- `COMPANY.md`: mission, editorial rules, and approval model
+- `agents/`: role instructions
+- `projects/`: internal operating lanes
+- `tasks/`: recurring workflow tasks
+- `skills/`: shared workflows
+- `.paperclip.yaml`: Paperclip-specific adapter/runtime configuration
+- `../../newsroom/`: repo-local backend the package operates
 
-Or manually:
-
-```bash
-npm run paperclip:run
-npm run paperclip:import
-```
-
-The package assumes operators use the committed newsroom files:
-- `newsroom/assignments/*.json`
-- `newsroom/content/articles/*.json`
-- `newsroom/content/dispatch/*.json`
-- `newsroom/approvals/*.json`
-- `newsroom/state/frontpage.json`
-- `newsroom/generated/site-content.json`
-
-Recommended companion commands:
-
-```bash
-npm run newsroom:validate
-npm run newsroom:build
-npm run newsroom:dashboard
-```
+Package bias:
+- assemble the weekly issue
+- keep the five-topic contract intact
+- keep match context minimal
+- avoid rebuilding the superseded broader publication by drift

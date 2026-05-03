@@ -1,0 +1,24 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Package the week's strongest published work into the first public dispatch issue and record the deferred distribution handoff without sending anything outward.",
+  "createdAt": "2026-04-05T11:50:00.000Z",
+  "deadline": "2026-04-05T18:00:00.000Z",
+  "deliverables": [
+    "Published dispatch issue record",
+    "Editor's note",
+    "Queue-ready deferred distribution note"
+  ],
+  "dependencies": [
+    "approved lead story",
+    "copy-chief review",
+    "editor-in-chief approval"
+  ],
+  "id": "assignment-weekly-dispatch-1",
+  "kind": "dispatch",
+  "owner": "distribution-audience-lead",
+  "priority": "high",
+  "slug": "weekly-dispatch-1",
+  "status": "done",
+  "title": "Weekly Dispatch issue 1",
+  "updatedAt": "2026-04-05T18:12:00.000Z"
+}

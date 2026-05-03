@@ -1,3 +1,4 @@
+import { getBriefKeepReadingArt, getEditorialArt, getHomeWeekArt } from "@/lib/editorial-art";
 import type { NewsroomGeneratedSitePayload } from "@/lib/newsroom-types";
 import newsroomSiteContent from "@/newsroom/generated/site-content.json";
 
@@ -29,6 +30,11 @@ export type Story = {
   date?: string;
   readingTime?: string;
   image?: MediaAsset;
+};
+
+export type MatchContextEntry = {
+  label: string;
+  detail: string;
 };
 
 export type MetadataSeed = {
@@ -238,6 +244,10 @@ function media(src: string, alt: string, caption?: string, credit?: string): Med
   return { src, alt, caption, credit };
 }
 
+function copyMediaAsset(asset: MediaAsset, overrides: Partial<MediaAsset> = {}): MediaAsset {
+  return { ...asset, ...overrides };
+}
+
 function storyFromSeed(seed: ArticleSeed): Story {
   return {
     slug: seed.slug,
@@ -249,11 +259,17 @@ function storyFromSeed(seed: ArticleSeed): Story {
     author: seed.author,
     date: seed.date,
     readingTime: seed.readingTime,
-    image: seed.heroImage,
+    image: copyMediaAsset(seed.heroImage, { caption: seed.heroCaption, credit: seed.heroCredit }),
   };
 }
 
 const generatedNewsroomPayload = newsroomSiteContent as NewsroomGeneratedSitePayload;
+
+const suppressedPublicArticleSlugs = new Set([
+  "montjuic-needs-a-louder-start",
+  "the-camp-nou-exile-soundscape",
+  "rest-defense-is-learning-to-breathe",
+]);
 
 function compareContentDateDesc(left?: string, right?: string) {
   const leftTime = left ? Date.parse(left) : 0;
@@ -325,21 +341,6 @@ function mergeArticleSeedLists(baseSeeds: ArticleSeed[], generatedRecords: Newsr
     .sort((left, right) => compareContentDateDesc(left.date, right.date));
 }
 
-function mergeDispatchIssueLists(baseIssues: DispatchIssue[], generatedRecords: NewsroomGeneratedSitePayload["dispatchIssues"]) {
-  return [...baseIssues, ...generatedRecords.map(toDispatchIssue)]
-    .reduce<DispatchIssue[]>((accumulator, issue) => {
-      const existingIndex = accumulator.findIndex((entry) => entry.slug === issue.slug);
-
-      if (existingIndex >= 0) {
-        accumulator[existingIndex] = issue;
-      } else {
-        accumulator.push(issue);
-      }
-
-      return accumulator;
-    }, [])
-    .sort((left, right) => compareContentDateDesc(left.publishDate, right.publishDate));
-}
 
 const articleSeeds: ArticleSeed[] = [
   {
@@ -355,9 +356,9 @@ const articleSeeds: ArticleSeed[] = [
     date: "April 3, 2026",
     readTime: "12 min",
     readingTime: "12 min read",
-    heroImage: media("https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=1200&q=80", "Folded football shirts arranged in warm low light."),
+    heroImage: media("https://upload.wikimedia.org/wikipedia/commons/e/e2/Signed_Barcelona_shirt_of_Hristo_Stoichkov%2C_worn_boots_and_1994_Ballon_d%27Or_replica_won_by_him.jpg", "Signed FC Barcelona shirt displayed with boots and a Ballon d'Or replica."),
     heroCaption: "Archive shirts carry civic memory as much as club identity.",
-    heroCredit: "Photo illustration for twotalBarça",
+    heroCredit: "Photo: CinesCifi / Wikimedia Commons (CC BY 4.0)",
     body: [
       "Supporters talk about identity as though it lives in abstraction, but the shirt has always made the argument embarrassingly physical. Weight, weave, dye, collar, fit: each decision changes how the club appears in public, and therefore how the public is taught to recognize it.",
       "Barça's shirt has been read as a flag, a sales unit, and a relic. It has also been a practical object soaked through by rain, pulled by defenders, and dragged across mud. That practical life matters because the club's symbols do not remain noble once they leave the poster.",
@@ -379,9 +380,9 @@ const articleSeeds: ArticleSeed[] = [
     seasonSlug: "1991-92",
     personSlugs: ["clara-montfort", "johan-cruyff"],
     historicalEra: "Dream Team",
-    seoTitle: "The Weave of the Blau | twotalBarça",
+    seoTitle: "The Weave of the Blau | totalBarca",
     metaDescription: "A Barça archive essay on the shirt as material memory, public symbol, and footballing object across generations.",
-    relatedSlugs: ["home-and-the-sacred", "the-last-of-the-catalan-romantics", "the-camp-nou-exile-soundscape"],
+    relatedSlugs: ["home-and-the-sacred", "the-last-of-the-catalan-romantics", "how-barca-found-the-free-man"],
   },
   {
     id: "article-catalan-romantics",
@@ -396,9 +397,9 @@ const articleSeeds: ArticleSeed[] = [
     date: "April 3, 2026",
     readTime: "9 min",
     readingTime: "9 min read",
-    heroImage: media("https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1200&q=80", "Floodlit football stadium under a dramatic evening sky."),
+    heroImage: media("https://upload.wikimedia.org/wikipedia/commons/3/32/Camp_Nou_-_Home_Ground_of_FC_Barcelona.jpg", "Camp Nou filled before kickoff under evening light."),
     heroCaption: "Public pressure at Barça is inherited before it is explained.",
-    heroCredit: "Imagery study for twotalBarça",
+    heroCredit: "Photo: Wikimedia Commons (CC0)",
     body: [
       "Barça still speaks in the language of inheritance even when the institution behaves like a modern conglomerate. That contradiction is not a bug in the club's public life. It is the central tension of it.",
       "Supporters do not only judge outcomes. They judge comportment: how the team uses the ball, how it speaks after a poor night, and how it responds when pressure arrives from its own history.",
@@ -435,9 +436,9 @@ const articleSeeds: ArticleSeed[] = [
     date: "April 2, 2026",
     readTime: "8 min",
     readingTime: "8 min read",
-    heroImage: media("https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=1200&q=80", "Overhead view of a football pitch with players spread across the flanks."),
+    heroImage: media("https://upload.wikimedia.org/wikipedia/commons/8/8b/Camp_Nou%2C_La_Liga_match_%28Ank_Kumar%29_03.jpg", "FC Barcelona in open play at Camp Nou during a La Liga match."),
     heroCaption: "The far-side release was available only because the first two passes were clean.",
-    heroCredit: "Tactical illustration for twotalBarça",
+    heroCredit: "Photo: Ank Kumar / Wikimedia Commons (CC BY-SA 4.0)",
     body: [
       "The far-side switch was not a miracle ball. It was the end point of a calmer first phase.",
       "Once the opposition shifted, the release toward the weak side arrived before the block could re-square.",
@@ -474,9 +475,9 @@ const articleSeeds: ArticleSeed[] = [
     date: "April 2, 2026",
     readTime: "4 min",
     readingTime: "4 min read",
-    heroImage: media("https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=80", "Footballer controlling the ball under pressure in midfield."),
+    heroImage: media("https://upload.wikimedia.org/wikipedia/commons/e/eb/Camp_Nou_during_2014_La_Liga_match_FC_Barcelona%282%29_-_Athletic_Bilbao%280%29_05.jpg", "FC Barcelona players contesting midfield space at Camp Nou."),
     heroCaption: "Intensity can return to a side before any settled eleven is found.",
-    heroCredit: "Match observation for twotalBarça",
+    heroCredit: "Photo: Ank Kumar / Wikimedia Commons (CC BY-SA 4.0)",
     body: [
       "Returning players are usually measured immediately in lineups and end products. Gavi changes matches earlier than that.",
       "With him on the field, the side accepts more duels, closes distance faster, and recovers second balls as though they still belong to the team by right.",
@@ -625,7 +626,7 @@ const articleSeeds: ArticleSeed[] = [
     body: [
       "Supporters often speak about Camp Nou as if sanctity arrived all at once. It did not.",
       "The building accumulated charge through repetition: the same routes, the same thresholds, the same shift from city noise to match noise.",
-      "That is why exile feels strange. It interrupts not only geography, but the learned sequence by which the public becomes a crowd.",
+      "That memory still matters because it preserves the sequence by which the public becomes a crowd.",
     ],
     pullQuote: "A stadium becomes sacred by repetition before it becomes sacred by rhetoric.",
     quoteBy: "Clara Montfort",
@@ -640,7 +641,7 @@ const articleSeeds: ArticleSeed[] = [
     topicSlugs: ["history", "stadium-city"],
     seasonSlug: "1991-92",
     personSlugs: ["clara-montfort"],
-    relatedSlugs: ["the-camp-nou-exile-soundscape", "the-weave-of-the-blau", "the-last-of-the-catalan-romantics"],
+    relatedSlugs: ["the-weave-of-the-blau", "the-last-of-the-catalan-romantics", "how-barca-found-the-free-man"],
   },
 ];
 
@@ -660,6 +661,35 @@ export const articles: Article[] = mergedArticleSeeds.map((seed) => ({
   related: relatedStoriesFor(seed),
 }));
 
+const publicArticles = articles.filter((item) => !suppressedPublicArticleSlugs.has(item.slug));
+
+export const matchContext: { recent: MatchContextEntry[]; upcoming: MatchContextEntry[] } = {
+  recent: [
+    {
+      label: "Barcelona 0-2 Atlético Madrid",
+      detail: "Apr 8, Champions League quarter-final first leg.",
+    },
+  ],
+  upcoming: [
+    {
+      label: "Barcelona vs Espanyol",
+      detail: "Apr 11, La Liga, 4:30 PM.",
+    },
+  ],
+};
+
+export function getLatestBriefArticle(): Article | undefined {
+  return (generatedNewsroomPayload.articles ?? [])
+    .filter(
+      (record) =>
+        !suppressedPublicArticleSlugs.has(record.slug) &&
+        (record.sectionSlug === "brief" || record.type === "Brief") &&
+        record.body.length === 5,
+    )
+    .map((record) => getArticleBySlug(record.slug))
+    .find((record): record is Article => Boolean(record));
+}
+
 export const sections: SectionRecord[] = [
   { id: "section-brief", slug: "brief", name: "The Brief", eyebrow: "Publication / Brief", description: "Short pieces that translate the week's signals into plain editorial language.", landingDek: "Barça generates noise easily. The Brief keeps only the lines that still matter once the shouting stops.", featuredArticleSlug: "gavis-return-changes-the-rhythm" },
   { id: "section-match-notes", slug: "match-notes", name: "Match Notes", eyebrow: "Publication / Match Notes", description: "Immediate football readings from matches, training patterns, and game-state details.", landingDek: "Not liveblog residue. Match Notes keeps the observations that survive first adrenaline.", featuredArticleSlug: "flicks-back-line-is-holding-higher" },
@@ -670,10 +700,11 @@ export const sections: SectionRecord[] = [
 
 export const topics: Topic[] = [
   { id: "topic-first-team", name: "First Team", slug: "first-team", description: "The senior side as football team rather than content engine: roles, pressure, and match-to-match identity.", featuredArticleSlug: "how-barca-found-the-free-man" },
+  { id: "topic-femeni", name: "Femení", slug: "femeni", description: "Coverage of Barça Femení as a present-tense football team: European benchmarks, squad pulse, and the standards attached to the side.", featuredArticleSlug: "femen-bayern-pulse" },
   { id: "topic-tactics", name: "Tactics", slug: "tactics", description: "Positional play, spacing, pressing habits, and the structural choices that decide matches.", featuredArticleSlug: "how-barca-found-the-free-man" },
   { id: "topic-history", name: "History", slug: "history", description: "The club's long memory as a usable pressure on the present rather than a decorative backdrop.", featuredArticleSlug: "the-weave-of-the-blau" },
   { id: "topic-identity", name: "Identity", slug: "identity", description: "Writing on how Barça tries to recognize itself through football, symbols, and standards.", featuredArticleSlug: "the-last-of-the-catalan-romantics" },
-  { id: "topic-culture-catalonia", name: "Culture & Catalonia", slug: "culture-catalonia", description: "The relationship between club, city, language, and the civic textures around matchday.", featuredArticleSlug: "the-camp-nou-exile-soundscape" },
+  { id: "topic-culture-catalonia", name: "Culture & Catalonia", slug: "culture-catalonia", description: "The relationship between club, city, language, and the civic textures around matchday.", featuredArticleSlug: "the-last-of-the-catalan-romantics" },
   { id: "topic-finance-governance", name: "Finance & Governance", slug: "finance-governance", description: "Institutional clarity, public trust, and the decisions that shape the club beyond the touchline.", featuredArticleSlug: "why-finance-needs-plain-terms" },
   { id: "topic-club-politics", name: "Club Politics", slug: "club-politics", description: "Power, messaging, and the internal arguments that spill into public life.", featuredArticleSlug: "why-finance-needs-plain-terms" },
   { id: "topic-stadium-city", name: "Stadium / City", slug: "stadium-city", description: "Architecture, atmosphere, and the relationship between Barça and the spaces that hold its public.", featuredArticleSlug: "home-and-the-sacred" },
@@ -696,49 +727,29 @@ export const people: Person[] = [
 export const contributors = people.filter((person) => ["maury-vidal", "jordi-serra", "clara-montfort"].includes(person.slug));
 
 export const archiveCollections: ArchiveCollection[] = [
-  { id: "collection-vault-shelf", title: "The Vault Shelf", slug: "vault-shelf", description: "Objects, grounds, and older thresholds that still put demands on the present club.", collectionType: "Vault Shelf", itemSlugs: ["the-weave-of-the-blau", "home-and-the-sacred", "the-camp-nou-exile-soundscape"] },
+  { id: "collection-vault-shelf", title: "The Vault Shelf", slug: "vault-shelf", description: "Objects, grounds, and older thresholds that still put demands on the present club.", collectionType: "Vault Shelf", itemSlugs: ["the-weave-of-the-blau", "home-and-the-sacred", "the-last-of-the-catalan-romantics"] },
   { id: "collection-rebuild-notebook", title: "The Rebuild Notebook", slug: "rebuild-notebook", description: "Pieces tracking whether the current side is becoming coherent enough to be judged seriously.", collectionType: "Dossier", itemSlugs: ["the-last-of-the-catalan-romantics", "how-barca-found-the-free-man", "flicks-back-line-is-holding-higher", "gavis-return-changes-the-rhythm"] },
 ];
 
-const seededDispatchIssues: DispatchIssue[] = [
-  {
-    id: "dispatch-12",
-    slug: "week-in-blaugrana-12",
-    issueTitle: "The Week in Blaugrana, No. 12",
-    issueNumber: 12,
-    editorsNote: "Barça has looked more coherent than fluent. That is not an insult. Coherence is usually the first honest sign of a team becoming itself again.",
-    publishDate: "April 4, 2026",
-    leadStorySlug: "the-last-of-the-catalan-romantics",
-    status: "published",
-    items: [
-      { headline: "The Last of the Catalan Romantics", summary: "A feature on inherited standards, public pressure, and why style only matters when it still looks serious.", link: "/article/the-last-of-the-catalan-romantics", itemType: "must-read" },
-      { headline: "How Barça Found the Free Man on the Far Side", summary: "A tactical read on how the weak-side release was made available by calmer circulation.", link: "/article/how-barca-found-the-free-man", itemType: "note" },
-      { headline: "The Weave of the Blau", summary: "A vault pick on the shirt as object, civic signal, and material memory.", link: "/article/the-weave-of-the-blau", itemType: "archive-pick" },
-      { headline: "17 attacking-third recoveries", summary: "Barça recorded its best league figure in six weeks.", link: "/match-notes", itemType: "stat" },
-      { headline: "Watch the midfield triangle if the right-back inverts earlier", summary: "The next structural question is whether the side can hold calm while changing the release point.", link: "/analysis", itemType: "watchlist" },
-    ],
-  },
-  {
-    id: "dispatch-11",
-    slug: "week-in-blaugrana-11",
-    issueTitle: "The Week in Blaugrana, No. 11",
-    issueNumber: 11,
-    editorsNote: "The club spent the week talking about future plans. The football was more persuasive when it focused on smaller present-tense repairs.",
-    publishDate: "March 28, 2026",
-    leadStorySlug: "how-barca-found-the-free-man",
-    status: "published",
-    items: [
-      { headline: "How Barça Found the Free Man on the Far Side", summary: "A tactical read on how the weak-side release was made available by calmer circulation.", link: "/article/how-barca-found-the-free-man", itemType: "must-read" },
-      { headline: "Camp Nou's Temporary Exile Has Altered the Soundscape of Matchday", summary: "Support is not only volume. It is proximity, habit, and a building's own acoustics.", link: "/article/the-camp-nou-exile-soundscape", itemType: "quote" },
-      { headline: "The club's finance messaging needs plainer nouns", summary: "Legibility is respect, not weakness.", link: "/article/why-finance-needs-plain-terms", itemType: "note" },
-    ],
-  },
-];
+const seededDispatchIssues: DispatchIssue[] = [];
 
-export const dispatchIssues: DispatchIssue[] = mergeDispatchIssueLists(
-  seededDispatchIssues,
-  generatedNewsroomPayload.dispatchIssues ?? [],
-);
+export const dispatchIssues: DispatchIssue[] = (generatedNewsroomPayload.dispatchIssues ?? []).map(toDispatchIssue);
+
+export function getDispatchCoverImage(issue?: DispatchIssue, variant: "index" | "issue" = "index"): MediaAsset {
+  const key = variant === "issue" ? "dispatch-issue-cover" : "dispatch-index-cover";
+  const art = getEditorialArt(key);
+
+  return copyMediaAsset(art, {
+    caption: issue
+      ? variant === "issue"
+        ? `Dispatch No. ${issue.issueNumber} frames the week as response, pressure, and selection.`
+        : `Dispatch No. ${issue.issueNumber} keeps the week under one roof before the lead read narrows the pressure.`
+      : variant === "issue"
+        ? "The issue cover should hold response, pressure, and selection inside one frame."
+        : "Dispatch keeps the week under one roof before the lead read narrows the pressure.",
+    credit: art.credit,
+  });
+}
 
 export const siteSections: SectionRecord[] = [
   sections[0]!,
@@ -776,68 +787,45 @@ export const collections: Collection[] = archiveCollections.map((collection) => 
 }));
 
 export const navItems: NavItem[] = [
-  { label: "The Brief", href: "/section/brief" },
-  { label: "Match Notes", href: "/match-notes" },
-  { label: "Analysis", href: "/analysis" },
-  { label: "Culture", href: "/culture" },
-  { label: "Archive", href: "/archive" },
+  { label: "Home", href: "/" },
+  { label: "Dispatch", href: "/dispatch" },
   { label: "About", href: "/about" },
 ];
 
 export const footerLinkGroups: FooterLinkGroup[] = [
   {
-    title: "Read",
+    title: "Read totalBarça",
     links: [
-      { label: "The Brief", href: "/section/brief" },
-      { label: "Match Notes", href: "/match-notes" },
-      { label: "Analysis", href: "/analysis" },
-      { label: "Culture", href: "/culture" },
-      { label: "Identity topic", href: "/topic/identity" },
-    ],
-  },
-  {
-    title: "Publication",
-    links: [
-      { label: "Weekly Dispatch", href: "/dispatch" },
-      { label: "Archive", href: "/archive" },
+      { label: "Home", href: "/" },
+      { label: "Dispatch", href: "/dispatch" },
       { label: "About", href: "/about" },
-      { label: "Editorial principles", href: "/about#principles" },
-    ],
-  },
-  {
-    title: "Dispatch",
-    links: [
-      { label: "Latest issue", href: dispatchIssues[0] ? `/dispatch/${dispatchIssues[0].slug}` : "/dispatch" },
-      { label: "Dispatch archive", href: "/dispatch" },
-      { label: "Coverage map", href: "/about#coverage" },
-      { label: "Contact", href: "/about#contact" },
     ],
   },
 ];
 
 export const siteMeta = {
-  name: "twotalBarça",
+  name: "totalBarça",
   url: "https://twotalbarca.com",
   locale: "en_US",
-  description: "A premium FC Barcelona publication for essays, match notes, archive work, and analysis rooted in football rather than noise.",
-  tagline: "FC Barcelona writing in the present tense and the club's long memory.",
+  description: "A weekly dispatch for FC Barcelona: five topics, minimal match context, and no noise between issues.",
+  tagline: "Less noise. More Barça. Five takes, one match context.",
+  editorialByline: "totalBarça Desk",
   contactEmail: "editor@twotalbarca.com",
   keywords: [
     "FC Barcelona",
-    "Barca analysis",
-    "Barca culture",
-    "Barca archive",
+    "Barça dispatch",
+    "weekly dispatch",
+    "five topics",
+    "match context",
     "football writing",
-    "Weekly Dispatch",
   ],
   footer: footerLinkGroups,
   footerMeta: {
     socialLinks: [
       { label: "About", href: "/about" },
-      { label: "Weekly Dispatch", href: "/dispatch" },
-      { label: "Archive", href: "/archive" },
+      { label: "Dispatch", href: "/dispatch" },
     ],
-    legalNotice: "FC Barcelona writing with memory, football specificity, and no tolerance for template noise.",
+    legalNotice: "A weekly Barça dispatch with five takes, one fixture context, and no template noise.",
   },
 } as const;
 
@@ -896,6 +884,10 @@ export const aboutData: AboutData = {
 };
 
 function getFrontPageArticle(slug?: string) {
+  if (!slug || suppressedPublicArticleSlugs.has(slug)) {
+    return undefined;
+  }
+
   return slug ? articleSeedMap.get(slug) : undefined;
 }
 
@@ -905,10 +897,16 @@ function buildFrontPageHero() {
     articleSeedMap.get("the-last-of-the-catalan-romantics")!;
 
   return {
-    ...storyFromSeed(heroSeed),
+    slug: heroSeed.slug,
+    headline: heroSeed.headline,
+    excerpt: heroSeed.excerpt,
     section: heroSeed.section,
+    href: `/article/${heroSeed.slug}`,
+    dek: heroSeed.dek,
+    author: heroSeed.author,
+    date: heroSeed.date,
     readingTime: heroSeed.readingTime,
-    image: heroSeed.heroImage,
+    image: getEditorialArt("home-hero"),
   };
 }
 
@@ -937,11 +935,19 @@ function buildCultureStories() {
     .map((slug) => getFrontPageArticle(slug))
     .filter((item): item is ArticleSeed => Boolean(item));
 
-  if (overrideSeeds.length > 0) {
-    return overrideSeeds.map((seed) => storyFromSeed(seed));
-  }
+  const seeds =
+    overrideSeeds.length > 0
+      ? overrideSeeds
+      : [
+          articleSeedMap.get("the-last-of-the-catalan-romantics")!,
+          articleSeedMap.get("home-and-the-sacred")!,
+          articleSeedMap.get("the-weave-of-the-blau")!,
+        ];
 
-  return [storyFromSeed(articleSeedMap.get("the-camp-nou-exile-soundscape")!), storyFromSeed(articleSeedMap.get("home-and-the-sacred")!)];
+  return seeds.map((seed, index) => ({
+    ...storyFromSeed(seed),
+    image: getHomeWeekArt(seed.slug, index),
+  }));
 }
 
 function buildBriefDispatches() {
@@ -1062,11 +1068,11 @@ export const homePageData: HomePageData = {
 };
 
 export function getArticleBySlug(slug: string) {
-  return articles.find((item) => item.slug === slug);
+  return publicArticles.find((item) => item.slug === slug);
 }
 
 export function getArticleSlugs() {
-  return articles.map((item) => item.slug);
+  return publicArticles.map((item) => item.slug);
 }
 
 export function getStoryHref(story: Pick<Story, "href">, fallback = "/archive") {
@@ -1136,19 +1142,19 @@ export function getLatestDispatchIssue() {
 }
 
 export function getArticlesBySection(sectionSlug: string) {
-  return articles.filter((item) => item.sectionSlug === sectionSlug);
+  return publicArticles.filter((item) => item.sectionSlug === sectionSlug);
 }
 
 export function getArticlesByTopic(topicSlug: string) {
-  return articles.filter((item) => item.topicSlugs.includes(topicSlug));
+  return publicArticles.filter((item) => item.topicSlugs.includes(topicSlug));
 }
 
 export function getArticlesBySeason(seasonSlug: string) {
-  return articles.filter((item) => item.seasonSlug === seasonSlug);
+  return publicArticles.filter((item) => item.seasonSlug === seasonSlug);
 }
 
 export function getArticlesByPerson(personSlug: string) {
-  return articles.filter((item) => item.personSlugs.includes(personSlug));
+  return publicArticles.filter((item) => item.personSlugs.includes(personSlug));
 }
 
 export function getArchiveArticles() {

@@ -22,7 +22,8 @@
   "signalPreference": "suggest",
   "slug": "editorial-follow-ups",
   "sourceName": "Editorial Follow-ups",
-  "status": "active",
+  "enabled": false,
+  "status": "ignored",
   "summary": "Copy feedback is in. The desk needs a revision pass that cleanly separates atmosphere observation from football claim.",
   "tags": [
     "culture",

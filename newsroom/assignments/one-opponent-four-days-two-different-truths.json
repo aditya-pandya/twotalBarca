@@ -1,0 +1,25 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Compare the Apr. 4 and Apr. 8 Atlético matches to explain what changed in game state, control, and threat rather than writing another generic reaction piece.",
+  "createdAt": "2026-04-09T18:36:06.386Z",
+  "deadline": "2026-04-10T02:36:04.591Z",
+  "deliverables": [
+    "One publishable article draft",
+    "Exact match/player/topic framing",
+    "Dispatch recommendation grounded in the live scout"
+  ],
+  "dependencies": [
+    "signal:signal-barca-live-scout-one-opponent-four-days-two-truths"
+  ],
+  "id": "assignment-one-opponent-four-days-two-different-truths",
+  "kind": "article",
+  "owner": "editor-in-chief",
+  "priority": "critical",
+  "recordKind": "article",
+  "slug": "one-opponent-four-days-two-different-truths",
+  "sourceSignalId": "signal-barca-live-scout-one-opponent-four-days-two-truths",
+  "status": "open",
+  "targetSlug": "one-opponent-four-days-two-different-truths",
+  "title": "One opponent, four days, two different truths",
+  "updatedAt": "2026-04-09T18:36:06.386Z"
+}

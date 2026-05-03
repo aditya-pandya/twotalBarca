@@ -1,0 +1,73 @@
+{
+  "assignmentId": "assignment-one-opponent-four-days-two-different-truths-24",
+  "assignmentSuggestion": {
+    "approver": "editor-in-chief",
+    "brief": "Compare the recent Atlético meetings to explain what changed in game state, control, and threat rather than writing another generic reaction piece.",
+    "deadline": "2026-05-04T02:31:52.497Z",
+    "deliverables": [
+      "One publishable article draft",
+      "Exact match/player/topic framing",
+      "Dispatch recommendation grounded in the live scout"
+    ],
+    "kind": "article",
+    "owner": "editor-in-chief",
+    "title": "One opponent, four days, two different truths"
+  },
+  "assignmentTopic": "Atlético Madrid split-screen / league and European meetings",
+  "confidence": 0.97,
+  "createdAt": "2026-05-03T18:15:45.462Z",
+  "discoveryMode": "live",
+  "eventAt": "2026-05-03T18:31:52.497Z",
+  "evidence": [
+    {
+      "engagement": 0,
+      "excerpt": "| Tue, Apr 14 | Atlético Madrid | 1 - 2 2nd Leg · Atlético Madrid wins 3-2 on aggregate | Barcelona | FT | UEFA Champions League |",
+      "label": "| Tue, Apr 14 | Atlético Madrid | 1 - 2 2nd Leg · Atlético Madrid wins 3-2 on aggregate | Barcelona | FT | UEFA Champions League |",
+      "publishedAt": "2026-05-03T18:31:52.497Z",
+      "source": "web:espn-results",
+      "url": "https://r.jina.ai/http://www.espn.com/soccer/team/results/_/id/83/barcelona"
+    },
+    {
+      "engagement": 21,
+      "excerpt": "What To Watch This Week (4-10 May) These posts are as much for me as they are for you. So please feel free to reply with your suggestions for what to watch, and make a case for any game to be considered 'must watch', in which case I will bold it. The time zone used to sort games ",
+      "label": "What To Watch This Week (4-10 May)",
+      "publishedAt": "2026-05-03T12:14:24.000Z",
+      "source": "reddit:r/soccer:barca-search",
+      "url": "https://www.reddit.com/r/soccer/comments/1t2jthe/what_to_watch_this_week_410_may/"
+    },
+    {
+      "engagement": 11,
+      "excerpt": "Upcoming Live Matches On UKTV!! (01.05 -- 09.06) This schedule is for those matches available in the UK only airing on BBC/Sky/TNT/Dazn/YouTube. *Under 17 Tournament featuring England and Northern Ireland starts 4th May on Uefa.tv. WSL2 Final Day on Saturday 2nd May.* *Champions ",
+      "label": "Upcoming Live Matches On UKTV!! (01.05 -- 09.06)",
+      "publishedAt": "2026-05-01T11:48:03.000Z",
+      "source": "reddit:r/WomensSoccer:barca-search",
+      "url": "https://www.reddit.com/r/WomensSoccer/comments/1t0r4xl/upcoming_live_matches_on_uktv_0105_0906/"
+    }
+  ],
+  "id": "signal-barca-live-scout-one-opponent-four-days-two-truths",
+  "priorityReason": "Matched 5 live evidence item(s) across reddit, web. Strongest feeds: ESPN results via Jina; Reddit /r/soccer Barça search; Reddit /r/WomensSoccer Barça search.",
+  "priorityScore": 100,
+  "schemaVersion": 1,
+  "signalType": "match",
+  "slug": "barca-live-scout-one-opponent-four-days-two-truths",
+  "sourceId": "source-barca-live-scout",
+  "sourceSlug": "barca-live-scout",
+  "status": "converted",
+  "summary": "The contrast between the recent Atlético meetings gives the desk a clean split-screen angle on why the same opponent produced different Barcelona performances.",
+  "tags": [
+    "barca",
+    "live",
+    "scout",
+    "trusted-sources",
+    "official",
+    "reddit",
+    "match-context",
+    "atletico",
+    "comparison",
+    "ucl",
+    "laliga"
+  ],
+  "title": "One opponent, four days, two different truths",
+  "updatedAt": "2026-05-03T18:32:04.477Z",
+  "urgency": "critical"
+}

@@ -1,0 +1,25 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Use official Femení reporting, trusted X, and community chatter to frame why the Bayern meeting is the next real football test and which players are setting the tone for it.",
+  "createdAt": "2026-04-15T16:49:23.638Z",
+  "deadline": "2026-04-16T00:49:14.396Z",
+  "deliverables": [
+    "One publishable article draft",
+    "Exact match/player/topic framing",
+    "Dispatch recommendation grounded in the live scout"
+  ],
+  "dependencies": [
+    "signal:signal-barca-live-scout-femeni-bayern-pulse"
+  ],
+  "id": "assignment-femen-bayern-pulse-5",
+  "kind": "article",
+  "owner": "editor-in-chief",
+  "priority": "critical",
+  "recordKind": "article",
+  "slug": "femen-bayern-pulse-5",
+  "sourceSignalId": "signal-barca-live-scout-femeni-bayern-pulse",
+  "status": "open",
+  "targetSlug": "femen-bayern-pulse-5",
+  "title": "Femení Bayern pulse",
+  "updatedAt": "2026-04-15T16:49:23.638Z"
+}

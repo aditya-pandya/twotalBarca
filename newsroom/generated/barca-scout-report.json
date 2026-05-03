@@ -1,0 +1,1868 @@
+{
+  "calibrationPrompts": [
+    {
+      "action": "Run one more trusted confirmation pass before this theme graduates from watchlist to assignment default.",
+      "candidateIds": [
+        "territory-without-punch"
+      ],
+      "clusterIds": [],
+      "id": "prompt-territory-without-punch-trusted-check",
+      "kind": "candidate-needs-trusted-confirmation",
+      "priority": "high",
+      "sourceIds": [
+        "x:trusted-football-media",
+        "web:fcbarcelona-squad",
+        "reddit:r/soccer:barca-search",
+        "reddit:r/Barca:top-week",
+        "reddit:r/Barca:new"
+      ],
+      "summary": "5 chatter item(s) are outrunning 2 trusted/official corroboration lane(s).",
+      "title": "Territory without punch is still Barça's problem needs trusted confirmation"
+    },
+    {
+      "action": "Run one more trusted confirmation pass before this theme graduates from watchlist to assignment default.",
+      "candidateIds": [
+        "femeni-bayern-pulse"
+      ],
+      "clusterIds": [],
+      "id": "prompt-femeni-bayern-pulse-trusted-check",
+      "kind": "candidate-needs-trusted-confirmation",
+      "priority": "high",
+      "sourceIds": [
+        "x:official-club-women",
+        "x:trusted-football-media",
+        "reddit:r/FCBFemeni:new",
+        "reddit:r/WomensSoccer:barca-search",
+        "reddit:r/Barca:new"
+      ],
+      "summary": "7 chatter item(s) are outrunning 4 trusted/official corroboration lane(s).",
+      "title": "Femení's Bayern pulse is already building needs trusted confirmation"
+    },
+    {
+      "action": "Run one more trusted confirmation pass before this theme graduates from watchlist to assignment default.",
+      "candidateIds": [
+        "one-opponent-four-days-two-truths"
+      ],
+      "clusterIds": [],
+      "id": "prompt-one-opponent-four-days-two-truths-trusted-check",
+      "kind": "candidate-needs-trusted-confirmation",
+      "priority": "high",
+      "sourceIds": [
+        "web:espn-results",
+        "reddit:r/soccer:barca-search",
+        "reddit:r/WomensSoccer:barca-search"
+      ],
+      "summary": "3 chatter item(s) are outrunning 2 trusted/official corroboration lane(s).",
+      "title": "One opponent, four days, two different truths needs trusted confirmation"
+    },
+    {
+      "action": "Run one more trusted confirmation pass before this theme graduates from watchlist to assignment default.",
+      "candidateIds": [
+        "keep-cubarsi-blame-in-proportion"
+      ],
+      "clusterIds": [],
+      "id": "prompt-keep-cubarsi-blame-in-proportion-trusted-check",
+      "kind": "candidate-needs-trusted-confirmation",
+      "priority": "high",
+      "sourceIds": [
+        "x:trusted-football-media",
+        "reddit:r/FCBFemeni:new",
+        "reddit:r/WomensSoccer:barca-search"
+      ],
+      "summary": "9 chatter item(s) are outrunning 1 trusted/official corroboration lane(s).",
+      "title": "Keep Cubarsí blame in proportion needs trusted confirmation"
+    },
+    {
+      "action": "Decide whether to merge the candidate angles or sharpen their distinctions before the next ingest cycle.",
+      "candidateIds": [
+        "femeni-bayern-pulse",
+        "keep-cubarsi-blame-in-proportion",
+        "territory-without-punch",
+        "espanyol-between-the-legs",
+        "one-opponent-four-days-two-truths"
+      ],
+      "clusterIds": [
+        "cluster-bayern-champions-league-second-leg-uwcl-leg"
+      ],
+      "id": "prompt-cluster-bayern-champions-league-second-leg-uwcl-leg-duplicate-pitch",
+      "kind": "duplicate-theme-cluster",
+      "priority": "medium",
+      "sourceIds": [],
+      "summary": "More than one candidate is drawing from the same evidence cluster, so the desk may be splitting one theme into duplicates.",
+      "title": "Bayern / Champions League is feeding multiple candidate pitches"
+    },
+    {
+      "action": "Retune the query, narrow the keywords, or replace the lane if it stays quiet again.",
+      "candidateIds": [],
+      "clusterIds": [],
+      "id": "prompt-x-official-club-men-source-gap",
+      "kind": "source-quality-gap",
+      "priority": "high",
+      "sourceIds": [
+        "x:official-club-men"
+      ],
+      "summary": "6 fetched item(s) produced no usable candidate evidence for a second straight run.",
+      "title": "Official club X (men) is quiet against the live themes"
+    },
+    {
+      "action": "Retune the query, narrow the keywords, or replace the lane if it stays quiet again.",
+      "candidateIds": [],
+      "clusterIds": [],
+      "id": "prompt-web-fcbarcelona-results-source-gap",
+      "kind": "source-quality-gap",
+      "priority": "high",
+      "sourceIds": [
+        "web:fcbarcelona-results"
+      ],
+      "summary": "6 fetched item(s) produced no usable candidate evidence for a second straight run.",
+      "title": "FC Barcelona results via Jina is quiet against the live themes"
+    },
+    {
+      "action": "Retune the query, narrow the keywords, or replace the lane if it stays quiet again.",
+      "candidateIds": [],
+      "clusterIds": [],
+      "id": "prompt-web-fcbarcelona-women-news-source-gap",
+      "kind": "source-quality-gap",
+      "priority": "high",
+      "sourceIds": [
+        "web:fcbarcelona-women-news"
+      ],
+      "summary": "5 fetched item(s) produced no usable candidate evidence for a second straight run.",
+      "title": "FC Barcelona women news via Jina is quiet against the live themes"
+    },
+    {
+      "action": "Retune the query, narrow the keywords, or replace the lane if it stays quiet again.",
+      "candidateIds": [],
+      "clusterIds": [],
+      "id": "prompt-web-fcbarcelona-women-results-source-gap",
+      "kind": "source-quality-gap",
+      "priority": "high",
+      "sourceIds": [
+        "web:fcbarcelona-women-results"
+      ],
+      "summary": "6 fetched item(s) produced no usable candidate evidence for a second straight run.",
+      "title": "FC Barcelona women results via Jina is quiet against the live themes"
+    },
+    {
+      "action": "Retune the query, narrow the keywords, or replace the lane if it stays quiet again.",
+      "candidateIds": [],
+      "clusterIds": [],
+      "id": "prompt-web-fcbarcelona-women-squad-source-gap",
+      "kind": "source-quality-gap",
+      "priority": "high",
+      "sourceIds": [
+        "web:fcbarcelona-women-squad"
+      ],
+      "summary": "4 fetched item(s) produced no usable candidate evidence for a second straight run.",
+      "title": "FC Barcelona women squad via Jina is quiet against the live themes"
+    },
+    {
+      "action": "Retune the query, narrow the keywords, or replace the lane if it stays quiet again.",
+      "candidateIds": [],
+      "clusterIds": [],
+      "id": "prompt-web-espn-fixtures-source-gap",
+      "kind": "source-quality-gap",
+      "priority": "high",
+      "sourceIds": [
+        "web:espn-fixtures"
+      ],
+      "summary": "5 fetched item(s) produced no usable candidate evidence for a second straight run.",
+      "title": "ESPN fixtures via Jina is quiet against the live themes"
+    }
+  ],
+  "candidates": [
+    {
+      "assignmentSuggestion": {
+        "approver": "editor-in-chief",
+        "brief": "Frame Espanyol as the real selection problem between Champions League legs: who can start, who should be protected, and what the derby means for the title race and Madrid return.",
+        "deadline": "2026-05-04T02:31:52.497Z",
+        "deliverables": [
+          "One publishable article draft",
+          "Exact match/player/topic framing",
+          "Dispatch recommendation grounded in the live scout"
+        ],
+        "kind": "article",
+        "owner": "editor-in-chief",
+        "title": "Espanyol between the legs"
+      },
+      "assignmentTopic": "Espanyol vs Barcelona / rotation and fitness before Atlético second leg",
+      "calibration": {
+        "chatterEvidenceCount": 2,
+        "crossPlatform": true,
+        "label": "well-backed",
+        "needsTrustedConfirmation": false,
+        "needsWomenDepth": false,
+        "note": "Official, trusted, and community evidence are all pointing at the same football consequence.",
+        "officialEvidenceCount": 1,
+        "referenceEvidenceCount": 0,
+        "sourceFamilyCount": 4,
+        "trustedEvidenceCount": 4
+      },
+      "eventAt": "2026-05-03T18:31:52.497Z",
+      "evidence": [
+        {
+          "engagement": 0,
+          "excerpt": "FC Barcelona club badge League champions without playing? Barça have all eyes on the game between Real Madrid and Espanyol on Sunday as a slip up from the second placed team will allow the blaugranes to take La Liga title Published date",
+          "label": "FC Barcelona club badge League champions without playing? Barça have all eyes on the game between Real Madrid and Espanyol on Sunday as a slip up from the second placed team will allow the blaugranes to take La Liga title Published date",
+          "publishedAt": "2026-05-03T18:31:52.497Z",
+          "source": "web:fcbarcelona-news",
+          "url": "https://r.jina.ai/http://www.fcbarcelona.com/en/football/first-team/news"
+        },
+        {
+          "engagement": 22,
+          "excerpt": "48.43 - Espanyol v Levante was the game with the lowest time in play in @LaLigaEN matchday 32 (48.43) and also the only match with no goals scored. Causality. https://t.co/Os0QSktcjf",
+          "image": {
+            "alt": "48.43 - Espanyol v Levante was the game with the lowest time in play in @LaLigaEN matchday 32 (48.43) and also the only match with no goals scored. Causality. https://t.co/Os0QSktcjf",
+            "href": "https://x.com/OptaJose/status/2049044208481104107",
+            "label": "OptaJose preview",
+            "note": "Internal review only until licensing is confirmed.",
+            "source": "x:trusted-football-stats",
+            "src": "https://pbs.twimg.com/media/HG-qki8WMAAHRqz.jpg",
+            "status": "review-needed-social-preview"
+          },
+          "label": "OptaJose: 48.43 - Espanyol v Levante was the game with the lowest time in play in @LaLigaEN matchday 32 (48.43) and also the only match with no goals scored. Causality. https://t.co/Os0QSktcjf",
+          "publishedAt": "2026-04-28T08:33:03.000Z",
+          "source": "x:trusted-football-stats",
+          "url": "https://x.com/OptaJose/status/2049044208481104107"
+        },
+        {
+          "engagement": 0,
+          "excerpt": "| Sat, Apr 11 | Barcelona | 4 - 1 | Espanyol | FT | Spanish LALIGA |",
+          "label": "| Sat, Apr 11 | Barcelona | 4 - 1 | Espanyol | FT | Spanish LALIGA |",
+          "publishedAt": "2026-05-03T18:31:52.497Z",
+          "source": "web:espn-results",
+          "url": "https://r.jina.ai/http://www.espn.com/soccer/team/results/_/id/83/barcelona"
+        },
+        {
+          "engagement": 0,
+          "excerpt": "| 13 ESPEspanyol |",
+          "label": "| 13 ESPEspanyol |",
+          "publishedAt": "2026-05-03T18:31:52.497Z",
+          "source": "web:espn-standings",
+          "url": "https://r.jina.ai/http://www.espn.com/soccer/standings/_/league/esp.1"
+        },
+        {
+          "engagement": 21,
+          "excerpt": "What To Watch This Week (4-10 May) These posts are as much for me as they are for you. So please feel free to reply with your suggestions for what to watch, and make a case for any game to be considered 'must watch', in which case I will bold it. The time zone used to sort games ",
+          "label": "What To Watch This Week (4-10 May)",
+          "publishedAt": "2026-05-03T12:14:24.000Z",
+          "source": "reddit:r/soccer:barca-search",
+          "url": "https://www.reddit.com/r/soccer/comments/1t2jthe/what_to_watch_this_week_410_may/"
+        }
+      ],
+      "id": "espanyol-between-the-legs",
+      "imageLead": {
+        "alt": "48.43 - Espanyol v Levante was the game with the lowest time in play in @LaLigaEN matchday 32 (48.43) and also the only match with no goals scored. Causality. https://t.co/Os0QSktcjf",
+        "href": "https://x.com/OptaJose/status/2049044208481104107",
+        "label": "OptaJose preview",
+        "note": "Internal review only until licensing is confirmed.",
+        "source": "x:trusted-football-stats",
+        "src": "https://pbs.twimg.com/media/HG-qki8WMAAHRqz.jpg",
+        "status": "review-needed-social-preview"
+      },
+      "imageStatus": "review-needed-social-preview",
+      "priorityReason": "Matched 7 live evidence item(s) across official, reddit, web, x. Strongest feeds: FC Barcelona first-team news via Jina; Trusted football stats X; ESPN results via Jina.",
+      "priorityScore": 100,
+      "signalType": "match",
+      "summary": "The derby now sits between the Atlético legs, and the strongest live signals revolve around who is fit enough to start, manage minutes, or be protected before Madrid.",
+      "tags": [
+        "derby",
+        "rotation",
+        "fitness",
+        "pedri",
+        "frenkie",
+        "espanyol"
+      ],
+      "title": "Espanyol between the legs is the real selection test",
+      "urgency": "critical"
+    },
+    {
+      "assignmentSuggestion": {
+        "approver": "editor-in-chief",
+        "brief": "Use the shot, on-target, and possession context to explain why Barcelona owned territory without creating enough punch, and connect it to the attack discussion around Olmo and Rashford.",
+        "deadline": "2026-05-04T02:31:52.497Z",
+        "deliverables": [
+          "One publishable article draft",
+          "Exact match/player/topic framing",
+          "Dispatch recommendation grounded in the live scout"
+        ],
+        "kind": "article",
+        "owner": "editor-in-chief",
+        "title": "Territory without punch"
+      },
+      "assignmentTopic": "Barcelona attack after Atlético / possession without decisive threat",
+      "calibration": {
+        "chatterEvidenceCount": 5,
+        "crossPlatform": true,
+        "label": "needs-trusted-check",
+        "needsTrustedConfirmation": true,
+        "needsWomenDepth": false,
+        "note": "Chatter is outrunning trusted confirmation here; add another corroboration pass before leaning on it.",
+        "officialEvidenceCount": 1,
+        "referenceEvidenceCount": 0,
+        "sourceFamilyCount": 3,
+        "trustedEvidenceCount": 1
+      },
+      "eventAt": "2026-05-03T18:31:52.497Z",
+      "evidence": [
+        {
+          "engagement": 585,
+          "excerpt": "The balance sheet now reads 10 wins from 14 games. That is a solid body of work, a decent argument in itself. Consider that Manchester United have now beaten Liverpool, Manchester City, Chelsea and Arsenal under Michael Carrick, and it looks even stronger. Time will tell whether ",
+          "image": {
+            "alt": "The balance sheet now reads 10 wins from 14 games. That is a solid body of work, a decent argument in itself. Consider that Manchester United have now beaten Liverpool, Manchester City, Chelsea and Arsenal under Michael Carrick, and it looks even stronger. Time will tell whether it will be enough. What it has done, though, is raise the bar if United do want to replace Carrick. Anything less than an elite coach and Carrick, surely, must be given the chance to carry this momentum into next season. @jacklang 🔗 https://t.co/3TughJn7WN",
+            "href": "https://x.com/TheAthleticFC/status/2050981640726319220",
+            "label": "TheAthleticFC preview",
+            "note": "Internal review only until licensing is confirmed.",
+            "source": "x:trusted-football-media",
+            "src": "https://pbs.twimg.com/media/HHaM4uMXUAAuoW1.jpg",
+            "status": "review-needed-social-preview"
+          },
+          "label": "TheAthleticFC: The balance sheet now reads 10 wins from 14 games. That is a solid body of work, a decent argument in itself. Consider that Manchester United have now beaten Liverpool, Manchester City, Chelsea and Arsenal under Michael Carrick, and it looks even stronger. Time will tell whether it will be enough. What it has done, though, is raise the bar if United do want to replace Carrick. Anything less than an elite coach and Carrick, surely, must be given the chance to carry this momentum into next season. @jacklang 🔗 https://t.co/3TughJn7WN",
+          "publishedAt": "2026-05-03T16:51:43.000Z",
+          "source": "x:trusted-football-media",
+          "url": "https://x.com/TheAthleticFC/status/2050981640726319220"
+        },
+        {
+          "engagement": 0,
+          "excerpt": "20 Dani Olmo * Midfielder",
+          "label": "20 Dani Olmo * Midfielder",
+          "publishedAt": "2026-05-03T18:31:52.497Z",
+          "source": "web:fcbarcelona-squad",
+          "url": "https://r.jina.ai/http://www.fcbarcelona.com/en/football/first-team/squad"
+        },
+        {
+          "engagement": 21,
+          "excerpt": "What To Watch This Week (4-10 May) These posts are as much for me as they are for you. So please feel free to reply with your suggestions for what to watch, and make a case for any game to be considered 'must watch', in which case I will bold it. The time zone used to sort games ",
+          "label": "What To Watch This Week (4-10 May)",
+          "publishedAt": "2026-05-03T12:14:24.000Z",
+          "source": "reddit:r/soccer:barca-search",
+          "url": "https://www.reddit.com/r/soccer/comments/1t2jthe/what_to_watch_this_week_410_may/"
+        },
+        {
+          "engagement": 1397,
+          "excerpt": "With the assist today Rashford has overtaken Carlos Tevez for the 2nd most goal contributions for a loan player in history of modern football First being mbappe with psg , but given how shady that loan was , credit is deserved here",
+          "label": "With the assist today Rashford has overtaken Carlos Tevez for the 2nd most goal contributions for a loan player in history of modern football",
+          "publishedAt": "2026-05-02T23:50:55.000Z",
+          "source": "reddit:r/Barca:top-week",
+          "url": "https://www.reddit.com/r/Barca/comments/1t25nux/with_the_assist_today_rashford_has_overtaken/"
+        },
+        {
+          "engagement": 15,
+          "excerpt": "Marcus Rashford - the fastest player in LaLiga: leads title contenders with an average top speed of 34.16 km/h, outpacing Vinícius at 33.92, Mbappé at 33.55, and Raphinha at 33.45",
+          "label": "Marcus Rashford - the fastest player in LaLiga: leads title contenders with an average top speed of 34.16 km/h, outpacing Vinícius at 33.92, Mbappé at 33.55, and Raphinha at 33.45",
+          "publishedAt": "2026-05-03T18:20:43.000Z",
+          "source": "reddit:r/Barca:new",
+          "url": "https://www.reddit.com/r/Barca/comments/1t2t544/marcus_rashford_the_fastest_player_in_laliga/"
+        }
+      ],
+      "id": "territory-without-punch",
+      "imageLead": {
+        "alt": "The balance sheet now reads 10 wins from 14 games. That is a solid body of work, a decent argument in itself. Consider that Manchester United have now beaten Liverpool, Manchester City, Chelsea and Arsenal under Michael Carrick, and it looks even stronger. Time will tell whether it will be enough. What it has done, though, is raise the bar if United do want to replace Carrick. Anything less than an elite coach and Carrick, surely, must be given the chance to carry this momentum into next season. @jacklang 🔗 https://t.co/3TughJn7WN",
+        "href": "https://x.com/TheAthleticFC/status/2050981640726319220",
+        "label": "TheAthleticFC preview",
+        "note": "Internal review only until licensing is confirmed.",
+        "source": "x:trusted-football-media",
+        "src": "https://pbs.twimg.com/media/HHaM4uMXUAAuoW1.jpg",
+        "status": "review-needed-social-preview"
+      },
+      "imageStatus": "review-needed-social-preview",
+      "priorityReason": "Matched 7 live evidence item(s) across official, reddit, x. Strongest feeds: Trusted football media X; FC Barcelona squad via Jina; Reddit /r/soccer Barça search.",
+      "priorityScore": 100,
+      "signalType": "match",
+      "summary": "The strongest attack angle is not vague frustration but the gap between Barcelona's territory and the lack of decisive threat after the red card and broken attacking sequences.",
+      "tags": [
+        "attack",
+        "tactics",
+        "olmo",
+        "rashford",
+        "shots",
+        "possession"
+      ],
+      "title": "Territory without punch is still Barça's problem",
+      "urgency": "critical"
+    },
+    {
+      "assignmentSuggestion": {
+        "approver": "editor-in-chief",
+        "brief": "Use official Femení reporting, trusted X, and community chatter to frame why the Bayern meeting is the next real football test and which players are setting the tone for it.",
+        "deadline": "2026-05-04T02:31:52.497Z",
+        "deliverables": [
+          "One publishable article draft",
+          "Exact match/player/topic framing",
+          "Dispatch recommendation grounded in the live scout"
+        ],
+        "kind": "article",
+        "owner": "editor-in-chief",
+        "title": "Femení Bayern pulse"
+      },
+      "assignmentTopic": "FC Barcelona Femení / Bayern / Champions League pulse",
+      "calibration": {
+        "chatterEvidenceCount": 7,
+        "crossPlatform": true,
+        "label": "needs-trusted-check",
+        "needsTrustedConfirmation": true,
+        "needsWomenDepth": false,
+        "note": "Chatter is outrunning trusted confirmation here; add another corroboration pass before leaning on it.",
+        "officialEvidenceCount": 3,
+        "referenceEvidenceCount": 0,
+        "sourceFamilyCount": 2,
+        "trustedEvidenceCount": 1
+      },
+      "eventAt": "2026-05-03T18:09:52.000Z",
+      "evidence": [
+        {
+          "engagement": 323,
+          "excerpt": "Gol del Bayern. ⚽️ 4-3 | ⏱️ 90’ #BayernBarça",
+          "label": "FCBfemeni: Gol del Bayern. ⚽️ 4-3 | ⏱️ 90’ #BayernBarça",
+          "publishedAt": "2026-05-03T16:19:16.000Z",
+          "source": "x:official-club-women",
+          "url": "https://x.com/FCBfemeni/status/2050973476551307313"
+        },
+        {
+          "engagement": 107,
+          "excerpt": "Barcelona Femeni will compete in their sixth consecutive Champions League final. After last week's draw in Germany, they beat Bayern Munich 4-2 at Camp Nou, progressing 5-3 on aggregate. They will face Lyon, who beat Arsenal in their semi-final tie. https://t.co/6zK95I0MtD",
+          "image": {
+            "alt": "Barcelona Femeni will compete in their sixth consecutive Champions League final. After last week's draw in Germany, they beat Bayern Munich 4-2 at Camp Nou, progressing 5-3 on aggregate. They will face Lyon, who beat Arsenal in their semi-final tie. https://t.co/6zK95I0MtD",
+            "href": "https://x.com/TheAthleticFC/status/2051001310091391418",
+            "label": "TheAthleticFC preview",
+            "note": "Internal review only until licensing is confirmed.",
+            "source": "x:trusted-football-media",
+            "src": "https://pbs.twimg.com/media/HHae0m2boAA6w0u.jpg",
+            "status": "review-needed-social-preview"
+          },
+          "label": "TheAthleticFC: Barcelona Femeni will compete in their sixth consecutive Champions League final. After last week's draw in Germany, they beat Bayern Munich 4-2 at Camp Nou, progressing 5-3 on aggregate. They will face Lyon, who beat Arsenal in their semi-final tie. https://t.co/6zK95I0MtD",
+          "publishedAt": "2026-05-03T18:09:52.000Z",
+          "source": "x:trusted-football-media",
+          "url": "https://x.com/TheAthleticFC/status/2051001310091391418"
+        },
+        {
+          "engagement": 25,
+          "excerpt": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick From the second leg of the UWCL Final",
+          "label": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick",
+          "publishedAt": "2026-05-03T15:52:25.000Z",
+          "source": "reddit:r/FCBFemeni:new",
+          "url": "https://www.reddit.com/r/FCBFemeni/comments/1t2p5fa/fc_barcelona_4_1_fc_bayern_58_alexia_putellas/"
+        },
+        {
+          "engagement": 68,
+          "excerpt": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick From the second leg of the UWCL Final",
+          "label": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick",
+          "publishedAt": "2026-05-03T15:51:08.000Z",
+          "source": "reddit:r/WomensSoccer:barca-search",
+          "url": "https://www.reddit.com/r/WomensSoccer/comments/1t2p46m/fc_barcelona_4_1_fc_bayern_58_alexia_putellas/"
+        },
+        {
+          "engagement": 151,
+          "excerpt": "Barça Femeni will face Lyon in the Women’s Champions League Final.",
+          "label": "Barça Femeni will face Lyon in the Women’s Champions League Final.",
+          "publishedAt": "2026-05-03T16:33:47.000Z",
+          "source": "reddit:r/Barca:new",
+          "url": "https://www.reddit.com/r/Barca/comments/1t2q8s4/barça_femeni_will_face_lyon_in_the_womens/"
+        }
+      ],
+      "id": "femeni-bayern-pulse",
+      "imageLead": {
+        "alt": "Barcelona Femeni will compete in their sixth consecutive Champions League final. After last week's draw in Germany, they beat Bayern Munich 4-2 at Camp Nou, progressing 5-3 on aggregate. They will face Lyon, who beat Arsenal in their semi-final tie. https://t.co/6zK95I0MtD",
+        "href": "https://x.com/TheAthleticFC/status/2051001310091391418",
+        "label": "TheAthleticFC preview",
+        "note": "Internal review only until licensing is confirmed.",
+        "source": "x:trusted-football-media",
+        "src": "https://pbs.twimg.com/media/HHae0m2boAA6w0u.jpg",
+        "status": "review-needed-social-preview"
+      },
+      "imageStatus": "review-needed-social-preview",
+      "priorityReason": "Matched 11 live evidence item(s) across reddit, x. Strongest feeds: FC Barcelona Femení X; Trusted football media X; Reddit /r/FCBFemeni new.",
+      "priorityScore": 100,
+      "signalType": "match",
+      "summary": "The scout now keeps a live eye on Femení too, and the cleanest current angle is how official club signals and community chatter are already converging on the Bayern benchmark.",
+      "tags": [
+        "femeni",
+        "women",
+        "aitana",
+        "alexia",
+        "bayern",
+        "uwcl"
+      ],
+      "title": "Femení's Bayern pulse is already building",
+      "urgency": "critical"
+    },
+    {
+      "assignmentSuggestion": {
+        "approver": "editor-in-chief",
+        "brief": "Compare the recent Atlético meetings to explain what changed in game state, control, and threat rather than writing another generic reaction piece.",
+        "deadline": "2026-05-04T02:31:52.497Z",
+        "deliverables": [
+          "One publishable article draft",
+          "Exact match/player/topic framing",
+          "Dispatch recommendation grounded in the live scout"
+        ],
+        "kind": "article",
+        "owner": "editor-in-chief",
+        "title": "One opponent, four days, two different truths"
+      },
+      "assignmentTopic": "Atlético Madrid split-screen / league and European meetings",
+      "calibration": {
+        "chatterEvidenceCount": 3,
+        "crossPlatform": true,
+        "label": "needs-trusted-check",
+        "needsTrustedConfirmation": true,
+        "needsWomenDepth": false,
+        "note": "Chatter is outrunning trusted confirmation here; add another corroboration pass before leaning on it.",
+        "officialEvidenceCount": 0,
+        "referenceEvidenceCount": 0,
+        "sourceFamilyCount": 2,
+        "trustedEvidenceCount": 2
+      },
+      "eventAt": "2026-05-03T18:31:52.497Z",
+      "evidence": [
+        {
+          "engagement": 0,
+          "excerpt": "| Tue, Apr 14 | Atlético Madrid | 1 - 2 2nd Leg · Atlético Madrid wins 3-2 on aggregate | Barcelona | FT | UEFA Champions League |",
+          "label": "| Tue, Apr 14 | Atlético Madrid | 1 - 2 2nd Leg · Atlético Madrid wins 3-2 on aggregate | Barcelona | FT | UEFA Champions League |",
+          "publishedAt": "2026-05-03T18:31:52.497Z",
+          "source": "web:espn-results",
+          "url": "https://r.jina.ai/http://www.espn.com/soccer/team/results/_/id/83/barcelona"
+        },
+        {
+          "engagement": 21,
+          "excerpt": "What To Watch This Week (4-10 May) These posts are as much for me as they are for you. So please feel free to reply with your suggestions for what to watch, and make a case for any game to be considered 'must watch', in which case I will bold it. The time zone used to sort games ",
+          "label": "What To Watch This Week (4-10 May)",
+          "publishedAt": "2026-05-03T12:14:24.000Z",
+          "source": "reddit:r/soccer:barca-search",
+          "url": "https://www.reddit.com/r/soccer/comments/1t2jthe/what_to_watch_this_week_410_may/"
+        },
+        {
+          "engagement": 11,
+          "excerpt": "Upcoming Live Matches On UKTV!! (01.05 -- 09.06) This schedule is for those matches available in the UK only airing on BBC/Sky/TNT/Dazn/YouTube. *Under 17 Tournament featuring England and Northern Ireland starts 4th May on Uefa.tv. WSL2 Final Day on Saturday 2nd May.* *Champions ",
+          "label": "Upcoming Live Matches On UKTV!! (01.05 -- 09.06)",
+          "publishedAt": "2026-05-01T11:48:03.000Z",
+          "source": "reddit:r/WomensSoccer:barca-search",
+          "url": "https://www.reddit.com/r/WomensSoccer/comments/1t0r4xl/upcoming_live_matches_on_uktv_0105_0906/"
+        }
+      ],
+      "id": "one-opponent-four-days-two-truths",
+      "imageStatus": "needs-generation",
+      "priorityReason": "Matched 5 live evidence item(s) across reddit, web. Strongest feeds: ESPN results via Jina; Reddit /r/soccer Barça search; Reddit /r/WomensSoccer Barça search.",
+      "priorityScore": 100,
+      "signalType": "match",
+      "summary": "The contrast between the recent Atlético meetings gives the desk a clean split-screen angle on why the same opponent produced different Barcelona performances.",
+      "tags": [
+        "match-context",
+        "atletico",
+        "comparison",
+        "ucl",
+        "laliga"
+      ],
+      "title": "One opponent, four days, two different truths",
+      "urgency": "critical"
+    },
+    {
+      "assignmentSuggestion": {
+        "approver": "editor-in-chief",
+        "brief": "Keep the Cubarsí conversation measured: separate the sending-off from the wider performance and explain why the blame story should stay in proportion.",
+        "deadline": "2026-05-04T02:31:52.497Z",
+        "deliverables": [
+          "One publishable article draft",
+          "Exact match/player/topic framing",
+          "Dispatch recommendation grounded in the live scout"
+        ],
+        "kind": "article",
+        "owner": "editor-in-chief",
+        "title": "Keep Cubarsí blame in proportion"
+      },
+      "assignmentTopic": "Pau Cubarsí red card / supporter response",
+      "calibration": {
+        "chatterEvidenceCount": 9,
+        "crossPlatform": true,
+        "label": "needs-trusted-check",
+        "needsTrustedConfirmation": true,
+        "needsWomenDepth": false,
+        "note": "Chatter is outrunning trusted confirmation here; add another corroboration pass before leaning on it.",
+        "officialEvidenceCount": 0,
+        "referenceEvidenceCount": 0,
+        "sourceFamilyCount": 2,
+        "trustedEvidenceCount": 1
+      },
+      "eventAt": "2026-05-03T18:29:46.000Z",
+      "evidence": [
+        {
+          "engagement": 27,
+          "excerpt": "Arne Slot believes Liverpool have suffered from a succession of contentious video assistant referee decisions this season — but admits they only had themselves to blame for Sunday’s 3-2 defeat to Manchester United. The Dutch head coach was unhappy that Benjamin Sesko’s goal was a",
+          "image": {
+            "alt": "Arne Slot believes Liverpool have suffered from a succession of contentious video assistant referee decisions this season — but admits they only had themselves to blame for Sunday’s 3-2 defeat to Manchester United. The Dutch head coach was unhappy that Benjamin Sesko’s goal was allowed to stand at Old Trafford when replays appeared to show the ball hit the striker’s fingers before going over the line. “I don’t think it’s a surprise to anyone this season that if there’s a VAR intervention or if there’s something that could be left or right (50-50) then the decision goes against us,\" Slot told reporters post-match. \"That has been the whole season, every single time the same.\" More from @JamesPearceLFC 🔗 https://t.co/Yl2AW3kiqh",
+            "href": "https://x.com/TheAthleticFC/status/2051006317775434084",
+            "label": "TheAthleticFC preview",
+            "note": "Internal review only until licensing is confirmed.",
+            "source": "x:trusted-football-media",
+            "src": "https://pbs.twimg.com/media/HHajTQtWYAAF2UO.jpg",
+            "status": "review-needed-social-preview"
+          },
+          "label": "TheAthleticFC: Arne Slot believes Liverpool have suffered from a succession of contentious video assistant referee decisions this season — but admits they only had themselves to blame for Sunday’s 3-2 defeat to Manchester United. The Dutch head coach was unhappy that Benjamin Sesko’s goal was allowed to stand at Old Trafford when replays appeared to show the ball hit the striker’s fingers before going over the line. “I don’t think it’s a surprise to anyone this season that if there’s a VAR intervention or if there’s something that could be left or right (50-50) then the decision goes against us,\" Slot told reporters post-match. \"That has been the whole season, every single time the same.\" More from @JamesPearceLFC 🔗 https://t.co/Yl2AW3kiqh",
+          "publishedAt": "2026-05-03T18:29:46.000Z",
+          "source": "x:trusted-football-media",
+          "url": "https://x.com/TheAthleticFC/status/2051006317775434084"
+        },
+        {
+          "engagement": 25,
+          "excerpt": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick From the second leg of the UWCL Final",
+          "label": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick",
+          "publishedAt": "2026-05-03T15:52:25.000Z",
+          "source": "reddit:r/FCBFemeni:new",
+          "url": "https://www.reddit.com/r/FCBFemeni/comments/1t2p5fa/fc_barcelona_4_1_fc_bayern_58_alexia_putellas/"
+        },
+        {
+          "engagement": 68,
+          "excerpt": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick From the second leg of the UWCL Final",
+          "label": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick",
+          "publishedAt": "2026-05-03T15:51:08.000Z",
+          "source": "reddit:r/WomensSoccer:barca-search",
+          "url": "https://www.reddit.com/r/WomensSoccer/comments/1t2p46m/fc_barcelona_4_1_fc_bayern_58_alexia_putellas/"
+        }
+      ],
+      "id": "keep-cubarsi-blame-in-proportion",
+      "imageLead": {
+        "alt": "Arne Slot believes Liverpool have suffered from a succession of contentious video assistant referee decisions this season — but admits they only had themselves to blame for Sunday’s 3-2 defeat to Manchester United. The Dutch head coach was unhappy that Benjamin Sesko’s goal was allowed to stand at Old Trafford when replays appeared to show the ball hit the striker’s fingers before going over the line. “I don’t think it’s a surprise to anyone this season that if there’s a VAR intervention or if there’s something that could be left or right (50-50) then the decision goes against us,\" Slot told reporters post-match. \"That has been the whole season, every single time the same.\" More from @JamesPearceLFC 🔗 https://t.co/Yl2AW3kiqh",
+        "href": "https://x.com/TheAthleticFC/status/2051006317775434084",
+        "label": "TheAthleticFC preview",
+        "note": "Internal review only until licensing is confirmed.",
+        "source": "x:trusted-football-media",
+        "src": "https://pbs.twimg.com/media/HHajTQtWYAAF2UO.jpg",
+        "status": "review-needed-social-preview"
+      },
+      "imageStatus": "review-needed-social-preview",
+      "priorityReason": "Matched 10 live evidence item(s) across reddit, x. Strongest feeds: Trusted football media X; Reddit /r/FCBFemeni new; Reddit /r/WomensSoccer Barça search.",
+      "priorityScore": 93,
+      "signalType": "match",
+      "summary": "The live reaction around Cubarsí is real, but the usable editorial angle is proportion: what belongs to the red card, what belongs to the broader game, and how supporters are framing him.",
+      "tags": [
+        "cubarsi",
+        "supporter",
+        "perspective",
+        "ucl"
+      ],
+      "title": "Keep Cubarsí blame in proportion",
+      "urgency": "critical"
+    }
+  ],
+  "coverageSummary": {
+    "tracks": [
+      {
+        "candidateCount": 4,
+        "chatterEvidenceCount": 15,
+        "id": "men",
+        "label": "Men's team",
+        "note": "Trusted and community evidence are both contributing usable signal here.",
+        "officialEvidenceCount": 2,
+        "trustedEvidenceCount": 8
+      },
+      {
+        "candidateCount": 1,
+        "chatterEvidenceCount": 7,
+        "id": "women",
+        "label": "Femení",
+        "note": "Trusted and community evidence are both contributing usable signal here.",
+        "officialEvidenceCount": 3,
+        "trustedEvidenceCount": 1
+      }
+    ],
+    "weakSpots": [
+      "One or more source lanes produced little or no usable Barça evidence this run."
+    ]
+  },
+  "feedbackSummary": {
+    "entryCount": 0,
+    "recentEntries": [],
+    "targetTypeCounts": {
+      "candidate": 0,
+      "cluster": 0,
+      "general-strategy-note": 0,
+      "source-lane": 0
+    },
+    "verdictCounts": {}
+  },
+  "generatedAt": "2026-05-03T18:31:52.497Z",
+  "imageSummary": {
+    "candidateLeadCount": 4,
+    "clusterLeadCount": 1,
+    "missingCount": 1,
+    "replacementNeededCount": 0,
+    "reviewNeededCount": 5
+  },
+  "qualitySummary": {
+    "candidateCount": 5,
+    "chatterHeavyCandidateCount": 4,
+    "clusterCount": 1,
+    "crossPlatformClusterCount": 1,
+    "evidenceCount": 99,
+    "headline": "5 of 5 live theme(s) already have trusted or official backing. 4 theme(s) still lean too hard on chatter. 6 source lane(s) stayed quiet.",
+    "healthySourceCount": 24,
+    "sourceCount": 24,
+    "trustedBackedCandidateCount": 5,
+    "weakSourceCount": 6,
+    "womenCoverageGapCount": 0
+  },
+  "schemaVersion": 1,
+  "sourceExpansionSuggestions": [
+    {
+      "exampleTargets": [
+        "x:official-club-men",
+        "web:fcbarcelona-results",
+        "web:fcbarcelona-women-news",
+        "web:fcbarcelona-women-results"
+      ],
+      "id": "suggestion-retune-quiet-sources",
+      "rationale": "Periodic cleanup keeps the ingestion loop from accumulating context sources that never turn into live themes.",
+      "relatedPromptIds": [
+        "prompt-x-official-club-men-source-gap",
+        "prompt-web-fcbarcelona-results-source-gap",
+        "prompt-web-fcbarcelona-women-news-source-gap",
+        "prompt-web-fcbarcelona-women-results-source-gap",
+        "prompt-web-fcbarcelona-women-squad-source-gap",
+        "prompt-web-espn-fixtures-source-gap"
+      ],
+      "suggestedSourceFamilies": [
+        "x",
+        "official",
+        "web"
+      ],
+      "summary": "6 source lane(s) fetched but did not produce usable scout evidence.",
+      "title": "Retune or replace quiet source lanes"
+    }
+  ],
+  "sourceStatuses": [
+    {
+      "contributionCount": 0,
+      "contributionEfficiency": 0,
+      "contributionSample": [],
+      "detail": "Searched official FC Barcelona X accounts for men's-team statements, training, squad, and match-prep signals.",
+      "family": "x",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 4,
+      "itemCount": 6,
+      "label": "Official club X (men)",
+      "matchedCandidateIds": [],
+      "matchedCandidateTitles": [],
+      "ok": true,
+      "qualityLabel": "quiet",
+      "repeatLowSignal": true,
+      "sampleItems": [
+        "FCBarcelona: 𝐋𝐞𝐚𝐠𝐮𝐞 𝐜𝐡𝐚𝐦𝐩𝐢𝐨𝐧𝐬 𝐰𝐢𝐭𝐡𝐨𝐮𝐭 𝐩𝐥𝐚𝐲𝐢𝐧𝐠? 🤔🏆 https://t.co/eiuCJq6czM",
+        "FCBarcelona: See you in Oslo ✈️",
+        "FCBarcelona: Taking care of business at El Sadar. https://t.co/jtfaGKDvMl"
+      ],
+      "source": "x:official-club-men",
+      "sourceRole": "official",
+      "target": "from:FCBarcelona OR from:FCBarcelona_es (Atletico OR Espanyol OR Pedri OR Frenkie OR Cubarsi OR Lamine OR Olmo OR Lewandowski OR Rashford)"
+    },
+    {
+      "contributionCount": 3,
+      "contributionEfficiency": 0.6,
+      "contributionSample": [
+        "FCBfemeni: Gol del Bayern. ⚽️ 4-3 | ⏱️ 90’ #BayernBarça",
+        "FCBfemeni: 🔄 Doble canvi al Barça | 87’ ↑🟢 Kika ↑🟢 Aïcha ↓🔴 Alexia ↓🔴 Brugts #BarçaBayern",
+        "FCBfemeni: 🔄 Doble canvi al Barça | 68’ ↑🟢 Vicky ↑🟢 Aitana ↓🔴 Paralluelo ↓🔴 C. Serrajordi #BarçaBayern"
+      ],
+      "detail": "Searched the official FCB Femení X account for line-up, player, and big-match signals.",
+      "family": "x",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 2,
+      "itemCount": 5,
+      "label": "FC Barcelona Femení X",
+      "matchedCandidateIds": [
+        "femeni-bayern-pulse"
+      ],
+      "matchedCandidateTitles": [
+        "Femení's Bayern pulse is already building"
+      ],
+      "ok": true,
+      "qualityLabel": "core",
+      "repeatLowSignal": false,
+      "sampleItems": [
+        "FCBfemeni: Enhorabona, Salma! 🏆 https://t.co/ADfG6aFYKA",
+        "FCBfemeni: L’emoció d’Ewa Pajor en classificar-nos per a la final 🥹 https://t.co/fukSNLYZyf",
+        "FCBfemeni: Gol del Bayern. ⚽️ 4-3 | ⏱️ 90’ #BayernBarça"
+      ],
+      "source": "x:official-club-women",
+      "sourceRole": "official",
+      "target": "from:FCBFemeni (Aitana OR Alexia OR Patri OR Claudia Pina OR Salma OR Pajor OR Bayern OR Champions League OR Femeni)"
+    },
+    {
+      "contributionCount": 3,
+      "contributionEfficiency": 0.5,
+      "contributionSample": [
+        "TheAthleticFC: The balance sheet now reads 10 wins from 14 games. That is a solid body of work, a decent argument in itself. Consider that Manchester United have now beaten Liverpool, Manchester City, Chelsea and Arsenal under Michael Carrick, and it looks even stronger. Time will tell whether it will be enough. What it has done, though, is raise the bar if United do want to replace Carrick. Anything less than an elite coach and Carrick, surely, must be given the chance to carry this momentum into next season. @jacklang 🔗 https://t.co/3TughJn7WN",
+        "TheAthleticFC: Barcelona Femeni will compete in their sixth consecutive Champions League final. After last week's draw in Germany, they beat Bayern Munich 4-2 at Camp Nou, progressing 5-3 on aggregate. They will face Lyon, who beat Arsenal in their semi-final tie. https://t.co/6zK95I0MtD",
+        "TheAthleticFC: Arne Slot believes Liverpool have suffered from a succession of contentious video assistant referee decisions this season — but admits they only had themselves to blame for Sunday’s 3-2 defeat to Manchester United. The Dutch head coach was unhappy that Benjamin Sesko’s goal was allowed to stand at Old Trafford when replays appeared to show the ball hit the striker’s fingers before going over the line. “I don’t think it’s a surprise to anyone this season that if there’s a VAR intervention or if there’s something that could be left or right (50-50) then the decision goes against us,\" Slot told reporters post-match. \"That has been the whole season, every single time the same.\" More from @JamesPearceLFC 🔗 https://t.co/Yl2AW3kiqh"
+      ],
+      "detail": "Searched trusted football publication X accounts for Barça and Femení reporting without fan-account relay noise.",
+      "family": "x",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 6,
+      "itemCount": 6,
+      "label": "Trusted football media X",
+      "matchedCandidateIds": [
+        "territory-without-punch",
+        "femeni-bayern-pulse",
+        "keep-cubarsi-blame-in-proportion"
+      ],
+      "matchedCandidateTitles": [
+        "Territory without punch is still Barça's problem",
+        "Femení's Bayern pulse is already building",
+        "Keep Cubarsí blame in proportion"
+      ],
+      "ok": true,
+      "qualityLabel": "core",
+      "repeatLowSignal": false,
+      "sampleItems": [
+        "TheAthleticFC: Arne Slot believes Liverpool have suffered from a succession of contentious video assistant referee decisions this season — but admits they only had themselves to blame for Sunday’s 3-2 defeat to Manchester United. The Dutch head coach was unhappy that Benjamin Sesko’s goal was allowed to stand at Old Trafford when replays appeared to show the ball hit the striker’s fingers before going over the line. “I don’t think it’s a surprise to anyone this season that if there’s a VAR intervention or if there’s something that could be left or right (50-50) then the decision goes against us,\" Slot told reporters post-match. \"That has been the whole season, every single time the same.\" More from @JamesPearceLFC 🔗 https://t.co/Yl2AW3kiqh",
+        "TheAthleticFC: Conor Gallagher scores his first goal for Tottenham Hotspur to give them the lead against Aston Villa. It's a fine strike from outside of the box, and it's a goal that currently lifts them out of the relegation zone. https://t.co/vfvxRxzaPA",
+        "TheAthleticFC: Barcelona Femeni will compete in their sixth consecutive Champions League final. After last week's draw in Germany, they beat Bayern Munich 4-2 at Camp Nou, progressing 5-3 on aggregate. They will face Lyon, who beat Arsenal in their semi-final tie. https://t.co/6zK95I0MtD"
+      ],
+      "source": "x:trusted-football-media",
+      "sourceRole": "trusted",
+      "target": "from:TheAthleticFC OR from:ESPNFC (Barcelona OR Barca OR Barça OR Espanyol OR Atletico OR Pedri OR Frenkie OR Aitana OR Alexia OR Bayern OR Femeni)"
+    },
+    {
+      "contributionCount": 2,
+      "contributionEfficiency": 1,
+      "contributionSample": [
+        "OptaJose: 48.43 - Espanyol v Levante was the game with the lowest time in play in @LaLigaEN matchday 32 (48.43) and also the only match with no goals scored. Causality. https://t.co/Os0QSktcjf",
+        "OptaJose: 48:43 - El Espanyol - Levante fue el encuentro con menos tiempo efectivo en la jornada 32 de @LaLiga (48:43) y también el único en el que no hubo goles. Causalidad. https://t.co/gzIXpRnZWh"
+      ],
+      "detail": "Searched trusted football stats X for hard-context Barça and Femení numbers.",
+      "family": "x",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 2,
+      "itemCount": 2,
+      "label": "Trusted football stats X",
+      "matchedCandidateIds": [
+        "espanyol-between-the-legs"
+      ],
+      "matchedCandidateTitles": [
+        "Espanyol between the legs is the real selection test"
+      ],
+      "ok": true,
+      "qualityLabel": "core",
+      "repeatLowSignal": false,
+      "sampleItems": [
+        "OptaJose: 48.43 - Espanyol v Levante was the game with the lowest time in play in @LaLigaEN matchday 32 (48.43) and also the only match with no goals scored. Causality. https://t.co/Os0QSktcjf",
+        "OptaJose: 48:43 - El Espanyol - Levante fue el encuentro con menos tiempo efectivo en la jornada 32 de @LaLiga (48:43) y también el único en el que no hubo goles. Causalidad. https://t.co/gzIXpRnZWh"
+      ],
+      "source": "x:trusted-football-stats",
+      "sourceRole": "trusted",
+      "target": "from:OptaJose (Barcelona OR Barça OR Espanyol OR Atletico OR Pedri OR Aitana OR Bayern OR Champions League)"
+    },
+    {
+      "contributionCount": 4,
+      "contributionEfficiency": 0.57,
+      "contributionSample": [
+        "Marcus Rashford - the fastest player in LaLiga: leads title contenders with an average top speed of 34.16 km/h, outpacing Vinícius at 33.92, Mbappé at 33.55, and Raphinha at 33.45",
+        "Barça Femeni will face Lyon in the Women’s Champions League Final.",
+        "FC Barcelona Femeni are into the Women’s Champions League Final."
+      ],
+      "detail": "Pulled /r/Barca new posts for fresh supporter chatter around the current match week.",
+      "family": "reddit",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 7,
+      "label": "Reddit /r/Barca new",
+      "matchedCandidateIds": [
+        "territory-without-punch",
+        "femeni-bayern-pulse"
+      ],
+      "matchedCandidateTitles": [
+        "Territory without punch is still Barça's problem",
+        "Femení's Bayern pulse is already building"
+      ],
+      "ok": true,
+      "qualityLabel": "core",
+      "repeatLowSignal": false,
+      "sampleItems": [
+        "Marcus Rashford - the fastest player in LaLiga: leads title contenders with an average top speed of 34.16 km/h, outpacing Vinícius at 33.92, Mbappé at 33.55, and Raphinha at 33.45",
+        "Hamza Abdelkarim has scored a 𝐡𝐚𝐭-𝐭𝐫𝐢𝐜𝐤 for Barça Atlètic today. With all the three goals being Headers.",
+        "Barça Femeni will face Lyon in the Women’s Champions League Final."
+      ],
+      "source": "reddit:r/Barca:new",
+      "sourceRole": "chatter",
+      "target": "https://www.reddit.com/r/Barca/new.json?limit=8&raw_json=1"
+    },
+    {
+      "contributionCount": 2,
+      "contributionEfficiency": 0.25,
+      "contributionSample": [
+        "With the assist today Rashford has overtaken Carlos Tevez for the 2nd most goal contributions for a loan player in history of modern football",
+        "Same tournament different standards."
+      ],
+      "detail": "Pulled /r/Barca top-of-week posts for supporter themes that kept holding resonance.",
+      "family": "reddit",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 8,
+      "label": "Reddit /r/Barca top of week",
+      "matchedCandidateIds": [
+        "territory-without-punch"
+      ],
+      "matchedCandidateTitles": [
+        "Territory without punch is still Barça's problem"
+      ],
+      "ok": true,
+      "qualityLabel": "core",
+      "repeatLowSignal": false,
+      "sampleItems": [
+        "Barcelona fans are seriously undervaluing this season!",
+        "Barcelona[1]-0 Osasuna - Lewandoski 81'",
+        "OTD 15 years ago on April 27, 2011 another Leo Messi magic moment at the Santiago Bernabeu vs Real Madrid in the UCL Semifinal. Barcelona (2)- RM 0. Legendary brace in the UCL."
+      ],
+      "source": "reddit:r/Barca:top-week",
+      "sourceRole": "chatter",
+      "target": "https://www.reddit.com/r/Barca/top.json?sort=top&t=week&limit=8&raw_json=1"
+    },
+    {
+      "contributionCount": 2,
+      "contributionEfficiency": 0.67,
+      "contributionSample": [
+        "What To Watch This Week (4-10 May)",
+        "What To Watch This Week (27-3 May)"
+      ],
+      "detail": "Pulled targeted /r/soccer search results for broader football chatter around Barça's live topics.",
+      "family": "reddit",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 3,
+      "label": "Reddit /r/soccer Barça search",
+      "matchedCandidateIds": [
+        "espanyol-between-the-legs",
+        "territory-without-punch",
+        "one-opponent-four-days-two-truths"
+      ],
+      "matchedCandidateTitles": [
+        "Espanyol between the legs is the real selection test",
+        "Territory without punch is still Barça's problem",
+        "One opponent, four days, two different truths"
+      ],
+      "ok": true,
+      "qualityLabel": "core",
+      "repeatLowSignal": false,
+      "sampleItems": [
+        "What To Watch This Week (4-10 May)",
+        "La Liga standings after matchweek 33",
+        "What To Watch This Week (27-3 May)"
+      ],
+      "source": "reddit:r/soccer:barca-search",
+      "sourceRole": "chatter",
+      "target": "https://www.reddit.com/r/soccer/search.json?q=Barcelona%20Atletico%20Espanyol%20Aitana&restrict_sr=1&sort=new&t=week&limit=8&raw_json=1"
+    },
+    {
+      "contributionCount": 4,
+      "contributionEfficiency": 0.5,
+      "contributionSample": [
+        "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick",
+        "FC Barcelona [2] -- 1 FC Bayern 22': Alexia Putellas pulls FCB Femeni ahead again",
+        "FC Barcelona [3] -- 1 FC Bayern 55': Ewa Pajor gets to her spot and heads the goal in"
+      ],
+      "detail": "Pulled /r/FCBFemeni new posts for current women's-team chatter and angle discovery.",
+      "family": "reddit",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 8,
+      "label": "Reddit /r/FCBFemeni new",
+      "matchedCandidateIds": [
+        "femeni-bayern-pulse",
+        "keep-cubarsi-blame-in-proportion"
+      ],
+      "matchedCandidateTitles": [
+        "Femení's Bayern pulse is already building",
+        "Keep Cubarsí blame in proportion"
+      ],
+      "ok": true,
+      "qualityLabel": "core",
+      "repeatLowSignal": false,
+      "sampleItems": [
+        "FC Barcelona win on aggregate, 5-3, and advance to the UWCL Final",
+        "Aitana Bonmatí subs in and returns to the pitch in the 68' after being injured",
+        "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick"
+      ],
+      "source": "reddit:r/FCBFemeni:new",
+      "sourceRole": "chatter",
+      "target": "https://www.reddit.com/r/FCBFemeni/new.json?limit=8&raw_json=1"
+    },
+    {
+      "contributionCount": 6,
+      "contributionEfficiency": 0.75,
+      "contributionSample": [
+        "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick",
+        "FC Barcelona [2] -- 1 FC Bayern 22': Alexia Putellas pulls FCB Femeni ahead again",
+        "Upcoming Live Matches On UKTV!! (01.05 -- 09.06)"
+      ],
+      "detail": "Pulled targeted /r/WomensSoccer search results for broader women's-football chatter when Barça Femení spikes.",
+      "family": "reddit",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 8,
+      "label": "Reddit /r/WomensSoccer Barça search",
+      "matchedCandidateIds": [
+        "femeni-bayern-pulse",
+        "one-opponent-four-days-two-truths",
+        "keep-cubarsi-blame-in-proportion"
+      ],
+      "matchedCandidateTitles": [
+        "Femení's Bayern pulse is already building",
+        "One opponent, four days, two different truths",
+        "Keep Cubarsí blame in proportion"
+      ],
+      "ok": true,
+      "qualityLabel": "core",
+      "repeatLowSignal": false,
+      "sampleItems": [
+        "FC Bayern [2] -- 4 FC Barcelona 71': Pernille Harder finishes off the Dallmann assist",
+        "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick",
+        "FC Barcelona [3] -- 1 FC Bayern 55': Ewa Pajor gets to her spot and heads the goal in"
+      ],
+      "source": "reddit:r/WomensSoccer:barca-search",
+      "sourceRole": "chatter",
+      "target": "https://www.reddit.com/r/WomensSoccer/search.json?q=Barcelona%20Women%20Aitana%20Bayern&restrict_sr=1&sort=new&t=month&limit=8&raw_json=1"
+    },
+    {
+      "contributionCount": 1,
+      "contributionEfficiency": 0.17,
+      "contributionSample": [
+        "FC Barcelona club badge League champions without playing? Barça have all eyes on the game between Real Madrid and Espanyol on Sunday as a slip up from the second placed team will allow the blaugranes to take La Liga title Published date"
+      ],
+      "detail": "Checked official FC Barcelona first-team news via Jina for training, squad, and match-preview updates.",
+      "family": "official",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 6,
+      "label": "FC Barcelona first-team news via Jina",
+      "matchedCandidateIds": [
+        "espanyol-between-the-legs"
+      ],
+      "matchedCandidateTitles": [
+        "Espanyol between the legs is the real selection test"
+      ],
+      "ok": true,
+      "qualityLabel": "useful",
+      "repeatLowSignal": false,
+      "sampleItems": [
+        "FC Barcelona club badge League champions without playing? Barça have all eyes on the game between Real Madrid and Espanyol on Sunday as a slip up from the second placed team will allow the blaugranes to take La Liga title Published date",
+        "FC Barcelona club badge Raphinha, Bernal and Christensen carry out part of session with squad After a three day break from training, Hansi Flick's team start preparing for Saturday's away trip to Osasuna Published date 29 Apr 26FC Barcelona club badge A game promising goals Both FC Barcelona and Osasuna are on immense goalscoring runs, and two sides meet this Saturday Published date 29 Apr 26",
+        "FC Barcelona club badge The squad for Getafe v Barça Hansi Flick names of list of players for the upcoming match for the game against side located south of Madrid Published date 24 Apr 26"
+      ],
+      "source": "web:fcbarcelona-news",
+      "sourceRole": "official",
+      "target": "https://r.jina.ai/http://www.fcbarcelona.com/en/football/first-team/news"
+    },
+    {
+      "contributionCount": 0,
+      "contributionEfficiency": 0,
+      "contributionSample": [],
+      "detail": "Checked official FC Barcelona results via Jina for recent scoreline and opponent context.",
+      "family": "official",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 6,
+      "label": "FC Barcelona results via Jina",
+      "matchedCandidateIds": [],
+      "matchedCandidateTitles": [],
+      "ok": true,
+      "qualityLabel": "quiet",
+      "repeatLowSignal": true,
+      "sampleItems": [
+        "FC Barcelona club badge",
+        "Barça Mobile The virtual mobile network operator of FC Barcelona",
+        "Barça One The official streaming platform of FC Barcelona"
+      ],
+      "source": "web:fcbarcelona-results",
+      "sourceRole": "official",
+      "target": "https://r.jina.ai/http://www.fcbarcelona.com/en/football/first-team/results"
+    },
+    {
+      "contributionCount": 1,
+      "contributionEfficiency": 0.25,
+      "contributionSample": [
+        "20 Dani Olmo * Midfielder"
+      ],
+      "detail": "Checked official FC Barcelona squad page via Jina for player-reference context around the live watchlist.",
+      "family": "official",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 4,
+      "label": "FC Barcelona squad via Jina",
+      "matchedCandidateIds": [
+        "territory-without-punch"
+      ],
+      "matchedCandidateTitles": [
+        "Territory without punch is still Barça's problem"
+      ],
+      "ok": true,
+      "qualityLabel": "useful",
+      "repeatLowSignal": false,
+      "sampleItems": [
+        "8 Pedri * Midfielder",
+        "20 Dani Olmo * Midfielder",
+        "21 Frenkie de Jong * Midfielder"
+      ],
+      "source": "web:fcbarcelona-squad",
+      "sourceRole": "official",
+      "target": "https://r.jina.ai/http://www.fcbarcelona.com/en/football/first-team/squad"
+    },
+    {
+      "contributionCount": 0,
+      "contributionEfficiency": 0,
+      "contributionSample": [],
+      "detail": "Checked official FC Barcelona women's news via Jina for Femení updates, previews, and player signals.",
+      "family": "official",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 5,
+      "label": "FC Barcelona women news via Jina",
+      "matchedCandidateIds": [],
+      "matchedCandidateTitles": [],
+      "ok": true,
+      "qualityLabel": "quiet",
+      "repeatLowSignal": true,
+      "sampleItems": [
+        "* Legendary Barça Women players",
+        "Barça 4-2 Bayern: We're going to Oslo! Women clock Published date",
+        "FC Barcelona club badge Brought to you by asistencia--white Update on Patri Guijarro Midfielder has a sprained right ankle Women Published date 16 Apr 26"
+      ],
+      "source": "web:fcbarcelona-women-news",
+      "sourceRole": "official",
+      "target": "https://r.jina.ai/http://www.fcbarcelona.com/en/football/womens-football/news"
+    },
+    {
+      "contributionCount": 0,
+      "contributionEfficiency": 0,
+      "contributionSample": [],
+      "detail": "Checked official FC Barcelona women's results via Jina for scoreline and opponent context.",
+      "family": "official",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 6,
+      "label": "FC Barcelona women results via Jina",
+      "matchedCandidateIds": [],
+      "matchedCandidateTitles": [],
+      "ok": true,
+      "qualityLabel": "quiet",
+      "repeatLowSignal": true,
+      "sampleItems": [
+        "AGG:Agg. 5 - 3 FC Bayern München",
+        "Fußball Arena München FC Bayern München",
+        "Stamford Bridge Chelsea FC Women"
+      ],
+      "source": "web:fcbarcelona-women-results",
+      "sourceRole": "official",
+      "target": "https://r.jina.ai/http://www.fcbarcelona.com/en/football/womens-football/results"
+    },
+    {
+      "contributionCount": 0,
+      "contributionEfficiency": 0,
+      "contributionSample": [],
+      "detail": "Checked official FC Barcelona women's squad page via Jina for player-reference context around live Femení topics.",
+      "family": "official",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 4,
+      "label": "FC Barcelona women squad via Jina",
+      "matchedCandidateIds": [],
+      "matchedCandidateTitles": [],
+      "ok": true,
+      "qualityLabel": "quiet",
+      "repeatLowSignal": true,
+      "sampleItems": [
+        "11 Alexia * Midfielder",
+        "12 Patri * Midfielder",
+        "14 Aitana * Midfielder"
+      ],
+      "source": "web:fcbarcelona-women-squad",
+      "sourceRole": "official",
+      "target": "https://r.jina.ai/http://www.fcbarcelona.com/en/football/womens-football/squad"
+    },
+    {
+      "contributionCount": 0,
+      "contributionEfficiency": 0,
+      "contributionSample": [],
+      "detail": "Scanned recent official FC Barcelona video transcripts for pre-match, presser, and mixed-zone lines around the men's team.",
+      "family": "official",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 0,
+      "label": "FC Barcelona official video transcripts (men)",
+      "matchedCandidateIds": [],
+      "matchedCandidateTitles": [],
+      "ok": true,
+      "qualityLabel": "watch",
+      "repeatLowSignal": false,
+      "sampleItems": [],
+      "source": "web:fcbarcelona-men-video-transcripts",
+      "sourceRole": "official",
+      "target": "https://www.youtube.com/@FCBarcelona/videos"
+    },
+    {
+      "contributionCount": 0,
+      "contributionEfficiency": 0,
+      "contributionSample": [],
+      "detail": "Scanned recent official FC Barcelona video transcripts for Femení preview, presser, and mixed-zone lines.",
+      "family": "official",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 0,
+      "label": "FC Barcelona official video transcripts (women)",
+      "matchedCandidateIds": [],
+      "matchedCandidateTitles": [],
+      "ok": true,
+      "qualityLabel": "watch",
+      "repeatLowSignal": false,
+      "sampleItems": [],
+      "source": "web:fcbarcelona-women-video-transcripts",
+      "sourceRole": "official",
+      "target": "https://www.youtube.com/@FCBarcelona/videos"
+    },
+    {
+      "contributionCount": 0,
+      "contributionEfficiency": 0,
+      "contributionSample": [],
+      "detail": "Searched Google News RSS for derby, second-leg, and title-race coverage from broad football outlets.",
+      "family": "news",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 0,
+      "label": "Google News: match context",
+      "matchedCandidateIds": [],
+      "matchedCandidateTitles": [],
+      "ok": true,
+      "qualityLabel": "watch",
+      "repeatLowSignal": false,
+      "sampleItems": [],
+      "source": "rss:google-news-match-context",
+      "sourceRole": "trusted",
+      "target": "https://news.google.com/rss/search?q=Barcelona%20Atletico%20Espanyol"
+    },
+    {
+      "contributionCount": 0,
+      "contributionEfficiency": 0,
+      "contributionSample": [],
+      "detail": "Searched Google News RSS for player-selection and performance coverage around Barca's current week.",
+      "family": "news",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 0,
+      "label": "Google News: player watch",
+      "matchedCandidateIds": [],
+      "matchedCandidateTitles": [],
+      "ok": true,
+      "qualityLabel": "watch",
+      "repeatLowSignal": false,
+      "sampleItems": [],
+      "source": "rss:google-news-player-watch",
+      "sourceRole": "trusted",
+      "target": "https://news.google.com/rss/search?q=FC%20Barcelona%20Pedri%20Rashford%20Olmo%20Yamal"
+    },
+    {
+      "contributionCount": 0,
+      "contributionEfficiency": 0,
+      "contributionSample": [],
+      "detail": "Searched Google News RSS for trusted Femení coverage around Bayern, Liga F, and the current player focus.",
+      "family": "news",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 0,
+      "label": "Google News: women watch",
+      "matchedCandidateIds": [],
+      "matchedCandidateTitles": [],
+      "ok": true,
+      "qualityLabel": "watch",
+      "repeatLowSignal": false,
+      "sampleItems": [],
+      "source": "rss:google-news-women-watch",
+      "sourceRole": "trusted",
+      "target": "https://news.google.com/rss/search?q=Barcelona%20Women%20Aitana%20Alexia%20Bayern%20Liga%20F"
+    },
+    {
+      "contributionCount": 0,
+      "contributionEfficiency": 0,
+      "contributionSample": [],
+      "detail": "Searched Google News RSS for trusted pre-match press conference and mixed-zone lines around Espanyol and Atlético.",
+      "family": "news",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 0,
+      "label": "Google News: press conference watch",
+      "matchedCandidateIds": [],
+      "matchedCandidateTitles": [],
+      "ok": true,
+      "qualityLabel": "watch",
+      "repeatLowSignal": false,
+      "sampleItems": [],
+      "source": "rss:google-news-press-conference-watch",
+      "sourceRole": "trusted",
+      "target": "https://news.google.com/rss/search?q=Barcelona%20Flick%20press%20conference%20Espanyol%20Atletico%20mixed%20zone"
+    },
+    {
+      "contributionCount": 0,
+      "contributionEfficiency": 0,
+      "contributionSample": [],
+      "detail": "Checked ESPN fixtures via Jina for upcoming opponent sequencing around the derby and return leg.",
+      "family": "web",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 5,
+      "label": "ESPN fixtures via Jina",
+      "matchedCandidateIds": [],
+      "matchedCandidateTitles": [],
+      "ok": true,
+      "qualityLabel": "quiet",
+      "repeatLowSignal": true,
+      "sampleItems": [
+        "Barcelona Fixtures",
+        "| Sun, May 10 | Barcelona | v | Real Madrid | 7:00 PM | Spanish LALIGA | ESPN/ESPN Deportes/ESPN+ |",
+        "| Wed, May 13 | Alavés | v | Barcelona | 7:30 PM | Spanish LALIGA | ESPN+ |"
+      ],
+      "source": "web:espn-fixtures",
+      "sourceRole": "trusted",
+      "target": "https://r.jina.ai/http://www.espn.com/soccer/team/fixtures/_/id/83/barcelona"
+    },
+    {
+      "contributionCount": 3,
+      "contributionEfficiency": 0.5,
+      "contributionSample": [
+        "| Sat, Apr 11 | Barcelona | 4 - 1 | Espanyol | FT | Spanish LALIGA |",
+        "| Tue, Apr 14 | Atlético Madrid | 1 - 2 2nd Leg · Atlético Madrid wins 3-2 on aggregate | Barcelona | FT | UEFA Champions League |",
+        "| Wed, Apr 8 | Barcelona | 0 - 2 1st Leg | Atlético Madrid | FT | UEFA Champions League |"
+      ],
+      "detail": "Checked ESPN results via Jina for recent scoreline context.",
+      "family": "web",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 6,
+      "label": "ESPN results via Jina",
+      "matchedCandidateIds": [
+        "espanyol-between-the-legs",
+        "one-opponent-four-days-two-truths"
+      ],
+      "matchedCandidateTitles": [
+        "Espanyol between the legs is the real selection test",
+        "One opponent, four days, two different truths"
+      ],
+      "ok": true,
+      "qualityLabel": "core",
+      "repeatLowSignal": false,
+      "sampleItems": [
+        "| Sat, May 2 | Osasuna | 1 - 2 | Barcelona | FT | Spanish LALIGA |",
+        "| Sat, Apr 25 | Getafe | 0 - 2 | Barcelona | FT | Spanish LALIGA |",
+        "| Wed, Apr 22 | Barcelona | 1 - 0 | Celta Vigo | FT | Spanish LALIGA |"
+      ],
+      "source": "web:espn-results",
+      "sourceRole": "trusted",
+      "target": "https://r.jina.ai/http://www.espn.com/soccer/team/results/_/id/83/barcelona"
+    },
+    {
+      "contributionCount": 1,
+      "contributionEfficiency": 0.25,
+      "contributionSample": [
+        "| 13 ESPEspanyol |"
+      ],
+      "detail": "Checked ESPN standings via Jina for title-race context around Barcelona's current week.",
+      "family": "web",
+      "fetchedAt": "2026-05-03T18:31:52.497Z",
+      "imageLeadCount": 0,
+      "itemCount": 4,
+      "label": "ESPN standings via Jina",
+      "matchedCandidateIds": [
+        "espanyol-between-the-legs"
+      ],
+      "matchedCandidateTitles": [
+        "Espanyol between the legs is the real selection test"
+      ],
+      "ok": true,
+      "qualityLabel": "useful",
+      "repeatLowSignal": false,
+      "sampleItems": [
+        "| 1 BARBarcelona |",
+        "| 4 ATMAtlético Madrid |",
+        "| 13 ESPEspanyol |"
+      ],
+      "source": "web:espn-standings",
+      "sourceRole": "trusted",
+      "target": "https://r.jina.ai/http://www.espn.com/soccer/standings/_/league/esp.1"
+    }
+  ],
+  "sources": [
+    {
+      "cadence": "live",
+      "discoveryMode": "live",
+      "enabled": true,
+      "id": "source-barca-live-scout",
+      "lastScoutAt": "2026-05-03T18:31:52.497Z",
+      "name": "Barca Live Scout",
+      "notes": "Live multi-source Barca scouting feed built from official club feeds, trusted X accounts, filtered Google News RSS, Reddit chatter, and scoreboard context.",
+      "pendingEvents": [
+        {
+          "assignment": {
+            "approver": "editor-in-chief",
+            "brief": "Frame Espanyol as the real selection problem between Champions League legs: who can start, who should be protected, and what the derby means for the title race and Madrid return.",
+            "deadline": "2026-05-04T02:31:52.497Z",
+            "deliverables": [
+              "One publishable article draft",
+              "Exact match/player/topic framing",
+              "Dispatch recommendation grounded in the live scout"
+            ],
+            "kind": "article",
+            "owner": "editor-in-chief",
+            "title": "Espanyol between the legs"
+          },
+          "assignmentTopic": "Espanyol vs Barcelona / rotation and fitness before Atlético second leg",
+          "eventAt": "2026-05-03T18:31:52.497Z",
+          "evidence": [
+            {
+              "engagement": 0,
+              "excerpt": "FC Barcelona club badge League champions without playing? Barça have all eyes on the game between Real Madrid and Espanyol on Sunday as a slip up from the second placed team will allow the blaugranes to take La Liga title Published date",
+              "label": "FC Barcelona club badge League champions without playing? Barça have all eyes on the game between Real Madrid and Espanyol on Sunday as a slip up from the second placed team will allow the blaugranes to take La Liga title Published date",
+              "publishedAt": "2026-05-03T18:31:52.497Z",
+              "source": "web:fcbarcelona-news",
+              "url": "https://r.jina.ai/http://www.fcbarcelona.com/en/football/first-team/news"
+            },
+            {
+              "engagement": 22,
+              "excerpt": "48.43 - Espanyol v Levante was the game with the lowest time in play in @LaLigaEN matchday 32 (48.43) and also the only match with no goals scored. Causality. https://t.co/Os0QSktcjf",
+              "image": {
+                "alt": "48.43 - Espanyol v Levante was the game with the lowest time in play in @LaLigaEN matchday 32 (48.43) and also the only match with no goals scored. Causality. https://t.co/Os0QSktcjf",
+                "href": "https://x.com/OptaJose/status/2049044208481104107",
+                "label": "OptaJose preview",
+                "note": "Internal review only until licensing is confirmed.",
+                "source": "x:trusted-football-stats",
+                "src": "https://pbs.twimg.com/media/HG-qki8WMAAHRqz.jpg",
+                "status": "review-needed-social-preview"
+              },
+              "label": "OptaJose: 48.43 - Espanyol v Levante was the game with the lowest time in play in @LaLigaEN matchday 32 (48.43) and also the only match with no goals scored. Causality. https://t.co/Os0QSktcjf",
+              "publishedAt": "2026-04-28T08:33:03.000Z",
+              "source": "x:trusted-football-stats",
+              "url": "https://x.com/OptaJose/status/2049044208481104107"
+            },
+            {
+              "engagement": 0,
+              "excerpt": "| Sat, Apr 11 | Barcelona | 4 - 1 | Espanyol | FT | Spanish LALIGA |",
+              "label": "| Sat, Apr 11 | Barcelona | 4 - 1 | Espanyol | FT | Spanish LALIGA |",
+              "publishedAt": "2026-05-03T18:31:52.497Z",
+              "source": "web:espn-results",
+              "url": "https://r.jina.ai/http://www.espn.com/soccer/team/results/_/id/83/barcelona"
+            },
+            {
+              "engagement": 0,
+              "excerpt": "| 13 ESPEspanyol |",
+              "label": "| 13 ESPEspanyol |",
+              "publishedAt": "2026-05-03T18:31:52.497Z",
+              "source": "web:espn-standings",
+              "url": "https://r.jina.ai/http://www.espn.com/soccer/standings/_/league/esp.1"
+            },
+            {
+              "engagement": 21,
+              "excerpt": "What To Watch This Week (4-10 May) These posts are as much for me as they are for you. So please feel free to reply with your suggestions for what to watch, and make a case for any game to be considered 'must watch', in which case I will bold it. The time zone used to sort games ",
+              "label": "What To Watch This Week (4-10 May)",
+              "publishedAt": "2026-05-03T12:14:24.000Z",
+              "source": "reddit:r/soccer:barca-search",
+              "url": "https://www.reddit.com/r/soccer/comments/1t2jthe/what_to_watch_this_week_410_may/"
+            }
+          ],
+          "headline": "Espanyol between the legs is the real selection test",
+          "id": "espanyol-between-the-legs",
+          "priorityReason": "Matched 7 live evidence item(s) across official, reddit, web, x. Strongest feeds: FC Barcelona first-team news via Jina; Trusted football stats X; ESPN results via Jina.",
+          "priorityScore": 100,
+          "signalType": "match",
+          "summary": "The derby now sits between the Atlético legs, and the strongest live signals revolve around who is fit enough to start, manage minutes, or be protected before Madrid.",
+          "tags": [
+            "derby",
+            "rotation",
+            "fitness",
+            "pedri",
+            "frenkie",
+            "espanyol"
+          ],
+          "urgency": "critical"
+        },
+        {
+          "assignment": {
+            "approver": "editor-in-chief",
+            "brief": "Use the shot, on-target, and possession context to explain why Barcelona owned territory without creating enough punch, and connect it to the attack discussion around Olmo and Rashford.",
+            "deadline": "2026-05-04T02:31:52.497Z",
+            "deliverables": [
+              "One publishable article draft",
+              "Exact match/player/topic framing",
+              "Dispatch recommendation grounded in the live scout"
+            ],
+            "kind": "article",
+            "owner": "editor-in-chief",
+            "title": "Territory without punch"
+          },
+          "assignmentTopic": "Barcelona attack after Atlético / possession without decisive threat",
+          "eventAt": "2026-05-03T18:31:52.497Z",
+          "evidence": [
+            {
+              "engagement": 585,
+              "excerpt": "The balance sheet now reads 10 wins from 14 games. That is a solid body of work, a decent argument in itself. Consider that Manchester United have now beaten Liverpool, Manchester City, Chelsea and Arsenal under Michael Carrick, and it looks even stronger. Time will tell whether ",
+              "image": {
+                "alt": "The balance sheet now reads 10 wins from 14 games. That is a solid body of work, a decent argument in itself. Consider that Manchester United have now beaten Liverpool, Manchester City, Chelsea and Arsenal under Michael Carrick, and it looks even stronger. Time will tell whether it will be enough. What it has done, though, is raise the bar if United do want to replace Carrick. Anything less than an elite coach and Carrick, surely, must be given the chance to carry this momentum into next season. @jacklang 🔗 https://t.co/3TughJn7WN",
+                "href": "https://x.com/TheAthleticFC/status/2050981640726319220",
+                "label": "TheAthleticFC preview",
+                "note": "Internal review only until licensing is confirmed.",
+                "source": "x:trusted-football-media",
+                "src": "https://pbs.twimg.com/media/HHaM4uMXUAAuoW1.jpg",
+                "status": "review-needed-social-preview"
+              },
+              "label": "TheAthleticFC: The balance sheet now reads 10 wins from 14 games. That is a solid body of work, a decent argument in itself. Consider that Manchester United have now beaten Liverpool, Manchester City, Chelsea and Arsenal under Michael Carrick, and it looks even stronger. Time will tell whether it will be enough. What it has done, though, is raise the bar if United do want to replace Carrick. Anything less than an elite coach and Carrick, surely, must be given the chance to carry this momentum into next season. @jacklang 🔗 https://t.co/3TughJn7WN",
+              "publishedAt": "2026-05-03T16:51:43.000Z",
+              "source": "x:trusted-football-media",
+              "url": "https://x.com/TheAthleticFC/status/2050981640726319220"
+            },
+            {
+              "engagement": 0,
+              "excerpt": "20 Dani Olmo * Midfielder",
+              "label": "20 Dani Olmo * Midfielder",
+              "publishedAt": "2026-05-03T18:31:52.497Z",
+              "source": "web:fcbarcelona-squad",
+              "url": "https://r.jina.ai/http://www.fcbarcelona.com/en/football/first-team/squad"
+            },
+            {
+              "engagement": 21,
+              "excerpt": "What To Watch This Week (4-10 May) These posts are as much for me as they are for you. So please feel free to reply with your suggestions for what to watch, and make a case for any game to be considered 'must watch', in which case I will bold it. The time zone used to sort games ",
+              "label": "What To Watch This Week (4-10 May)",
+              "publishedAt": "2026-05-03T12:14:24.000Z",
+              "source": "reddit:r/soccer:barca-search",
+              "url": "https://www.reddit.com/r/soccer/comments/1t2jthe/what_to_watch_this_week_410_may/"
+            },
+            {
+              "engagement": 1397,
+              "excerpt": "With the assist today Rashford has overtaken Carlos Tevez for the 2nd most goal contributions for a loan player in history of modern football First being mbappe with psg , but given how shady that loan was , credit is deserved here",
+              "label": "With the assist today Rashford has overtaken Carlos Tevez for the 2nd most goal contributions for a loan player in history of modern football",
+              "publishedAt": "2026-05-02T23:50:55.000Z",
+              "source": "reddit:r/Barca:top-week",
+              "url": "https://www.reddit.com/r/Barca/comments/1t25nux/with_the_assist_today_rashford_has_overtaken/"
+            },
+            {
+              "engagement": 15,
+              "excerpt": "Marcus Rashford - the fastest player in LaLiga: leads title contenders with an average top speed of 34.16 km/h, outpacing Vinícius at 33.92, Mbappé at 33.55, and Raphinha at 33.45",
+              "label": "Marcus Rashford - the fastest player in LaLiga: leads title contenders with an average top speed of 34.16 km/h, outpacing Vinícius at 33.92, Mbappé at 33.55, and Raphinha at 33.45",
+              "publishedAt": "2026-05-03T18:20:43.000Z",
+              "source": "reddit:r/Barca:new",
+              "url": "https://www.reddit.com/r/Barca/comments/1t2t544/marcus_rashford_the_fastest_player_in_laliga/"
+            }
+          ],
+          "headline": "Territory without punch is still Barça's problem",
+          "id": "territory-without-punch",
+          "priorityReason": "Matched 7 live evidence item(s) across official, reddit, x. Strongest feeds: Trusted football media X; FC Barcelona squad via Jina; Reddit /r/soccer Barça search.",
+          "priorityScore": 100,
+          "signalType": "match",
+          "summary": "The strongest attack angle is not vague frustration but the gap between Barcelona's territory and the lack of decisive threat after the red card and broken attacking sequences.",
+          "tags": [
+            "attack",
+            "tactics",
+            "olmo",
+            "rashford",
+            "shots",
+            "possession"
+          ],
+          "urgency": "critical"
+        },
+        {
+          "assignment": {
+            "approver": "editor-in-chief",
+            "brief": "Use official Femení reporting, trusted X, and community chatter to frame why the Bayern meeting is the next real football test and which players are setting the tone for it.",
+            "deadline": "2026-05-04T02:31:52.497Z",
+            "deliverables": [
+              "One publishable article draft",
+              "Exact match/player/topic framing",
+              "Dispatch recommendation grounded in the live scout"
+            ],
+            "kind": "article",
+            "owner": "editor-in-chief",
+            "title": "Femení Bayern pulse"
+          },
+          "assignmentTopic": "FC Barcelona Femení / Bayern / Champions League pulse",
+          "eventAt": "2026-05-03T18:09:52.000Z",
+          "evidence": [
+            {
+              "engagement": 323,
+              "excerpt": "Gol del Bayern. ⚽️ 4-3 | ⏱️ 90’ #BayernBarça",
+              "label": "FCBfemeni: Gol del Bayern. ⚽️ 4-3 | ⏱️ 90’ #BayernBarça",
+              "publishedAt": "2026-05-03T16:19:16.000Z",
+              "source": "x:official-club-women",
+              "url": "https://x.com/FCBfemeni/status/2050973476551307313"
+            },
+            {
+              "engagement": 107,
+              "excerpt": "Barcelona Femeni will compete in their sixth consecutive Champions League final. After last week's draw in Germany, they beat Bayern Munich 4-2 at Camp Nou, progressing 5-3 on aggregate. They will face Lyon, who beat Arsenal in their semi-final tie. https://t.co/6zK95I0MtD",
+              "image": {
+                "alt": "Barcelona Femeni will compete in their sixth consecutive Champions League final. After last week's draw in Germany, they beat Bayern Munich 4-2 at Camp Nou, progressing 5-3 on aggregate. They will face Lyon, who beat Arsenal in their semi-final tie. https://t.co/6zK95I0MtD",
+                "href": "https://x.com/TheAthleticFC/status/2051001310091391418",
+                "label": "TheAthleticFC preview",
+                "note": "Internal review only until licensing is confirmed.",
+                "source": "x:trusted-football-media",
+                "src": "https://pbs.twimg.com/media/HHae0m2boAA6w0u.jpg",
+                "status": "review-needed-social-preview"
+              },
+              "label": "TheAthleticFC: Barcelona Femeni will compete in their sixth consecutive Champions League final. After last week's draw in Germany, they beat Bayern Munich 4-2 at Camp Nou, progressing 5-3 on aggregate. They will face Lyon, who beat Arsenal in their semi-final tie. https://t.co/6zK95I0MtD",
+              "publishedAt": "2026-05-03T18:09:52.000Z",
+              "source": "x:trusted-football-media",
+              "url": "https://x.com/TheAthleticFC/status/2051001310091391418"
+            },
+            {
+              "engagement": 25,
+              "excerpt": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick From the second leg of the UWCL Final",
+              "label": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick",
+              "publishedAt": "2026-05-03T15:52:25.000Z",
+              "source": "reddit:r/FCBFemeni:new",
+              "url": "https://www.reddit.com/r/FCBFemeni/comments/1t2p5fa/fc_barcelona_4_1_fc_bayern_58_alexia_putellas/"
+            },
+            {
+              "engagement": 68,
+              "excerpt": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick From the second leg of the UWCL Final",
+              "label": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick",
+              "publishedAt": "2026-05-03T15:51:08.000Z",
+              "source": "reddit:r/WomensSoccer:barca-search",
+              "url": "https://www.reddit.com/r/WomensSoccer/comments/1t2p46m/fc_barcelona_4_1_fc_bayern_58_alexia_putellas/"
+            },
+            {
+              "engagement": 151,
+              "excerpt": "Barça Femeni will face Lyon in the Women’s Champions League Final.",
+              "label": "Barça Femeni will face Lyon in the Women’s Champions League Final.",
+              "publishedAt": "2026-05-03T16:33:47.000Z",
+              "source": "reddit:r/Barca:new",
+              "url": "https://www.reddit.com/r/Barca/comments/1t2q8s4/barça_femeni_will_face_lyon_in_the_womens/"
+            }
+          ],
+          "headline": "Femení's Bayern pulse is already building",
+          "id": "femeni-bayern-pulse",
+          "priorityReason": "Matched 11 live evidence item(s) across reddit, x. Strongest feeds: FC Barcelona Femení X; Trusted football media X; Reddit /r/FCBFemeni new.",
+          "priorityScore": 100,
+          "signalType": "match",
+          "summary": "The scout now keeps a live eye on Femení too, and the cleanest current angle is how official club signals and community chatter are already converging on the Bayern benchmark.",
+          "tags": [
+            "femeni",
+            "women",
+            "aitana",
+            "alexia",
+            "bayern",
+            "uwcl"
+          ],
+          "urgency": "critical"
+        },
+        {
+          "assignment": {
+            "approver": "editor-in-chief",
+            "brief": "Compare the recent Atlético meetings to explain what changed in game state, control, and threat rather than writing another generic reaction piece.",
+            "deadline": "2026-05-04T02:31:52.497Z",
+            "deliverables": [
+              "One publishable article draft",
+              "Exact match/player/topic framing",
+              "Dispatch recommendation grounded in the live scout"
+            ],
+            "kind": "article",
+            "owner": "editor-in-chief",
+            "title": "One opponent, four days, two different truths"
+          },
+          "assignmentTopic": "Atlético Madrid split-screen / league and European meetings",
+          "eventAt": "2026-05-03T18:31:52.497Z",
+          "evidence": [
+            {
+              "engagement": 0,
+              "excerpt": "| Tue, Apr 14 | Atlético Madrid | 1 - 2 2nd Leg · Atlético Madrid wins 3-2 on aggregate | Barcelona | FT | UEFA Champions League |",
+              "label": "| Tue, Apr 14 | Atlético Madrid | 1 - 2 2nd Leg · Atlético Madrid wins 3-2 on aggregate | Barcelona | FT | UEFA Champions League |",
+              "publishedAt": "2026-05-03T18:31:52.497Z",
+              "source": "web:espn-results",
+              "url": "https://r.jina.ai/http://www.espn.com/soccer/team/results/_/id/83/barcelona"
+            },
+            {
+              "engagement": 21,
+              "excerpt": "What To Watch This Week (4-10 May) These posts are as much for me as they are for you. So please feel free to reply with your suggestions for what to watch, and make a case for any game to be considered 'must watch', in which case I will bold it. The time zone used to sort games ",
+              "label": "What To Watch This Week (4-10 May)",
+              "publishedAt": "2026-05-03T12:14:24.000Z",
+              "source": "reddit:r/soccer:barca-search",
+              "url": "https://www.reddit.com/r/soccer/comments/1t2jthe/what_to_watch_this_week_410_may/"
+            },
+            {
+              "engagement": 11,
+              "excerpt": "Upcoming Live Matches On UKTV!! (01.05 -- 09.06) This schedule is for those matches available in the UK only airing on BBC/Sky/TNT/Dazn/YouTube. *Under 17 Tournament featuring England and Northern Ireland starts 4th May on Uefa.tv. WSL2 Final Day on Saturday 2nd May.* *Champions ",
+              "label": "Upcoming Live Matches On UKTV!! (01.05 -- 09.06)",
+              "publishedAt": "2026-05-01T11:48:03.000Z",
+              "source": "reddit:r/WomensSoccer:barca-search",
+              "url": "https://www.reddit.com/r/WomensSoccer/comments/1t0r4xl/upcoming_live_matches_on_uktv_0105_0906/"
+            }
+          ],
+          "headline": "One opponent, four days, two different truths",
+          "id": "one-opponent-four-days-two-truths",
+          "priorityReason": "Matched 5 live evidence item(s) across reddit, web. Strongest feeds: ESPN results via Jina; Reddit /r/soccer Barça search; Reddit /r/WomensSoccer Barça search.",
+          "priorityScore": 100,
+          "signalType": "match",
+          "summary": "The contrast between the recent Atlético meetings gives the desk a clean split-screen angle on why the same opponent produced different Barcelona performances.",
+          "tags": [
+            "match-context",
+            "atletico",
+            "comparison",
+            "ucl",
+            "laliga"
+          ],
+          "urgency": "critical"
+        },
+        {
+          "assignment": {
+            "approver": "editor-in-chief",
+            "brief": "Keep the Cubarsí conversation measured: separate the sending-off from the wider performance and explain why the blame story should stay in proportion.",
+            "deadline": "2026-05-04T02:31:52.497Z",
+            "deliverables": [
+              "One publishable article draft",
+              "Exact match/player/topic framing",
+              "Dispatch recommendation grounded in the live scout"
+            ],
+            "kind": "article",
+            "owner": "editor-in-chief",
+            "title": "Keep Cubarsí blame in proportion"
+          },
+          "assignmentTopic": "Pau Cubarsí red card / supporter response",
+          "eventAt": "2026-05-03T18:29:46.000Z",
+          "evidence": [
+            {
+              "engagement": 27,
+              "excerpt": "Arne Slot believes Liverpool have suffered from a succession of contentious video assistant referee decisions this season — but admits they only had themselves to blame for Sunday’s 3-2 defeat to Manchester United. The Dutch head coach was unhappy that Benjamin Sesko’s goal was a",
+              "image": {
+                "alt": "Arne Slot believes Liverpool have suffered from a succession of contentious video assistant referee decisions this season — but admits they only had themselves to blame for Sunday’s 3-2 defeat to Manchester United. The Dutch head coach was unhappy that Benjamin Sesko’s goal was allowed to stand at Old Trafford when replays appeared to show the ball hit the striker’s fingers before going over the line. “I don’t think it’s a surprise to anyone this season that if there’s a VAR intervention or if there’s something that could be left or right (50-50) then the decision goes against us,\" Slot told reporters post-match. \"That has been the whole season, every single time the same.\" More from @JamesPearceLFC 🔗 https://t.co/Yl2AW3kiqh",
+                "href": "https://x.com/TheAthleticFC/status/2051006317775434084",
+                "label": "TheAthleticFC preview",
+                "note": "Internal review only until licensing is confirmed.",
+                "source": "x:trusted-football-media",
+                "src": "https://pbs.twimg.com/media/HHajTQtWYAAF2UO.jpg",
+                "status": "review-needed-social-preview"
+              },
+              "label": "TheAthleticFC: Arne Slot believes Liverpool have suffered from a succession of contentious video assistant referee decisions this season — but admits they only had themselves to blame for Sunday’s 3-2 defeat to Manchester United. The Dutch head coach was unhappy that Benjamin Sesko’s goal was allowed to stand at Old Trafford when replays appeared to show the ball hit the striker’s fingers before going over the line. “I don’t think it’s a surprise to anyone this season that if there’s a VAR intervention or if there’s something that could be left or right (50-50) then the decision goes against us,\" Slot told reporters post-match. \"That has been the whole season, every single time the same.\" More from @JamesPearceLFC 🔗 https://t.co/Yl2AW3kiqh",
+              "publishedAt": "2026-05-03T18:29:46.000Z",
+              "source": "x:trusted-football-media",
+              "url": "https://x.com/TheAthleticFC/status/2051006317775434084"
+            },
+            {
+              "engagement": 25,
+              "excerpt": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick From the second leg of the UWCL Final",
+              "label": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick",
+              "publishedAt": "2026-05-03T15:52:25.000Z",
+              "source": "reddit:r/FCBFemeni:new",
+              "url": "https://www.reddit.com/r/FCBFemeni/comments/1t2p5fa/fc_barcelona_4_1_fc_bayern_58_alexia_putellas/"
+            },
+            {
+              "engagement": 68,
+              "excerpt": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick From the second leg of the UWCL Final",
+              "label": "FC Barcelona [4] -- 1 FC Bayern 58': Alexia Putellas scores off the free kick",
+              "publishedAt": "2026-05-03T15:51:08.000Z",
+              "source": "reddit:r/WomensSoccer:barca-search",
+              "url": "https://www.reddit.com/r/WomensSoccer/comments/1t2p46m/fc_barcelona_4_1_fc_bayern_58_alexia_putellas/"
+            }
+          ],
+          "headline": "Keep Cubarsí blame in proportion",
+          "id": "keep-cubarsi-blame-in-proportion",
+          "priorityReason": "Matched 10 live evidence item(s) across reddit, x. Strongest feeds: Trusted football media X; Reddit /r/FCBFemeni new; Reddit /r/WomensSoccer Barça search.",
+          "priorityScore": 93,
+          "signalType": "match",
+          "summary": "The live reaction around Cubarsí is real, but the usable editorial angle is proportion: what belongs to the red card, what belongs to the broader game, and how supporters are framing him.",
+          "tags": [
+            "cubarsi",
+            "supporter",
+            "perspective",
+            "ucl"
+          ],
+          "urgency": "critical"
+        }
+      ],
+      "schemaVersion": 1,
+      "slug": "barca-live-scout",
+      "tags": [
+        "barca",
+        "live",
+        "scout",
+        "trusted-sources",
+        "official",
+        "reddit"
+      ],
+      "type": "watcher"
+    }
+  ],
+  "themeClusters": [
+    {
+      "candidateIds": [
+        "femeni-bayern-pulse",
+        "keep-cubarsi-blame-in-proportion",
+        "territory-without-punch",
+        "espanyol-between-the-legs",
+        "one-opponent-four-days-two-truths"
+      ],
+      "candidateTitles": [
+        "Femení's Bayern pulse is already building",
+        "Keep Cubarsí blame in proportion",
+        "Territory without punch is still Barça's problem",
+        "Espanyol between the legs is the real selection test",
+        "One opponent, four days, two different truths"
+      ],
+      "chatterEvidenceCount": 21,
+      "crossPlatform": true,
+      "healthLabel": "cross-platform-confirmed",
+      "id": "cluster-bayern-champions-league-second-leg-uwcl-leg",
+      "imageLead": {
+        "alt": "Arne Slot believes Liverpool have suffered from a succession of contentious video assistant referee decisions this season — but admits they only had themselves to blame for Sunday’s 3-2 defeat to Manchester United. The Dutch head coach was unhappy that Benjamin Sesko’s goal was allowed to stand at Old Trafford when replays appeared to show the ball hit the striker’s fingers before going over the line. “I don’t think it’s a surprise to anyone this season that if there’s a VAR intervention or if there’s something that could be left or right (50-50) then the decision goes against us,\" Slot told reporters post-match. \"That has been the whole season, every single time the same.\" More from @JamesPearceLFC 🔗 https://t.co/Yl2AW3kiqh",
+        "href": "https://x.com/TheAthleticFC/status/2051006317775434084",
+        "label": "TheAthleticFC preview",
+        "note": "Internal review only until licensing is confirmed.",
+        "source": "x:trusted-football-media",
+        "src": "https://pbs.twimg.com/media/HHajTQtWYAAF2UO.jpg",
+        "status": "review-needed-social-preview"
+      },
+      "imageStatus": "review-needed-social-preview",
+      "itemCount": 40,
+      "officialEvidenceCount": 11,
+      "referenceEvidenceCount": 0,
+      "representativeEvidence": [
+        {
+          "engagement": 0,
+          "excerpt": "FC Barcelona club badge League champions without playing? Barça have all eyes on the game between Real Madrid and Espanyol on Sunday as a slip up from the second placed team will allow the blaugranes to take La Liga title Published date",
+          "label": "FC Barcelona club badge League champions without playing? Barça have all eyes on the game between Real Madrid and Espanyol on Sunday as a slip up from the second placed team will allow the blaugranes to take La Liga title Published date",
+          "publishedAt": "2026-05-03T18:31:52.497Z",
+          "source": "web:fcbarcelona-news",
+          "url": "https://r.jina.ai/http://www.fcbarcelona.com/en/football/first-team/news"
+        },
+        {
+          "engagement": 0,
+          "excerpt": "Barça 4-2 Bayern: We're going to Oslo! Women clock Published date",
+          "label": "Barça 4-2 Bayern: We're going to Oslo! Women clock Published date",
+          "publishedAt": "2026-05-03T18:31:52.497Z",
+          "source": "web:fcbarcelona-women-news",
+          "url": "https://r.jina.ai/http://www.fcbarcelona.com/en/football/womens-football/news"
+        },
+        {
+          "engagement": 0,
+          "excerpt": "AGG:Agg. 5 - 3 FC Bayern München",
+          "label": "AGG:Agg. 5 - 3 FC Bayern München",
+          "publishedAt": "2026-05-03T18:31:52.497Z",
+          "source": "web:fcbarcelona-women-results",
+          "url": "https://r.jina.ai/http://www.fcbarcelona.com/en/football/womens-football/results"
+        }
+      ],
+      "reviewHint": "Trusted and community lanes overlap here; keep it on the board, but watch for duplicate pitches.",
+      "sourceFamilies": [
+        "official",
+        "reddit",
+        "web",
+        "x"
+      ],
+      "sourceRoles": [
+        "chatter",
+        "official",
+        "trusted"
+      ],
+      "theme": "Bayern, Champions League, Second Leg are surfacing together across official club, Reddit, web, and X lanes.",
+      "title": "Bayern / Champions League",
+      "topTokens": [
+        "bayern",
+        "champions-league",
+        "second-leg",
+        "uwcl",
+        "leg"
+      ],
+      "trustedEvidenceCount": 8
+    }
+  ]
+}

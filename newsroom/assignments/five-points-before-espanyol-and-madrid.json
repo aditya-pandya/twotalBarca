@@ -1,0 +1,27 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Package the live Apr. 10 desk into one current five-point Brief: selection against Espanyol, the attack repair note, the Atlético split-screen, the Femení Bayern pulse, and the weekly line that still holds.",
+  "createdAt": "2026-04-10T11:05:00.000Z",
+  "deadline": "2026-04-10T11:45:00.000Z",
+  "deliverables": [
+    "One current five-point Brief",
+    "Cross-links to the supporting public reads",
+    "Reader-facing line of argument for the week"
+  ],
+  "dependencies": [
+    "signal:signal-barca-live-scout-espanyol-between-the-legs",
+    "signal:signal-barca-live-scout-territory-without-punch",
+    "signal:signal-barca-live-scout-one-opponent-four-days-two-truths",
+    "signal:signal-barca-live-scout-femeni-bayern-pulse"
+  ],
+  "id": "assignment-five-points-before-espanyol-and-madrid",
+  "kind": "article",
+  "owner": "editor-in-chief",
+  "priority": "critical",
+  "recordKind": "article",
+  "slug": "five-points-before-espanyol-and-madrid",
+  "status": "done",
+  "targetSlug": "five-points-before-espanyol-and-madrid",
+  "title": "Five points before Espanyol and Madrid",
+  "updatedAt": "2026-04-10T11:28:00.000Z"
+}

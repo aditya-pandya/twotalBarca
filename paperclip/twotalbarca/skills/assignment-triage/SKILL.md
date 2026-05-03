@@ -1,28 +1,33 @@
 ---
 name: assignment-triage
-description: Convert newsroom goals into specific assignments with owners, deadlines, dependencies, and approval paths.
+description: Convert weekly-dispatch goals into specific assignments with owners, deadlines, dependencies, and approval paths.
 ---
 
 # Assignment Triage
 
-Use this skill when a manager needs to turn a broad newsroom need into a concrete assignment.
+Last updated: 2026-05-02
 
-Workflow:
-1. Identify the publishing need in one sentence.
-2. Decide the format: match notes, tactics, archive, dispatch, community, or platform ops.
-3. Name the owner and the approving editor.
-4. State the deadline and what "done" means.
-5. List the dependencies or blockers.
-6. Say whether the work can publish immediately after copy review or needs Editor in Chief approval.
+Use this skill when a manager needs to turn a broad totalBarca need into a concrete assignment.
+
+Active workflow:
+1. Start with `newsroom/generated/barca-scout-report.json` when the desk is looking for current Barça angles.
+2. Identify the weekly publishing need in one sentence.
+3. Decide the format: weekly dispatch, match-context refresh, supporting research, or platform ops.
+4. Name the owner and approving editor.
+5. State the deadline and what "done" means.
+6. List the dependencies or blockers.
 7. Create the real assignment file with `npm run newsroom:assignment -- --title "<title>" --owner <owner> --approver <approver> --kind <kind> --deadline <date>`.
 
 Do:
-- create one primary owner
-- keep the assignment narrow enough to finish
-- specify the exact match, player, tactical question, or archive hook
+- keep one clear primary owner
+- keep the assignment narrow enough to finish this week
+- specify the exact match, governance angle, tactical question, or club theme being served
 - point the operator at the exact file that should be updated under `newsroom/`
+- remember that draft generation may need the assignment id instead of the record slug
 
 Do not:
+- assume a daily Brief is still an active format
+- default to standalone article production unless the scope has been explicitly reopened
 - assign the same lead to multiple agents
 - create vague tasks like "write something on Barca"
 - skip the approval path

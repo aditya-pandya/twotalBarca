@@ -1,34 +1,94 @@
 {
-  "generatedAt": "2026-04-06T11:25:49.459Z",
+  "generatedAt": "2026-05-03T18:32:05.327Z",
   "items": [
     {
       "diagnostics": [
         "Missing latest draft binding."
       ],
-      "id": "publish-article-rest-defense-is-learning-to-breathe",
+      "id": "publish-article-femen-bayern-pulse",
       "maxRetries": 3,
-      "publishAt": "2026-04-05T14:00:00.000Z",
-      "publishedAt": "2026-04-05T14:05:00.000Z",
-      "recordId": "article-rest-defense-breathe",
+      "publishAt": "2026-04-10T10:35:00.000Z",
+      "publishedAt": "2026-04-10T10:35:00.000Z",
+      "recordId": "article-femen-bayern-pulse",
       "recordKind": "article",
       "retryCount": 0,
       "schemaVersion": 1,
-      "slug": "rest-defense-is-learning-to-breathe",
+      "slug": "femen-bayern-pulse",
       "status": "published"
     },
     {
       "diagnostics": [
         "Missing latest draft binding."
       ],
-      "id": "publish-dispatch-week-in-blaugrana-13",
+      "id": "publish-article-one-opponent-four-days-two-different-truths",
       "maxRetries": 3,
-      "publishAt": "2026-04-05T18:00:00.000Z",
-      "publishedAt": "2026-04-05T18:10:00.000Z",
-      "recordId": "dispatch-13",
+      "publishAt": "2026-04-10T10:40:00.000Z",
+      "publishedAt": "2026-04-10T10:40:00.000Z",
+      "recordId": "article-one-opponent-four-days-two-different-truths",
+      "recordKind": "article",
+      "retryCount": 0,
+      "schemaVersion": 1,
+      "slug": "one-opponent-four-days-two-different-truths",
+      "status": "published"
+    },
+    {
+      "diagnostics": [
+        "Missing latest draft binding."
+      ],
+      "id": "publish-article-territory-without-punch",
+      "maxRetries": 3,
+      "publishAt": "2026-04-10T10:45:00.000Z",
+      "publishedAt": "2026-04-10T10:45:00.000Z",
+      "recordId": "article-territory-without-punch",
+      "recordKind": "article",
+      "retryCount": 0,
+      "schemaVersion": 1,
+      "slug": "territory-without-punch",
+      "status": "published"
+    },
+    {
+      "diagnostics": [
+        "Missing latest draft binding."
+      ],
+      "id": "publish-article-espanyol-between-the-legs",
+      "maxRetries": 3,
+      "publishAt": "2026-04-10T10:50:00.000Z",
+      "publishedAt": "2026-04-10T10:50:00.000Z",
+      "recordId": "article-espanyol-between-the-legs",
+      "recordKind": "article",
+      "retryCount": 0,
+      "schemaVersion": 1,
+      "slug": "espanyol-between-the-legs",
+      "status": "published"
+    },
+    {
+      "diagnostics": [
+        "Missing latest draft binding."
+      ],
+      "id": "publish-article-five-points-before-espanyol-and-madrid",
+      "maxRetries": 3,
+      "publishAt": "2026-04-10T11:00:00.000Z",
+      "publishedAt": "2026-04-10T11:00:00.000Z",
+      "recordId": "article-five-points-before-espanyol-and-madrid",
+      "recordKind": "article",
+      "retryCount": 0,
+      "schemaVersion": 1,
+      "slug": "five-points-before-espanyol-and-madrid",
+      "status": "published"
+    },
+    {
+      "diagnostics": [
+        "Missing latest draft binding."
+      ],
+      "id": "publish-dispatch-weekly-dispatch-april-10-2026",
+      "maxRetries": 3,
+      "publishAt": "2026-04-10T11:30:00.000Z",
+      "publishedAt": "2026-04-10T11:30:00.000Z",
+      "recordId": "dispatch-weekly-dispatch-april-10-2026",
       "recordKind": "dispatch",
       "retryCount": 0,
       "schemaVersion": 1,
-      "slug": "week-in-blaugrana-13",
+      "slug": "weekly-dispatch-april-10-2026",
       "status": "published"
     }
   ],

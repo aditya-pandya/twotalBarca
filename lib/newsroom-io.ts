@@ -15,6 +15,7 @@ import type {
   ApprovalRecord,
   ArticleRecord,
   AssignmentRecord,
+  BarcaScoutArtifact,
   DispatchRecord,
   DraftArtifact,
   EditorialCalendarState,
@@ -29,6 +30,12 @@ import type {
   ReviewArtifact,
   ReviewSummary,
   RunLogEntry,
+  ScoutEvidenceRecord,
+  ScoutFeedbackEntry,
+  ScoutFeedbackEntryInput,
+  ScoutFeedbackState,
+  ScoutImageLead,
+  ScoutImageLeadStatus,
   SourceRegistryRecord,
   ValidationIssue,
   WorkflowConfig,
@@ -40,12 +47,15 @@ type RelativeNewsroomPath =
   | "config/workflow.json"
   | "state/frontpage.json"
   | "state/editorial-calendar.json"
+  | "state/scout-feedback.json"
   | "generated/site-content.json"
   | "generated/publish-queue.json"
   | "generated/review-summary.json"
   | "generated/ingestion-report.json"
   | "generated/retry-state.json"
-  | "generated/healthcheck.json";
+  | "generated/healthcheck.json"
+  | "generated/barca-live-source.json"
+  | "generated/barca-scout-report.json";
 
 function newsroomPath(rootDir: string, relativePath: string) {
   return path.join(rootDir, NEWSROOM_ROOT, relativePath);
@@ -96,6 +106,69 @@ export function stringifyStableJson(value: unknown) {
   return `${JSON.stringify(stableValue(value), null, 2)}\n`;
 }
 
+export function resolveLocalNewsroomRootDir(defaultRoot = process.cwd()) {
+  return process.env.TWOTALBARCA_NEWSROOM_ROOT ?? defaultRoot;
+}
+
+function createScoutFeedbackId(entry: ScoutFeedbackEntryInput, createdAt: string) {
+  return slugify(`${entry.targetType}-${entry.targetId ?? entry.targetLabel}-${entry.verdict}-${createdAt}`);
+}
+
+function emptyScoutFeedbackState(now = new Date(0).toISOString()): ScoutFeedbackState {
+  return {
+    schemaVersion: 1,
+    updatedAt: now,
+    entries: [],
+  };
+}
+
+function normalizeScoutFeedbackEntry(entry: Partial<ScoutFeedbackEntry>, fallbackCreatedAt = new Date(0).toISOString()): ScoutFeedbackEntry {
+  const createdAt = typeof entry.createdAt === "string" ? entry.createdAt : fallbackCreatedAt;
+  const targetType =
+    entry.targetType === "candidate" ||
+    entry.targetType === "cluster" ||
+    entry.targetType === "source-lane" ||
+    entry.targetType === "general-strategy-note"
+      ? entry.targetType
+      : "general-strategy-note";
+  const verdictOptions = new Set([
+    "promising",
+    "weak",
+    "noisy",
+    "duplicate",
+    "add-source",
+    "needs-confirmation",
+    "femeni-priority",
+    "club-priority",
+    "imagery-needed",
+  ]);
+  const verdict = verdictOptions.has(String(entry.verdict))
+    ? (String(entry.verdict) as ScoutFeedbackEntry["verdict"])
+    : "needs-confirmation";
+  const targetLabel = String(entry.targetLabel ?? entry.targetId ?? "Strategy note").trim() || "Strategy note";
+
+  return {
+    id: String(entry.id ?? createScoutFeedbackId({ targetType, targetId: entry.targetId, targetLabel, verdict }, createdAt)),
+    targetType,
+    targetId: typeof entry.targetId === "string" && entry.targetId.trim() ? entry.targetId : undefined,
+    targetLabel,
+    verdict,
+    note: typeof entry.note === "string" && entry.note.trim() ? entry.note.trim() : undefined,
+    createdAt,
+  };
+}
+
+function normalizeScoutFeedbackState(record: Partial<ScoutFeedbackState> | undefined): ScoutFeedbackState {
+  const base = emptyScoutFeedbackState(record?.updatedAt ?? new Date(0).toISOString());
+  return {
+    ...base,
+    ...record,
+    entries: (record?.entries ?? [])
+      .map((entry) => normalizeScoutFeedbackEntry(entry, record?.updatedAt ?? new Date(0).toISOString()))
+      .sort((left, right) => Date.parse(right.createdAt) - Date.parse(left.createdAt)),
+  };
+}
+
 function mapLegacySourceType(kind: string): SourceRegistryRecord["type"] {
   if (kind === "match") return "match";
   if (kind === "archive") return "archive";
@@ -127,6 +200,8 @@ function normalizeSourceRecord(record: Record<string, unknown>): SourceRegistryR
     cadence: (record.cadence as SourceRegistryRecord["cadence"]) ?? "daily",
     notes: typeof record.summary === "string" ? record.summary : undefined,
     tags: Array.isArray(record.tags) ? (record.tags as string[]) : [],
+    discoveryMode: (record.discoveryMode as SourceRegistryRecord["discoveryMode"]) ?? "internal",
+    lastScoutAt: typeof record.updatedAt === "string" ? record.updatedAt : undefined,
     pendingEvents: [
       {
         id: eventId,
@@ -136,6 +211,12 @@ function normalizeSourceRecord(record: Record<string, unknown>): SourceRegistryR
         eventAt: String(record.eventAt ?? record.createdAt ?? new Date().toISOString()),
         urgency: (record.urgency as SourceRegistryRecord["pendingEvents"][number]["urgency"]) ?? "medium",
         tags: Array.isArray(record.tags) ? (record.tags as string[]) : [],
+        priorityScore: typeof record.priorityScore === "number" ? record.priorityScore : undefined,
+        priorityReason: typeof record.priorityReason === "string" ? record.priorityReason : undefined,
+        assignmentTopic: typeof record.assignmentTopic === "string" ? record.assignmentTopic : undefined,
+        evidence: Array.isArray(record.evidence)
+          ? (record.evidence as SourceRegistryRecord["pendingEvents"][number]["evidence"])
+          : undefined,
         assignment: {
           title: String(assignmentHint.title ?? `Assignment from ${record.slug}`),
           kind: (assignmentHint.kind as "article" | "dispatch") ?? "article",
@@ -204,6 +285,254 @@ function emptyIngestionReport(now = new Date(0).toISOString()): IngestionReport 
   };
 }
 
+function isScoutImageLeadStatus(status: unknown): status is ScoutImageLeadStatus {
+  return (
+    status === "usable-lead-image" ||
+    status === "review-needed-social-preview" ||
+    status === "needs-free-license-replacement" ||
+    status === "needs-generation"
+  );
+}
+
+function normalizeScoutImageLead(lead: unknown): ScoutImageLead | undefined {
+  if (!lead || typeof lead !== "object") {
+    return undefined;
+  }
+
+  const record = lead as Record<string, unknown>;
+  if (typeof record.src !== "string" || typeof record.alt !== "string" || typeof record.source !== "string") {
+    return undefined;
+  }
+
+  return {
+    src: record.src,
+    alt: record.alt,
+    href: typeof record.href === "string" ? record.href : undefined,
+    source: record.source,
+    label: typeof record.label === "string" ? record.label : undefined,
+    note: typeof record.note === "string" ? record.note : undefined,
+    credit: typeof record.credit === "string" ? record.credit : undefined,
+    status: isScoutImageLeadStatus(record.status) ? record.status : "needs-generation",
+  };
+}
+
+function normalizeScoutEvidenceRecord(record: Record<string, unknown>): ScoutEvidenceRecord {
+  return {
+    source: String(record.source ?? ""),
+    label: String(record.label ?? ""),
+    url: typeof record.url === "string" ? record.url : undefined,
+    excerpt: typeof record.excerpt === "string" ? record.excerpt : undefined,
+    publishedAt: typeof record.publishedAt === "string" ? record.publishedAt : undefined,
+    engagement: typeof record.engagement === "number" ? record.engagement : undefined,
+    image: normalizeScoutImageLead(record.image),
+  };
+}
+
+function emptyBarcaScoutArtifact(now = new Date(0).toISOString()): BarcaScoutArtifact {
+  return {
+    schemaVersion: 1,
+    generatedAt: now,
+    sourceStatuses: [],
+    candidates: [],
+    themeClusters: [],
+    calibrationPrompts: [],
+    sourceExpansionSuggestions: [],
+    qualitySummary: {
+      headline: "No scout calibration data yet.",
+      evidenceCount: 0,
+      sourceCount: 0,
+      healthySourceCount: 0,
+      candidateCount: 0,
+      clusterCount: 0,
+      crossPlatformClusterCount: 0,
+      trustedBackedCandidateCount: 0,
+      chatterHeavyCandidateCount: 0,
+      womenCoverageGapCount: 0,
+      weakSourceCount: 0,
+    },
+    coverageSummary: {
+      tracks: [],
+      weakSpots: [],
+    },
+    imageSummary: {
+      candidateLeadCount: 0,
+      clusterLeadCount: 0,
+      reviewNeededCount: 0,
+      replacementNeededCount: 0,
+      missingCount: 0,
+    },
+    feedbackSummary: {
+      entryCount: 0,
+      targetTypeCounts: {
+        candidate: 0,
+        cluster: 0,
+        "source-lane": 0,
+        "general-strategy-note": 0,
+      },
+      verdictCounts: {},
+      recentEntries: [],
+    },
+    sources: [],
+  };
+}
+
+function normalizeBarcaScoutArtifact(record: Partial<BarcaScoutArtifact> | undefined): BarcaScoutArtifact {
+  const base = emptyBarcaScoutArtifact(record?.generatedAt ?? new Date(0).toISOString());
+
+  return {
+    ...base,
+    ...record,
+    sourceStatuses: (record?.sourceStatuses ?? []).map((status) => {
+      const {
+        source,
+        ok,
+        fetchedAt,
+        itemCount,
+        detail,
+        error,
+        family = "web",
+        label = status.source,
+        target = "",
+        sourceRole = "reference",
+        sampleItems = [],
+        contributionCount = 0,
+        contributionEfficiency = 0,
+        contributionSample = [],
+        matchedCandidateIds = [],
+        matchedCandidateTitles = [],
+        qualityLabel = "quiet",
+        repeatLowSignal = false,
+        imageLeadCount = 0,
+      } = status;
+
+      return {
+        source,
+        family,
+        label,
+        target,
+        ok,
+        fetchedAt,
+        itemCount,
+        detail,
+        error,
+        sourceRole,
+        sampleItems,
+        contributionCount,
+        contributionEfficiency,
+        contributionSample,
+        matchedCandidateIds,
+        matchedCandidateTitles,
+        qualityLabel,
+        repeatLowSignal,
+        imageLeadCount,
+      };
+    }),
+    candidates: (record?.candidates ?? []).map((candidate) => {
+      const calibration = candidate.calibration as Partial<typeof candidate.calibration> | undefined;
+      const imageLead = normalizeScoutImageLead(candidate.imageLead);
+
+      return {
+        ...candidate,
+        evidence: (candidate.evidence ?? []).map((evidence) => normalizeScoutEvidenceRecord(evidence as Record<string, unknown>)),
+        calibration: {
+          label: calibration?.label ?? "mixed",
+          note: calibration?.note ?? "Scout calibration will update on the next run.",
+          officialEvidenceCount: calibration?.officialEvidenceCount ?? 0,
+          trustedEvidenceCount: calibration?.trustedEvidenceCount ?? 0,
+          chatterEvidenceCount: calibration?.chatterEvidenceCount ?? 0,
+          referenceEvidenceCount: calibration?.referenceEvidenceCount ?? 0,
+          sourceFamilyCount: calibration?.sourceFamilyCount ?? 0,
+          crossPlatform: calibration?.crossPlatform ?? false,
+          needsTrustedConfirmation: calibration?.needsTrustedConfirmation ?? false,
+          needsWomenDepth: calibration?.needsWomenDepth ?? false,
+        },
+        imageStatus:
+          candidate.imageStatus === "usable-lead-image" ||
+          candidate.imageStatus === "review-needed-social-preview" ||
+          candidate.imageStatus === "needs-free-license-replacement" ||
+          candidate.imageStatus === "needs-generation"
+            ? candidate.imageStatus
+            : imageLead?.status ?? "needs-generation",
+        imageLead,
+      };
+    }),
+    themeClusters: (record?.themeClusters ?? []).map((cluster) => {
+      const imageLead = normalizeScoutImageLead(cluster.imageLead);
+      return {
+        ...cluster,
+        representativeEvidence: (cluster.representativeEvidence ?? []).map((evidence) => normalizeScoutEvidenceRecord(evidence as Record<string, unknown>)),
+        imageStatus:
+          cluster.imageStatus === "usable-lead-image" ||
+          cluster.imageStatus === "review-needed-social-preview" ||
+          cluster.imageStatus === "needs-free-license-replacement" ||
+          cluster.imageStatus === "needs-generation"
+            ? cluster.imageStatus
+            : imageLead?.status ?? "needs-generation",
+        imageLead,
+      };
+    }),
+    calibrationPrompts: record?.calibrationPrompts ?? [],
+    sourceExpansionSuggestions: record?.sourceExpansionSuggestions ?? [],
+    qualitySummary: {
+      ...base.qualitySummary,
+      ...record?.qualitySummary,
+    },
+    coverageSummary: {
+      tracks: record?.coverageSummary?.tracks ?? [],
+      weakSpots: record?.coverageSummary?.weakSpots ?? [],
+    },
+    imageSummary: {
+      ...base.imageSummary,
+      ...record?.imageSummary,
+    },
+    feedbackSummary: {
+      ...base.feedbackSummary,
+      ...record?.feedbackSummary,
+      targetTypeCounts: {
+        ...base.feedbackSummary.targetTypeCounts,
+        ...(record?.feedbackSummary?.targetTypeCounts ?? {}),
+      },
+      verdictCounts: {
+        ...base.feedbackSummary.verdictCounts,
+        ...(record?.feedbackSummary?.verdictCounts ?? {}),
+      },
+      recentEntries: (record?.feedbackSummary?.recentEntries ?? []).map((entry) => normalizeScoutFeedbackEntry(entry)),
+    },
+    sources: record?.sources ?? [],
+  };
+}
+
+export async function loadBarcaScoutArtifact(rootDir = process.cwd()) {
+  const artifact = await readJsonFileOrDefault<Partial<BarcaScoutArtifact>>(newsroomPath(rootDir, "generated/barca-live-source.json"), emptyBarcaScoutArtifact());
+  return normalizeBarcaScoutArtifact(artifact);
+}
+
+export async function loadScoutFeedbackState(rootDir = process.cwd()) {
+  await ensureNewsroomDirectories(rootDir);
+  const state = await readJsonFileOrDefault<Partial<ScoutFeedbackState>>(newsroomPath(rootDir, "state/scout-feedback.json"), emptyScoutFeedbackState());
+  return normalizeScoutFeedbackState(state);
+}
+
+export async function loadScoutFeedbackEntries(rootDir = process.cwd()) {
+  return (await loadScoutFeedbackState(rootDir)).entries;
+}
+
+export async function appendScoutFeedbackEntry(rootDir: string, entry: ScoutFeedbackEntryInput, now = new Date().toISOString()) {
+  if (!entry.targetLabel?.trim()) {
+    throw new Error("targetLabel is required");
+  }
+
+  const normalizedEntry = normalizeScoutFeedbackEntry(entry, entry.createdAt ?? now);
+  const currentState = await loadScoutFeedbackState(rootDir);
+  const nextState: ScoutFeedbackState = {
+    schemaVersion: 1,
+    updatedAt: now,
+    entries: [normalizedEntry, ...currentState.entries].sort((left, right) => Date.parse(right.createdAt) - Date.parse(left.createdAt)),
+  };
+  await writeNewsroomJson(rootDir, "state/scout-feedback.json", nextState);
+  return normalizedEntry;
+}
+
 export async function loadNewsroomData(rootDir = process.cwd()): Promise<NewsroomData> {
   await ensureNewsroomDirectories(rootDir);
 
@@ -215,7 +544,8 @@ export async function loadNewsroomData(rootDir = process.cwd()): Promise<Newsroo
   const assignments = await readJsonDirectory<AssignmentRecord>(newsroomPath(rootDir, "assignments"));
   const approvals = await readJsonDirectory<ApprovalRecord>(newsroomPath(rootDir, "approvals"));
   const rawSources = await readJsonDirectory<Record<string, unknown>>(newsroomPath(rootDir, "sources"));
-  const sources = rawSources.map((source) => normalizeSourceRecord(source));
+  const scoutArtifact = await loadBarcaScoutArtifact(rootDir);
+  const sources = [...rawSources, ...scoutArtifact.sources].map((source) => normalizeSourceRecord(source as Record<string, unknown>));
   const signals = await readJsonDirectory<NewsSignalRecord>(newsroomPath(rootDir, "generated/signals"));
   const drafts = await readJsonDirectory<DraftArtifact>(newsroomPath(rootDir, "drafts"));
   const reviews = await readJsonDirectory<ReviewArtifact>(newsroomPath(rootDir, "reviews"));
@@ -278,6 +608,7 @@ export async function writePublishQueue(rootDir = process.cwd(), now = new Date(
     workflow: data.workflow,
     drafts: data.drafts,
     reviews: data.reviews,
+    editorialCalendar: data.editorialCalendar,
     retryState: data.retryState,
     now,
   });
@@ -303,6 +634,7 @@ export async function refreshGeneratedNewsroomState(rootDir = process.cwd(), now
     workflow: data.workflow,
     drafts: data.drafts,
     reviews: data.reviews,
+    editorialCalendar: data.editorialCalendar,
     retryState: data.retryState,
     now,
   });

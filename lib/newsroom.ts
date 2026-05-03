@@ -8,6 +8,7 @@ import type {
   DashboardSummary,
   DispatchRecord,
   DraftArtifact,
+  EditorialCalendarState,
   EditorialRecordKind,
   EditorialStatus,
   GeneratedFrontPagePlan,
@@ -82,6 +83,205 @@ function compareDateDesc(left?: string, right?: string) {
 
 function unique<T>(values: T[]) {
   return [...new Set(values)];
+}
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function defaultPriorityScore(source: SourceRegistryRecord, event: SourcePendingEvent) {
+  const urgencyBase: Record<SourcePendingEvent["urgency"], number> = {
+    low: 36,
+    medium: 52,
+    high: 72,
+    critical: 86,
+  };
+  const context = `${source.slug} ${event.headline} ${event.summary} ${event.tags.join(" ")}`.toLowerCase();
+  let score = urgencyBase[event.urgency] ?? 52;
+
+  if (source.discoveryMode === "live") {
+    score += 12;
+  }
+  if (event.signalType === "match") {
+    score += 8;
+  }
+  if (/atletico|espanyol|second leg|return leg|derby|title race|cubarsi|pedri|frenkie|olmo|lamine|lewandowski|rashford/.test(context)) {
+    score += 10;
+  }
+  if (/suspension|selection|lineup|training|hamstring|fitness|possession|shots|corners|attack|chance|tactical/.test(context)) {
+    score += 6;
+  }
+  if (/transfer|rumou?r|market|linked with|bid|signing/.test(context)) {
+    score -= 28;
+  }
+  if (/montjuic|soundscape|arrival pattern|stadium nostalgia|camp nou exile/.test(context)) {
+    score -= 24;
+  }
+  if (/planning|follow-up|dispatch/.test(context) && source.discoveryMode !== "live") {
+    score -= 14;
+  }
+  if (/referee|complaint|penalty/.test(context) && !/selection|tactical|attack|defense|red card|cubarsi/.test(context)) {
+    score -= 8;
+  }
+
+  return clamp(score, 0, 100);
+}
+
+function priorityReason(source: SourceRegistryRecord, event: SourcePendingEvent, score: number) {
+  if (event.priorityReason) {
+    return event.priorityReason;
+  }
+
+  const reasons: string[] = [];
+  const context = `${event.headline} ${event.summary} ${event.tags.join(" ")}`.toLowerCase();
+
+  if (source.discoveryMode === "live") {
+    reasons.push("live scout evidence available");
+  }
+  if (event.signalType === "match" || /atletico|espanyol|second leg|return leg|derby/.test(context)) {
+    reasons.push("match-adjacent");
+  }
+  if (/cubarsi|pedri|frenkie|olmo|lamine|lewandowski|rashford/.test(context)) {
+    reasons.push("player-specific consequence");
+  }
+  if (/selection|lineup|suspension|training|fitness/.test(context)) {
+    reasons.push("selection/tactical consequence");
+  }
+  if (/planning|montjuic|stadium/.test(context) && source.discoveryMode !== "live") {
+    reasons.push("internal/stale source demotion applied");
+  }
+
+  reasons.push(`priority ${score}`);
+  return reasons.join("; ");
+}
+
+function compareSignalPriority(left: NewsSignalRecord, right: NewsSignalRecord) {
+  const scoreDelta = (right.priorityScore ?? 0) - (left.priorityScore ?? 0);
+  if (scoreDelta !== 0) {
+    return scoreDelta;
+  }
+
+  const liveDelta = (right.discoveryMode === "live" ? 1 : 0) - (left.discoveryMode === "live" ? 1 : 0);
+  if (liveDelta !== 0) {
+    return liveDelta;
+  }
+
+  const dateDelta = compareDateDesc(left.eventAt, right.eventAt);
+  if (dateDelta !== 0) {
+    return dateDelta;
+  }
+
+  return left.slug.localeCompare(right.slug);
+}
+
+function countWords(value: string) {
+  return value.trim().split(/\s+/).filter(Boolean).length;
+}
+
+function hasPlaceholderLanguage(value: string) {
+  return /\b(?:tbd|todo|lorem|placeholder)\b/i.test(value);
+}
+
+function formatQualityDiagnostic(message: string) {
+  return `Quality gate: ${message}`;
+}
+
+function buildArticleQualityDiagnostics(record: ArticleRecord) {
+  const diagnostics: string[] = [];
+  const paragraphs = record.body.filter((paragraph) => paragraph.trim().length > 0);
+  const bodyWordCount = countWords(paragraphs.join(" "));
+
+  if (paragraphs.length < 3) {
+    diagnostics.push(formatQualityDiagnostic(`article body needs at least 3 paragraphs (found ${paragraphs.length}).`));
+  }
+  if (bodyWordCount < 120) {
+    diagnostics.push(formatQualityDiagnostic(`article body needs at least 120 words (found ${bodyWordCount}).`));
+  }
+  if (record.headline.trim().length < 12) {
+    diagnostics.push(formatQualityDiagnostic(`article headline is too short (${record.headline.trim().length} chars).`));
+  }
+  if (record.dek.trim().length < 30) {
+    diagnostics.push(formatQualityDiagnostic(`article dek is too short (${record.dek.trim().length} chars).`));
+  }
+  if (record.excerpt.trim().length < 40) {
+    diagnostics.push(formatQualityDiagnostic(`article excerpt is too short (${record.excerpt.trim().length} chars).`));
+  }
+  if ([record.headline, record.dek, record.excerpt, ...paragraphs].some((value) => hasPlaceholderLanguage(value))) {
+    diagnostics.push(formatQualityDiagnostic("article contains placeholder language."));
+  }
+
+  return diagnostics;
+}
+
+function buildDispatchQualityDiagnostics(record: DispatchRecord) {
+  const diagnostics: string[] = [];
+  const editorsNoteWordCount = countWords(record.editorsNote);
+
+  if (editorsNoteWordCount < 35) {
+    diagnostics.push(formatQualityDiagnostic(`dispatch editors note needs at least 35 words (found ${editorsNoteWordCount}).`));
+  }
+  if (record.items.length < 5) {
+    diagnostics.push(formatQualityDiagnostic(`dispatch needs at least 5 items (found ${record.items.length}).`));
+  }
+  record.items.forEach((item, index) => {
+    const summaryWordCount = countWords(item.summary);
+    if (summaryWordCount < 10) {
+      diagnostics.push(formatQualityDiagnostic(`dispatch item ${index + 1} summary needs at least 10 words (found ${summaryWordCount}).`));
+    }
+  });
+  if ([record.issueTitle, record.editorsNote].some((value) => hasPlaceholderLanguage(value))) {
+    diagnostics.push(formatQualityDiagnostic("dispatch issue title or editors note contains placeholder language."));
+  }
+
+  return diagnostics;
+}
+
+const hiddenDispatchRoutes = ["/analysis", "/archive", "/match-notes", "/culture"];
+const hiddenDispatchRoutePrefixes = ["/section/", "/topic/", "/person/", "/season/"];
+
+function isAllowedPublicDispatchLink(link: string) {
+  return (
+    link === "/brief" ||
+    link === "/dispatch" ||
+    link === "/about" ||
+    link.startsWith("/article/") ||
+    link.startsWith("/dispatch/")
+  );
+}
+
+function isHiddenPublicDispatchLink(link: string) {
+  return (
+    hiddenDispatchRoutes.some((route) => link === route || link.startsWith(`${route}/`)) ||
+    hiddenDispatchRoutePrefixes.some((prefix) => link.startsWith(prefix))
+  );
+}
+
+function buildDispatchPublicationDiagnostics(
+  record: DispatchRecord,
+  editorialCalendar?: Pick<EditorialCalendarState, "plannedDispatchSlug">,
+) {
+  const diagnostics: string[] = [];
+
+  if (editorialCalendar?.plannedDispatchSlug === record.slug) {
+    diagnostics.push(`Dispatch '${record.slug}' is still the editorial calendar planning issue and cannot enter public publish states.`);
+  }
+
+  record.items.forEach((item, index) => {
+    if (isAllowedPublicDispatchLink(item.link)) {
+      return;
+    }
+
+    const routeKind = isHiddenPublicDispatchLink(item.link) ? "hidden" : "unsupported";
+    diagnostics.push(
+      `Dispatch item ${index + 1} points to ${routeKind} route '${item.link}'. Use article pages, /brief, /dispatch, or /about only.`,
+    );
+  });
+
+  return diagnostics;
+}
+
+function buildContentQualityDiagnostics(record: ArticleRecord | DispatchRecord) {
+  return record.kind === "article" ? buildArticleQualityDiagnostics(record) : buildDispatchQualityDiagnostics(record);
 }
 
 function issue(path: string, message: string, severity: ValidationIssue["severity"] = "error"): ValidationIssue {
@@ -203,6 +403,7 @@ export function buildSignalRecords(
     for (const event of source.pendingEvents) {
       const id = `signal-${pendingEventSignalSlug(source, event)}`;
       const existing = existingById.get(id);
+      const priorityScore = typeof event.priorityScore === "number" ? clamp(event.priorityScore, 0, 100) : defaultPriorityScore(source, event);
       nextSignals.push({
         schemaVersion: 1,
         id,
@@ -217,15 +418,20 @@ export function buildSignalRecords(
         createdAt: existing?.createdAt ?? now,
         updatedAt: now,
         urgency: event.urgency,
-        confidence: existing?.confidence ?? 0.78,
+        confidence: existing?.confidence ?? clamp(priorityScore / 100, 0.55, 0.97),
         tags: unique([...source.tags, ...event.tags]),
         assignmentSuggestion: event.assignment,
         assignmentId: existing?.assignmentId,
+        priorityScore,
+        priorityReason: priorityReason(source, event, priorityScore),
+        assignmentTopic: event.assignmentTopic,
+        discoveryMode: source.discoveryMode ?? "internal",
+        evidence: event.evidence,
       });
     }
   }
 
-  return nextSignals.sort((left, right) => compareDateDesc(left.eventAt, right.eventAt));
+  return nextSignals.sort(compareSignalPriority);
 }
 
 export function buildAssignmentFromSignal(signal: NewsSignalRecord, assignments: AssignmentRecord[], now = new Date().toISOString()): AssignmentRecord {
@@ -260,7 +466,7 @@ export function buildAssignmentFromSignal(signal: NewsSignalRecord, assignments:
 }
 
 function buildArticleDraftBody(record: ArticleRecord, assignment: AssignmentRecord, sourceSignals: NewsSignalRecord[]) {
-  const additions = sourceSignals.map((signal) => `Source note: ${signal.title} (${signal.signalType.replaceAll("_", " ")}).`);
+  const additions = sourceSignals.map((signal) => `Source note: ${signal.title} (${signal.signalType.replace(/_/g, " ")}).`);
   return [...record.body, ...additions, `Desk brief: ${assignment.brief}`];
 }
 
@@ -352,6 +558,8 @@ export function reviseDraftArtifact(args: {
 }
 
 export function buildIngestionReport(sources: SourceRegistryRecord[], signals: NewsSignalRecord[], now = new Date().toISOString()): IngestionReport {
+  const rankedSignals = [...signals].sort(compareSignalPriority);
+
   return {
     schemaVersion: 1,
     generatedAt: now,
@@ -359,7 +567,7 @@ export function buildIngestionReport(sources: SourceRegistryRecord[], signals: N
     enabledSourceCount: sources.filter((source) => source.enabled).length,
     signalCount: signals.length,
     assignmentSuggestionCount: signals.filter((signal) => !signal.assignmentId).length,
-    activeSignals: signals.slice(0, 10).map((signal) => signal.slug),
+    activeSignals: rankedSignals.slice(0, 10).map((signal) => signal.slug),
   };
 }
 
@@ -369,6 +577,7 @@ export function buildPrePublishChecks(args: {
   workflow: WorkflowConfig;
   drafts: DraftArtifact[];
   reviews: ReviewArtifact[];
+  editorialCalendar?: Pick<EditorialCalendarState, "plannedDispatchSlug">;
 }) {
   const diagnostics: string[] = [];
   const coverage = getApprovalCoverage(args.record.approvalIds, args.approvals, args.workflow, args.record.kind, args.record.id);
@@ -399,6 +608,11 @@ export function buildPrePublishChecks(args: {
     diagnostics.push("Scheduled record is missing publishAt.");
   }
 
+  diagnostics.push(...buildContentQualityDiagnostics(args.record));
+  if (args.record.kind === "dispatch") {
+    diagnostics.push(...buildDispatchPublicationDiagnostics(args.record, args.editorialCalendar));
+  }
+
   return { ok: diagnostics.length === 0, diagnostics };
 }
 
@@ -409,6 +623,7 @@ export function buildPublishQueueState(args: {
   workflow: WorkflowConfig;
   drafts: DraftArtifact[];
   reviews: ReviewArtifact[];
+  editorialCalendar?: Pick<EditorialCalendarState, "plannedDispatchSlug">;
   retryState?: NewsroomData["retryState"];
   now?: string;
 }): PublishQueueState {
@@ -423,6 +638,7 @@ export function buildPublishQueueState(args: {
         workflow: args.workflow,
         drafts: args.drafts,
         reviews: args.reviews,
+        editorialCalendar: args.editorialCalendar,
       });
       const retryKey = `${record.kind}:${record.slug}`;
       const retry = args.retryState?.retries?.[retryKey];
@@ -459,6 +675,7 @@ export function buildPublishQueue(data: NewsroomData, now = new Date().toISOStri
     workflow: data.workflow,
     drafts: data.drafts,
     reviews: data.reviews,
+    editorialCalendar: data.editorialCalendar,
     retryState: data.retryState,
     now,
   }).items;
@@ -471,7 +688,16 @@ export function getPublishDiagnostics(record: ArticleRecord | DispatchRecord, _k
     workflow: data.workflow,
     drafts: data.drafts,
     reviews: data.reviews,
+    editorialCalendar: data.editorialCalendar,
   }).diagnostics;
+}
+
+function getPublishedPublicDispatchRecords(data: NewsroomData) {
+  return sortDispatch(
+    data.dispatch.filter(
+      (record) => record.status === "published" && record.slug !== data.editorialCalendar.plannedDispatchSlug,
+    ),
+  );
 }
 
 function buildApprovalDiagnostic(record: ArticleRecord | DispatchRecord, data: NewsroomData): ApprovalDiagnostic {
@@ -479,12 +705,14 @@ function buildApprovalDiagnostic(record: ArticleRecord | DispatchRecord, data: N
   const openReviews = data.reviews
     .filter((review) => review.recordKind === record.kind && review.recordId === record.id && review.status === "open")
     .map((review) => review.id);
+  const qualityDiagnostics = buildContentQualityDiagnostics(record);
 
   const diagnostics = [
     ...coverage.changesRequested.map((role) => `${role} requested changes`),
     ...coverage.blocked.map((role) => `${role} blocked`),
     ...coverage.missing.map((role) => `${role} still missing`),
     ...openReviews.map((reviewId) => `Open review ${reviewId}`),
+    ...qualityDiagnostics,
   ];
 
   return {
@@ -508,7 +736,11 @@ export function buildReviewSummary(data: NewsroomData, now = new Date().toISOStr
     .sort((left, right) => left.slug.localeCompare(right.slug));
 
   const blockedRecords = pendingApprovals.filter(
-    (item) => item.blockedApprovals.length > 0 || item.openReviews.length > 0 || item.missingApprovals.length > 0,
+    (item) =>
+      item.blockedApprovals.length > 0 ||
+      item.openReviews.length > 0 ||
+      item.missingApprovals.length > 0 ||
+      item.diagnostics.some((message) => message.startsWith("Quality gate:")),
   );
 
   const readyToSchedule = records
@@ -548,6 +780,7 @@ export function buildDashboardSummary(data: NewsroomData, now = new Date().toISO
     workflow: data.workflow,
     drafts: data.drafts,
     reviews: data.reviews,
+    editorialCalendar: data.editorialCalendar,
     retryState: data.retryState,
     now,
   });
@@ -574,7 +807,7 @@ export function buildDashboardSummary(data: NewsroomData, now = new Date().toISO
       heroArticleSlug: data.frontPage.heroArticleSlug,
       featuredDispatchSlug: data.frontPage.featuredDispatchSlug,
     },
-    latestSignals: [...data.signals].sort((left, right) => compareDateDesc(left.updatedAt, right.updatedAt)).slice(0, 6),
+    latestSignals: [...data.signals].sort(compareSignalPriority).slice(0, 6),
     upcomingPublishes: publishQueue.items.filter((item) => item.status !== "published").slice(0, 6),
   };
 }
@@ -619,7 +852,7 @@ function buildFrontPagePlan(data: NewsroomData, publishedArticleSlugs: Set<strin
 
 export function compileNewsroomSitePayload(data: NewsroomData, now = new Date().toISOString()): NewsroomGeneratedSitePayload {
   const publishedArticles = sortArticles(data.articles.filter((record) => record.status === "published"));
-  const publishedDispatch = sortDispatch(data.dispatch.filter((record) => record.status === "published"));
+  const publishedDispatch = getPublishedPublicDispatchRecords(data);
   const publishedArticleSlugs = new Set(publishedArticles.map((record) => record.slug));
   const publishedDispatchSlugs = new Set(publishedDispatch.map((record) => record.slug));
 
@@ -730,13 +963,16 @@ function validateArticleRecord(record: ArticleRecord, path: string) {
   return issues;
 }
 
-function validateDispatchRecord(record: DispatchRecord, path: string) {
+function validateDispatchRecord(record: DispatchRecord, path: string, editorialCalendar: Pick<EditorialCalendarState, "plannedDispatchSlug">) {
   const issues: ValidationIssue[] = [];
   if (!record.issueTitle || !record.publishDate) {
     issues.push(issue(path, "Dispatch must include issueTitle and publishDate."));
   }
-  if (!Array.isArray(record.items) || record.items.length === 0) {
-    issues.push(issue(path, "Dispatch must contain at least one item."));
+  if (!Array.isArray(record.items) || record.items.length < 5) {
+    issues.push(issue(path, "Dispatch must contain at least five items."));
+  }
+  if (record.status === "scheduled" || record.status === "published") {
+    issues.push(...buildDispatchPublicationDiagnostics(record, editorialCalendar).map((message) => issue(path, message)));
   }
   return issues;
 }
@@ -930,7 +1166,9 @@ export function validateNewsroomData(data: NewsroomData) {
   data.assignments.forEach((record) => issues.push(...validateAssignmentRecord(record, `newsroom/assignments/${record.slug}.json`)));
   data.approvals.forEach((record) => issues.push(...validateApprovalRecord(record, `newsroom/approvals/${record.id}.json`)));
   data.articles.forEach((record) => issues.push(...validateArticleRecord(record, `newsroom/content/articles/${record.slug}.json`)));
-  data.dispatch.forEach((record) => issues.push(...validateDispatchRecord(record, `newsroom/content/dispatch/${record.slug}.json`)));
+  data.dispatch.forEach((record) =>
+    issues.push(...validateDispatchRecord(record, `newsroom/content/dispatch/${record.slug}.json`, data.editorialCalendar)),
+  );
   data.sources.forEach((record) => issues.push(...validateSourceRecord(record, `newsroom/sources/${record.slug}.json`)));
   data.signals.forEach((record) => issues.push(...validateSignalRecord(record, `newsroom/generated/signals/${record.slug}.json`)));
   data.drafts.forEach((record) => issues.push(...validateDraftRecord(record, `newsroom/drafts/${record.slug}.json`)));

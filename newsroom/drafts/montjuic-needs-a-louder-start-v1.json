@@ -10,7 +10,7 @@
   "dek": "The crowd is still arriving emotionally after kickoff, and the team is being asked to solve that gap in real time.",
   "excerpt": "Montjuic alters when the atmosphere reaches the pitch, and that changes what the team has to carry for itself early in matches.",
   "id": "draft-montjuic-needs-a-louder-start-v1",
-  "latest": true,
+  "latest": false,
   "notes": [
     "Generated from assignment assignment-montjuic-culture-column.",
     "No linked signals were available."
@@ -21,8 +21,8 @@
   "slug": "montjuic-needs-a-louder-start-v1",
   "sourceIds": [],
   "sourceSignalIds": [],
-  "status": "ready_for_review",
+  "status": "superseded",
   "title": "Montjuic Needs a Louder Start",
-  "updatedAt": "2026-04-06T11:10:41.385Z",
+  "updatedAt": "2026-04-08T02:26:34.279Z",
   "version": 1
 }

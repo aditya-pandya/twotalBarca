@@ -1,0 +1,25 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Strip the comeback talk down to football terms: what the first goal does to the tie, to Barcelona's risk profile, and to Atlético's game management.",
+  "createdAt": "2026-04-27T15:19:05.615Z",
+  "deadline": "2026-04-27T23:18:53.074Z",
+  "deliverables": [
+    "One publishable article draft",
+    "Exact match/player/topic framing",
+    "Dispatch recommendation grounded in the live scout"
+  ],
+  "dependencies": [
+    "signal:signal-barca-live-scout-first-goal-in-madrid-changes-the-tie"
+  ],
+  "id": "assignment-the-first-goal-in-madrid-10",
+  "kind": "article",
+  "owner": "editor-in-chief",
+  "priority": "critical",
+  "recordKind": "article",
+  "slug": "the-first-goal-in-madrid-10",
+  "sourceSignalId": "signal-barca-live-scout-first-goal-in-madrid-changes-the-tie",
+  "status": "open",
+  "targetSlug": "the-first-goal-in-madrid-10",
+  "title": "The first goal in Madrid",
+  "updatedAt": "2026-04-27T15:19:05.615Z"
+}

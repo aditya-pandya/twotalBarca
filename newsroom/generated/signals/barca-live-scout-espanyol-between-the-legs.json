@@ -1,0 +1,99 @@
+{
+  "assignmentId": "assignment-espanyol-between-the-legs-2",
+  "assignmentSuggestion": {
+    "approver": "editor-in-chief",
+    "brief": "Frame Espanyol as the real selection problem between Champions League legs: who can start, who should be protected, and what the derby means for the title race and Madrid return.",
+    "deadline": "2026-05-04T02:31:52.497Z",
+    "deliverables": [
+      "One publishable article draft",
+      "Exact match/player/topic framing",
+      "Dispatch recommendation grounded in the live scout"
+    ],
+    "kind": "article",
+    "owner": "editor-in-chief",
+    "title": "Espanyol between the legs"
+  },
+  "assignmentTopic": "Espanyol vs Barcelona / rotation and fitness before Atlético second leg",
+  "confidence": 0.97,
+  "createdAt": "2026-04-27T11:43:42.482Z",
+  "discoveryMode": "live",
+  "eventAt": "2026-05-03T18:31:52.497Z",
+  "evidence": [
+    {
+      "engagement": 0,
+      "excerpt": "FC Barcelona club badge League champions without playing? Barça have all eyes on the game between Real Madrid and Espanyol on Sunday as a slip up from the second placed team will allow the blaugranes to take La Liga title Published date",
+      "label": "FC Barcelona club badge League champions without playing? Barça have all eyes on the game between Real Madrid and Espanyol on Sunday as a slip up from the second placed team will allow the blaugranes to take La Liga title Published date",
+      "publishedAt": "2026-05-03T18:31:52.497Z",
+      "source": "web:fcbarcelona-news",
+      "url": "https://r.jina.ai/http://www.fcbarcelona.com/en/football/first-team/news"
+    },
+    {
+      "engagement": 22,
+      "excerpt": "48.43 - Espanyol v Levante was the game with the lowest time in play in @LaLigaEN matchday 32 (48.43) and also the only match with no goals scored. Causality. https://t.co/Os0QSktcjf",
+      "image": {
+        "alt": "48.43 - Espanyol v Levante was the game with the lowest time in play in @LaLigaEN matchday 32 (48.43) and also the only match with no goals scored. Causality. https://t.co/Os0QSktcjf",
+        "href": "https://x.com/OptaJose/status/2049044208481104107",
+        "label": "OptaJose preview",
+        "note": "Internal review only until licensing is confirmed.",
+        "source": "x:trusted-football-stats",
+        "src": "https://pbs.twimg.com/media/HG-qki8WMAAHRqz.jpg",
+        "status": "review-needed-social-preview"
+      },
+      "label": "OptaJose: 48.43 - Espanyol v Levante was the game with the lowest time in play in @LaLigaEN matchday 32 (48.43) and also the only match with no goals scored. Causality. https://t.co/Os0QSktcjf",
+      "publishedAt": "2026-04-28T08:33:03.000Z",
+      "source": "x:trusted-football-stats",
+      "url": "https://x.com/OptaJose/status/2049044208481104107"
+    },
+    {
+      "engagement": 0,
+      "excerpt": "| Sat, Apr 11 | Barcelona | 4 - 1 | Espanyol | FT | Spanish LALIGA |",
+      "label": "| Sat, Apr 11 | Barcelona | 4 - 1 | Espanyol | FT | Spanish LALIGA |",
+      "publishedAt": "2026-05-03T18:31:52.497Z",
+      "source": "web:espn-results",
+      "url": "https://r.jina.ai/http://www.espn.com/soccer/team/results/_/id/83/barcelona"
+    },
+    {
+      "engagement": 0,
+      "excerpt": "| 13 ESPEspanyol |",
+      "label": "| 13 ESPEspanyol |",
+      "publishedAt": "2026-05-03T18:31:52.497Z",
+      "source": "web:espn-standings",
+      "url": "https://r.jina.ai/http://www.espn.com/soccer/standings/_/league/esp.1"
+    },
+    {
+      "engagement": 21,
+      "excerpt": "What To Watch This Week (4-10 May) These posts are as much for me as they are for you. So please feel free to reply with your suggestions for what to watch, and make a case for any game to be considered 'must watch', in which case I will bold it. The time zone used to sort games ",
+      "label": "What To Watch This Week (4-10 May)",
+      "publishedAt": "2026-05-03T12:14:24.000Z",
+      "source": "reddit:r/soccer:barca-search",
+      "url": "https://www.reddit.com/r/soccer/comments/1t2jthe/what_to_watch_this_week_410_may/"
+    }
+  ],
+  "id": "signal-barca-live-scout-espanyol-between-the-legs",
+  "priorityReason": "Matched 7 live evidence item(s) across official, reddit, web, x. Strongest feeds: FC Barcelona first-team news via Jina; Trusted football stats X; ESPN results via Jina.",
+  "priorityScore": 100,
+  "schemaVersion": 1,
+  "signalType": "match",
+  "slug": "barca-live-scout-espanyol-between-the-legs",
+  "sourceId": "source-barca-live-scout",
+  "sourceSlug": "barca-live-scout",
+  "status": "converted",
+  "summary": "The derby now sits between the Atlético legs, and the strongest live signals revolve around who is fit enough to start, manage minutes, or be protected before Madrid.",
+  "tags": [
+    "barca",
+    "live",
+    "scout",
+    "trusted-sources",
+    "official",
+    "reddit",
+    "derby",
+    "rotation",
+    "fitness",
+    "pedri",
+    "frenkie",
+    "espanyol"
+  ],
+  "title": "Espanyol between the legs is the real selection test",
+  "updatedAt": "2026-05-03T18:32:04.477Z",
+  "urgency": "critical"
+}

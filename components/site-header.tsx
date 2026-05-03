@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
-import { navItems } from "@/lib/site-data";
+import { navItems, siteMeta } from "@/lib/site-data";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -36,14 +36,7 @@ export function SiteHeader() {
   }, [isMenuOpen]);
 
   function getIsActive(href: string) {
-    const routePath = href.replace(/#.*$/, "");
-    const isHashOnly = href.startsWith("/#");
-
-    if (isHashOnly) {
-      return pathname === "/";
-    }
-
-    return routePath === "/" ? pathname === "/" : routePath.length > 1 && pathname.startsWith(routePath);
+    return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
   }
 
   return (
@@ -51,7 +44,7 @@ export function SiteHeader() {
       <div className="header-row">
         <div className="header-branding">
           <Link className="wordmark" href="/">
-            twotalBarça
+            {siteMeta.name}
           </Link>
           <nav className="nav-links" aria-label="Primary">
             {navItems.map((item) => (
@@ -73,9 +66,6 @@ export function SiteHeader() {
           >
             {isMenuOpen ? "Close" : "Menu"}
           </button>
-          <Link className="header-cta" href="/dispatch">
-            Weekly Dispatch
-          </Link>
         </div>
       </div>
 
@@ -96,9 +86,6 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Link className="mobile-nav-dispatch" href="/dispatch" onClick={() => setIsMenuOpen(false)}>
-            Read the latest issue
-          </Link>
         </nav>
       </div>
     </header>

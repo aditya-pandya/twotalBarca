@@ -1,17 +1,20 @@
 {
-  "weekOf": "2026-04-05",
-  "updatedAt": "2026-04-06T09:30:00.000Z",
-  "focus": "Keep the public front page synchronized with the published newsroom lead while the next culture and dispatch pieces stay inside review.",
+  "weekOf": "2026-04-10",
+  "updatedAt": "2026-04-10T12:30:00.000Z",
+  "focus": "Recover the public front page with live pieces around Espanyol, Madrid, and the Femení Bayern pulse while keeping the planning issue off public routes.",
   "priorities": [
-    "Maintain the rest-defense analysis as homepage lead",
-    "Keep Dispatch No. 13 as the active issue",
-    "Hold the Montjuic culture column until copy changes are resolved",
-    "Do not execute outbound distribution while the layer is deferred"
+    "Publish the Espanyol selection file as the homepage lead",
+    "Publish a current five-point Brief from the live Apr. 10 desk",
+    "Publish one public Weekly Dispatch issue with exactly five safe links",
+    "Keep the planning dispatch slug internal and outbound distribution deferred"
   ],
   "plannedAssignments": [
-    "assignment-rest-defense-analysis",
-    "assignment-montjuic-culture-column",
-    "assignment-weekly-dispatch-13",
+    "assignment-espanyol-between-the-legs",
+    "assignment-territory-without-punch",
+    "assignment-one-opponent-four-days-two-different-truths",
+    "assignment-femen-bayern-pulse",
+    "assignment-five-points-before-espanyol-and-madrid",
+    "assignment-weekly-dispatch-april-10-2026",
     "assignment-weekly-dispatch-14"
   ],
   "plannedDispatchSlug": "week-in-blaugrana-14-planning"

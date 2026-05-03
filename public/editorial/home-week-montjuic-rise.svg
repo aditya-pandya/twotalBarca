@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+
+  <defs>
+    <linearGradient id="bg-home-week-montjuic-rise" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#081120"/>
+      <stop offset="56%" stop-color="#1a3152"/>
+      <stop offset="100%" stop-color="#57142f"/>
+    </linearGradient>
+    <radialGradient id="glow-a-home-week-montjuic-rise" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1260 220) rotate(90) scale(180)">
+      <stop stop-color="#f0d897" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#f0d897" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-b-home-week-montjuic-rise" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(340 210) rotate(90) scale(120)">
+      <stop stop-color="#8ed1eb" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#8ed1eb" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pitch-home-week-montjuic-rise" x1="800" y1="640" x2="800" y2="980" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#12324a"/>
+      <stop offset="100%" stop-color="#091826"/>
+    </linearGradient>
+    <linearGradient id="paper-home-week-montjuic-rise" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fcf4e7"/>
+      <stop offset="100%" stop-color="#e8dcc5"/>
+    </linearGradient>
+    <linearGradient id="vignette-home-week-montjuic-rise" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#02040a" stop-opacity="0.38"/>
+    </linearGradient>
+    <pattern id="grid-home-week-montjuic-rise" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    </pattern>
+    <filter id="blur-home-week-montjuic-rise" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+    
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg-home-week-montjuic-rise)"/>
+  <rect width="1600" height="1000" fill="url(#grid-home-week-montjuic-rise)" opacity="0.46"/>
+  <rect width="1600" height="1000" fill="url(#vignette-home-week-montjuic-rise)"/>
+  <circle cx="1260" cy="220" r="180" fill="url(#glow-a-home-week-montjuic-rise)" filter="url(#blur-home-week-montjuic-rise)"/>
+  <circle cx="340" cy="210" r="120" fill="url(#glow-b-home-week-montjuic-rise)" filter="url(#blur-home-week-montjuic-rise)"/>
+  <path d="M0 878 C220 736 360 708 570 670 C756 636 962 594 1164 490 C1298 420 1412 352 1600 262 L1600 1000 L0 1000 Z" fill="rgba(10,15,29,0.82)"/><line x1="240" y1="612" x2="1346" y2="612" stroke="rgba(248,242,233,0.12)" stroke-width="6" stroke-linecap="round" opacity="0.2"/><line x1="254" y1="646" x2="1312" y2="646" stroke="rgba(248,242,233,0.12)" stroke-width="6" stroke-linecap="round" opacity="0.2"/><line x1="268" y1="680" x2="1278" y2="680" stroke="rgba(248,242,233,0.12)" stroke-width="6" stroke-linecap="round" opacity="0.2"/><line x1="282" y1="714" x2="1244" y2="714" stroke="rgba(248,242,233,0.12)" stroke-width="6" stroke-linecap="round" opacity="0.2"/><line x1="296" y1="748" x2="1210" y2="748" stroke="rgba(248,242,233,0.12)" stroke-width="6" stroke-linecap="round" opacity="0.2"/><line x1="310" y1="782" x2="1176" y2="782" stroke="rgba(248,242,233,0.12)" stroke-width="6" stroke-linecap="round" opacity="0.2"/><line x1="324" y1="816" x2="1142" y2="816" stroke="rgba(248,242,233,0.12)" stroke-width="6" stroke-linecap="round" opacity="0.2"/><line x1="338" y1="850" x2="1108" y2="850" stroke="rgba(248,242,233,0.12)" stroke-width="6" stroke-linecap="round" opacity="0.2"/><path d="M220 1000 C352 814 446 734 564 660 C704 572 850 530 1022 512 C1188 494 1324 432 1490 280" fill="none" stroke="rgba(240,217,150,0.68)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="340" cy="872" r="12" fill="#f5e3a5" opacity="0.94"/><circle cx="420" cy="786" r="12" fill="#f5e3a5" opacity="0.94"/><circle cx="526" cy="706" r="12" fill="#f5e3a5" opacity="0.94"/><circle cx="666" cy="630" r="12" fill="#f5e3a5" opacity="0.94"/><circle cx="852" cy="572" r="12" fill="#f5e3a5" opacity="0.94"/><circle cx="1096" cy="506" r="12" fill="#f5e3a5" opacity="0.94"/><circle cx="1340" cy="372" r="12" fill="#f5e3a5" opacity="0.94"/><rect x="1012" y="338" width="346" height="146" fill="rgba(13,23,44,0.86)" rx="18" stroke="rgba(240,217,150,0.32)" stroke-width="2"/><path d="M1032 430 C1098 394 1146 376 1198 370 C1264 362 1302 372 1350 410" fill="none" stroke="rgba(240,217,150,0.56)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="1182" cy="394" rx="170" ry="66" fill="none" stroke="rgba(240,217,150,0.36)" stroke-width="4" stroke-dasharray="10 18" stroke-linecap="round"/><rect x="1048" y="228" width="182" height="14" fill="rgba(248,242,233,0.14)" rx="7"/>
+  <rect x="34" y="34" width="1532" height="932" rx="18" stroke="rgba(250,244,236,0.18)" stroke-width="2"/>
+  <path d="M62 1180V62H180" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+  <path d="M1418 62H1538V182" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+</svg>

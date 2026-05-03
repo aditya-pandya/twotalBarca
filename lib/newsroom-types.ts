@@ -169,6 +169,72 @@ export type SignalAssignmentSuggestion = {
   deliverables: string[];
 };
 
+export type ScoutFeedbackTargetType = "candidate" | "cluster" | "source-lane" | "general-strategy-note";
+export type ScoutFeedbackVerdict =
+  | "promising"
+  | "weak"
+  | "noisy"
+  | "duplicate"
+  | "add-source"
+  | "needs-confirmation"
+  | "femeni-priority"
+  | "club-priority"
+  | "imagery-needed";
+
+export type ScoutFeedbackEntry = {
+  id: string;
+  targetType: ScoutFeedbackTargetType;
+  targetId?: string;
+  targetLabel: string;
+  verdict: ScoutFeedbackVerdict;
+  note?: string;
+  createdAt: string;
+};
+
+export type ScoutFeedbackEntryInput = {
+  targetType: ScoutFeedbackTargetType;
+  targetId?: string;
+  targetLabel: string;
+  verdict: ScoutFeedbackVerdict;
+  note?: string;
+  createdAt?: string;
+};
+
+export type ScoutFeedbackState = {
+  schemaVersion: 1;
+  updatedAt: string;
+  entries: ScoutFeedbackEntry[];
+};
+
+export type ScoutImageLeadStatus =
+  | "usable-lead-image"
+  | "review-needed-social-preview"
+  | "needs-free-license-replacement"
+  | "needs-generation";
+
+export type ScoutImageLead = {
+  src: string;
+  alt: string;
+  href?: string;
+  source: string;
+  label?: string;
+  note?: string;
+  credit?: string;
+  status: ScoutImageLeadStatus;
+};
+
+export type ScoutEvidenceRecord = {
+  source: string;
+  label: string;
+  url?: string;
+  excerpt?: string;
+  publishedAt?: string;
+  engagement?: number;
+  image?: ScoutImageLead;
+};
+
+export type DiscoveryMode = "live" | "internal";
+
 export type SourcePendingEvent = {
   id: string;
   headline: string;
@@ -178,6 +244,10 @@ export type SourcePendingEvent = {
   urgency: AssignmentPriority;
   tags: string[];
   assignment: SignalAssignmentSuggestion;
+  priorityScore?: number;
+  priorityReason?: string;
+  assignmentTopic?: string;
+  evidence?: ScoutEvidenceRecord[];
 };
 
 export type SourceRegistryRecord = {
@@ -191,6 +261,8 @@ export type SourceRegistryRecord = {
   notes?: string;
   tags: string[];
   pendingEvents: SourcePendingEvent[];
+  discoveryMode?: DiscoveryMode;
+  lastScoutAt?: string;
 };
 
 export type SignalStatus = "new" | "triaged" | "converted" | "ignored";
@@ -213,6 +285,11 @@ export type NewsSignalRecord = {
   tags: string[];
   assignmentSuggestion: SignalAssignmentSuggestion;
   assignmentId?: string;
+  priorityScore?: number;
+  priorityReason?: string;
+  assignmentTopic?: string;
+  discoveryMode?: DiscoveryMode;
+  evidence?: ScoutEvidenceRecord[];
 };
 
 export type DraftArtifactStatus = "draft" | "needs_changes" | "ready_for_review" | "superseded";
@@ -311,6 +388,171 @@ export type IngestionReport = {
   signalCount: number;
   assignmentSuggestionCount: number;
   activeSignals: string[];
+};
+
+export type BarcaScoutSourceRole = "official" | "trusted" | "chatter" | "reference";
+export type BarcaScoutSourceQualityLabel = "core" | "useful" | "watch" | "quiet";
+
+export type BarcaScoutSourceStatus = {
+  source: string;
+  family: string;
+  label: string;
+  target: string;
+  ok: boolean;
+  fetchedAt: string;
+  itemCount: number;
+  detail: string;
+  error?: string;
+  sourceRole: BarcaScoutSourceRole;
+  sampleItems: string[];
+  contributionCount: number;
+  contributionEfficiency: number;
+  contributionSample: string[];
+  matchedCandidateIds: string[];
+  matchedCandidateTitles: string[];
+  qualityLabel: BarcaScoutSourceQualityLabel;
+  repeatLowSignal?: boolean;
+  imageLeadCount: number;
+};
+
+export type BarcaScoutCandidateCalibration = {
+  label: "well-backed" | "mixed" | "needs-trusted-check" | "single-platform" | "women-gap";
+  note: string;
+  officialEvidenceCount: number;
+  trustedEvidenceCount: number;
+  chatterEvidenceCount: number;
+  referenceEvidenceCount: number;
+  sourceFamilyCount: number;
+  crossPlatform: boolean;
+  needsTrustedConfirmation: boolean;
+  needsWomenDepth: boolean;
+};
+
+export type BarcaScoutCandidate = {
+  id: string;
+  title: string;
+  summary: string;
+  eventAt: string;
+  signalType: NewsSignalType;
+  urgency: AssignmentPriority;
+  tags: string[];
+  priorityScore: number;
+  priorityReason: string;
+  assignmentTopic: string;
+  assignmentSuggestion: SignalAssignmentSuggestion;
+  calibration: BarcaScoutCandidateCalibration;
+  evidence: ScoutEvidenceRecord[];
+  imageStatus: ScoutImageLeadStatus;
+  imageLead?: ScoutImageLead;
+};
+
+export type BarcaScoutThemeCluster = {
+  id: string;
+  title: string;
+  theme: string;
+  itemCount: number;
+  sourceFamilies: string[];
+  sourceRoles: BarcaScoutSourceRole[];
+  officialEvidenceCount: number;
+  trustedEvidenceCount: number;
+  chatterEvidenceCount: number;
+  referenceEvidenceCount: number;
+  crossPlatform: boolean;
+  healthLabel: "cross-platform-confirmed" | "trusted-led" | "chatter-heavy" | "single-platform" | "mixed";
+  reviewHint: string;
+  candidateIds: string[];
+  candidateTitles: string[];
+  topTokens: string[];
+  representativeEvidence: ScoutEvidenceRecord[];
+  imageStatus: ScoutImageLeadStatus;
+  imageLead?: ScoutImageLead;
+};
+
+export type BarcaScoutCalibrationPrompt = {
+  id: string;
+  kind:
+    | "candidate-needs-trusted-confirmation"
+    | "women-coverage-gap"
+    | "single-platform-cluster"
+    | "duplicate-theme-cluster"
+    | "source-quality-gap"
+    | "cluster-needs-trusted-check";
+  priority: AssignmentPriority;
+  title: string;
+  summary: string;
+  action: string;
+  candidateIds: string[];
+  clusterIds: string[];
+  sourceIds: string[];
+};
+
+export type BarcaScoutSourceExpansionSuggestion = {
+  id: string;
+  title: string;
+  summary: string;
+  rationale: string;
+  suggestedSourceFamilies: string[];
+  exampleTargets: string[];
+  relatedPromptIds: string[];
+};
+
+export type BarcaScoutQualitySummary = {
+  headline: string;
+  evidenceCount: number;
+  sourceCount: number;
+  healthySourceCount: number;
+  candidateCount: number;
+  clusterCount: number;
+  crossPlatformClusterCount: number;
+  trustedBackedCandidateCount: number;
+  chatterHeavyCandidateCount: number;
+  womenCoverageGapCount: number;
+  weakSourceCount: number;
+};
+
+export type BarcaScoutCoverageTrack = {
+  id: "men" | "women";
+  label: string;
+  candidateCount: number;
+  officialEvidenceCount: number;
+  trustedEvidenceCount: number;
+  chatterEvidenceCount: number;
+  note: string;
+};
+
+export type BarcaScoutCoverageSummary = {
+  tracks: BarcaScoutCoverageTrack[];
+  weakSpots: string[];
+};
+
+export type BarcaScoutImageSummary = {
+  candidateLeadCount: number;
+  clusterLeadCount: number;
+  reviewNeededCount: number;
+  replacementNeededCount: number;
+  missingCount: number;
+};
+
+export type BarcaScoutFeedbackSummary = {
+  entryCount: number;
+  targetTypeCounts: Record<ScoutFeedbackTargetType, number>;
+  verdictCounts: Partial<Record<ScoutFeedbackVerdict, number>>;
+  recentEntries: ScoutFeedbackEntry[];
+};
+
+export type BarcaScoutArtifact = {
+  schemaVersion: 1;
+  generatedAt: string;
+  sourceStatuses: BarcaScoutSourceStatus[];
+  candidates: BarcaScoutCandidate[];
+  themeClusters: BarcaScoutThemeCluster[];
+  calibrationPrompts: BarcaScoutCalibrationPrompt[];
+  sourceExpansionSuggestions: BarcaScoutSourceExpansionSuggestion[];
+  qualitySummary: BarcaScoutQualitySummary;
+  coverageSummary: BarcaScoutCoverageSummary;
+  imageSummary: BarcaScoutImageSummary;
+  feedbackSummary: BarcaScoutFeedbackSummary;
+  sources: SourceRegistryRecord[];
 };
 
 export type RetryStateEntry = {

@@ -1,0 +1,57 @@
+{
+  "approvalIds": [
+    "approval-dispatch-1-copy",
+    "approval-dispatch-1-editor"
+  ],
+  "assignmentIds": [
+    "assignment-weekly-dispatch-1"
+  ],
+  "createdAt": "2026-04-09T13:00:00.000Z",
+  "distributionStatus": "deferred",
+  "editorsNote": "Barcelona went from a 2-1 league win at Atlético on Apr 4 to a 0-2 first-leg loss on Apr 8, so the useful question this week is response, not mood. Pau Cubarsí's red card at 44 minutes cracked the European night open, Julián Álvarez and Alexander Sørloth punished it, and now Espanyol on Apr 11 plus the return leg on Apr 14 decide whether the tie stays football-sized.",
+  "id": "dispatch-1",
+  "issueNumber": 1,
+  "issueTitle": "The Week in Blaugrana, No. 1",
+  "items": [
+    {
+      "headline": "The first leg was lost in the decisive minutes, not in possession",
+      "itemType": "must-read",
+      "link": "/article/rest-defense-is-learning-to-breathe",
+      "summary": "Barcelona still finished with 58.3 percent possession, 18 shots, seven on target, and seven corners, but Cubarsí's dismissal and Atlético's two clean finishes decided the night."
+    },
+    {
+      "headline": "Cubarsí's red turned Álvarez's half into Atlético's match",
+      "itemType": "note",
+      "link": "/brief",
+      "summary": "The 44th-minute sending-off was followed almost immediately by Álvarez's 45' goal, forcing Barcelona to chase the first leg with 10 men before halftime."
+    },
+    {
+      "headline": "Rashford and Lewandowski already showed the route on Apr 4",
+      "itemType": "note",
+      "link": "/brief",
+      "summary": "Barcelona won 2-1 at the Metropolitano five days earlier through Rashford and Lewandowski after Nicolás González saw red at 45+7, which matters because the return leg is not guesswork."
+    },
+    {
+      "headline": "Pedri off, Gavi on: Flick's next call starts in midfield",
+      "itemType": "watchlist",
+      "link": "/article/rest-defense-is-learning-to-breathe",
+      "summary": "Pedri and Lewandowski both went off at halftime for Gavi and Fermín López, so the Espanyol derby is the first real clue about how Barcelona rebuild the spine before Madrid."
+    },
+    {
+      "headline": "The next four dates leave no room for self-pity",
+      "itemType": "watchlist",
+      "link": "/brief",
+      "summary": "Espanyol on Apr 11 comes first, Atlético on Apr 14 is the bill, and Celta Vigo plus Getafe follow soon after, so Barcelona need goals and creation from Yamal, Olmo, Rashford, and Lewandowski now."
+    }
+  ],
+  "kind": "dispatch",
+  "leadStorySlug": "rest-defense-is-learning-to-breathe",
+  "notes": "Distribution handoff remains deferred to the future queue contract.",
+  "publishAt": "2026-04-09T18:00:00.000Z",
+  "publishDate": "April 9, 2026",
+  "publishedAt": "2026-04-09T18:10:00.000Z",
+  "schemaVersion": 1,
+  "slug": "week-in-blaugrana-1",
+  "status": "killed",
+  "updatedAt": "2026-04-09T18:12:00.000Z"
+}

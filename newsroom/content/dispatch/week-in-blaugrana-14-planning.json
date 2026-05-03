@@ -1,34 +1,57 @@
 {
-  "approvalIds": [],
+  "approvalIds": [
+    "approval-dispatch-14-copy",
+    "approval-dispatch-14-editor"
+  ],
   "assignmentIds": [
     "assignment-weekly-dispatch-14"
   ],
   "createdAt": "2026-04-06T08:00:00.000Z",
   "distributionStatus": "deferred",
-  "editorsNote": "Planning issue for the next weekly package. Hold until the culture column and match notes queue stabilize.",
+  "editorsNote": "Atlético sharpened the question without settling it. Barca still have Espanyol to restore their authority and then Madrid to answer properly, so the useful work this week is simple: recover the spacing, start with force, and make the tie feel football-sized again before panic gets to narrate it.",
   "id": "dispatch-14-planning",
-  "issueNumber": 14,
-  "issueTitle": "The Week in Blaugrana, No. 14",
+  "issueNumber": 2,
+  "issueTitle": "The Week in Blaugrana, No. 2",
   "items": [
     {
       "headline": "Montjuic Needs a Louder Start",
-      "itemType": "watchlist",
-      "link": "/culture",
-      "summary": "Possible culture lead if copy review clears and the desk keeps the thesis."
+      "itemType": "must-read",
+      "link": "/article/montjuic-needs-a-louder-start",
+      "summary": "Montjuic changes the timing of belief, so Barca still need to ignite matches earlier than they once did."
     },
     {
-      "headline": "Front page note",
+      "headline": "Barca's Rest Defense Is Learning to Breathe",
+      "itemType": "must-read",
+      "link": "/article/rest-defense-is-learning-to-breathe",
+      "summary": "Calmer spacing behind the ball is turning risky transitions into survivable moments again."
+    },
+    {
+      "headline": "Five lines after Atlético, before Espanyol",
       "itemType": "note",
-      "link": "/dispatch",
-      "summary": "Do not repeat the homepage hero without a new editorial angle."
+      "link": "/brief",
+      "summary": "The Brief compresses the loss, the league reset, and the second-leg pressure into one clean read."
+    },
+    {
+      "headline": "Espanyol is the first reset point",
+      "itemType": "watchlist",
+      "link": "/brief",
+      "summary": "Apr 11 is the immediate chance to restore tempo before the return leg pulls the mood in every direction again."
+    },
+    {
+      "headline": "Madrid is where the week turns",
+      "itemType": "watchlist",
+      "link": "/brief",
+      "summary": "Apr 14 decides whether the first-leg loss becomes panic or just the hard edge of a still-live tie."
     }
   ],
   "kind": "dispatch",
+  "latestDraftId": "draft-week-in-blaugrana-14-planning-v1",
   "leadStorySlug": "montjuic-needs-a-louder-start",
-  "notes": "Planning record only. No outbound distribution work until the deferred layer is implemented.",
+  "notes": "Planning issue 2 record only; keep internal until the active dispatch is explicitly promoted.",
+  "publishAt": "2026-04-08T09:25:00.000Z",
   "publishDate": "April 12, 2026",
   "schemaVersion": 1,
   "slug": "week-in-blaugrana-14-planning",
-  "status": "in_review",
-  "updatedAt": "2026-04-06T08:15:00.000Z"
+  "status": "approved",
+  "updatedAt": "2026-04-08T09:33:10.567Z"
 }

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+
+  <defs>
+    <linearGradient id="bg-about-read-longform" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#08101c"/>
+      <stop offset="56%" stop-color="#183150"/>
+      <stop offset="100%" stop-color="#59152f"/>
+    </linearGradient>
+    <radialGradient id="glow-a-about-read-longform" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1270 218) rotate(90) scale(170)">
+      <stop stop-color="#f0d798" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#f0d798" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-b-about-read-longform" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(318 198) rotate(90) scale(110)">
+      <stop stop-color="#83d2eb" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#83d2eb" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pitch-about-read-longform" x1="800" y1="640" x2="800" y2="980" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#12324a"/>
+      <stop offset="100%" stop-color="#091826"/>
+    </linearGradient>
+    <linearGradient id="paper-about-read-longform" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fcf4e7"/>
+      <stop offset="100%" stop-color="#e8dcc5"/>
+    </linearGradient>
+    <linearGradient id="vignette-about-read-longform" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#02040a" stop-opacity="0.38"/>
+    </linearGradient>
+    <pattern id="grid-about-read-longform" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    </pattern>
+    <filter id="blur-about-read-longform" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+    
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg-about-read-longform)"/>
+  <rect width="1600" height="1000" fill="url(#grid-about-read-longform)" opacity="0.46"/>
+  <rect width="1600" height="1000" fill="url(#vignette-about-read-longform)"/>
+  <circle cx="1270" cy="218" r="170" fill="url(#glow-a-about-read-longform)" filter="url(#blur-about-read-longform)"/>
+  <circle cx="318" cy="198" r="110" fill="url(#glow-b-about-read-longform)" filter="url(#blur-about-read-longform)"/>
+  <rect x="188" y="122" width="1224" height="756" fill="rgba(10,17,33,0.58)" rx="30" stroke="rgba(248,242,233,0.12)" stroke-width="2"/><path d="M310 222 L520 162 L874 842 L660 878 Z" fill="rgba(19,49,86,0.88)" opacity="0.48"/><path d="M458 222 L638 162 L968 842 L784 878 Z" fill="rgba(129,23,52,0.86)" opacity="0.56"/><path d="M606 222 L756 162 L1062 842 L908 878 Z" fill="rgba(19,49,86,0.88)" opacity="0.48"/><path d="M754 222 L874 162 L1156 842 L1032 878 Z" fill="rgba(129,23,52,0.86)" opacity="0.56"/><path d="M902 222 L992 162 L1250 842 L1156 878 Z" fill="rgba(19,49,86,0.88)" opacity="0.48"/><rect x="310" y="234" width="402" height="402" fill="#f4ead7" rx="20" stroke="rgba(17,25,42,0.12)" stroke-width="2" transform="rotate(-5 511 435)"/><path d="M338 438 C414 396 482 374 564 368 C630 362 676 368 700 390" fill="none" stroke="rgba(17,25,42,0.46)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><rect x="912" y="248" width="260" height="156" fill="rgba(240,217,150,0.86)" rx="22" transform="rotate(9 1042 326)"/><circle cx="1136" cy="700" r="76" fill="rgba(11,18,35,0.92)" opacity="0.92" stroke="rgba(240,217,150,0.56)" stroke-width="8"/><circle cx="1136" cy="700" r="24" fill="rgba(240,217,150,0.94)" opacity="0.96"/><rect x="936" y="532" width="180" height="18" fill="rgba(248,242,233,0.12)" rx="9"/>
+  <rect x="34" y="34" width="1532" height="932" rx="18" stroke="rgba(250,244,236,0.18)" stroke-width="2"/>
+  <path d="M62 1180V62H180" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+  <path d="M1418 62H1538V182" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+</svg>

@@ -1,185 +1,116 @@
-# twotalBarça Design Direction
+# totalBarca Design Direction
 
-Last updated: 2026-04-03
+Last updated: 2026-05-02
 
-## 1. Current design verdict
+## 1. Product feeling
 
-The current exported concepts establish a much stronger direction than the earlier generic sports-site work.
+totalBarca should feel:
+- calm
+- edited
+- opinionated
+- text-first
+- phone-friendly
+- unmistakably about Barça
 
-Best current reference:
-- Article page: `The Weave of the Blau`
+It should not feel like:
+- a digital magazine trying to prove how much layout it can afford
+- a sports dashboard
+- a luxury concept board
+- a museum brochure
+- a pile of homepage cards
 
-Why it wins:
-- strongest editorial hierarchy
-- best reading rhythm
-- strongest sense of material/history/craft
-- premium without becoming glossy nonsense
-- closest to a real publication page
+## 2. Active hierarchy
 
-Weaker references:
-- Homepage: promising, but still too concept-board / self-mythologizing in places
-- Manifesto/About: clean, but drifts too gallery/institutional
+The layout hierarchy is now intentionally narrow:
+1. masthead / positioning
+2. this week's 5-topic dispatch
+3. last-match capsule
+4. next-match capsule
+5. small archive of past issues if needed
 
-## 2. Failure modes to avoid
+That is the whole product story.
 
-### A. Fashion-magazine drift
+## 3. Dispatch-first UI rules
 
-Symptoms:
-- overuse of oxblood/burgundy luxury language
-- abstract textile/art imagery with weak football signal
-- too much “ritual / conviction / romance / weave / archive” copy
-- product starts reading like an expensive boutique editorial object
+The weekly dispatch should:
+- dominate the reading experience
+- read as one issue, not five unrelated promo cards
+- privilege text hierarchy over decorative frames
+- make the editorial take visible quickly
 
-Rule:
-Football must remain the center of gravity.
+Each topic block should surface, in order:
+- topic/headline
+- take
+- concise commentary
+- why it matters
 
-### B. Museum / institutional drift
+## 4. Match-capsule rules
 
-Symptoms:
-- gallery corridor hero imagery
-- “curators” framing instead of editorial team/publication framing
-- manifesto language that feels like a cultural foundation
-- pages admired from a distance instead of used as a publication
+Match context is supportive, not competitive.
 
-Rule:
-This is a living publication, not an institution brochure.
-
-### C. Generic sports-site drift
-
-Symptoms:
-- dense homepage grids
-- noisy cards everywhere
-- loud score/ticker behavior
-- clicky labels and tabloid urgency
-
-Rule:
-Curated signal over volume.
-
-## 3. Visual north star
-
-The system should feel like:
-- warm paper + ink + deep navy
-- restrained garnet and muted gold accents
-- serif-led but highly readable
-- cinematic and tactile, but grounded
-- Barça-coded without cartoonishly leaning on club colors everywhere
-
-## 4. Color direction
-
-Base:
-- warm paper / cream background
-- ink / charcoal body text
-- deep navy for structure and depth
-
-Accents:
-- muted garnet / oxblood, used sparingly
-- muted gold for archive / heritage moments
-- restrained blaugrana moments only where they earn emphasis
+Use:
+- compact text blocks
+- clear labels
+- one short editorial sentence each
 
 Avoid:
-- bright sports-ui primaries
-- fashion-brand burgundy dominance
-- over-literal stripes everywhere
+- data-dense scoreboards
+- ticker motion
+- stat dumps
+- fake command-center UI
 
-## 5. Typography direction
+## 5. Mobile-first behavior
 
-- Display serif for headlines and key moments
-- Highly legible body serif or carefully paired text treatment
-- Sans for metadata, labels, navigation, and utility text
+On phone:
+- the dispatch should read as one clean vertical sequence
+- match capsules should collapse into small readable blocks
+- archive links should stay tiny and secondary
+- no multi-column complexity should be required to understand the issue
 
-Rules:
-- do not over-italicize everything
-- use italics as emphasis, not as identity wallpaper
-- metadata should feel disciplined and editorial, not app-like
+## 6. Typography and spacing bias
 
-## 6. Page-by-page direction
+Bias toward:
+- strong text hierarchy
+- disciplined spacing
+- short vertical rhythm between issue items
+- restrained accent use
 
-### Homepage
+Do not compensate for thin structure with ornamental UI.
 
-Should feel like:
-- a publication front page
-- curated and active
-- current but not frantic
+## 7. Imagery
 
-Needs:
-- one dominant lead story
-- a clear latest/current football layer
-- a concise “The Brief” surface
-- one archive/history surface
-- disciplined section naming
+Image use is optional, not structural.
 
-Recommended modules:
-- Lead Feature
-- The Brief
-- Match Notes
-- Analysis / Tactical Board
-- Culture / Essays
-- From the Archive
-- Weekly Dispatch signup
+If images appear:
+- they should support the issue rather than fragment it
+- they should never turn the page into card soup
+- they should not force a magazine-cover aesthetic onto a weekly text product
 
-### Article page
+## 8. Navigation direction
 
-This is the visual and product north star.
+Keep navigation minimal.
+The product does not need a sprawling browse system to explain itself.
 
-Keep:
-- strong hero hierarchy
-- metadata rail
-- longform reading width
-- pull quote rhythm
-- related stories block
-
-Improve:
-- add more direct football signals in hero/media system
-- add richer structured metadata
-- add at least one factual/timeline/stat module where relevant
-- keep sidebars editorial, not museum-label-like
-
-### About page
-
-Needs to become:
-- clearer
-- more publication-like
-- less institutional
-
-Replace/avoid:
-- gallery corridor hero
-- “curators” language
-- abstract manifesto-only structure
-
-Prefer:
-- editorial mission
-- standards
-- coverage map
-- contributors/editors
-- membership/dispatch invitation
-- selected archive/issue evidence
-
-## 7. Naming / taxonomy direction
-
-Use real publication language.
-
-Good:
-- The Brief
-- Match Notes
-- Analysis
-- Tactical Board
-- Notebook
-- Archive
+Default IA bias:
+- Home
 - Dispatch
-- Essays
+- About
 
-Weak / avoid:
-- Cultural Heart
-- Journalism
-- generic “Review” labels everywhere
-- over-poetic section names that hide function
+Anything beyond that is dormant unless explicitly reintroduced.
 
-## 8. Design definition of done
+## 9. Anti-patterns
 
-A page is “on direction” when:
-- it unmistakably reads as Barça-specific
-- it clearly reads as a publication page
-- it balances football actuality with cultural depth
-- it does not feel like a gallery brochure
-- it does not feel like a fashion spread
-- it does not feel like a template sports blog
+Reject these directions:
+- "The Brief" as a separate hero surface
+- lead article + secondary article + tertiary article magazine stacks as the main homepage logic
+- archive shelves fighting for equal weight with the weekly issue
+- luxury/museum copy or visuals that bury the football read
+- dashboard modules competing with the issue
+
+## 10. Visual definition of done
+
+Success looks like:
+- one weekly issue feels like the center of gravity
+- the page reads quickly on a phone
+- the match capsules orient without taking over
+- nothing suggests a broader publication promise than the product actually serves

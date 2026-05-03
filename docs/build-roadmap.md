@@ -1,174 +1,69 @@
-# twotalBarça — Build Roadmap
+# totalBarca Build Roadmap
 
-Last updated: 2026-04-03
+Last updated: 2026-05-02
+Status: the 2026-05-02 pivot supersedes the older article-first roadmap.
 
-## Status
+## 1. What can proceed immediately
 
-Visual direction is still being tuned in Stitch, but enough is stable to execute non-visual work now.
-Homepage canon: “The Last of the Catalan Romantics.”
+1. simplify public IA around the weekly dispatch
+2. simplify content/data contracts around one issue plus two match capsules
+3. clean public copy that still points at the old Brief/article stack
+4. keep legacy routes from reading like active product promises
 
-## What can proceed immediately
+## 2. Revised execution order
 
-1. Content model
-2. Navigation and taxonomy
-3. Page/module contracts
-4. Token categories and semantic roles
-5. Article-first implementation scaffold
-6. Real placeholder/editorial seed copy
+### Phase 1 — scope alignment
+- align nav/footer/home copy to weekly-dispatch-only framing
+- remove or demote stale references to the standalone Brief
+- treat legacy article/archive surfaces as dormant
 
-## What should not be treated as final yet
+### Phase 2 — latest issue surface
+- make the current weekly issue the homepage center of gravity
+- enforce exactly 5 visible topic items
+- render last-match and next-match capsules minimally
 
-1. exact wordmark design
-2. final image treatment
-3. final color hexes
-4. final motion details
-5. any Stitch-generated frontend code until reviewed
+### Phase 3 — issue reading + tiny archive
+- keep issue pages clean and text-first
+- keep archive/listing narrow and practical
+- avoid rebuilding a full publication browse tree
 
----
-
-## Revised execution order
-
-### Phase 0 — lock the spine
-- choose display/body/UI typography roles
-- define semantic color tokens
-- define spacing + layout scale
-- define content model
-- define nav and module order
-
-Deliverables:
-- `content-model-and-ia.md`
-- `page-component-spec.md`
-
-### Phase 1 — article-first MVP
-Build the article page first because it stress-tests the whole system.
-
-Scope:
-- shell/header/footer skeleton
-- article header
-- body renderer
-- figure/caption system
-- pull quote
-- related stories
-- metadata/SEO base
-
-Exit criteria:
-- long essay reads well on desktop + mobile
-- hero/no-hero variants work
-- no off-brand drift
-
-### Phase 2 — homepage foundation
-Scope:
-- lead feature
-- secondary rail
-- The Brief
-- Match / Club Pulse
-- basic mission panel
-
-Exit criteria:
-- homepage feels curated, not crowded
-- lead story feels editorially weighted
-
-### Phase 3 — homepage depth
-Scope:
-- Analysis & Tactics
-- Reflections
-- The Vault
-- Weekly Dispatch
-- Editors’ Picks
-
-Exit criteria:
-- archive depth is visible
-- homepage supports both timely and evergreen content
-
-### Phase 4 — about page
-Scope:
-- mission
-- what we cover
-- principles
-- contributors
-- in the club’s long memory
-- contact / dispatch invitation
-
-Exit criteria:
-- page feels human, Barça-rooted, and credible
-- no conceptual-luxury drift
+### Phase 4 — newsroom/data alignment
+- keep the repo-local newsroom focused on weekly issue production
+- support approvals, build, and payload generation for dispatch issues
+- keep article-first mechanics clearly legacy where they still exist
 
 ### Phase 5 — hardening
-Scope:
-- responsive pass
-- mobile nav
-- accessibility audit
-- content fallback states
-- image/credit hygiene
-- polish
+- responsive pass on the weekly issue flow
+- dormant-route hygiene
+- copy audit for stale public language
+- focused tests/build validation after code changes
 
----
+## 3. Must-haves
 
-## MVP priorities
+- one weekly issue as the clear product center
+- exactly 5 topic items
+- minimal match capsules
+- tiny archive if needed
+- tight About/positioning copy
 
-Must-have:
-- article page
-- homepage core modules
-- about page
-- structured article schema
-- archive-aware taxonomy
-- dispatch module
+## 4. Nice-to-have later only if explicitly reintroduced
 
-Nice-to-have later:
-- rich author pages
-- advanced archive browse
-- footnotes/citations
-- interactive tactical boards
-- membership layer
-- multilingual support
+- separate article program
+- topic/person/season browse layers
+- richer archive shelves
+- reactions/community layers
+- advanced match data views
 
----
+## 5. Risks to watch
 
-## Risks to watch
+### Legacy sprawl
+Old routes and models can trick implementers into rebuilding the superseded product.
 
-### Typography drift
-If type isn’t locked early, everything will feel unstable.
+### Dispatch dilution
+If issue items degrade into blurbs or links, the product loses its point.
 
-### Blue/red/gold misuse
-Too much saturation will look cheap fast.
-Blue should lead. Red supports. Gold is minimal.
+### Match-center creep
+Minimal match context can easily bloat into scoreboards, fixtures, tables, and noisy strips.
 
-### Weak placeholder content
-Premium editorial layouts collapse when fed generic lorem ipsum or weak headlines.
-Use Barça-specific seed content early.
-
-### Mobile neglect
-A beautiful desktop magazine that dies on a phone is not shippable.
-
-### Stitch code temptation
-Stitch may generate useful reference code, but do not trust it blindly.
-Review structure, responsiveness, and token discipline before adopting any of it.
-
----
-
-## Subagent note
-
-Tried to use built-in `delegate_task` for this work.
-It failed immediately in this environment with:
-- `name '_saved_tool_names' is not defined`
-
-Workaround used:
-- Claude CLI
-- Gemini CLI
-
-Their outputs were used as parallel planning input and then merged into the docs in this folder.
-
----
-
-## Next recommended execution step
-
-If we keep moving before Stitch settles:
-1. finalize typography roles
-2. decide implementation stack/repo target
-3. scaffold article page + shared primitives
-4. draft real seed content for:
-   - one homepage lead
-   - one Brief rail
-   - one Analysis lead
-   - one Vault piece
-   - one About page statement
+### Design overreach
+This product should feel edited, not overdesigned.

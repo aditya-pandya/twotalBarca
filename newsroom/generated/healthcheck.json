@@ -6,12 +6,12 @@
       "ok": true
     },
     {
-      "detail": "6 enabled sources, 6 signals",
+      "detail": "3 enabled sources, 7 signals",
       "name": "signals",
       "ok": true
     },
     {
-      "detail": "1 open review artifact(s) tracked",
+      "detail": "0 open review artifact(s) tracked",
       "name": "reviews",
       "ok": true
     },
@@ -22,7 +22,7 @@
     }
   ],
   "errors": [],
-  "generatedAt": "2026-04-06T11:25:50.498Z",
+  "generatedAt": "2026-05-03T18:32:05.515Z",
   "healthy": true,
   "schemaVersion": 1,
   "warnings": []

@@ -78,8 +78,8 @@ export function buildArticleSchema(article: Article) {
     keywords: article.topics,
     datePublished: toIsoDate(article.date),
     author: {
-      "@type": "Person",
-      name: article.author,
+      "@type": "Organization",
+      name: siteMeta.editorialByline,
     },
     publisher: {
       "@id": `${siteMeta.url}/#organization`,

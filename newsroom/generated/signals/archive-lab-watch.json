@@ -15,8 +15,11 @@
   },
   "confidence": 0.78,
   "createdAt": "2026-04-06T11:10:20.790Z",
+  "discoveryMode": "internal",
   "eventAt": "2026-04-06T07:15:00.000Z",
   "id": "signal-archive-lab-watch",
+  "priorityReason": "priority 38",
+  "priorityScore": 38,
   "schemaVersion": 1,
   "signalType": "archive_anniversary",
   "slug": "archive-lab-watch",
@@ -29,6 +32,6 @@
     "anniversary"
   ],
   "title": "Twenty-year anniversary archive resurfacing window",
-  "updatedAt": "2026-04-06T11:25:46.448Z",
+  "updatedAt": "2026-05-03T18:32:04.477Z",
   "urgency": "medium"
 }

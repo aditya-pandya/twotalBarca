@@ -1,0 +1,82 @@
+{
+  "approvalIds": [
+    "approval-article-one-opponent-four-days-two-different-truths-copy",
+    "approval-article-one-opponent-four-days-two-different-truths-editor"
+  ],
+  "assignmentIds": [
+    "assignment-one-opponent-four-days-two-different-truths"
+  ],
+  "author": "Jordi Serra",
+  "body": [
+    "The same opponent exposed two different Barcelonas inside four days. On Apr 4 the tie felt navigable because Barcelona could stretch the match, keep the score within reach, and finish it late. On Apr 8 the first leg felt smaller and harsher because Atlético owned the leverage moments.",
+    "That is the real split-screen, not some mystical change in identity. The league meeting let Barcelona attack a match that kept reopening. The European meeting turned on the red card, the first goal before halftime, and the way Atlético could then defend a lead with the game tilted toward their favorite scenario.",
+    "When people say the performances felt different, what they often mean is that the game states asked Barcelona different questions. One version asked whether the side could stay patient until the opening arrived. The other asked whether the side could keep threat alive after structure and numbers had already been damaged.",
+    "That is why the return leg should not be narrated as either destiny or panic. Barcelona have already seen one truthful version of this opponent and one punishing version. The work before Tuesday is to remember which details — first-goal pressure, cleaner final-third timing, and saner selection around Espanyol — decide which truth gets repeated."
+  ],
+  "conviction": "The opponent did not change character in four days; the leverage did.",
+  "createdAt": "2026-04-10T10:10:00.000Z",
+  "date": "April 10, 2026",
+  "dek": "Barcelona beat Atlético 2-1 in the league and lost 0-2 in Europe because the leverage moments changed hands, not because the shirt changed meaning.",
+  "distributionStatus": "deferred",
+  "excerpt": "The useful comparison is not mood against mood. It is one match where Barcelona kept the game open and another where Atlético owned the expensive minutes.",
+  "headline": "One Opponent, Four Days, Two Different Truths",
+  "heroCaption": "The tie keeps shrinking back to leverage, sequence, and the first goal.",
+  "heroCredit": "Illustration: totalBarca studio",
+  "heroImage": {
+    "alt": "Floodlit Barça pitch with tactical geometry and a charged crowd bowl.",
+    "caption": "The tie keeps shrinking back to leverage, sequence, and the first goal.",
+    "credit": "Illustration: totalBarca studio",
+    "src": "/editorial/home-hero-pressure-map.svg"
+  },
+  "id": "article-one-opponent-four-days-two-different-truths",
+  "kind": "article",
+  "metaDescription": "A split-screen analysis of Barcelona's two Atlético meetings inside four days and what changed between them.",
+  "notes": "Published from the live comparison signal to keep the current tie grounded in football terms.",
+  "personSlugs": [
+    "jordi-serra",
+    "hansi-flick"
+  ],
+  "publishAt": "2026-04-10T10:40:00.000Z",
+  "publishedAt": "2026-04-10T10:40:00.000Z",
+  "pullQuote": "The tie looks different when the first goal and the red-card leverage belong to the other side.",
+  "quoteBy": "Jordi Serra",
+  "readTime": "6 min",
+  "readingTime": "6 min read",
+  "relatedSlugs": [
+    "espanyol-between-the-legs",
+    "territory-without-punch",
+    "five-points-before-espanyol-and-madrid"
+  ],
+  "ritual": "First goal, game state, and patience keep dragging the same opponent into two different stories.",
+  "schemaVersion": 1,
+  "seasonSlug": "2025-26",
+  "section": "Analysis",
+  "sectionSlug": "analysis",
+  "seoTitle": "One Opponent, Four Days, Two Different Truths | totalBarca",
+  "slug": "one-opponent-four-days-two-different-truths",
+  "status": "published",
+  "timeline": [
+    {
+      "note": "Barcelona take the league meeting 2-1 and keep the match live long enough to finish it.",
+      "year": "Apr 4"
+    },
+    {
+      "note": "The first leg flips toward Atlético once the leverage moments and the first goal move away from Barcelona.",
+      "year": "Apr 8"
+    },
+    {
+      "note": "The return leg becomes a question of which version of the tie Barcelona can recreate.",
+      "year": "Apr 14"
+    }
+  ],
+  "topicSlugs": [
+    "first-team",
+    "tactics"
+  ],
+  "topics": [
+    "First Team",
+    "Tactics"
+  ],
+  "type": "Analysis",
+  "updatedAt": "2026-04-10T10:40:00.000Z"
+}

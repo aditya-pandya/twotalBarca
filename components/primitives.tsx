@@ -78,7 +78,7 @@ export function FallbackState({
 }) {
   return (
     <article className="fallback-state" aria-live="polite">
-      <Eyebrow>Still building the shelf</Eyebrow>
+      <Eyebrow>More to explore</Eyebrow>
       <h3>{title}</h3>
       <p>{body}</p>
       {actionLabel && actionHref ? <EditorialLink href={actionHref}>{actionLabel}</EditorialLink> : null}
@@ -87,17 +87,15 @@ export function FallbackState({
 }
 
 export function MetaRow({
-  author,
   date,
   readingTime,
   section,
 }: {
-  author?: string;
   date?: string;
   readingTime?: string;
   section?: string;
 }) {
-  const items = [author, date, readingTime, section].filter(Boolean);
+  const items = [date, readingTime, section].filter(Boolean);
 
   return (
     <div className="meta-row" aria-label="Article metadata">
@@ -156,6 +154,23 @@ export function PullQuote({
   );
 }
 
+function StoryMedia({ story, variant }: { story: Story; variant: "story" | "feature" }) {
+  if (!story.image) {
+    return null;
+  }
+
+  return (
+    <div className={variant === "feature" ? "featured-story-card__media" : "story-card__media"}>
+      <img
+        alt={story.image.alt}
+        className={variant === "feature" ? "featured-story-card__image" : "story-card__image"}
+        loading="lazy"
+        src={story.image.src}
+      />
+    </div>
+  );
+}
+
 export function StoryCard({
   story,
   href,
@@ -171,6 +186,7 @@ export function StoryCard({
 
   return (
     <article className={compact ? "story-card compact" : "story-card"}>
+      <StoryMedia story={story} variant="story" />
       <Eyebrow>{story.section}</Eyebrow>
       <h3>
         <Link href={resolvedHref}>{story.headline}</Link>
@@ -191,9 +207,10 @@ export function FeaturedStoryCard({ story, href }: { story: Story; href?: string
 
   return (
     <article className="featured-story-card">
+      <StoryMedia story={story} variant="feature" />
       <div className="story-kicker">
         <Eyebrow>{story.section}</Eyebrow>
-        <MetaRow author={story.author} date={story.date} readingTime={story.readingTime} />
+        <MetaRow date={story.date} readingTime={story.readingTime} />
       </div>
       <PageTitle className="feature-title">{story.headline}</PageTitle>
       {story.dek ? <Deck>{story.dek}</Deck> : null}

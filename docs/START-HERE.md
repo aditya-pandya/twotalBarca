@@ -1,106 +1,92 @@
-# START HERE — twotalBarça
+# START HERE — totalBarca
+
+Last updated: 2026-05-02
 
 If you are a new agent touching this repo, do this in order.
 
 ## 1. Read these files first
 
-1. `docs/agent-handoff.md`
-   - full project context, constraints, current state, future direction
-2. `docs/prd.md`
-   - product-manager view of goals, scope, requirements, risks
-3. `docs/implementation-checklist.md`
-   - practical execution checklist split by system/pages/components
-4. `docs/design-direction.md`
-   - visual/editorial guardrails
-5. `design-references/stitch/README.md`
-6. the relevant Stitch reference files in `design-references/stitch/`
+1. `docs/current-product-scope.md`
+   - canonical active scope after the 2026-05-02 pivot
+2. `docs/agent-handoff.md`
+   - working constraints, repo reality, and how not to regress the pivot
+3. `docs/prd.md`
+   - active product requirements and non-goals
+4. `docs/implementation-checklist.md`
+   - execution checklist for alignment work still left in runtime/code
+5. `docs/editorial-positioning-decisions.md`
+   - locked brand/tagline/public-copy rules
 
 ## 2. Understand the project in one minute
 
-This is:
-- a premium FC Barcelona editorial publication
-- article-first
-- archive-aware
-- manually curated
+This is now:
+- a weekly Barça dispatch product
+- exactly five sharp commentary topics per issue
+- minimal last-match and next-match context
+- ultra-minimal and phone-friendly
+- public brand `totalBarca`
 
-This is not:
-- a rumor site
+This is not currently:
+- a standalone Brief product
+- an article-first publication
+- a live score product
+- a match center
+- a broad archive-first browse experience
 - a generic sports dashboard
-- a fashion-magazine concept board
-- a museum brochure
-
-The reading experience is the product.
 
 ## 3. Current implementation reality
 
-- Homepage exists and was recently ported much closer to the Stitch reference.
-- Article page is still the strongest product-quality surface.
-- About page works but still needs the most cleanup.
-- Content is still local seed data, not a CMS.
+- The repo still contains legacy article/analysis/archive routes and older editorial models.
+- Those legacy surfaces are dormant unless Aditya explicitly reintroduces them.
+- The docs in this folder now define weekly-dispatch-only scope as canonical.
+- The newsroom backend is still useful, but only as support infrastructure for the weekly dispatch and minimal match-context capsules.
 
-## 4. Before you change code
+## 4. Before you change anything
 
-Run:
-- `npm test`
-- `npm run build:local`
+- Confirm whether your task is docs-only or runtime/code.
+- If you touch only Markdown/spec files, markdown sanity is enough.
+- If you touch code or data contracts, run the smallest relevant tests and build checks.
+- Do not treat legacy routes as active requirements just because they exist in the tree.
 
-If local build breaks because of iCloud/Next artifact cleanup:
-- `rm -rf .next-local && npm run build:local`
+## 5. Product-copy rules that stay locked
 
-## 5. If you are doing design work
+- keep `Less noise. More Barça.`
+- keep `Match context, club memory, cleaner judgment.`
+- public copy should point to the weekly dispatch and minimal match context
+- do not say "read the Brief and the Dispatch"
+- no AI/process/status language in public positioning
+- never call the product a blog
 
-Rules:
-- fidelity before reinterpretation
-- match approved references first
-- do not drift into generic luxury/editorial nonsense
-- keep football at the center of gravity
-- preserve article-page quality
+## 6. If you are doing design or IA work
 
-## 6. If you are doing architecture/content work
+Optimize for:
+- one calm weekly issue
+- text-first hierarchy
+- small-screen readability
+- dispatch-first ordering
+- minimal match capsules
+
+Avoid:
+- card soup
+- digital-magazine sprawl
+- luxury/museum concepting
+- sports-dashboard chrome
+- route sprawl justified only by old code
+
+## 7. If you are doing newsroom or content-model work
 
 Focus on:
-- normalizing homepage content into shared typed data
-- reconciling taxonomy/nav labels carefully
-- improving tests
-- not introducing CMS complexity too early
+- dispatch issue contract
+- exactly five topic items
+- last-match capsule
+- next-match capsule
+- minimal archive of past issues
+- dormant/legacy handling for article-first machinery
 
-## 7. Recommended next tasks
-
-Best next page task:
-- improve the About page
-
-Best next maintainability task:
-- normalize homepage content/data contracts
-
-Best next hardening task:
-- add regression tests for nav/anchors/page rendering
-
-## 8. Files you will probably touch
-
-- `app/page.tsx`
-- `app/about/page.tsx`
-- `app/article/[slug]/page.tsx`
-- `components/site-header.tsx`
-- `components/site-footer.tsx`
-- `components/primitives.tsx`
-- `lib/site-data.ts`
-- `app/globals.css`
-- `next.config.ts`
-
-## 9. Reference assets
-
-In-repo reference exports:
-- `design-references/stitch/homepage-reference.html`
-- `design-references/stitch/homepage-reference.png`
-- `design-references/stitch/article-reference.html`
-- `design-references/stitch/article-reference.png`
-- `design-references/stitch/manifesto-reference.html`
-- `design-references/stitch/manifesto-reference.png`
-
-## 10. Definition of success
+## 8. Definition of success
 
 You are done when:
-- the page/system is more faithful, clearer, or more maintainable
-- tests pass
-- `npm run build:local` passes
-- you did not accidentally make the site less Barça, less editorial, or more generic
+- the weekly-dispatch-only scope is clearer than before
+- no future agent could mistake the Brief/article/archive stack for active scope
+- public-copy rules stay intact
+- legacy ideas are either marked dormant or explicitly left as background only

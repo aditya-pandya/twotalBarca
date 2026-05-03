@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+
+  <defs>
+    <linearGradient id="bg-home-dispatch-night-desk" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0a1122"/>
+      <stop offset="56%" stop-color="#162742"/>
+      <stop offset="100%" stop-color="#4e142c"/>
+    </linearGradient>
+    <radialGradient id="glow-a-home-dispatch-night-desk" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1272 168) rotate(90) scale(190)">
+      <stop stop-color="#f1d797" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#f1d797" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-b-home-dispatch-night-desk" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(278 166) rotate(90) scale(120)">
+      <stop stop-color="#7dd4ee" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#7dd4ee" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pitch-home-dispatch-night-desk" x1="800" y1="640" x2="800" y2="980" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#12324a"/>
+      <stop offset="100%" stop-color="#091826"/>
+    </linearGradient>
+    <linearGradient id="paper-home-dispatch-night-desk" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fcf4e7"/>
+      <stop offset="100%" stop-color="#e8dcc5"/>
+    </linearGradient>
+    <linearGradient id="vignette-home-dispatch-night-desk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#02040a" stop-opacity="0.38"/>
+    </linearGradient>
+    <pattern id="grid-home-dispatch-night-desk" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    </pattern>
+    <filter id="blur-home-dispatch-night-desk" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+    
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg-home-dispatch-night-desk)"/>
+  <rect width="1600" height="1000" fill="url(#grid-home-dispatch-night-desk)" opacity="0.46"/>
+  <rect width="1600" height="1000" fill="url(#vignette-home-dispatch-night-desk)"/>
+  <circle cx="1272" cy="168" r="190" fill="url(#glow-a-home-dispatch-night-desk)" filter="url(#blur-home-dispatch-night-desk)"/>
+  <circle cx="278" cy="166" r="120" fill="url(#glow-b-home-dispatch-night-desk)" filter="url(#blur-home-dispatch-night-desk)"/>
+  <rect x="0" y="718" width="1600" height="282" fill="rgba(5,9,18,0.52)"/><rect x="220" y="176" width="468" height="560" fill="url(#paper-home-dispatch-night-desk)" rx="20" stroke="rgba(255,247,233,0.16)" stroke-width="2" transform="rotate(-8 454.0 456.0)"/><line x1="272" y1="271" x2="632" y2="271" stroke="rgba(17,25,42,0.55)" stroke-width="5" stroke-linecap="round" opacity="0.42"/><line x1="272" y1="313" x2="632" y2="313" stroke="rgba(17,25,42,0.55)" stroke-width="3" stroke-linecap="round" opacity="0.28"/><line x1="272" y1="355" x2="632" y2="355" stroke="rgba(17,25,42,0.55)" stroke-width="3" stroke-linecap="round" opacity="0.28"/><line x1="272" y1="397" x2="632" y2="397" stroke="rgba(17,25,42,0.55)" stroke-width="3" stroke-linecap="round" opacity="0.28"/><line x1="272" y1="439" x2="632" y2="439" stroke="rgba(17,25,42,0.55)" stroke-width="3" stroke-linecap="round" opacity="0.28"/><rect x="640" y="126" width="480" height="596" fill="#efe1cb" rx="20" stroke="rgba(255,247,233,0.14)" stroke-width="2" transform="rotate(2 880.0 424.0)"/><line x1="692" y1="221" x2="1064" y2="221" stroke="rgba(17,25,42,0.6)" stroke-width="5" stroke-linecap="round" opacity="0.42"/><line x1="692" y1="263" x2="1064" y2="263" stroke="rgba(17,25,42,0.6)" stroke-width="3" stroke-linecap="round" opacity="0.28"/><line x1="692" y1="305" x2="1064" y2="305" stroke="rgba(17,25,42,0.6)" stroke-width="3" stroke-linecap="round" opacity="0.28"/><line x1="692" y1="347" x2="1064" y2="347" stroke="rgba(17,25,42,0.6)" stroke-width="3" stroke-linecap="round" opacity="0.28"/><line x1="692" y1="389" x2="1064" y2="389" stroke="rgba(17,25,42,0.6)" stroke-width="3" stroke-linecap="round" opacity="0.28"/><ellipse cx="882" cy="402" rx="152" ry="86" fill="none" stroke="rgba(17,25,42,0.48)" stroke-width="5"/><polygon points="812,438 942,438 1012,640 742,640" fill="url(#pitch-home-dispatch-night-desk)" opacity="0.96"/><polygon points="812,438 942,438 1012,640 742,640" fill="none" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3"/><line x1="877.0" y1="452" x2="877.0" y2="612" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3" stroke-linecap="round" opacity="0.5"/><circle cx="877.0" cy="551.0" r="74" fill="none" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3"/><path d="M882 566 Q1007 652 932 792" fill="none" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M872 566 Q747 652 822 792" fill="none" stroke="rgba(240, 217, 150, 0.42)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="1012" y="198" width="332" height="430" fill="#f6eddc" rx="20" stroke="rgba(255,247,233,0.12)" stroke-width="2" transform="rotate(9 1178.0 413.0)"/><line x1="1064" y1="293" x2="1288" y2="293" stroke="rgba(17,25,42,0.48)" stroke-width="5" stroke-linecap="round" opacity="0.42"/><line x1="1064" y1="335" x2="1288" y2="335" stroke="rgba(17,25,42,0.48)" stroke-width="3" stroke-linecap="round" opacity="0.28"/><line x1="1064" y1="377" x2="1288" y2="377" stroke="rgba(17,25,42,0.48)" stroke-width="3" stroke-linecap="round" opacity="0.28"/><line x1="1064" y1="419" x2="1288" y2="419" stroke="rgba(17,25,42,0.48)" stroke-width="3" stroke-linecap="round" opacity="0.28"/><line x1="1064" y1="461" x2="1288" y2="461" stroke="rgba(17,25,42,0.48)" stroke-width="3" stroke-linecap="round" opacity="0.28"/><rect x="1212" y="742" width="182" height="44" fill="rgba(240,217,150,0.84)" rx="14" transform="rotate(-7 1303 764)"/><rect x="1128" y="774" width="238" height="28" fill="rgba(12,20,39,0.74)" rx="14"/><circle cx="844" cy="236" r="8" fill="#f0d99a" opacity="0.92"/><circle cx="882" cy="236" r="8" fill="#f0d99a" opacity="0.92"/><circle cx="920" cy="236" r="8" fill="#f0d99a" opacity="0.92"/><circle cx="958" cy="236" r="8" fill="#f0d99a" opacity="0.92"/><circle cx="996" cy="236" r="8" fill="#f0d99a" opacity="0.92"/><path d="M190 792 C432 678 630 652 876 680 C1138 706 1286 772 1454 904" fill="none" stroke="rgba(125,201,231,0.42)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="14 18"/><circle cx="1286" cy="174" r="78" fill="rgba(255,244,214,0.24)" filter="url(#blur-home-dispatch-night-desk)"/><circle cx="312" cy="150" r="56" fill="rgba(255,244,214,0.18)" filter="url(#blur-home-dispatch-night-desk)"/>
+  <rect x="34" y="34" width="1532" height="932" rx="18" stroke="rgba(250,244,236,0.18)" stroke-width="2"/>
+  <path d="M62 1180V62H180" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+  <path d="M1418 62H1538V182" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+</svg>

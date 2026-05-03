@@ -1,16 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SectionLandingPage } from "@/components/section-landing-page";
-import {
-  archiveCollections,
-  buildMetadata,
-  getArticlesBySection,
-  getFeaturedArticleForRecord,
-  getSectionBySlug,
-  getSectionHref,
-  getSectionSlugs,
-  topics,
-} from "@/lib/site-data";
+import { PublicScopeNotice } from "@/components/public-scope-notice";
+import { buildMetadata, getSectionBySlug, getSectionHref, getSectionSlugs } from "@/lib/site-data";
 
 type SectionPageProps = {
   params: Promise<{ slug: string }>;
@@ -30,7 +21,7 @@ export async function generateMetadata({ params }: SectionPageProps): Promise<Me
 
   return buildMetadata({
     title: section.name,
-    description: section.description,
+    description: `${section.name} is not in today's totalBarca edition. Start with the homepage, The Brief, or the Weekly Dispatch.`,
     path: getSectionHref(section.slug),
     section: section.name,
   });
@@ -44,20 +35,5 @@ export default async function SectionPage({ params }: SectionPageProps) {
     notFound();
   }
 
-  const stories = getArticlesBySection(section.slug);
-  const featuredStory = getFeaturedArticleForRecord(section);
-  const relatedTopics = topics.filter((topic) => stories.some((story) => story.topicSlugs.includes(topic.slug)));
-  const relatedCollections = archiveCollections.filter((collection) =>
-    collection.itemSlugs.some((itemSlug) => stories.some((story) => story.slug === itemSlug)),
-  );
-
-  return (
-    <SectionLandingPage
-      collections={relatedCollections}
-      featuredStory={featuredStory}
-      section={section}
-      stories={stories}
-      topics={relatedTopics}
-    />
-  );
+  return <PublicScopeNotice surface={section.name} />;
 }

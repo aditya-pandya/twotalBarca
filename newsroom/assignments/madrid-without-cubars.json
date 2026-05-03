@@ -1,0 +1,25 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Build the angle around the exact defensive consequence of Cubarsí's suspension, how Barcelona can reshape the line in Madrid, and why the first goal now matters even more.",
+  "createdAt": "2026-04-09T18:36:06.386Z",
+  "deadline": "2026-04-10T02:36:04.591Z",
+  "deliverables": [
+    "One publishable article draft",
+    "Exact match/player/topic framing",
+    "Dispatch recommendation grounded in the live scout"
+  ],
+  "dependencies": [
+    "signal:signal-barca-live-scout-madrid-without-cubarsi"
+  ],
+  "id": "assignment-madrid-without-cubars",
+  "kind": "article",
+  "owner": "editor-in-chief",
+  "priority": "critical",
+  "recordKind": "article",
+  "slug": "madrid-without-cubars",
+  "sourceSignalId": "signal-barca-live-scout-madrid-without-cubarsi",
+  "status": "open",
+  "targetSlug": "madrid-without-cubars",
+  "title": "Madrid without Cubarsí",
+  "updatedAt": "2026-04-09T18:36:06.386Z"
+}

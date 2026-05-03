@@ -15,6 +15,7 @@
     "newsroom:validate": "node --experimental-strip-types scripts/newsroom/validate.mjs",
     "newsroom:build": "node --experimental-strip-types scripts/newsroom/build-site-content.mjs",
     "newsroom:dashboard": "node --experimental-strip-types scripts/newsroom/dashboard.mjs",
+    "newsroom:scout-barca": "node --experimental-strip-types scripts/newsroom/scout-barca.mjs",
     "newsroom:ingest": "node --experimental-strip-types scripts/newsroom/ingest.mjs",
     "newsroom:trigger-cycle": "node --experimental-strip-types scripts/newsroom/trigger-cycle.mjs",
     "newsroom:generate-draft": "node --experimental-strip-types scripts/newsroom/generate-draft.mjs",
@@ -25,6 +26,7 @@
     "newsroom:publish-now": "node --experimental-strip-types scripts/newsroom/publish-now.mjs",
     "newsroom:backup": "node --experimental-strip-types scripts/newsroom/backup.mjs",
     "newsroom:healthcheck": "node --experimental-strip-types scripts/newsroom/healthcheck.mjs",
+    "newsroom:autonomous-cycle": "npm run newsroom:scout-barca && npm run newsroom:ingest && npm run newsroom:trigger-cycle && npm run newsroom:review-summary && npm run newsroom:publish-cycle && npm run newsroom:build && npm run newsroom:healthcheck",
     "newsroom:workflow": "node --experimental-strip-types scripts/newsroom/advance-workflow.mjs",
     "newsroom:assignment": "node --experimental-strip-types scripts/newsroom/create-assignment.mjs",
     "newsroom:advance": "node --experimental-strip-types scripts/newsroom/advance-workflow.mjs",
@@ -46,6 +48,7 @@
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "jsdom": "^29.0.1",
+    "playwright": "^1.59.1",
     "typescript": "5.9.3",
     "vitest": "^4.1.2"
   }

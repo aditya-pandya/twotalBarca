@@ -1,15 +1,24 @@
 {
-  "activePlanId": "frontpage-2026-04-05",
-  "updatedAt": "2026-04-05T18:15:00.000Z",
-  "heroArticleSlug": "rest-defense-is-learning-to-breathe",
+  "activePlanId": "frontpage-2026-04-10-live-rescue",
+  "updatedAt": "2026-04-10T12:30:00.000Z",
+  "heroArticleSlug": "espanyol-between-the-legs",
   "tickerArticleSlugs": [
-    "rest-defense-is-learning-to-breathe"
+    "espanyol-between-the-legs",
+    "territory-without-punch",
+    "one-opponent-four-days-two-different-truths"
   ],
-  "cultureStorySlugs": [],
+  "cultureStorySlugs": [
+    "territory-without-punch",
+    "one-opponent-four-days-two-different-truths",
+    "femen-bayern-pulse"
+  ],
   "briefArticleSlugs": [
-    "rest-defense-is-learning-to-breathe"
+    "five-points-before-espanyol-and-madrid",
+    "espanyol-between-the-legs",
+    "territory-without-punch"
   ],
   "vaultArticleSlugs": [],
-  "featuredDispatchSlug": "week-in-blaugrana-13",
-  "notes": "Prefer the published newsroom lead analysis on the homepage while keeping the rest of the shelves compatible with seeded archive and culture coverage."
+  "featuredDispatchSlug": "weekly-dispatch-april-10-2026",
+  "notes": "Recovered the public front from the live Apr. 10-14 Barça signals: one current lead, one current five-point Brief, and one public Dispatch issue."
 }
+

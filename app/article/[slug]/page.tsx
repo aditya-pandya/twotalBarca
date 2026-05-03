@@ -11,6 +11,7 @@ import {
   getArticleSlugs,
   getStoryHref,
   getTopicLabel,
+  siteMeta,
 } from "@/lib/site-data";
 import { buildArticleSchema } from "@/lib/schema";
 
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     path: `/article/${currentArticle.slug}`,
     type: "article",
     publishedTime: new Date(currentArticle.date).toISOString(),
-    authors: [currentArticle.author],
+    authors: [siteMeta.editorialByline],
     section: currentArticle.section,
     tags: currentArticle.topics,
   });
@@ -69,12 +70,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </Eyebrow>
             <h1 className="article-title">{currentArticle.headline}</h1>
             <p className="article-dek">{currentArticle.dek}</p>
-            <MetaRow
-              author={currentArticle.author}
-              date={currentArticle.date}
-              readingTime={currentArticle.readTime}
-              section={currentArticle.historicalEra}
-            />
+            <MetaRow date={currentArticle.date} readingTime={currentArticle.readTime} section={currentArticle.historicalEra} />
           </div>
           <aside className="article-hero-summary">
             <p className="article-summary-label">Article ledger</p>
@@ -88,10 +84,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <section className="article-main-shell">
         <div className="article-main">
           <aside className="article-meta-rail">
-            <div className="article-meta-card">
-              <span>Author</span>
-              <p>{currentArticle.author}</p>
-            </div>
             <div className="article-meta-card">
               <span>Published</span>
               <p>{currentArticle.date}</p>
@@ -128,7 +120,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               fieldNoteLabel={companionCopy.fieldNoteLabel}
               paragraphs={currentArticle.body}
               pullQuote={currentArticle.pullQuote}
-              quoteBy={currentArticle.quoteBy}
             />
           </div>
         </div>
@@ -165,7 +156,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <div className="related-editorial-head">
           <div>
             <Eyebrow>Related narratives</Eyebrow>
-            <h2>Continue through the archive</h2>
+            <h2>Continue reading</h2>
           </div>
           <Link className="section-link" href="/">
             Back home
@@ -175,6 +166,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <div className="related-editorial-grid">
             <article className="related-feature">
               <Link href={getStoryHref(featuredRelated)} className="related-feature-visual">
+                {featuredRelated.image ? (
+                  <img
+                    alt={featuredRelated.image.alt}
+                    className="related-feature-visual__image"
+                    loading="lazy"
+                    src={featuredRelated.image.src}
+                  />
+                ) : null}
                 <div className="related-feature-copy">
                   <Eyebrow>{featuredRelated.section}</Eyebrow>
                   <h3>{featuredRelated.headline}</h3>
@@ -186,6 +185,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               {remainingRelated.length > 0 ? (
                 remainingRelated.map((story) => (
                   <article key={story.slug} className="related-story-card">
+                    {story.image ? (
+                      <img
+                        alt={story.image.alt}
+                        className="related-story-card__image"
+                        loading="lazy"
+                        src={story.image.src}
+                      />
+                    ) : null}
                     <Eyebrow>{story.section}</Eyebrow>
                     <h3>
                       <Link href={getStoryHref(story)}>{story.headline}</Link>
@@ -195,10 +202,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 ))
               ) : (
                 <FallbackState
-                  title="More related reading is on the way"
-                  body="The article graph is seeded, but this shelf can still grow as the archive fills out."
-                  actionLabel="Browse archive"
-                  actionHref="/archive"
+                  title="Related reading list is updating"
+                  body="This reading list can keep growing as more related work is published."
+                  actionLabel="Back home"
+                  actionHref="/"
                 />
               )}
             </div>
@@ -206,7 +213,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         ) : (
           <FallbackState
             title="No related reads were found"
-            body="The article is live, but the connected reading shelf still needs more seeds."
+            body="More related reading will appear here as the archive expands."
             actionLabel="Browse archive"
             actionHref="/archive"
           />

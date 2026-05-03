@@ -1,0 +1,83 @@
+{
+  "approvalIds": [
+    "approval-article-five-points-before-espanyol-and-madrid-copy",
+    "approval-article-five-points-before-espanyol-and-madrid-editor"
+  ],
+  "assignmentIds": [
+    "assignment-five-points-before-espanyol-and-madrid"
+  ],
+  "author": "Maury Vidal",
+  "body": [
+    "Espanyol is selection before it is theatre. The real question is who can start, who only needs an hour, and which attacking combinations should reach Tuesday with legs still under them.",
+    "The first leg did not prove Barcelona cannot have the ball; it proved the ball still has to turn into punch. Possession, shots, and corners are not the problem until the decisive pass keeps arriving late.",
+    "The Atlético split-screen matters because Barcelona have already seen both versions of the tie: one where the game keeps reopening and one where leverage collapses quickly. The return is not a mystery, but it will punish the wrong first goal.",
+    "Femení already has Bayern on the horizon. Even with thinner corroboration around the squad than the desk would like, the present-tense signal is clear: the semifinal is the next real benchmark and the Bonmatí conversation sits inside it.",
+    "The clean weekly line is simple: protect the legs, restore the attack, keep the tie football-sized, and let both senior sides reach their next big night with something sturdier than mood."
+  ],
+  "conviction": "The week needs cleaner decisions than louder rhetoric.",
+  "createdAt": "2026-04-10T10:25:00.000Z",
+  "date": "April 10, 2026",
+  "dek": "Selection, punch, game state, Femení context, and the line of argument that still survives the noise around Espanyol and Madrid.",
+  "distributionStatus": "deferred",
+  "excerpt": "Barcelona's next five days ask for cleaner decisions than louder rhetoric: selection, threat, leverage, Femení pulse, and the weekly line that still holds.",
+  "headline": "Five Points Before Espanyol and Madrid",
+  "heroCaption": "Five points. One live argument. No placeholder quiet.",
+  "heroCredit": "Illustration: totalBarca studio",
+  "heroImage": {
+    "alt": "Players emerging from shadow toward a bright blaugrana pitch tunnel.",
+    "caption": "Five points. One live argument. No placeholder quiet.",
+    "credit": "Illustration: totalBarca studio",
+    "src": "/editorial/brief-hero-derby-tunnel.svg"
+  },
+  "id": "article-five-points-before-espanyol-and-madrid",
+  "kind": "article",
+  "metaDescription": "The current totalBarca Brief: five points before Espanyol, Madrid, and the Femení Bayern pulse.",
+  "notes": "Published as the current five-point Brief for the Apr. 10-14 rescue window.",
+  "personSlugs": [
+    "maury-vidal"
+  ],
+  "publishAt": "2026-04-10T11:00:00.000Z",
+  "publishedAt": "2026-04-10T11:00:00.000Z",
+  "pullQuote": "The useful line this week is selection, punch, and leverage — not noise.",
+  "quoteBy": "Maury Vidal",
+  "readTime": "4 min",
+  "readingTime": "4 min read",
+  "relatedSlugs": [
+    "espanyol-between-the-legs",
+    "territory-without-punch",
+    "one-opponent-four-days-two-different-truths",
+    "femen-bayern-pulse"
+  ],
+  "ritual": "The Brief only belongs on the site when five points still add up to one defensible argument.",
+  "schemaVersion": 1,
+  "seasonSlug": "2025-26",
+  "section": "The Brief",
+  "sectionSlug": "brief",
+  "seoTitle": "Five Points Before Espanyol and Madrid | totalBarca",
+  "slug": "five-points-before-espanyol-and-madrid",
+  "status": "published",
+  "timeline": [
+    {
+      "note": "The first leg resets the week around selection, attack, and leverage.",
+      "year": "Apr 8"
+    },
+    {
+      "note": "Espanyol becomes the immediate live test before Madrid narrows the field again.",
+      "year": "Apr 11"
+    },
+    {
+      "note": "The Femení Bayern pulse keeps the wider club calendar inside the same edition.",
+      "year": "Apr 25 horizon"
+    }
+  ],
+  "topicSlugs": [
+    "first-team",
+    "identity"
+  ],
+  "topics": [
+    "First Team",
+    "Identity"
+  ],
+  "type": "Brief",
+  "updatedAt": "2026-04-10T11:00:00.000Z"
+}

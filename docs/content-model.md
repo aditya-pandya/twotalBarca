@@ -1,332 +1,155 @@
-# twotalBarça Content Model
+# totalBarca Content Model
 
-Last updated: 2026-04-03
+Last updated: 2026-05-02
+Status: active contracts only. Older article-first structures are legacy unless explicitly reintroduced.
 
-This is the consolidated MVP content model based on the earlier IA/spec work and the current editorial design direction.
+## 1. Active entities
 
-## 1. Core principle
+1. `dispatchIssue`
+2. `dispatchTopic`
+3. `matchCapsule:last`
+4. `matchCapsule:next`
+5. `dispatchArchiveEntry`
+6. `aboutBlurb` (optional tiny positioning block)
 
-Use one unified Article model for the primary editorial surface.
-Do not create separate CMS models for every writing format in MVP.
+## 2. Dispatch issue
 
-Presentation differences should be driven by:
-- section
-- article type
-- feature flags
-- references (match, season, person, topic)
-
-## 2. Core content types
-
-### Article
-
-Primary editorial unit.
-Use for:
-- essays
-- match analysis
-- tactical pieces
-- historical/archive features
-- reflections
-- interviews
-- opinion
-- explainers
-- briefs
+Purpose:
+- one weekly package
+- exactly 5 topics
+- optional internal editorial note
+- includes minimal match context
 
 Required fields:
-- id
-- slug
-- headline
-- dek
-- section
-- article_type
-- hero_image
-- hero_caption
-- hero_credit
-- author
-- publish_date
-- body
-- excerpt
-- status
+- `id`
+- `slug`
+- `issueNumber` or stable issue label
+- `issueTitle`
+- `publishDate`
+- `status`
+- `topics` (must be length 5)
+- `lastMatch`
+- `nextMatch`
+- `approvalIds`
+- `distributionStatus`
 
-Recommended fields:
-- updated_date
-- secondary_authors
-- reading_time
-- pull_quote
-- topics
-- season
-- competition
-- match_ref
-- player_refs
-- manager_refs
-- historical_era
-- featured
-- related_articles
-- source_notes
-- seo_title
-- meta_description
-- social_image
+Optional fields:
+- `editorsNote`
+- `summary`
+- `heroLabel`
 
-Recommended article_type values:
-- Brief
-- Analysis
-- Tactics
-- Reflection
-- Feature
-- Interview
-- Column
-- Historical
-- Match Notebook
-- Opinion
-- Explainer
+Example shape:
 
-### Weekly Dispatch
+```json
+{
+  "id": "dispatch-weekly-issue-18",
+  "slug": "weekly-dispatch-issue-18",
+  "issueNumber": 18,
+  "issueTitle": "Weekly Dispatch No. 18",
+  "publishDate": "2026-05-08",
+  "status": "published",
+  "editorsNote": "Five reads on the week Barça actually had.",
+  "topics": [],
+  "lastMatch": {},
+  "nextMatch": {},
+  "approvalIds": ["approval-dispatch-18-copy", "approval-dispatch-18-editor"],
+  "distributionStatus": "deferred"
+}
+```
 
-Recurring curated package.
+## 3. Dispatch topic
 
 Required fields:
-- id
-- slug
-- issue_title
-- issue_number
-- editors_note
-- publish_date
-- lead_story
-- items
-- status
+- `order`
+- `headline`
+- `take`
+- `commentary`
+- `whyItMatters`
 
-Dispatch item fields:
-- headline
-- summary
-- link
-- item_type
-- optional image
+Optional internal/support fields:
+- `supportingEvidence`
+- `sourceRefs`
+- `relatedSlug`
+- `sectionBias` (for internal planning only)
 
-item_type values:
-- must-read
-- note
-- quote
-- stat
-- archive-pick
-- watchlist
+Rules:
+- exactly five topics per issue
+- every topic needs a point of view
+- every topic needs enough evidence to justify inclusion
+- topics are not required to link to standalone articles
 
-### Match
+Example shape:
 
-Structured object for match-linked editorial context.
+```json
+{
+  "order": 1,
+  "headline": "Barça's control is arriving before its fluency",
+  "take": "Control is the real progress marker right now, not spectacle.",
+  "commentary": "The side is still uneven in the final third, but it has stopped playing in emotional sprints.",
+  "whyItMatters": "If the structure is becoming dependable, the rest of the season stops looking like improvisation."
+}
+```
 
-Required fields:
-- id
-- slug
-- home_team
-- away_team
-- competition
-- season
-- kickoff
-- venue
-- result_status
-
-Recommended fields:
-- matchday
-- score
-- manager
-- associated_articles
-- match_image
-
-Note:
-Do not build live-score/service complexity in MVP.
-
-### Person
-
-For players, managers, presidents, authors, and historical figures.
+## 4. Last-match capsule
 
 Required fields:
-- id
-- slug
-- name
-- person_type
-- short_bio
-- portrait
+- `opponent`
+- `competition`
+- `date`
+- `result`
+- `editorialRead`
 
-Recommended fields:
-- full_bio
-- nationality
-- role_position
-- years_at_club
-- related_seasons
-- notable_quotes
-- related_articles
+Optional fields:
+- `venue`
+- `status` (`known`, `pending`, etc.)
 
-### Season
+## 5. Next-match capsule
 
 Required fields:
-- id
-- label
-- start_date
-- end_date
+- `opponent`
+- `competition`
+- `kickoff`
+- `thingToWatch`
 
-Recommended fields:
-- managers
-- competitions
-- summary
-- hero_image
+Optional fields:
+- `venue`
+- `timezoneNote`
 
-### Topic
+## 6. Dispatch archive entry
 
-Controlled editorial taxonomy.
-Not freeform tags.
+Minimal fields:
+- `slug`
+- `issueTitle`
+- `publishDate`
+- `summary`
 
-Required fields:
-- id
-- name
-- slug
-- description
+The archive exists only to let readers find past weekly issues.
+It is not an excuse to rebuild a broad publication browse system.
 
-Recommended fields:
-- parent_topic
-- hero_image
-- featured_article
+## 7. Dormant legacy entities
 
-### Collection
+These may still exist in code or files, but they are not active scope:
+- standalone `article`
+- standalone `brief`
+- `match-notes` as a public product surface
+- `analysis`, `culture`, `archive`, `topic`, `person`, `season`, `reaction` browse entities as active UI requirements
 
-Curated editorial package / shelf.
-Useful for The Archive.
+If these remain in schemas or fixtures, mark them legacy/dormant in surrounding docs and runtime behavior.
 
-Required fields:
-- id
-- title
-- slug
-- description
-- collection_type
-- items
+## 8. Public route bias
 
-collection_type values:
-- Series
-- Dossier
-- Starter Pack
-- Timeline
-- Vault Shelf
+Active route labels should map to:
+- `home`
+- `dispatch`
+- `about`
 
-### Media Asset
+Match context should render as modules within home/dispatch, not as its own route family.
 
-Required fields:
-- id
-- asset_url
-- alt_text
-- credit
-- caption
+## 9. Modeling rule
 
-Recommended fields:
-- focal_point
-- photographer
-- copyright_status
-- width
-- height
+The model should favor:
+- one strong issue
+- five strong items
+- two small match capsules
 
-## 3. Controlled taxonomy
-
-### Primary sections
-
-Recommended MVP sections:
-- home
-- brief
-- match-notes
-- analysis
-- culture
-- archive
-- about
-
-Editorial sub-sections later if needed:
-- la-masia
-- femeni
-- opinion
-- dispatch
-
-### Topics
-
-Suggested topic values:
-- First Team
-- La Masia
-- Femení
-- Tactics
-- Club Politics
-- History
-- Culture & Catalonia
-- Finance & Governance
-- Identity
-- European Nights
-- Rivalries
-- Stadium / City
-
-### Competition values
-
-- La Liga
-- Champions League
-- Copa del Rey
-- Supercopa
-- Preseason / Friendly
-- Women’s Champions League
-- Liga F
-
-### Historical era values
-
-- Founding Years
-- Les Corts
-- Kubala Era
-- Cruyff Player Era
-- Dream Team
-- Gaspart Years
-- Rijkaard Era
-- Guardiola Era
-- Post-Guardiola
-- Current Era
-
-## 4. Homepage content contract
-
-The homepage is curated, not dense.
-
-Recommended stack:
-1. Lead Feature
-2. The Brief
-3. Match Notes / current football module
-4. Analysis / Tactical Board
-5. Culture / Essays
-6. From the Archive
-7. Weekly Dispatch signup
-
-Each homepage card should support:
-- section label
-- headline
-- dek or summary
-- author
-- date or read time
-- optional image
-
-## 5. Article contract
-
-Every article page should support:
-- section
-- headline
-- dek
-- author
-- publish date
-- optional updated date
-- reading time
-- hero image + caption + credit
-- body
-- optional pull quote
-- related stories
-
-Where relevant, articles should also support:
-- match reference
-- season
-- competition
-- person references
-- archive/source notes
-
-## 6. Governance rules
-
-- Controlled vocabulary only
-- No freeform tag sprawl in MVP
-- Every image gets alt text, caption, and credit
-- Every article gets real metadata
-- Related stories should be curated where possible
-- The Archive should be powered by Articles + Collections, not a totally separate system
+Do not let older article-first abstractions become the default mental model for new work.

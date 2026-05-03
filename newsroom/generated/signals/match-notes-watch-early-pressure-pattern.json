@@ -15,8 +15,11 @@
   },
   "confidence": 0.78,
   "createdAt": "2026-04-06T11:10:20.790Z",
+  "discoveryMode": "internal",
   "eventAt": "2026-04-06T06:50:00.000Z",
   "id": "signal-match-notes-watch-early-pressure-pattern",
+  "priorityReason": "match-adjacent; priority 60",
+  "priorityScore": 60,
   "schemaVersion": 1,
   "signalType": "match",
   "slug": "match-notes-watch-early-pressure-pattern",
@@ -29,6 +32,6 @@
     "notebook"
   ],
   "title": "Early-pressure notebook pattern flagged",
-  "updatedAt": "2026-04-06T11:25:46.448Z",
+  "updatedAt": "2026-05-03T18:32:04.477Z",
   "urgency": "medium"
 }

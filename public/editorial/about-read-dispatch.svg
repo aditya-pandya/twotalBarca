@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+
+  <defs>
+    <linearGradient id="bg-about-read-dispatch" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#08101c"/>
+      <stop offset="56%" stop-color="#17304f"/>
+      <stop offset="100%" stop-color="#5a1531"/>
+    </linearGradient>
+    <radialGradient id="glow-a-about-read-dispatch" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1242 210) rotate(90) scale(170)">
+      <stop stop-color="#f0d799" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#f0d799" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-b-about-read-dispatch" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(318 188) rotate(90) scale(110)">
+      <stop stop-color="#84d2ec" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#84d2ec" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pitch-about-read-dispatch" x1="800" y1="640" x2="800" y2="980" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#12324a"/>
+      <stop offset="100%" stop-color="#091826"/>
+    </linearGradient>
+    <linearGradient id="paper-about-read-dispatch" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fcf4e7"/>
+      <stop offset="100%" stop-color="#e8dcc5"/>
+    </linearGradient>
+    <linearGradient id="vignette-about-read-dispatch" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#02040a" stop-opacity="0.38"/>
+    </linearGradient>
+    <pattern id="grid-about-read-dispatch" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    </pattern>
+    <filter id="blur-about-read-dispatch" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+    
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg-about-read-dispatch)"/>
+  <rect width="1600" height="1000" fill="url(#grid-about-read-dispatch)" opacity="0.46"/>
+  <rect width="1600" height="1000" fill="url(#vignette-about-read-dispatch)"/>
+  <circle cx="1242" cy="210" r="170" fill="url(#glow-a-about-read-dispatch)" filter="url(#blur-about-read-dispatch)"/>
+  <circle cx="318" cy="188" r="110" fill="url(#glow-b-about-read-dispatch)" filter="url(#blur-about-read-dispatch)"/>
+  <rect x="182" y="116" width="1236" height="768" fill="rgba(10,17,33,0.58)" rx="28" stroke="rgba(248,242,233,0.12)" stroke-width="2"/><rect x="298" y="244" width="410" height="480" fill="#eaddc7" rx="20" stroke="rgba(17,25,42,0.12)" stroke-width="2" transform="rotate(-8 503 484)"/><rect x="430" y="208" width="410" height="480" fill="#f2e7d5" rx="20" stroke="rgba(17,25,42,0.12)" stroke-width="2" transform="rotate(-1 635 448)"/><rect x="562" y="172" width="410" height="480" fill="#fbf3e3" rx="20" stroke="rgba(17,25,42,0.12)" stroke-width="2" transform="rotate(6 767 412)"/><rect x="1052" y="208" width="88" height="520" fill="rgba(240,217,150,0.88)" rx="26"/><rect x="1080" y="248" width="30" height="440" fill="rgba(12,21,40,0.82)" rx="14"/><circle cx="630" cy="290" r="8" fill="#f0d998" opacity="0.9"/><circle cx="676" cy="290" r="8" fill="#f0d998" opacity="0.9"/><circle cx="722" cy="290" r="8" fill="#f0d998" opacity="0.9"/><circle cx="768" cy="290" r="8" fill="#f0d998" opacity="0.9"/><circle cx="814" cy="290" r="8" fill="#f0d998" opacity="0.9"/><line x1="620" y1="330" x2="874" y2="330" stroke="rgba(17,25,42,0.34)" stroke-width="5" stroke-linecap="round" opacity="0.6"/><line x1="620" y1="362" x2="844" y2="362" stroke="rgba(17,25,42,0.3)" stroke-width="4" stroke-linecap="round" opacity="0.5"/><ellipse cx="774" cy="484" rx="182" ry="70" fill="rgba(10,18,35,0.28)" opacity="0.9"/><ellipse cx="774" cy="484" rx="182" ry="70" fill="none" opacity="0.68" stroke="rgba(246, 221, 160, 0.72)" stroke-width="8"/><ellipse cx="774" cy="492" rx="160.16" ry="50.4" fill="none" opacity="0.24" stroke="rgba(246, 221, 160, 0.72)" stroke-width="3" stroke-dasharray="12 26" stroke-linecap="round"/><ellipse cx="774" cy="506" rx="127.39999999999999" ry="32.2" fill="none" opacity="0.22" stroke="rgba(120,22,49,0.38)" stroke-width="18"/><ellipse cx="774" cy="438" rx="171.07999999999998" ry="35.0" fill="none" opacity="0.34" stroke="rgba(255,255,255,0.06)" stroke-width="6" stroke-dasharray="4 22" stroke-linecap="round"/><ellipse cx="774" cy="456" rx="125.07999999999998" ry="21.0" fill="none" opacity="0.34" stroke="rgba(255,255,255,0.06)" stroke-width="6" stroke-dasharray="4 22" stroke-linecap="round"/><ellipse cx="774" cy="474" rx="79.07999999999998" ry="7.0" fill="none" opacity="0.34" stroke="rgba(255,255,255,0.06)" stroke-width="6" stroke-dasharray="4 22" stroke-linecap="round"/><ellipse cx="774" cy="492" rx="33.079999999999984" ry="-7.0" fill="none" opacity="0.34" stroke="rgba(255,255,255,0.06)" stroke-width="6" stroke-dasharray="4 22" stroke-linecap="round"/><ellipse cx="774" cy="510" rx="-12.920000000000016" ry="-21.0" fill="none" opacity="0.34" stroke="rgba(255,255,255,0.06)" stroke-width="6" stroke-dasharray="4 22" stroke-linecap="round"/>
+  <rect x="34" y="34" width="1532" height="932" rx="18" stroke="rgba(250,244,236,0.18)" stroke-width="2"/>
+  <path d="M62 1180V62H180" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+  <path d="M1418 62H1538V182" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+</svg>

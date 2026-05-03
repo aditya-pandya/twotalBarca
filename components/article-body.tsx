@@ -3,7 +3,6 @@ import { EditorialLink, PullQuote } from "@/components/primitives";
 export function ArticleBody({
   paragraphs,
   pullQuote,
-  quoteBy,
   conviction,
   fieldNote,
   convictionLabel,
@@ -11,7 +10,6 @@ export function ArticleBody({
 }: {
   paragraphs: string[];
   pullQuote: string;
-  quoteBy: string;
   conviction: string;
   fieldNote: string;
   convictionLabel: string;
@@ -36,7 +34,7 @@ export function ArticleBody({
         {paragraphs.slice(0, 2).map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
         ))}
-        <PullQuote cite={quoteBy}>{pullQuote}</PullQuote>
+        <PullQuote>{pullQuote}</PullQuote>
         {paragraphs.slice(2).map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
         ))}

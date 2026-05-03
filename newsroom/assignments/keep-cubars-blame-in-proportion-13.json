@@ -1,0 +1,25 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Keep the Cubarsí conversation measured: separate the sending-off from the wider performance and explain why the blame story should stay in proportion.",
+  "createdAt": "2026-04-30T21:00:42.814Z",
+  "deadline": "2026-05-01T05:00:36.698Z",
+  "deliverables": [
+    "One publishable article draft",
+    "Exact match/player/topic framing",
+    "Dispatch recommendation grounded in the live scout"
+  ],
+  "dependencies": [
+    "signal:signal-barca-live-scout-keep-cubarsi-blame-in-proportion"
+  ],
+  "id": "assignment-keep-cubars-blame-in-proportion-13",
+  "kind": "article",
+  "owner": "editor-in-chief",
+  "priority": "critical",
+  "recordKind": "article",
+  "slug": "keep-cubars-blame-in-proportion-13",
+  "sourceSignalId": "signal-barca-live-scout-keep-cubarsi-blame-in-proportion",
+  "status": "open",
+  "targetSlug": "keep-cubars-blame-in-proportion-13",
+  "title": "Keep Cubarsí blame in proportion",
+  "updatedAt": "2026-04-30T21:00:42.814Z"
+}

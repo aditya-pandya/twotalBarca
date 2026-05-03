@@ -1,16 +1,17 @@
 {
   "activeSignals": [
-    "archive-lab-watch",
-    "dispatch-14-follow-up",
-    "editorial-follow-ups",
+    "barca-live-scout-espanyol-between-the-legs",
+    "barca-live-scout-one-opponent-four-days-two-truths",
+    "barca-live-scout-territory-without-punch",
+    "barca-live-scout-femeni-bayern-pulse",
+    "barca-live-scout-keep-cubarsi-blame-in-proportion",
     "match-notes-watch-early-pressure-pattern",
-    "montjuic-arrival-pattern",
-    "news-desk-watch"
+    "archive-lab-watch"
   ],
   "assignmentSuggestionCount": 0,
-  "enabledSourceCount": 6,
-  "generatedAt": "2026-04-06T11:25:49.459Z",
+  "enabledSourceCount": 3,
+  "generatedAt": "2026-05-03T18:32:05.308Z",
   "schemaVersion": 1,
-  "signalCount": 6,
-  "sourceCount": 6
+  "signalCount": 7,
+  "sourceCount": 7
 }

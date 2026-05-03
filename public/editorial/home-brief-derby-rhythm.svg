@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+
+  <defs>
+    <linearGradient id="bg-home-brief-derby-rhythm" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0b1124"/>
+      <stop offset="56%" stop-color="#13294d"/>
+      <stop offset="100%" stop-color="#6a1738"/>
+    </linearGradient>
+    <radialGradient id="glow-a-home-brief-derby-rhythm" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1228 232) rotate(90) scale(220)">
+      <stop stop-color="#f1d58f" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#f1d58f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-b-home-brief-derby-rhythm" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(360 190) rotate(90) scale(150)">
+      <stop stop-color="#7fd3ef" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#7fd3ef" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pitch-home-brief-derby-rhythm" x1="800" y1="640" x2="800" y2="980" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#12324a"/>
+      <stop offset="100%" stop-color="#091826"/>
+    </linearGradient>
+    <linearGradient id="paper-home-brief-derby-rhythm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fcf4e7"/>
+      <stop offset="100%" stop-color="#e8dcc5"/>
+    </linearGradient>
+    <linearGradient id="vignette-home-brief-derby-rhythm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#02040a" stop-opacity="0.38"/>
+    </linearGradient>
+    <pattern id="grid-home-brief-derby-rhythm" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    </pattern>
+    <filter id="blur-home-brief-derby-rhythm" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+    
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg-home-brief-derby-rhythm)"/>
+  <rect width="1600" height="1000" fill="url(#grid-home-brief-derby-rhythm)" opacity="0.46"/>
+  <rect width="1600" height="1000" fill="url(#vignette-home-brief-derby-rhythm)"/>
+  <circle cx="1228" cy="232" r="220" fill="url(#glow-a-home-brief-derby-rhythm)" filter="url(#blur-home-brief-derby-rhythm)"/>
+  <circle cx="360" cy="190" r="150" fill="url(#glow-b-home-brief-derby-rhythm)" filter="url(#blur-home-brief-derby-rhythm)"/>
+  <path d="M-40 830 L360 472 L686 672 L322 1040 Z" fill="rgba(129,25,52,0.56)"/><path d="M934 412 L1338 154 L1708 404 L1218 722 Z" fill="rgba(26,70,118,0.42)"/><circle cx="808" cy="498" r="162" fill="rgba(255,245,215,0.34)" filter="url(#blur-home-brief-derby-rhythm)"/><circle cx="808" cy="498" r="88" fill="rgba(255,244,215,0.88)" opacity="0.9"/><path d="M444 734 C580 640 692 602 808 596 C924 590 1034 628 1176 742" fill="none" stroke="rgba(240,217,150,0.82)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M472 230 C616 302 720 408 812 548" fill="none" stroke="rgba(124,202,232,0.64)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 16"/><path d="M1130 224 C1024 304 920 408 834 552" fill="none" stroke="rgba(240,217,150,0.46)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 20"/><circle cx="812" cy="650" r="18" fill="#f5e2a8" opacity="0.96"/><polygon points="604,520 571.6,631.6 636.4,631.6" fill="rgba(12,19,38,0.94)" opacity="0.85"/><polygon points="814,420 776.2,550.2 851.8,550.2" fill="rgba(12,19,38,0.96)" opacity="0.85"/><polygon points="1020,540 990.3,642.3 1049.7,642.3" fill="rgba(12,19,38,0.92)" opacity="0.85"/><rect x="112" y="116" width="212" height="16" fill="rgba(248,242,233,0.12)" rx="8"/><rect x="112" y="148" width="268" height="10" fill="rgba(248,242,233,0.10)" rx="5"/>
+  <rect x="34" y="34" width="1532" height="932" rx="18" stroke="rgba(250,244,236,0.18)" stroke-width="2"/>
+  <path d="M62 1180V62H180" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+  <path d="M1418 62H1538V182" stroke="rgba(250,244,236,0.16)" stroke-width="3"/>
+</svg>

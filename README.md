@@ -1,19 +1,16 @@
-# twotalBarça
+# totalBarca
 
-A premium FC Barcelona editorial publication: article-first, culturally rooted, football-specific, and built as a digital magazine with a living archive.
+Less noise. More Barça.
+Match context, club memory, cleaner judgment.
 
-Status: working Next.js app with shared primitives, static editorial data, test coverage, and CI verification.
+Status: active product scope is now weekly-dispatch-only. Public totalBarca is one weekly Barça dispatch with exactly five sharp commentary topics plus minimal last-match and next-match capsules. The old standalone Brief, article-first publication framing, and broad archive/section sprawl are dormant unless Aditya explicitly reintroduces them.
 
-Core engineering docs
+Read first
+- `docs/current-product-scope.md` ← canonical scope as of 2026-05-02
 - `docs/START-HERE.md` ← shortest path for a new agent
-- `docs/agent-handoff.md` ← full project handoff/spec
-- `docs/prd.md` ← product-manager style PRD
-- `docs/implementation-checklist.md` ← execution checklist for the next agent
-- `docs/engineering-architecture.md`
-- `docs/product-brief.md`
-- `docs/design-direction.md`
-- `docs/content-model.md`
-- `docs/implementation-roadmap.md`
+- `docs/agent-handoff.md` ← working constraints + repo reality
+- `docs/prd.md` ← active requirements
+- `docs/implementation-checklist.md` ← next execution checklist
 
 Local commands
 - `npm run dev`
@@ -23,21 +20,24 @@ Local commands
 - `npm run newsroom:validate`
 - `npm run newsroom:build`
 - `npm run newsroom:dashboard`
+- `npm run newsroom:scout-barca`
+- `npm run newsroom:generate-draft -- --assignment assignment-weekly-dispatch-14`
 
-Principles
-- Not a news wire
-- Not a lifestyle brand
-- Not a generic sports blog
-- Longform first
+Product rules
+- Public brand is `totalBarca`; repo/internal codename can remain `twotalBarça` / `twotalbarca`
+- Not a rumor wire
+- Not a blog
+- Not a live score or match center product
+- Not a standalone daily Brief anymore
+- Not an article-first or archive-first publication anymore
+- One weekly dispatch, exactly five topics, each with a take
+- Match context stays minimal and text-first
 - Manual curation over feed logic
-- Barça-specific editorial system, not abstract moodboarding
+- No public AI/process/status language
 
-Current direction
-- Strongest visual reference: the article page (`The Weave of the Blau`)
-- Homepage should feel like a real publication front, not a concept board
-- About/manifesto should explain the publication clearly without drifting into gallery/institution language
-
-Newsroom backend
-- repo-local editorial backend lives in `newsroom/`
+Repo reality
+- legacy article/analysis/archive routes and content models still exist in code and data
+- docs now treat those surfaces as dormant/legacy/backlog unless explicitly reintroduced
+- the repo-local newsroom backend lives in `newsroom/`
 - published newsroom records compile into `newsroom/generated/site-content.json`
 - the site consumes that payload when valid and falls back to seeded content otherwise

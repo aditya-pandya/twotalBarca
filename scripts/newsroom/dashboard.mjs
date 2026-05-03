@@ -1,6 +1,7 @@
-import { buildDashboard } from "../../lib/newsroom-io.ts";
+import { buildDashboard, loadBarcaScoutArtifact } from "../../lib/newsroom-io.ts";
 
 const summary = await buildDashboard(process.cwd());
+const scout = await loadBarcaScoutArtifact(process.cwd());
 
 console.log("twotalBarca newsroom dashboard");
 console.log("");
@@ -24,7 +25,8 @@ console.log(`Published articles: ${summary.published.articleSlugs.join(", ") || 
 console.log(`Published dispatch: ${summary.published.dispatchSlugs.join(", ") || "none"}`);
 console.log(`Front-page hero: ${summary.frontPage.heroArticleSlug ?? "seeded fallback"}`);
 console.log(`Featured dispatch: ${summary.frontPage.featuredDispatchSlug ?? "seeded fallback"}`);
-console.log(`Latest signals: ${summary.latestSignals.map((signal) => signal.slug).join(", ") || "none"}`);
+console.log(`Live scout candidates: ${scout.candidates?.map((candidate) => `${candidate.id} (${candidate.priorityScore})`).join(", ") || "none"}`);
+console.log(`Latest signals: ${summary.latestSignals.map((signal) => `${signal.slug}${signal.priorityScore ? ` (${signal.priorityScore})` : ""}`).join(", ") || "none"}`);
 console.log(`Upcoming publishes: ${summary.upcomingPublishes.map((entry) => entry.slug).join(", ") || "none"}`);
 
 if (summary.pendingApproval.length > 0) {

@@ -1,184 +1,72 @@
-# twotalBarça Implementation Roadmap
+# totalBarca Implementation Roadmap
 
-Last updated: 2026-04-03
+Last updated: 2026-05-02
 
-> Docs first. No product code changes should start until the team agrees this direction is locked enough.
+> Scope first. The active product is now the weekly dispatch plus minimal match context. Build and cleanup work should simplify toward that, not preserve older article-first ambitions by inertia.
 
 ## 1. Build order
 
-### Phase 0 — Foundation docs and repo setup
-- Create repository
-- Consolidate product/docs direction
-- Lock page inventory
-- Lock navigation and section naming
-- Choose stack/CMS direction
-- Define MVP data contracts
+### Phase 0 — scope lock
+Done in docs:
+- lock canonical product scope
+- mark Brief/article/archive-first ideas as dormant or superseded
+- align handoff/product/design/content docs
 
-### Phase 1 — Shared system
-Build the shared, non-page-specific foundation first.
+### Phase 1 — align active public IA
+Runtime priorities:
+- make home/latest issue the center of gravity
+- keep public nav minimal: Home, Dispatch, About
+- stop active copy from promising Brief/article/archive surfaces
+- ensure match context is rendered as a module, not a route family
 
-Needed:
-- app shell / layout
-- header / nav / footer
-- typography tokens
-- color tokens
-- spacing scale
-- shared link/button primitives
-- image/figure component
-- metadata cluster
-- story card variants
-- prose renderer
+### Phase 2 — harden dispatch issue rendering
+Build or confirm:
+- dispatch issue header
+- exactly 5 topic items
+- explicit take/commentary/why-it-matters rendering
+- minimal last-match capsule
+- minimal next-match capsule
 
-Rule:
-Do not build page one-offs before shared editorial primitives exist.
+### Phase 3 — keep archive tiny
+Build or confirm:
+- dispatch archive/listing only as needed
+- small issue summaries
+- no broad browse or vault resurrection by drift
 
-### Phase 2 — Article page first
-The article page is the MVP center of gravity.
+### Phase 4 — align newsroom/data contracts
+Priorities:
+- treat dispatch records as the primary active editorial object
+- support the two match capsules in compiled payloads
+- keep approvals/build pipeline working for weekly issues
+- leave legacy article machinery dormant unless explicitly revived
 
-Build first:
-- article template
-- hero block
-- metadata rail
-- prose renderer
-- figure/caption handling
-- pull quote treatment
-- related stories module
+### Phase 5 — legacy cleanup and hardening
+- remove dormant routes from active navigation and homepage logic
+- add concise dormant notices or hide routes if they still resolve publicly
+- consider `noindex` for dormant surfaces if crawl noise becomes a real problem
+- run focused tests/build checks after code changes
 
-Why first:
-- strongest current design direction
-- reading experience is the product
-- easiest page to use as quality bar for typography and spacing
+## 2. Current active surface targets
 
-### Phase 3 — Homepage
-Build once article primitives exist.
+1. Home / latest issue
+2. Dispatch issue page
+3. Dispatch archive
+4. About
 
-Needed:
-- lead feature module
-- The Brief module
-- current football module / Match Notes
-- analysis/culture rails
-- archive shelf module
-- dispatch/signup module
+## 3. Out of scope for now
 
-Rule:
-Homepage should feel curated, not feed-heavy.
+- daily Brief product
+- article-first publishing loop
+- broad archive browse
+- match center / live score features
+- analysis/culture/topic/person/season route expansion
+- reaction/community product work
 
-### Phase 4 — About page
-Build after the shared system and article/home patterns are stable.
+## 4. Definition of ready to ship
 
-Needed:
-- mission block
-- standards/principles block
-- coverage map
-- contributors/editors block
-- dispatch/membership invite
-
-Rule:
-No gallery/institution cosplay.
-
-### Phase 5 — Archive and browse surfaces
-After the core 3 pages are stable.
-
-Potential next pages:
-- archive landing
-- section landing pages
-- topic pages
-- issue/dispatch page
-- person page
-- season page
-
-## 2. Immediate decisions to lock before coding
-
-### A. Naming / IA
-Lock these first:
-- final top nav labels
-- homepage section labels
-- article type names
-- section taxonomy
-
-### B. Stack
-Need explicit decision on:
-- framework
-- CMS or content source
-- image strategy
-- deployment target
-
-### C. Editorial metadata rules
-Need exact rendering decisions for:
-- byline
-- date format
-- read time
-- image credits
-- archive/source notes
-
-## 3. Current recommended page system
-
-### Homepage
-- Lead Feature
-- The Brief
-- Match Notes
-- Analysis
-- Culture / Essays
-- From the Archive
-- Dispatch signup
-
-### Article
-- Hero / header
-- Metadata rail
-- Prose body
-- Pull quote / figure blocks
-- Related stories
-
-### About
-- Mission
-- Editorial standards
-- Coverage areas
-- Editorial team / contributors
-- Subscribe / dispatch
-
-## 4. Content/design guardrails during implementation
-
-### Always preserve
-- clear Barça specificity
-- publication hierarchy
-- premium editorial restraint
-- readability over novelty
-- manual curation bias
-
-### Never drift into
-- fashion-magazine product language
-- abstract gallery brochure structure
-- generic sports-site card spam
-- noisy tickers and fake urgency
-
-## 5. Definition of “ready to code”
-
-We can start code changes once:
-- repo exists
-- docs are in place
-- nav labels are agreed
-- MVP pages are agreed
-- content model is agreed
-- stack choice is agreed
-- article page is accepted as the visual/product north star
-
-## 6. First implementation targets once coding starts
-
-1. Repo/app scaffold
-2. Global shell
-3. Typography + token system
-4. Story card primitives
-5. Article template
-6. Homepage sections
-7. About page
-8. Archive surfaces
-
-## 7. Nice-to-have later, not MVP
-
-- advanced archive filters
-- member-only gating
-- audio versions
-- issue-style dispatch archives
-- multilingual support
-- richer match data views
-- contributor profiles with full author pages
+The implementation is aligned when:
+- the weekly dispatch is obviously the product center of gravity
+- exactly five issue items are enforced or plainly modeled
+- match capsules are useful but small
+- public copy no longer promises the old Brief/article stack
+- dormant surfaces are not accidentally treated as active scope

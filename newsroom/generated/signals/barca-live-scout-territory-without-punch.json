@@ -1,0 +1,99 @@
+{
+  "assignmentId": "assignment-territory-without-punch-14",
+  "assignmentSuggestion": {
+    "approver": "editor-in-chief",
+    "brief": "Use the shot, on-target, and possession context to explain why Barcelona owned territory without creating enough punch, and connect it to the attack discussion around Olmo and Rashford.",
+    "deadline": "2026-05-04T02:31:52.497Z",
+    "deliverables": [
+      "One publishable article draft",
+      "Exact match/player/topic framing",
+      "Dispatch recommendation grounded in the live scout"
+    ],
+    "kind": "article",
+    "owner": "editor-in-chief",
+    "title": "Territory without punch"
+  },
+  "assignmentTopic": "Barcelona attack after Atlético / possession without decisive threat",
+  "confidence": 0.97,
+  "createdAt": "2026-04-25T12:21:50.359Z",
+  "discoveryMode": "live",
+  "eventAt": "2026-05-03T18:31:52.497Z",
+  "evidence": [
+    {
+      "engagement": 585,
+      "excerpt": "The balance sheet now reads 10 wins from 14 games. That is a solid body of work, a decent argument in itself. Consider that Manchester United have now beaten Liverpool, Manchester City, Chelsea and Arsenal under Michael Carrick, and it looks even stronger. Time will tell whether ",
+      "image": {
+        "alt": "The balance sheet now reads 10 wins from 14 games. That is a solid body of work, a decent argument in itself. Consider that Manchester United have now beaten Liverpool, Manchester City, Chelsea and Arsenal under Michael Carrick, and it looks even stronger. Time will tell whether it will be enough. What it has done, though, is raise the bar if United do want to replace Carrick. Anything less than an elite coach and Carrick, surely, must be given the chance to carry this momentum into next season. @jacklang 🔗 https://t.co/3TughJn7WN",
+        "href": "https://x.com/TheAthleticFC/status/2050981640726319220",
+        "label": "TheAthleticFC preview",
+        "note": "Internal review only until licensing is confirmed.",
+        "source": "x:trusted-football-media",
+        "src": "https://pbs.twimg.com/media/HHaM4uMXUAAuoW1.jpg",
+        "status": "review-needed-social-preview"
+      },
+      "label": "TheAthleticFC: The balance sheet now reads 10 wins from 14 games. That is a solid body of work, a decent argument in itself. Consider that Manchester United have now beaten Liverpool, Manchester City, Chelsea and Arsenal under Michael Carrick, and it looks even stronger. Time will tell whether it will be enough. What it has done, though, is raise the bar if United do want to replace Carrick. Anything less than an elite coach and Carrick, surely, must be given the chance to carry this momentum into next season. @jacklang 🔗 https://t.co/3TughJn7WN",
+      "publishedAt": "2026-05-03T16:51:43.000Z",
+      "source": "x:trusted-football-media",
+      "url": "https://x.com/TheAthleticFC/status/2050981640726319220"
+    },
+    {
+      "engagement": 0,
+      "excerpt": "20 Dani Olmo * Midfielder",
+      "label": "20 Dani Olmo * Midfielder",
+      "publishedAt": "2026-05-03T18:31:52.497Z",
+      "source": "web:fcbarcelona-squad",
+      "url": "https://r.jina.ai/http://www.fcbarcelona.com/en/football/first-team/squad"
+    },
+    {
+      "engagement": 21,
+      "excerpt": "What To Watch This Week (4-10 May) These posts are as much for me as they are for you. So please feel free to reply with your suggestions for what to watch, and make a case for any game to be considered 'must watch', in which case I will bold it. The time zone used to sort games ",
+      "label": "What To Watch This Week (4-10 May)",
+      "publishedAt": "2026-05-03T12:14:24.000Z",
+      "source": "reddit:r/soccer:barca-search",
+      "url": "https://www.reddit.com/r/soccer/comments/1t2jthe/what_to_watch_this_week_410_may/"
+    },
+    {
+      "engagement": 1397,
+      "excerpt": "With the assist today Rashford has overtaken Carlos Tevez for the 2nd most goal contributions for a loan player in history of modern football First being mbappe with psg , but given how shady that loan was , credit is deserved here",
+      "label": "With the assist today Rashford has overtaken Carlos Tevez for the 2nd most goal contributions for a loan player in history of modern football",
+      "publishedAt": "2026-05-02T23:50:55.000Z",
+      "source": "reddit:r/Barca:top-week",
+      "url": "https://www.reddit.com/r/Barca/comments/1t25nux/with_the_assist_today_rashford_has_overtaken/"
+    },
+    {
+      "engagement": 15,
+      "excerpt": "Marcus Rashford - the fastest player in LaLiga: leads title contenders with an average top speed of 34.16 km/h, outpacing Vinícius at 33.92, Mbappé at 33.55, and Raphinha at 33.45",
+      "label": "Marcus Rashford - the fastest player in LaLiga: leads title contenders with an average top speed of 34.16 km/h, outpacing Vinícius at 33.92, Mbappé at 33.55, and Raphinha at 33.45",
+      "publishedAt": "2026-05-03T18:20:43.000Z",
+      "source": "reddit:r/Barca:new",
+      "url": "https://www.reddit.com/r/Barca/comments/1t2t544/marcus_rashford_the_fastest_player_in_laliga/"
+    }
+  ],
+  "id": "signal-barca-live-scout-territory-without-punch",
+  "priorityReason": "Matched 7 live evidence item(s) across official, reddit, x. Strongest feeds: Trusted football media X; FC Barcelona squad via Jina; Reddit /r/soccer Barça search.",
+  "priorityScore": 100,
+  "schemaVersion": 1,
+  "signalType": "match",
+  "slug": "barca-live-scout-territory-without-punch",
+  "sourceId": "source-barca-live-scout",
+  "sourceSlug": "barca-live-scout",
+  "status": "converted",
+  "summary": "The strongest attack angle is not vague frustration but the gap between Barcelona's territory and the lack of decisive threat after the red card and broken attacking sequences.",
+  "tags": [
+    "barca",
+    "live",
+    "scout",
+    "trusted-sources",
+    "official",
+    "reddit",
+    "attack",
+    "tactics",
+    "olmo",
+    "rashford",
+    "shots",
+    "possession"
+  ],
+  "title": "Territory without punch is still Barça's problem",
+  "updatedAt": "2026-05-03T18:32:04.477Z",
+  "urgency": "critical"
+}

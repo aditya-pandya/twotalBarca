@@ -26,7 +26,8 @@
   "signalPreference": "suggest",
   "slug": "montjuic-arrival-pattern",
   "sourceName": "Matchday notebook",
-  "status": "active",
+  "enabled": false,
+  "status": "ignored",
   "summary": "Supporters reached full voice later than usual, leaving the opening phase emotionally flat compared with Camp Nou rhythms.",
   "tags": [
     "culture",
