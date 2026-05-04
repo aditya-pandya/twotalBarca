@@ -124,22 +124,21 @@ describe("public weekly dispatch smoke tests", () => {
     expect(desktopPhotos.length).toBeGreaterThanOrEqual(6);
   });
 
-  it("renders per-take mobile backdrops with protected photo credit overlays", () => {
+  it("renders actual mobile take photos without decorative backdrops", () => {
     const { container } = render(<DispatchPage />);
     const mobileStage = container.querySelector(".comm-mobile-stage");
 
     expect(mobileStage).not.toBeNull();
 
     const backdrops = mobileStage!.querySelectorAll(".comm-take-backdrop");
-    const backdropImages = mobileStage!.querySelectorAll('.comm-take-backdrop img[aria-hidden="true"][src^="/editorial/"]');
-    const artBackdrop = mobileStage!.querySelector('.comm-take-backdrop img[src="/editorial/illustrations/territory-punch-backdrop.svg"]');
+    const takePhotos = mobileStage!.querySelectorAll('.comm-take-card img[src^="/editorial/real/"]');
     const firstCredit = mobileStage!.querySelector(".comm-take-photo-credit") as HTMLElement | null;
 
-    expect(backdrops).toHaveLength(5);
-    expect(backdropImages.length).toBeGreaterThanOrEqual(5);
-    expect(artBackdrop).not.toBeNull();
+    expect(backdrops).toHaveLength(0);
+    expect(mobileStage!.innerHTML).not.toContain("territory-punch-backdrop.svg");
+    expect(takePhotos.length).toBeGreaterThanOrEqual(5);
     expect(firstCredit).not.toBeNull();
-    expect(screen.getAllByText("Illustration: totalBarça studio").length).toBeGreaterThan(0);
+    expect(screen.queryByText("Illustration: totalBarça studio")).not.toBeInTheDocument();
     expect(firstCredit).toHaveTextContent(/Photo:\s+.+\s\/\sCC BY-SA 4\.0/i);
   });
 

@@ -256,14 +256,6 @@ const takeRealPhotos: Record<number, RealDispatchPhoto> = {
   }),
 };
 
-const topicBackdropArt: Record<number, string> = {
-  4: "/editorial/illustrations/territory-punch-backdrop.svg",
-};
-
-const topicBackdropCredit: Record<number, string> = {
-  4: "Illustration: totalBarça studio",
-};
-
 function ts(t: TypeSpec, extra: CSSProperties = {}): CSSProperties {
   return {
     fontFamily: t.font,
@@ -1009,7 +1001,6 @@ function DesktopDispatch({
               }}
               style={{ padding: "64px 56px", position: "relative", overflow: "hidden", borderBottom: `1px solid ${theme.rule}`, background: sectionBg, color: sectionText }}
             >
-              {photo ? <TakePhotoBackdrop accent={sectionTone.accent} artSrc={topicBackdropArt[topic.n]} bg={sectionBg} boost={topic.n === 4} mode="desktop" photo={photo} /> : null}
               <div aria-hidden="true" style={{ ...ts({ ...T.ghost, size: 230, lh: 0.85, track: "-0.06em" }, { color: sectionTone.accent, opacity: sectionIsColorBlock ? 0.12 : 0.08 }), userSelect: "none", position: "absolute", right: -28, top: 18, pointerEvents: "none", zIndex: 1 }}>{topic.n}</div>
               <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(300px, 330px)", gap: 44, alignItems: "start", position: "relative", zIndex: 2 }}>
                 <div style={{ minWidth: 0, maxWidth: 760 }}>
@@ -1220,12 +1211,10 @@ function TakeCard({
   topic: DispatchTopicView;
 }) {
   const photo = takeRealPhotos[topic.n];
-  const backdropCredit = topicBackdropCredit[topic.n] ?? photo?.credit;
 
   return (
     <div className="comm-take-card" style={{ color: tone.fg }}>
-      {photo ? <TakePhotoBackdrop accent={tone.accent} artSrc={topicBackdropArt[topic.n]} bg={tone.bg} boost={topic.n === 4} mode="mobile" photo={photo} /> : null}
-      <div aria-hidden="true" className="comm-mobile-section-number" style={ts({ ...T.ghost, size: 250, lh: 0.82, track: "-0.07em" }, { color: tone.accent, opacity: 0.18 })}>{topic.n}</div>
+      <div aria-hidden="true" className="comm-mobile-section-number" style={ts({ ...T.ghost, size: 250, lh: 0.82, track: "-0.07em" }, { color: tone.accent, opacity: 0.12 })}>{topic.n}</div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", position: "relative", zIndex: 3 }}>
         <span style={ts(T.eyebrow, { color: tone.accent })}>{topic.label} · 0{topic.n}/05</span>
         <div style={{ display: "flex", gap: 6 }}>
@@ -1233,7 +1222,7 @@ function TakeCard({
           <button aria-label={saved ? "Saved" : "Save"} onClick={onSave} style={iconButton(tone.fg)} type="button"><BookmarkIcon filled={saved} /></button>
         </div>
       </div>
-      <div style={{ flex: 1 }} />
+      {photo ? <MobileTakePhoto accent={tone.accent} fg={tone.fg} photo={photo} /> : <div style={{ flex: 1 }} />}
       <div style={{ ...ts(T.label, { color: tone.accent }), marginBottom: 10, position: "relative", zIndex: 3 }}>The take</div>
       <p style={{ margin: 0, ...ts(T.pull, { color: tone.fg }), position: "relative", zIndex: 3 }}>"{topic.take}"</p>
       <h2 style={{ margin: "12px 0 0", ...ts(T.headline, { color: tone.fg, opacity: 0.92 }), position: "relative", zIndex: 3 }}>{topic.headline}</h2>
@@ -1242,7 +1231,6 @@ function TakeCard({
         Why it matters
       </button>
       {expanded ? <div style={{ marginTop: 12, ...ts(T.bodyIt, { color: tone.fg, opacity: 0.86 }), position: "relative", zIndex: 3, animation: "comm-fade 280ms ease" }}>{topic.why}</div> : null}
-      {photo ? <div className="comm-take-photo-credit" style={{ position: "relative", zIndex: 3, marginTop: 14, width: "fit-content", maxWidth: "100%", padding: "6px 8px", borderRadius: 999, background: "rgba(10,10,13,0.42)", backdropFilter: "blur(8px)", color: PALETTE.off, ...ts({ ...T.micro, size: 10, track: "0.05em", up: false }, { lineHeight: 1.35 }) }}>{backdropCredit}</div> : null}
       <div style={{ marginTop: "auto", display: "flex", justifyContent: "space-between", alignItems: "center", ...ts(T.micro, { color: tone.fg, opacity: 0.58 }), position: "relative", zIndex: 3, paddingTop: 14 }}>
         <span>{topic.tag}</span><span>Swipe →</span>
       </div>
@@ -1402,104 +1390,40 @@ function DispatchCoverPhoto({
   );
 }
 
-function TakePhotoBackdrop({
-  accent,
-  artSrc,
-  bg,
-  boost = false,
-  mode,
-  photo,
-}: {
-  accent: string;
-  artSrc?: string;
-  bg: string;
-  boost?: boolean;
-  mode: "mobile" | "desktop";
-  photo: RealDispatchPhoto;
-}) {
-  const isMobile = mode === "mobile";
-  const usesArt = Boolean(artSrc);
-  const imageOpacity = usesArt ? (isMobile ? 0.98 : 0.78) : isMobile ? (boost ? 0.9 : 0.68) : (boost ? 0.68 : 0.42);
-  const imageFilter = usesArt
-    ? isMobile
-      ? "blur(0.12px) saturate(1.14) contrast(1.08)"
-      : "blur(0.3px) saturate(1.08) contrast(1.04)"
-    : isMobile
-      ? "blur(9px) saturate(1.28) contrast(1.08)"
-      : "blur(12px) saturate(1.12) contrast(1.02)";
-  const imageScale = usesArt ? 1.015 : 1.12;
-  const scrim = usesArt
-    ? isMobile
-      ? "linear-gradient(180deg, rgba(17, 35, 116, 0.42) 0%, rgba(17, 35, 116, 0.3) 32%, rgba(17, 35, 116, 0.38) 62%, rgba(17, 35, 116, 0.78) 100%)"
-      : "linear-gradient(90deg, rgba(17, 35, 116, 0.62) 0%, rgba(17, 35, 116, 0.36) 54%, rgba(17, 35, 116, 0.12) 100%)"
-    : isMobile
-      ? boost
-        ? `linear-gradient(180deg, ${bg}a8 0%, ${bg}66 30%, ${bg}30 58%, ${bg}c4 100%)`
-        : `linear-gradient(180deg, ${bg}c7 0%, ${bg}94 28%, ${bg}5c 56%, ${bg}d9 100%)`
-      : boost
-        ? `linear-gradient(90deg, ${bg}ba 0%, ${bg}66 50%, ${bg}24 100%)`
-        : `linear-gradient(90deg, ${bg}d8 0%, ${bg}92 52%, ${bg}52 100%)`;
-  const tint = usesArt
-    ? isMobile
-      ? `radial-gradient(circle at 78% 18%, ${accent}36 0%, transparent 44%), linear-gradient(180deg, transparent 0%, rgba(12, 20, 76, 0.46) 88%)`
-      : `radial-gradient(circle at 82% 18%, ${accent}34 0%, transparent 48%)`
-    : isMobile
-      ? boost
-        ? `radial-gradient(circle at 78% 18%, ${accent}6e 0%, transparent 46%), linear-gradient(180deg, transparent 0%, ${bg}b8 90%)`
-        : `radial-gradient(circle at 78% 18%, ${accent}5c 0%, transparent 44%), linear-gradient(180deg, transparent 0%, ${bg}c7 88%)`
-      : boost
-        ? `radial-gradient(circle at 82% 18%, ${accent}66 0%, transparent 48%)`
-        : `radial-gradient(circle at 82% 18%, ${accent}52 0%, transparent 46%)`;
-
+function MobileTakePhoto({ accent, fg, photo }: { accent: string; fg: string; photo: RealDispatchPhoto }) {
   return (
-    <div
-      aria-hidden="true"
-      className="comm-take-backdrop"
-      style={{
-        position: "absolute",
-        inset: isMobile ? 0 : "-14% -6% -18%",
-        overflow: "hidden",
-        pointerEvents: "none",
-        zIndex: 0,
-      }}
-    >
-      <img
-        aria-hidden="true"
-        alt=""
-        draggable={false}
-        height={photo.height}
-        src={artSrc ?? photo.src}
+    <figure style={{ margin: "12px 0 14px", position: "relative", zIndex: 3 }}>
+      <div style={{ position: "relative", width: "100%", height: "clamp(82px, 16svh, 132px)", background: "#0a0a0d", overflow: "hidden" }}>
+        <img
+          alt={photo.alt}
+          draggable={false}
+          height={photo.height}
+          src={photo.src}
+          style={{
+            display: "block",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: photo.objectPosition,
+            userSelect: "none",
+          }}
+          width={photo.width}
+        />
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: photo.overlay }} />
+        <div aria-hidden="true" style={{ position: "absolute", top: 0, left: 0, right: 0, height: 5, background: accent }} />
+      </div>
+      <figcaption
+        className="comm-take-photo-credit"
         style={{
-          display: "block",
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          objectPosition: usesArt ? "50% 50%" : photo.objectPosition,
-          filter: imageFilter,
-          opacity: imageOpacity,
-          transform: `scale(${imageScale})`,
-          userSelect: "none",
+          marginTop: 7,
+          color: fg,
+          opacity: 0.72,
+          ...ts({ ...T.micro, size: 10, track: "0.06em", up: false }, { lineHeight: 1.4 }),
         }}
-        width={photo.width}
-      />
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: scrim,
-        }}
-      />
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: tint,
-          mixBlendMode: usesArt ? "normal" : "multiply",
-        }}
-      />
-    </div>
+      >
+        {photo.credit}
+      </figcaption>
+    </figure>
   );
 }
 

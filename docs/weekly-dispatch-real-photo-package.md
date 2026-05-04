@@ -51,19 +51,17 @@ Generated post-ready PNGs live under:
 
 - `public/editorial/post/weekly-dispatch-may-4-2026/`
 
-Those files are for editorial/social post surfaces and prompt iteration history. They are not the dispatch reader's main photography source. The reader now prefers local real photos plus one in-house illustration override for the fourth take.
+Those files are for editorial/social post surfaces and prompt iteration history. They are not active reader UI. Keep them in reserve until a specific post/card surface needs generated art.
 
-### 3. In-house illustration exception
+### 3. No decorative reader backdrops
 
-One mobile backdrop uses a local illustration instead of a blurred real photo:
+The dispatch reader should use real, licensed Commons photography as actual foreground imagery only:
 
-- `public/editorial/illustrations/territory-punch-backdrop.svg`
+- cover image via `DispatchCoverPhoto`
+- desktop take figures via `TakePhotoFigure`
+- mobile take figures via `MobileTakePhoto`
 
-That backdrop must keep the explicit override credit:
-
-- `Illustration: totalBarça studio`
-
-Do not label that asset as a photo.
+Do not use blurred photo backdrops, illustration backdrops, or generated-art backdrops behind reader text. If an image is present, it should be readable as an image and carry its compact photo credit. The generated images are still useful, but they stay pocketed for later editorial/social surfaces rather than being wired into the reader.
 
 ## How the reader picks and credits photos
 
@@ -86,14 +84,7 @@ Flow:
 5. Render credits in three places:
    - cover image overlay via `DispatchCoverPhoto`
    - desktop figure caption via `TakePhotoFigure`
-   - mobile backdrop pill via `comm-take-photo-credit`
-6. If a take uses custom art for the backdrop, override only the displayed mobile credit with `topicBackdropCredit`.
-
-Current special case:
-
-- Take 04 uses `topicBackdropArt[4] = "/editorial/illustrations/territory-punch-backdrop.svg"`
-- desktop still keeps a real photo figure and photo credit for the take
-- mobile backdrop credit swaps to `Illustration: totalBarça studio`
+   - mobile figure caption via `MobileTakePhoto` / `comm-take-photo-credit`
 
 ## Dispatch-native copy
 
