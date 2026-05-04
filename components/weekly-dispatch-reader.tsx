@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties, PointerEvent, TouchEvent } from "react";
+import realPhotoManifest from "@/public/editorial/real/commons-fcbarcelona-images.json";
 import type { Article, DispatchIssue, MatchContextEntry } from "@/lib/site-data";
 
 type WeeklyDispatchReaderProps = {
@@ -14,8 +15,25 @@ type WeeklyDispatchReaderProps = {
 };
 
 type ThemeId = "classic" | "dark" | "supporters" | "coastal";
-type Tone = "blue" | "garnet" | "ink" | "off" | "gold";
-type PlateKind = "figure" | "crowd" | "pitch" | "tunnel" | "badge";
+
+type RealPhotoManifestItem = {
+  title: string;
+  slug: string;
+  description: string;
+  artist: string;
+  license: string;
+  source: string;
+  width: number;
+  height: number;
+  src: string;
+};
+
+type RealDispatchPhoto = RealPhotoManifestItem & {
+  alt: string;
+  credit: string;
+  objectPosition: string;
+  overlay: string;
+};
 
 type Theme = {
   id: ThemeId;
@@ -172,8 +190,8 @@ const F = {
 
 const T = {
   eyebrow: { font: F.label, size: 11, weight: 600, track: "0.18em", up: true },
-  label: { font: F.label, size: 10, weight: 600, track: "0.16em", up: true },
-  micro: { font: F.mono, size: 9, weight: 500, track: "0.18em", up: true },
+  label: { font: F.label, size: 11, weight: 600, track: "0.16em", up: true },
+  micro: { font: F.mono, size: 10, weight: 500, track: "0.18em", up: true },
   pull: { font: F.voice, size: 26, weight: 400, italic: true, lh: 1.18, track: "-0.01em" },
   headline: { font: F.headline, size: 17, weight: 600, lh: 1.32, track: "-0.005em" },
   body: { font: F.body, size: 15, weight: 400, lh: 1.55 },
@@ -182,6 +200,69 @@ const T = {
   score: { font: F.slab, size: 64, weight: 200, lh: 0.9, track: "-0.045em" },
   ghost: { font: F.voice, size: 220, weight: 400, italic: true, lh: 0.85, track: "-0.06em" },
 } satisfies Record<string, TypeSpec>;
+
+const commonsRealPhotos = realPhotoManifest as RealPhotoManifestItem[];
+const commonsRealPhotosBySlug = Object.fromEntries(commonsRealPhotos.map((photo) => [photo.slug, photo])) as Record<
+  string,
+  RealPhotoManifestItem
+>;
+
+function getRealDispatchPhoto(
+  slug: string,
+  overrides: Pick<RealDispatchPhoto, "alt" | "objectPosition"> & Partial<Pick<RealDispatchPhoto, "overlay">>,
+): RealDispatchPhoto {
+  const photo = commonsRealPhotosBySlug[slug];
+  if (!photo) {
+    throw new Error(`Missing real dispatch photo: ${slug}`);
+  }
+
+  return {
+    ...photo,
+    alt: overrides.alt,
+    credit: `Photo: ${photo.artist} / ${photo.license}`,
+    objectPosition: overrides.objectPosition,
+    overlay:
+      overrides.overlay ??
+      "linear-gradient(180deg, rgba(10,10,13,0.06) 0%, rgba(10,10,13,0.12) 45%, rgba(10,10,13,0.3) 100%)",
+  };
+}
+
+const coverRealPhoto = getRealDispatchPhoto("camp-nou-during-2014-la-liga-match-fc-barcelona-2-athletic-bilbao-0-05-jpg", {
+  alt: "A massive Barça and Catalan tifo unfurled across the Camp Nou crowd before kickoff.",
+  objectPosition: "56% 42%",
+  overlay: "linear-gradient(180deg, rgba(10,10,13,0.08) 0%, rgba(10,10,13,0.14) 42%, rgba(10,10,13,0.62) 100%)",
+});
+
+const takeRealPhotos: Record<number, RealDispatchPhoto> = {
+  1: getRealDispatchPhoto("brann-bar-a-femen-cg3a6290-jpg", {
+    alt: "Salma Paralluelo drives the ball between Brann defenders for FC Barcelona Femení.",
+    objectPosition: "52% 40%",
+  }),
+  2: getRealDispatchPhoto("fc-barcelona-camp-nou-on-a-matchday-ank-kumar-05-jpg", {
+    alt: "Supporters gather outside Camp Nou below FC Barcelona banners on matchday.",
+    objectPosition: "44% 34%",
+  }),
+  3: getRealDispatchPhoto("camp-nou-during-la-liga-match-fc-barcelona-2-athletic-bilbao-0-06-jpg", {
+    alt: "The Camp Nou stand with FCBARCELONA seating rises above the pitch under heavy clouds.",
+    objectPosition: "50% 44%",
+  }),
+  4: getRealDispatchPhoto("camp-nou-fc-barcelona-llevant-27-abril-2019-jpg", {
+    alt: "Camp Nou fills up around the pitch as FC Barcelona stage a packed night under the lights.",
+    objectPosition: "38% 42%",
+  }),
+  5: getRealDispatchPhoto("fc-barcelona-camp-nou-on-a-matchday-ank-kumar-04-jpg", {
+    alt: "Camp Nou's curved exterior and FC Barcelona banner loom above the concourse.",
+    objectPosition: "38% 30%",
+  }),
+};
+
+const topicBackdropArt: Record<number, string> = {
+  4: "/editorial/illustrations/territory-punch-backdrop.svg",
+};
+
+const topicBackdropCredit: Record<number, string> = {
+  4: "Illustration: totalBarça studio",
+};
 
 function ts(t: TypeSpec, extra: CSSProperties = {}): CSSProperties {
   return {
@@ -288,15 +369,14 @@ function buildIssueView(
   const topics = issue.items.slice(0, 5).map((item, index) => {
     const story = getStoryForItem(item.link, stories);
     const label = formatItemType(item.itemType);
-    const summary = cleanDispatchCopy(item.summary);
     return {
       n: index + 1,
       mark: item.itemType,
       label,
       headline: item.headline,
-      take: summary,
-      body: cleanDispatchCopy(story?.body?.[0] ?? item.summary),
-      why: cleanDispatchCopy(story?.conviction ?? story?.dek ?? item.summary),
+      take: cleanDispatchCopy(item.take ?? item.summary),
+      body: cleanDispatchCopy(item.commentary ?? story?.body?.[0] ?? item.summary),
+      why: cleanDispatchCopy(item.whyItMatters ?? story?.conviction ?? story?.dek ?? item.summary),
       tag: label,
     };
   });
@@ -326,14 +406,14 @@ function buildIssueView(
 
 function paletteFor(theme: Theme, index: number) {
   const variants = [
-    { bg: theme.isDark ? "#06070b" : theme.fg, fg: theme.isDark ? theme.fg : theme.bg, accent: theme.gold, imgKind: null, tone: "ink" as Tone },
-    { bg: theme.surface, fg: theme.fg, accent: theme.accent, imgKind: "figure" as PlateKind, tone: "blue" as Tone },
-    { bg: theme.accent, fg: theme.bg, accent: theme.gold, imgKind: "figure" as PlateKind, tone: "off" as Tone },
-    { bg: theme.surfaceEdge, fg: theme.fg, accent: theme.accent2, imgKind: "tunnel" as PlateKind, tone: "blue" as Tone },
-    { bg: theme.accent2, fg: theme.bg, accent: theme.gold, imgKind: "pitch" as PlateKind, tone: "gold" as Tone },
-    { bg: theme.isDark ? "#06070b" : theme.fg, fg: theme.isDark ? theme.fg : theme.bg, accent: theme.accent, imgKind: "badge" as PlateKind, tone: "gold" as Tone },
-    { bg: theme.surface, fg: theme.fg, accent: theme.accent, imgKind: null, tone: "blue" as Tone },
-    { bg: theme.isDark ? "#06070b" : theme.fg, fg: theme.isDark ? theme.fg : theme.bg, accent: theme.gold, imgKind: null, tone: "ink" as Tone },
+    { bg: theme.isDark ? "#06070b" : theme.fg, fg: theme.isDark ? theme.fg : theme.bg, accent: theme.gold },
+    { bg: theme.surface, fg: theme.fg, accent: theme.accent },
+    { bg: theme.accent, fg: theme.bg, accent: theme.gold },
+    { bg: theme.surfaceEdge, fg: theme.fg, accent: theme.accent2 },
+    { bg: theme.accent2, fg: theme.bg, accent: theme.gold },
+    { bg: theme.isDark ? "#06070b" : theme.fg, fg: theme.isDark ? theme.fg : theme.bg, accent: theme.accent },
+    { bg: theme.surface, fg: theme.fg, accent: theme.accent },
+    { bg: theme.isDark ? "#06070b" : theme.fg, fg: theme.isDark ? theme.fg : theme.bg, accent: theme.gold },
   ];
   return variants[index] ?? variants[0];
 }
@@ -802,7 +882,7 @@ function DesktopDispatch({
                 >
                   <span style={{ width: 4, height: 16, borderRadius: 2, background: isActive ? accent : "transparent", transition: "background 200ms" }} />
                   <span style={{ flex: 1 }}>{section.label}</span>
-                  <span style={ts({ ...T.micro, size: 9 }, { color: theme.mute })}>{String(index + 1).padStart(2, "0")}</span>
+                  <span style={ts({ ...T.micro, size: 10 }, { color: theme.mute })}>{String(index + 1).padStart(2, "0")}</span>
                 </button>
               );
             })}
@@ -814,7 +894,7 @@ function DesktopDispatch({
           <div style={{ marginTop: 10, display: "flex", flexDirection: "column", gap: 12 }}>
             {archive.slice(1, 5).map((item) => (
               <div key={item.slug} style={{ paddingTop: 10, borderTop: `1px solid ${theme.rule}` }}>
-                <div style={ts({ ...T.micro, size: 9 }, { color: accent })}>№{String(item.issueNumber).padStart(3, "0")} · {item.publishDate}</div>
+                <div style={ts({ ...T.micro, size: 10 }, { color: accent })}>№{String(item.issueNumber).padStart(3, "0")} · {item.publishDate}</div>
                 <div style={ts({ ...T.headline, size: 13, weight: 500, lh: 1.35 }, { color: theme.fg, marginTop: 4 })}>{item.issueTitle}</div>
               </div>
             ))}
@@ -822,7 +902,7 @@ function DesktopDispatch({
         </div>
 
         <div style={{ flex: 1 }} />
-        <div style={ts({ ...T.micro, size: 9 }, { color: theme.mute, marginTop: 28 })}>est. 1899 · Més que un club</div>
+        <div style={ts({ ...T.micro, size: 10 }, { color: theme.mute, marginTop: 28 })}>est. 1899 · Més que un club</div>
       </aside>
 
       <main className="comm-desktop-main" ref={scrollerRef}>
@@ -841,11 +921,30 @@ function DesktopDispatch({
           }}
         >
           <div style={ts(T.micro, { color: theme.mute })}>Issue №{String(issue.number).padStart(3, "0")} · {issue.date}</div>
-          <div style={{ display: "flex", gap: 18, alignItems: "center" }}>
+          <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
             <span style={ts(T.micro, { color: theme.mute })}>{progress}% read</span>
-            <span style={{ width: 80, height: 2, background: theme.rule, position: "relative" }}>
+            <span style={{ width: 88, height: 2, background: theme.rule, position: "relative" }}>
               <span style={{ position: "absolute", left: 0, top: 0, height: "100%", background: accent, width: `${progress}%`, transition: "width 220ms ease" }} />
             </span>
+            <span style={ts(T.micro, { color: theme.mute })}>{Object.values(saved).filter(Boolean).length} saved</span>
+            <details style={{ position: "relative" }}>
+              <summary style={{ cursor: "pointer", listStyle: "none", ...ts(T.micro, { color: accent }) }}>Mode: {theme.name}</summary>
+              <div style={{ position: "absolute", right: 0, top: "calc(100% + 10px)", zIndex: 12, width: 180, padding: 8, background: theme.surface, border: `1px solid ${theme.rule}`, boxShadow: "0 18px 45px rgba(0,0,0,0.14)", display: "grid", gap: 6 }}>
+                {Object.values(THEMES).map((item) => {
+                  const selected = item.id === themeId;
+                  return (
+                    <button key={item.id} onClick={() => setThemeId(item.id)} style={{ padding: "9px 10px", background: selected ? theme.bg : "transparent", border: `1px solid ${selected ? accent : "transparent"}`, borderRadius: 8, cursor: "pointer", textAlign: "left", color: selected ? accent : theme.fg, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10, ...ts({ ...T.micro, size: 10, weight: selected ? 700 : 500 }) }} type="button">
+                      <span>{item.name}</span>
+                      <span aria-hidden="true" style={{ display: "flex", gap: 3 }}>
+                        <span style={{ width: 10, height: 10, borderRadius: 3, background: item.bg, border: `1px solid ${theme.fg}22` }} />
+                        <span style={{ width: 10, height: 10, borderRadius: 3, background: item.accent }} />
+                        <span style={{ width: 10, height: 10, borderRadius: 3, background: item.accent2 }} />
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </details>
           </div>
         </div>
 
@@ -877,8 +976,7 @@ function DesktopDispatch({
             </div>
           </div>
           <div style={{ position: "relative", minHeight: 360, overflow: "hidden", borderRadius: 0, background: PALETTE.blueDeep, border: `1px solid ${theme.rule}` }}>
-            <CoverPhoto isDark={theme.isDark} />
-            <div style={{ position: "absolute", inset: 0, background: `linear-gradient(180deg, transparent 25%, ${theme.bg}44 100%)` }} />
+            <DispatchCoverPhoto creditBg={theme.isDark ? "rgba(6,7,11,0.76)" : "rgba(10,10,13,0.7)"} creditFg={PALETTE.off} photo={coverRealPhoto} />
             <div style={{ position: "absolute", right: -12, bottom: -28, ...ts({ ...T.ghost, size: 220, lh: 0.85 }, { color: theme.gold, opacity: 0.42, pointerEvents: "none", userSelect: "none" }) }}>{issue.number}</div>
           </div>
 
@@ -895,40 +993,52 @@ function DesktopDispatch({
           const sectionBg = sectionIsColorBlock ? sectionTone.bg : theme.bg;
           const sectionText = sectionIsColorBlock ? sectionTone.fg : theme.fg;
           const sectionMute = sectionIsColorBlock ? `${sectionTone.fg}aa` : theme.mute;
-          return (
-          <section
-            key={topic.n}
-            ref={(el) => {
-              refs.current[`take-${topic.n}`] = el;
-            }}
-            style={{ padding: "56px 56px", display: "grid", gridTemplateColumns: "100px minmax(0, 1fr)", columnGap: 34, position: "relative", overflow: "hidden", borderBottom: `1px solid ${theme.rule}`, background: sectionBg, color: sectionText }}
-          >
-            <div style={{ ...ts({ ...T.ghost, size: 200, lh: 0.85, track: "-0.06em" }, { color: sectionTone.accent, opacity: sectionIsColorBlock ? 0.42 : 0.92 }), userSelect: "none", position: "sticky", top: 80, alignSelf: "start" }}>{topic.n}</div>
-            <div style={{ maxWidth: 680 }}>
-              <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 14 }}>
-                <span style={ts(T.eyebrow, { color: sectionTone.accent })}>{topic.label}</span>
-                <span style={ts({ ...T.micro, size: 9 }, { color: sectionMute })}>Take 0{topic.n} · {topic.tag}</span>
-                <button
-                  onClick={() => setSaved((current) => ({ ...current, [topic.n]: !current[topic.n] }))}
-                  style={{ marginLeft: "auto", background: "transparent", border: "none", cursor: "pointer", color: saved[topic.n] ? sectionTone.accent : sectionMute, display: "flex", alignItems: "center", gap: 6, ...ts(T.micro) }}
-                  type="button"
-                >
-                  <BookmarkIcon filled={!!saved[topic.n]} />
-                  {saved[topic.n] ? "Saved" : "Save"}
-                </button>
-              </div>
-              <h2 style={{ margin: "0 0 16px", ...ts({ ...T.headline, size: 36, weight: 700, lh: 1.15, track: "-0.012em" }, { color: sectionText }) }}>{topic.headline}</h2>
-              <div style={{ borderTop: `2px solid ${sectionTone.accent}`, padding: "14px 0 4px", marginBottom: 22 }}>
-                <div style={ts({ ...T.label, size: 9 }, { color: sectionTone.accent, marginBottom: 6 })}>The take</div>
-                <p style={{ margin: 0, ...ts({ ...T.pull, size: 24, lh: 1.25 }, { color: sectionText }) }}>"{topic.take}"</p>
-              </div>
-              <p style={{ margin: "0 0 18px", ...ts({ ...T.body, size: 17, lh: 1.65 }, { color: sectionText }) }}>{topic.body}</p>
-              <div style={{ marginTop: 18, paddingTop: 16, borderTop: `1px solid ${sectionIsColorBlock ? `${sectionText}33` : theme.rule}` }}>
-                <div style={ts({ ...T.label, size: 9 }, { color: sectionMute, marginBottom: 6 })}>Why it matters</div>
-                <p style={{ margin: 0, ...ts({ ...T.bodyIt, size: 16, lh: 1.6 }, { color: sectionMute }) }}>{topic.why}</p>
-              </div>
+          const photo = takeRealPhotos[topic.n];
+          const figure = photo ? (
+            <div style={{ alignSelf: "start", justifySelf: "end", width: "100%", maxWidth: 330, position: "relative", zIndex: 1 }}>
+              <TakePhotoFigure accent={sectionTone.accent} fg={sectionText} photo={photo} />
             </div>
-          </section>
+          ) : null;
+
+          return (
+            <section
+              className="comm-desktop-take-section"
+              key={topic.n}
+              ref={(el) => {
+                refs.current[`take-${topic.n}`] = el;
+              }}
+              style={{ padding: "64px 56px", position: "relative", overflow: "hidden", borderBottom: `1px solid ${theme.rule}`, background: sectionBg, color: sectionText }}
+            >
+              {photo ? <TakePhotoBackdrop accent={sectionTone.accent} artSrc={topicBackdropArt[topic.n]} bg={sectionBg} boost={topic.n === 4} mode="desktop" photo={photo} /> : null}
+              <div aria-hidden="true" style={{ ...ts({ ...T.ghost, size: 230, lh: 0.85, track: "-0.06em" }, { color: sectionTone.accent, opacity: sectionIsColorBlock ? 0.12 : 0.08 }), userSelect: "none", position: "absolute", right: -28, top: 18, pointerEvents: "none", zIndex: 1 }}>{topic.n}</div>
+              <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(300px, 330px)", gap: 44, alignItems: "start", position: "relative", zIndex: 2 }}>
+                <div style={{ minWidth: 0, maxWidth: 760 }}>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 14 }}>
+                    <span style={ts(T.eyebrow, { color: sectionTone.accent })}>{topic.label}</span>
+                    <span style={ts({ ...T.micro, size: 10 }, { color: sectionMute })}>Take 0{topic.n} · {topic.tag}</span>
+                    <button
+                      onClick={() => setSaved((current) => ({ ...current, [topic.n]: !current[topic.n] }))}
+                      style={{ marginLeft: "auto", background: "transparent", border: "none", cursor: "pointer", color: saved[topic.n] ? sectionTone.accent : sectionMute, display: "flex", alignItems: "center", gap: 6, ...ts(T.micro) }}
+                      type="button"
+                    >
+                      <BookmarkIcon filled={!!saved[topic.n]} />
+                      {saved[topic.n] ? "Saved" : "Save"}
+                    </button>
+                  </div>
+                  <h2 style={{ margin: "0 0 16px", ...ts({ ...T.headline, size: 40, weight: 700, lh: 1.12, track: "-0.014em" }, { color: sectionText }) }}>{topic.headline}</h2>
+                  <div style={{ borderTop: `2px solid ${sectionTone.accent}`, padding: "14px 0 4px", marginBottom: 22 }}>
+                    <div style={ts({ ...T.label, size: 10 }, { color: sectionTone.accent, marginBottom: 6 })}>The take</div>
+                    <p style={{ margin: 0, ...ts({ ...T.pull, size: 25, lh: 1.24 }, { color: sectionText }) }}>"{topic.take}"</p>
+                  </div>
+                  <p style={{ margin: "0 0 18px", ...ts({ ...T.body, size: 17, lh: 1.68 }, { color: sectionText }) }}>{topic.body}</p>
+                  <div style={{ marginTop: 18, paddingTop: 16, borderTop: `1px solid ${sectionIsColorBlock ? `${sectionText}33` : theme.rule}` }}>
+                    <div style={ts({ ...T.label, size: 10 }, { color: sectionMute, marginBottom: 6 })}>Why it matters</div>
+                    <p style={{ margin: 0, ...ts({ ...T.bodyIt, size: 16, lh: 1.6 }, { color: sectionMute }) }}>{topic.why}</p>
+                  </div>
+                </div>
+                {figure}
+              </div>
+            </section>
           );
         })}
 
@@ -974,7 +1084,7 @@ function DesktopDispatch({
             <span style={{ display: "flex", gap: 6, alignItems: "center", marginLeft: "auto" }}>
               <b>Form:</b>
               {issue.standing.form.map((result, index) => (
-                <span key={index} style={{ width: 18, height: 18, borderRadius: 9, background: result === "W" ? PALETTE.garnet : result === "D" ? gold : theme.fg, color: PALETTE.off, display: "inline-flex", alignItems: "center", justifyContent: "center", fontFamily: F.mono, fontSize: 9, fontWeight: 700 }}>{result}</span>
+                <span key={index} style={{ width: 18, height: 18, borderRadius: 9, background: result === "W" ? PALETTE.garnet : result === "D" ? gold : theme.fg, color: PALETTE.off, display: "inline-flex", alignItems: "center", justifyContent: "center", fontFamily: F.mono, fontSize: 10, fontWeight: 700 }}>{result}</span>
               ))}
             </span>
           </div>
@@ -993,61 +1103,10 @@ function DesktopDispatch({
             <button style={{ padding: "14px 22px", background: accent, color: theme.bg, border: "none", borderRadius: 999, cursor: "pointer", ...ts(T.eyebrow, { color: theme.bg }), display: "flex", alignItems: "center", gap: 10 }} type="button">Send to a friend <ArrowIcon dir="up-right" color={theme.bg} /></button>
             <button style={{ padding: "14px 22px", background: "transparent", color: theme.fg, border: `1px solid ${theme.fg}33`, borderRadius: 999, cursor: "pointer", ...ts(T.eyebrow, { color: theme.fg }) }} type="button">Read past issues</button>
           </div>
-          <div style={ts({ ...T.micro, size: 9 }, { color: theme.mute, marginTop: 28 })}>totalBarça · est. 1899 · Less noise. More Barça.</div>
+          <div style={ts({ ...T.micro, size: 10 }, { color: theme.mute, marginTop: 28 })}>totalBarça · est. 1899 · Less noise. More Barça.</div>
         </section>
       </main>
 
-      <aside className="comm-desktop-rail" style={{ borderLeft: `1px solid ${theme.rule}`, background: theme.surface, gap: 24 }}>
-        <div>
-          <div style={ts(T.label, { color: theme.mute, marginBottom: 12 })}>Reading</div>
-          <div style={{ position: "relative", width: "100%", height: 4, background: theme.rule, borderRadius: 2 }}>
-            <div style={{ position: "absolute", left: 0, top: 0, height: "100%", background: accent, width: `${progress}%`, borderRadius: 2, transition: "width 220ms ease" }} />
-          </div>
-          <div style={{ marginTop: 8, display: "flex", justifyContent: "space-between", ...ts(T.micro, { color: theme.mute }) }}>
-            <span>{progress}% through</span>
-            <span>{Math.max(0, Math.round(issue.readMinutes * (1 - progress / 100)))} min left</span>
-          </div>
-        </div>
-
-        <div>
-          <div style={ts(T.label, { color: theme.mute, marginBottom: 10 })}>This issue</div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-            {sections.map((section, index) => (
-              <button key={section.id} onClick={() => goto(section.id)} style={{ textAlign: "left", background: "transparent", border: "none", padding: "4px 0", cursor: "pointer", display: "flex", alignItems: "center", gap: 10, color: index === active ? accent : theme.fg, opacity: index === active ? 1 : 0.55, ...ts({ ...T.micro, size: 10, weight: index === active ? 700 : 500 }) }} type="button">
-                <span style={{ width: 6, height: 6, borderRadius: 3, background: index === active ? accent : theme.fg, opacity: index === active ? 1 : 0.4 }} />
-                {String(index + 1).padStart(2, "0")} · {section.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <div style={ts(T.label, { color: theme.mute, marginBottom: 10 })}>Reading mode</div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
-            {Object.values(THEMES).map((item) => {
-              const selected = item.id === themeId;
-              return (
-                <button key={item.id} onClick={() => setThemeId(item.id)} style={{ padding: "10px 12px", background: selected ? theme.bg : "transparent", border: `1px solid ${selected ? accent : theme.rule}`, borderRadius: 8, cursor: "pointer", textAlign: "left", color: theme.fg, display: "flex", flexDirection: "column", gap: 8 }} type="button">
-                  <span style={{ display: "flex", gap: 3 }}>
-                    <span style={{ width: 14, height: 14, borderRadius: 4, background: item.bg, border: `1px solid ${theme.fg}22` }} />
-                    <span style={{ width: 14, height: 14, borderRadius: 4, background: item.accent }} />
-                    <span style={{ width: 14, height: 14, borderRadius: 4, background: item.accent2 }} />
-                  </span>
-                  <span style={ts({ ...T.micro, size: 9 }, { color: selected ? accent : theme.fg, opacity: selected ? 1 : 0.7 })}>{item.name}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        <div style={{ padding: "14px", background: theme.bg, border: `1px solid ${theme.rule}`, borderRadius: 8 }}>
-          <div style={ts(T.label, { color: accent, marginBottom: 6 })}>Saved this week</div>
-          <div style={ts({ ...T.coverH1, size: 32 }, { color: theme.fg })}>{Object.values(saved).filter(Boolean).length}<span style={ts({ ...T.micro, size: 10 }, { color: theme.mute, marginLeft: 8 })}>of 5</span></div>
-        </div>
-
-        <div style={{ flex: 1 }} />
-        <div style={ts({ ...T.micro, size: 9 }, { color: theme.mute })}>Type · Newsreader × Archivo</div>
-      </aside>
     </div>
   );
 }
@@ -1125,8 +1184,7 @@ function CoverCard({ issue, onBegin, theme, tone }: { issue: IssueView; onBegin:
   return (
     <div className="comm-cover-card">
       <div className="comm-cover-photo-wrap">
-        <CoverPhoto isDark={theme.isDark} />
-        <div className="comm-cover-fade" style={{ background: `linear-gradient(to bottom, transparent, ${tone.bg})` }} />
+        <DispatchCoverPhoto creditBg="rgba(10,10,13,0.58)" creditFg={PALETTE.off} photo={coverRealPhoto} />
         <div className="comm-read-chip"><ClockIcon /> {issue.readMinutes} min · 5 takes</div>
       </div>
       <div className="comm-cover-copy">
@@ -1161,10 +1219,14 @@ function TakeCard({
   tone: ReturnType<typeof paletteFor>;
   topic: DispatchTopicView;
 }) {
+  const photo = takeRealPhotos[topic.n];
+  const backdropCredit = topicBackdropCredit[topic.n] ?? photo?.credit;
+
   return (
     <div className="comm-take-card" style={{ color: tone.fg }}>
-      <div aria-hidden="true" className="comm-mobile-section-number" style={ts({ ...T.ghost, size: 250, lh: 0.82, track: "-0.07em" }, { color: tone.accent })}>{topic.n}</div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", position: "relative", zIndex: 2 }}>
+      {photo ? <TakePhotoBackdrop accent={tone.accent} artSrc={topicBackdropArt[topic.n]} bg={tone.bg} boost={topic.n === 4} mode="mobile" photo={photo} /> : null}
+      <div aria-hidden="true" className="comm-mobile-section-number" style={ts({ ...T.ghost, size: 250, lh: 0.82, track: "-0.07em" }, { color: tone.accent, opacity: 0.18 })}>{topic.n}</div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", position: "relative", zIndex: 3 }}>
         <span style={ts(T.eyebrow, { color: tone.accent })}>{topic.label} · 0{topic.n}/05</span>
         <div style={{ display: "flex", gap: 6 }}>
           <button aria-label="Share" onClick={onShare} style={iconButton(tone.fg)} type="button"><ShareIcon /></button>
@@ -1172,16 +1234,16 @@ function TakeCard({
         </div>
       </div>
       <div style={{ flex: 1 }} />
-      {tone.imgKind ? <div style={{ width: 110, marginBottom: 18, position: "relative", zIndex: 2 }}><Plate cap={topic.label} kind={tone.imgKind} tone={tone.tone} /></div> : null}
-      <div style={{ ...ts(T.label, { color: tone.accent }), marginBottom: 10, position: "relative", zIndex: 2 }}>The take</div>
-      <p style={{ margin: 0, ...ts(T.pull, { color: tone.fg }), position: "relative", zIndex: 2 }}>"{topic.take}"</p>
-      <h2 style={{ margin: "12px 0 0", ...ts(T.headline, { color: tone.fg, opacity: 0.92 }), position: "relative", zIndex: 2 }}>{topic.headline}</h2>
-      <button onClick={onExpand} style={{ marginTop: 14, padding: "10px 14px", background: "transparent", color: tone.fg, border: `1px solid ${tone.fg}`, borderRadius: 999, opacity: 0.65, cursor: "pointer", ...ts(T.micro, { color: tone.fg }), display: "flex", alignItems: "center", gap: 8, width: "fit-content", position: "relative", zIndex: 2 }} type="button">
+      <div style={{ ...ts(T.label, { color: tone.accent }), marginBottom: 10, position: "relative", zIndex: 3 }}>The take</div>
+      <p style={{ margin: 0, ...ts(T.pull, { color: tone.fg }), position: "relative", zIndex: 3 }}>"{topic.take}"</p>
+      <h2 style={{ margin: "12px 0 0", ...ts(T.headline, { color: tone.fg, opacity: 0.92 }), position: "relative", zIndex: 3 }}>{topic.headline}</h2>
+      <button onClick={onExpand} style={{ marginTop: 14, padding: "10px 14px", background: "transparent", color: tone.fg, border: `1px solid ${tone.fg}`, borderRadius: 999, opacity: 0.72, cursor: "pointer", ...ts(T.micro, { color: tone.fg }), display: "flex", alignItems: "center", gap: 8, width: "fit-content", position: "relative", zIndex: 3 }} type="button">
         <span style={{ display: "inline-block", transition: "transform 220ms", transform: expanded ? "rotate(45deg)" : "rotate(0)" }}>＋</span>
         Why it matters
       </button>
-      {expanded ? <div style={{ marginTop: 12, ...ts(T.bodyIt, { color: tone.fg, opacity: 0.82 }), position: "relative", zIndex: 2, animation: "comm-fade 280ms ease" }}>{topic.why}</div> : null}
-      <div style={{ marginTop: "auto", display: "flex", justifyContent: "space-between", alignItems: "center", ...ts(T.micro, { color: tone.fg, opacity: 0.45 }), position: "relative", zIndex: 2, paddingTop: 16 }}>
+      {expanded ? <div style={{ marginTop: 12, ...ts(T.bodyIt, { color: tone.fg, opacity: 0.86 }), position: "relative", zIndex: 3, animation: "comm-fade 280ms ease" }}>{topic.why}</div> : null}
+      {photo ? <div className="comm-take-photo-credit" style={{ position: "relative", zIndex: 3, marginTop: 14, width: "fit-content", maxWidth: "100%", padding: "6px 8px", borderRadius: 999, background: "rgba(10,10,13,0.42)", backdropFilter: "blur(8px)", color: PALETTE.off, ...ts({ ...T.micro, size: 10, track: "0.05em", up: false }, { lineHeight: 1.35 }) }}>{backdropCredit}</div> : null}
+      <div style={{ marginTop: "auto", display: "flex", justifyContent: "space-between", alignItems: "center", ...ts(T.micro, { color: tone.fg, opacity: 0.58 }), position: "relative", zIndex: 3, paddingTop: 14 }}>
         <span>{topic.tag}</span><span>Swipe →</span>
       </div>
     </div>
@@ -1213,7 +1275,7 @@ function MatchesCard({ issue, tone }: { issue: IssueView; tone: ReturnType<typeo
       </div>
       <div style={{ marginTop: "auto", padding: "10px 12px", background: "rgba(0,0,0,0.06)", borderRadius: 8, display: "flex", justifyContent: "space-between", ...ts(T.micro, { color: tone.fg }) }}>
         <span>Weekly · {issue.topics.length} takes</span>
-        <span style={{ display: "flex", gap: 4 }}>{issue.standing.form.map((result, index) => <span key={index} style={{ width: 14, height: 14, borderRadius: 7, background: result === "W" ? PALETTE.garnet : result === "D" ? PALETTE.gold : tone.fg, color: PALETTE.off, display: "inline-flex", alignItems: "center", justifyContent: "center", fontFamily: F.mono, fontSize: 8, fontWeight: 700 }}>{result}</span>)}</span>
+        <span style={{ display: "flex", gap: 4 }}>{issue.standing.form.map((result, index) => <span key={index} style={{ width: 14, height: 14, borderRadius: 7, background: result === "W" ? PALETTE.garnet : result === "D" ? PALETTE.gold : tone.fg, color: PALETTE.off, display: "inline-flex", alignItems: "center", justifyContent: "center", fontFamily: F.mono, fontSize: 10, fontWeight: 700 }}>{result}</span>)}</span>
       </div>
     </div>
   );
@@ -1248,7 +1310,7 @@ function ShareSheet({ issue, onClose, tone }: { issue: IssueView; onClose: () =>
         <div style={{ ...ts(T.eyebrow, { color: tone.accent }), marginBottom: 4 }}>Send Issue №{String(issue.number).padStart(3, "0")}</div>
         <div style={{ ...ts({ ...T.coverH1, size: 22 }, { color: tone.fg }), marginBottom: 16 }}>"{issue.title}."</div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 10 }}>
-          {items.map((item) => <button key={item} style={{ background: "transparent", border: "none", color: tone.fg, cursor: "pointer", padding: 4, display: "grid", gap: 8, justifyItems: "center" }} type="button"><span style={{ width: 48, height: 48, borderRadius: 14, background: "rgba(0,0,0,0.07)", border: `1px solid ${tone.fg}22`, display: "grid", placeItems: "center" }}><ShareIcon /></span><span style={ts({ ...T.micro, size: 9 }, { color: tone.fg, opacity: 0.75 })}>{item}</span></button>)}
+          {items.map((item) => <button key={item} style={{ background: "transparent", border: "none", color: tone.fg, cursor: "pointer", padding: 4, display: "grid", gap: 8, justifyItems: "center" }} type="button"><span style={{ width: 48, height: 48, borderRadius: 14, background: "rgba(0,0,0,0.07)", border: `1px solid ${tone.fg}22`, display: "grid", placeItems: "center" }}><ShareIcon /></span><span style={ts({ ...T.micro, size: 10 }, { color: tone.fg, opacity: 0.75 })}>{item}</span></button>)}
         </div>
         <button onClick={onClose} style={{ marginTop: 18, width: "100%", padding: 12, background: "transparent", color: tone.fg, border: `1px solid ${tone.fg}33`, borderRadius: 12, cursor: "pointer", ...ts(T.eyebrow, { color: tone.fg }) }} type="button">Cancel</button>
       </div>
@@ -1271,7 +1333,7 @@ function PaletteSheet({ current, onClose, setThemeId, tone }: { current: ThemeId
             return (
               <button key={id} onClick={() => { setThemeId(id); onClose(); }} style={{ display: "flex", alignItems: "center", gap: 14, padding: "12px 14px", background: selected ? "rgba(0,0,0,0.06)" : "transparent", border: `1px solid ${selected ? tone.accent : `${tone.fg}22`}`, borderRadius: 12, color: tone.fg, cursor: "pointer", textAlign: "left" }} type="button">
                 <span style={{ display: "flex", gap: 4 }}><span style={{ width: 22, height: 22, borderRadius: 6, background: item.bg, border: `1px solid ${tone.fg}22` }} /><span style={{ width: 22, height: 22, borderRadius: 6, background: item.accent }} /><span style={{ width: 22, height: 22, borderRadius: 6, background: item.accent2 }} /></span>
-                <span style={{ flex: 1 }}><div style={ts({ ...T.headline, size: 14, weight: 600 }, { color: tone.fg })}>{item.name}</div><div style={ts({ ...T.micro, size: 9 }, { color: tone.fg, opacity: 0.6 })}>{id === "classic" ? "Bone paper · garnet ink" : id === "dark" ? "Night reading · low light" : id === "supporters" ? "Garnet-led · matchday warmth" : "Blue-led · home colors"}</div></span>
+                <span style={{ flex: 1 }}><div style={ts({ ...T.headline, size: 14, weight: 600 }, { color: tone.fg })}>{item.name}</div><div style={ts({ ...T.micro, size: 10 }, { color: tone.fg, opacity: 0.6 })}>{id === "classic" ? "Bone paper · garnet ink" : id === "dark" ? "Night reading · low light" : id === "supporters" ? "Garnet-led · matchday warmth" : "Blue-led · home colors"}</div></span>
                 {selected ? <CheckIcon fg={tone.accent} /> : null}
               </button>
             );
@@ -1282,54 +1344,197 @@ function PaletteSheet({ current, onClose, setThemeId, tone }: { current: ThemeId
   );
 }
 
-function CoverPhoto({ isDark }: { isDark: boolean }) {
-  const sky1 = isDark ? "#0a1230" : "#162a85";
-  const sky2 = isDark ? "#000" : "#0a0a0d";
+function DispatchCoverPhoto({
+  creditBg,
+  creditFg,
+  photo,
+}: {
+  creditBg: string;
+  creditFg: string;
+  photo: RealDispatchPhoto;
+}) {
   return (
-    <svg aria-hidden="true" height="100%" preserveAspectRatio="xMidYMid slice" viewBox="0 0 400 460" width="100%">
-      <defs><linearGradient id="comm-cover-sky" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor={sky1} /><stop offset="1" stopColor={sky2} /></linearGradient></defs>
-      <rect fill="url(#comm-cover-sky)" height="460" width="400" x="0" y="0" />
-      <path d="M0 280 L400 270 L400 320 L0 330 Z" fill="#1f3aaa" opacity="0.85" />
-      <path d="M0 330 L400 320 L400 380 L0 390 Z" fill="#162a85" />
-      <path d="M0 390 L400 380 L400 460 L0 460 Z" fill="#0a1d72" />
-      <circle cx="80" cy="100" fill="#c9a961" opacity="0.18" r="34" />
-      <circle cx="80" cy="100" fill="#c9a961" r="9" />
-      <circle cx="320" cy="80" fill="#c9a961" opacity="0.22" r="44" />
-      <circle cx="320" cy="80" fill="#c9a961" r="11" />
-      <g transform="translate(220 460)"><circle cx="0" cy="-160" fill="#0a0a0d" r="22" /><path d="M-50 -140 Q 0 -180 50 -140 L 60 -50 L -60 -50 Z" fill="#9b1f2c" /><path d="M-50 -120 L 50 -120 L 50 -108 L -50 -108 Z" fill="#c9a961" /><rect fill="#0a0a0d" height="50" width="44" x="-22" y="-50" /></g>
-      {Array.from({ length: 20 }).map((_, index) => {
-        const x = 10 + index * 21;
-        const y = 268 + (index % 3) * 3;
-        return <g key={index}><circle cx={x} cy={y - 8} fill="#0a0a0d" r="3.5" /><path d={`M${x - 6} ${y} Q${x} ${y - 5} ${x + 6} ${y} L${x + 8} ${y + 15} L${x - 8} ${y + 15} Z`} fill="#0a0a0d" /></g>;
-      })}
-    </svg>
+    <>
+      <img
+        alt={photo.alt}
+        draggable={false}
+        height={photo.height}
+        src={photo.src}
+        style={{
+          display: "block",
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: photo.objectPosition,
+          userSelect: "none",
+        }}
+        width={photo.width}
+      />
+      <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: photo.overlay }} />
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 6,
+          background: `linear-gradient(90deg, ${PALETTE.garnet} 0%, ${PALETTE.gold} 55%, ${PALETTE.blue} 100%)`,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          left: 18,
+          bottom: 14,
+          zIndex: 2,
+          maxWidth: "calc(100% - 36px)",
+          padding: "6px 8px",
+          borderRadius: 10,
+          background: creditBg,
+          color: creditFg,
+          ...ts({ ...T.micro, size: 10, track: "0.06em", up: false }, { lineHeight: 1.35 }),
+        }}
+      >
+        {photo.credit}
+      </div>
+    </>
   );
 }
 
-function Plate({ cap, kind = "figure", tone = "blue" }: { cap: string; kind?: PlateKind; tone?: Tone }) {
-  const pal = {
-    blue: { sky: "#1f3aaa", fg: "#0a1d72", accent: "#c9a961", mid: "#2c4ac0" },
-    garnet: { sky: "#9b1f2c", fg: "#6f1620", accent: "#f4f4f1", mid: "#b32a3a" },
-    ink: { sky: "#16171c", fg: "#0a0a0d", accent: "#c9a961", mid: "#2a2b34" },
-    off: { sky: "#e7e7e2", fg: "#1f3aaa", accent: "#9b1f2c", mid: "#d6d6d0" },
-    gold: { sky: "#c9a961", fg: "#0a0a0d", accent: "#9b1f2c", mid: "#d4b878" },
-  }[tone];
+function TakePhotoBackdrop({
+  accent,
+  artSrc,
+  bg,
+  boost = false,
+  mode,
+  photo,
+}: {
+  accent: string;
+  artSrc?: string;
+  bg: string;
+  boost?: boolean;
+  mode: "mobile" | "desktop";
+  photo: RealDispatchPhoto;
+}) {
+  const isMobile = mode === "mobile";
+  const usesArt = Boolean(artSrc);
+  const imageOpacity = usesArt ? (isMobile ? 0.98 : 0.78) : isMobile ? (boost ? 0.9 : 0.68) : (boost ? 0.68 : 0.42);
+  const imageFilter = usesArt
+    ? isMobile
+      ? "blur(0.12px) saturate(1.14) contrast(1.08)"
+      : "blur(0.3px) saturate(1.08) contrast(1.04)"
+    : isMobile
+      ? "blur(9px) saturate(1.28) contrast(1.08)"
+      : "blur(12px) saturate(1.12) contrast(1.02)";
+  const imageScale = usesArt ? 1.015 : 1.12;
+  const scrim = usesArt
+    ? isMobile
+      ? "linear-gradient(180deg, rgba(17, 35, 116, 0.42) 0%, rgba(17, 35, 116, 0.3) 32%, rgba(17, 35, 116, 0.38) 62%, rgba(17, 35, 116, 0.78) 100%)"
+      : "linear-gradient(90deg, rgba(17, 35, 116, 0.62) 0%, rgba(17, 35, 116, 0.36) 54%, rgba(17, 35, 116, 0.12) 100%)"
+    : isMobile
+      ? boost
+        ? `linear-gradient(180deg, ${bg}a8 0%, ${bg}66 30%, ${bg}30 58%, ${bg}c4 100%)`
+        : `linear-gradient(180deg, ${bg}c7 0%, ${bg}94 28%, ${bg}5c 56%, ${bg}d9 100%)`
+      : boost
+        ? `linear-gradient(90deg, ${bg}ba 0%, ${bg}66 50%, ${bg}24 100%)`
+        : `linear-gradient(90deg, ${bg}d8 0%, ${bg}92 52%, ${bg}52 100%)`;
+  const tint = usesArt
+    ? isMobile
+      ? `radial-gradient(circle at 78% 18%, ${accent}36 0%, transparent 44%), linear-gradient(180deg, transparent 0%, rgba(12, 20, 76, 0.46) 88%)`
+      : `radial-gradient(circle at 82% 18%, ${accent}34 0%, transparent 48%)`
+    : isMobile
+      ? boost
+        ? `radial-gradient(circle at 78% 18%, ${accent}6e 0%, transparent 46%), linear-gradient(180deg, transparent 0%, ${bg}b8 90%)`
+        : `radial-gradient(circle at 78% 18%, ${accent}5c 0%, transparent 44%), linear-gradient(180deg, transparent 0%, ${bg}c7 88%)`
+      : boost
+        ? `radial-gradient(circle at 82% 18%, ${accent}66 0%, transparent 48%)`
+        : `radial-gradient(circle at 82% 18%, ${accent}52 0%, transparent 46%)`;
 
   return (
+    <div
+      aria-hidden="true"
+      className="comm-take-backdrop"
+      style={{
+        position: "absolute",
+        inset: isMobile ? 0 : "-14% -6% -18%",
+        overflow: "hidden",
+        pointerEvents: "none",
+        zIndex: 0,
+      }}
+    >
+      <img
+        aria-hidden="true"
+        alt=""
+        draggable={false}
+        height={photo.height}
+        src={artSrc ?? photo.src}
+        style={{
+          display: "block",
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: usesArt ? "50% 50%" : photo.objectPosition,
+          filter: imageFilter,
+          opacity: imageOpacity,
+          transform: `scale(${imageScale})`,
+          userSelect: "none",
+        }}
+        width={photo.width}
+      />
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: scrim,
+        }}
+      />
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: tint,
+          mixBlendMode: usesArt ? "normal" : "multiply",
+        }}
+      />
+    </div>
+  );
+}
+
+function TakePhotoFigure({ accent, fg, photo }: { accent: string; fg: string; photo: RealDispatchPhoto }) {
+  return (
     <figure style={{ margin: 0, position: "relative", display: "block" }}>
-      <div style={{ position: "relative", width: "100%", aspectRatio: "4 / 5", background: pal.sky, overflow: "hidden" }}>
-        <svg aria-hidden="true" height="100%" preserveAspectRatio="xMidYMid slice" style={{ display: "block" }} viewBox="0 0 400 500" width="100%">
-          <defs><linearGradient id={`comm-plate-${tone}-${kind}`} x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor={pal.sky} /><stop offset="1" stopColor={pal.fg} /></linearGradient></defs>
-          <rect fill={`url(#comm-plate-${tone}-${kind})`} height="500" width="400" x="0" y="0" />
-          {kind === "figure" ? <><ellipse cx="200" cy="170" fill={pal.fg} rx="50" ry="62" /><path d="M 60 500 Q 200 280 340 500 Z" fill={pal.fg} /><path d="M 80 420 L 320 320 L 340 360 L 100 460 Z" fill={pal.accent} opacity="0.85" /><circle cx="340" cy="80" fill={pal.accent} opacity="0.55" r="40" /><circle cx="340" cy="80" fill={pal.accent} opacity="0.9" r="20" /></> : null}
-          {kind === "pitch" ? <><rect fill="none" height="380" stroke={pal.accent} strokeWidth="2" width="320" x="40" y="60" /><line stroke={pal.accent} strokeWidth="2" x1="200" x2="200" y1="60" y2="440" /><circle cx="200" cy="250" fill="none" r="60" stroke={pal.accent} strokeWidth="2" /><circle cx="240" cy="320" fill={pal.accent} r="6" /></> : null}
-          {kind === "tunnel" ? <>{[1, 2, 3, 4, 5, 6].map((i) => <rect fill="none" height={i * 64} key={i} opacity={0.18 + i * 0.13} stroke={pal.accent} strokeWidth="1" width={i * 60} x={200 - i * 30} y={250 - i * 32} />)}<circle cx="200" cy="250" fill={pal.accent} opacity="0.85" r="20" /></> : null}
-          {kind === "badge" ? <><circle cx="200" cy="240" fill="none" r="120" stroke={pal.accent} strokeWidth="3" /><circle cx="200" cy="240" fill="none" r="86" stroke={pal.accent} strokeWidth="1" /><text fill={pal.accent} fontFamily={F.voice} fontSize="80" fontStyle="italic" fontWeight="500" textAnchor="middle" x="200" y="258">TB</text></> : null}
-          <g opacity="0.12">{Array.from({ length: 60 }).map((_, i) => <circle cx={(i * 73) % 400} cy={(i * 41) % 500} fill={pal.accent} key={i} r="0.7" />)}</g>
-        </svg>
-        <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 6, background: pal.accent }} />
+      <div style={{ position: "relative", width: "100%", aspectRatio: "4 / 5", background: "#0a0a0d", overflow: "hidden" }}>
+        <img
+          alt={photo.alt}
+          draggable={false}
+          height={photo.height}
+          src={photo.src}
+          style={{
+            display: "block",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: photo.objectPosition,
+            userSelect: "none",
+          }}
+          width={photo.width}
+        />
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: photo.overlay }} />
+        <div aria-hidden="true" style={{ position: "absolute", top: 0, left: 0, right: 0, height: 6, background: accent }} />
       </div>
-      <figcaption style={{ marginTop: 10, fontFamily: F.mono, fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase", color: "currentColor", opacity: 0.6, lineHeight: 1.5 }}>{cap}</figcaption>
+      <figcaption
+        style={{
+          marginTop: 8,
+          color: fg,
+          opacity: 0.72,
+          ...ts({ ...T.micro, size: 10, track: "0.06em", up: false }, { lineHeight: 1.45 }),
+        }}
+      >
+        {photo.credit}
+      </figcaption>
     </figure>
   );
 }

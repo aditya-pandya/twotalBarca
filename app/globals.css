@@ -4991,7 +4991,7 @@ body:has(.comm-dispatch-shell) .site-main {
   top: -3px;
   right: -5px;
   font-family: var(--font-jetbrains-mono), monospace;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   border-radius: 8px;
   min-width: 14px;
@@ -5045,14 +5045,6 @@ body:has(.comm-dispatch-shell) .site-main {
   overflow: hidden;
 }
 
-.comm-cover-fade {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 80px;
-}
-
 .comm-read-chip {
   position: absolute;
   top: 18px;
@@ -5063,7 +5055,7 @@ body:has(.comm-dispatch-shell) .site-main {
   backdrop-filter: blur(8px);
   color: #f4f4f1;
   font-family: var(--font-jetbrains-mono), monospace;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -5074,7 +5066,7 @@ body:has(.comm-dispatch-shell) .site-main {
 
 .comm-cover-copy {
   flex: 1;
-  padding: 12px 24px 80px;
+  padding: 12px 24px 108px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -5201,7 +5193,7 @@ body:has(.comm-dispatch-shell) .site-main {
   width: 100%;
   height: 100svh;
   display: grid;
-  grid-template-columns: 300px minmax(0, 1fr) 280px;
+  grid-template-columns: 300px minmax(0, 1fr);
   position: relative;
   overflow: hidden;
 }

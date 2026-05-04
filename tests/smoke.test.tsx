@@ -91,6 +91,88 @@ describe("public weekly dispatch smoke tests", () => {
     expect(screen.queryByRole("heading", { name: "Lead read" })).not.toBeInTheDocument();
   });
 
+  it("renders local FC Barcelona Commons photos with compact credits in the dispatch reader", () => {
+    render(<DispatchPage />);
+
+    const realPhotos = screen
+      .getAllByRole("img")
+      .filter((image) => image.getAttribute("src")?.startsWith("/editorial/real/"));
+
+    expect(realPhotos.length).toBeGreaterThanOrEqual(6);
+    expect(realPhotos.some((image) => image.getAttribute("src")?.includes("camp-nou-during-2014-la-liga-match"))).toBe(true);
+    expect(realPhotos.some((image) => image.getAttribute("src")?.includes("brann-bar-a-femen"))).toBe(true);
+    expect(screen.getAllByText(/Photo:\s+.+\s\/\sCC BY-SA 4\.0/i).length).toBeGreaterThan(0);
+  });
+
+  it("uses real editorial photos throughout the desktop reader body", () => {
+    const { container } = render(<DispatchPage />);
+    const desktopMain = container.querySelector(".comm-desktop-main");
+
+    expect(desktopMain).not.toBeNull();
+
+    const desktopPhotos = within(desktopMain as HTMLElement)
+      .getAllByRole("img")
+      .filter((image) => image.getAttribute("src")?.startsWith("/editorial/real/"));
+
+    expect(desktopPhotos.length).toBeGreaterThanOrEqual(6);
+  });
+
+  it("renders per-take mobile backdrops with protected photo credit overlays", () => {
+    const { container } = render(<DispatchPage />);
+    const mobileStage = container.querySelector(".comm-mobile-stage");
+
+    expect(mobileStage).not.toBeNull();
+
+    const backdrops = mobileStage!.querySelectorAll(".comm-take-backdrop");
+    const backdropImages = mobileStage!.querySelectorAll('.comm-take-backdrop img[aria-hidden="true"][src^="/editorial/"]');
+    const artBackdrop = mobileStage!.querySelector('.comm-take-backdrop img[src="/editorial/illustrations/territory-punch-backdrop.svg"]');
+    const firstCredit = mobileStage!.querySelector(".comm-take-photo-credit") as HTMLElement | null;
+
+    expect(backdrops).toHaveLength(5);
+    expect(backdropImages.length).toBeGreaterThanOrEqual(5);
+    expect(artBackdrop).not.toBeNull();
+    expect(firstCredit).not.toBeNull();
+    expect(screen.getAllByText("Illustration: totalBarça studio").length).toBeGreaterThan(0);
+    expect(firstCredit).toHaveTextContent(/Photo:\s+.+\s\/\sCC BY-SA 4\.0/i);
+  });
+
+  it("bumps mobile micro labels and credits above unreadable sizes", () => {
+    const readerSource = readFileSync(join(process.cwd(), "components/weekly-dispatch-reader.tsx"), "utf8");
+    const globalStyles = readFileSync(join(process.cwd(), "app/globals.css"), "utf8");
+    const { container } = render(<DispatchPage />);
+    const mobileStage = container.querySelector(".comm-mobile-stage") as HTMLElement | null;
+
+    expect(mobileStage).not.toBeNull();
+
+    fireEvent.click(within(mobileStage as HTMLElement).getAllByRole("button", { name: "Share" })[0]);
+
+    const firstCredit = mobileStage!.querySelector(".comm-take-photo-credit") as HTMLElement | null;
+
+    expect(globalStyles).toMatch(/\.comm-read-chip\s*\{[^}]*font-size:\s*11px;[^}]*\}/s);
+    expect(globalStyles).toMatch(/\.comm-save-count\s*\{[^}]*font-size:\s*10px;[^}]*\}/s);
+    expect(readerSource).not.toMatch(/\bsize:\s*8(?:[,}])/);
+    expect(readerSource).not.toMatch(/\bfontSize:\s*8(?:[,}])/);
+    expect(firstCredit).not.toBeNull();
+    expect(firstCredit).toHaveStyle({ fontSize: "10px" });
+    expect(screen.getByText("Copy link")).toHaveStyle({ fontSize: "10px" });
+  });
+
+  it("keeps the desktop shell to a single persistent rail", () => {
+    const { container } = render(<DispatchPage />);
+
+    expect(container.querySelectorAll(".comm-desktop-rail")).toHaveLength(1);
+  });
+
+  it("keeps desktop take sections in a stable text-left photo-right grid", () => {
+    const readerSource = readFileSync(join(process.cwd(), "components/weekly-dispatch-reader.tsx"), "utf8");
+
+    expect(readerSource).toMatch(/gridTemplateColumns:\s*"minmax\(0, 1fr\) minmax\(300px, 330px\)"/);
+    expect(readerSource).not.toContain("const imageFirst");
+    expect(readerSource).not.toContain("order: imageFirst");
+    expect(readerSource).not.toContain("{imageFirst ? figure : null}");
+    expect(readerSource).not.toContain("{!imageFirst ? figure : null}");
+  });
+
   it("keeps the mobile dispatch dock compact while preserving accessible section buttons", () => {
     render(<DispatchPage />);
 
@@ -178,16 +260,21 @@ describe("public weekly dispatch smoke tests", () => {
     expect(firstPip).toHaveAttribute("aria-current", "step");
   });
 
-  it("keeps compact pip styling in CSS and removes the legacy settle helpers and inner pip markup", () => {
+  it("keeps compact pip styling in CSS, preserves swipe hooks, and prefers dispatch-native copy when present", () => {
     const readerSource = readFileSync(join(process.cwd(), "components/weekly-dispatch-reader.tsx"), "utf8");
     const globalStyles = readFileSync(join(process.cwd(), "app/globals.css"), "utf8");
 
-    expect(readerSource).not.toContain("settleTimerRef");
-    expect(readerSource).not.toContain("settleToNearestCard");
+    expect(readerSource).not.toContain("settleTopicCopy");
+    expect(readerSource).not.toContain("function Plate(");
+    expect(readerSource).toContain("realPhotoManifest");
+    expect(readerSource).toContain("/editorial/real/");
     expect(readerSource).toContain("touchRef");
     expect(readerSource).toContain("onTouchStart={onTouchStart}");
     expect(readerSource).toContain("onTouchEnd={onTouchEnd}");
     expect(readerSource).toContain("onTouchCancel={onTouchCancel}");
+    expect(readerSource).toContain("item.take ?? item.summary");
+    expect(readerSource).toContain("item.commentary ?? story?.body?.[0] ?? item.summary");
+    expect(readerSource).toContain("item.whyItMatters ?? story?.conviction ?? story?.dek ?? item.summary");
     expect(globalStyles).not.toContain(".comm-pip-dot");
     expect(globalStyles).not.toContain("touch-action: pan-y");
     expect(globalStyles).toMatch(/\.comm-pip-pill\s*\{[^}]*gap:\s*8px;[^}]*padding:\s*8px 14px;[^}]*\}/s);
@@ -195,7 +282,7 @@ describe("public weekly dispatch smoke tests", () => {
   });
 
   it("renders the dispatch issue route with the same reader shell", async () => {
-    const page = await DispatchIssuePageRoute({ params: Promise.resolve({ slug: "weekly-dispatch-april-10-2026" }) });
+    const page = await DispatchIssuePageRoute({ params: Promise.resolve({ slug: "weekly-dispatch-may-4-2026" }) });
 
     render(page);
 
@@ -234,13 +321,13 @@ describe("public weekly dispatch smoke tests", () => {
 
   it("exports public metadata for the active surfaces", async () => {
     const dispatchIssueMetadata = await generateDispatchIssueMetadata({
-      params: Promise.resolve({ slug: "weekly-dispatch-april-10-2026" }),
+      params: Promise.resolve({ slug: "weekly-dispatch-may-4-2026" }),
     });
 
     expect(siteMetadata.title).toMatchObject({ default: "totalBarça" });
     expect(homeMetadata.alternates?.canonical).toBe("/");
     expect(dispatchMetadata.alternates?.canonical).toBe("/dispatch");
-    expect(dispatchIssueMetadata.alternates?.canonical).toBe("/dispatch/weekly-dispatch-april-10-2026");
+    expect(dispatchIssueMetadata.alternates?.canonical).toBe("/dispatch/weekly-dispatch-may-4-2026");
   });
 
   it("keeps the shell skip link and JSON-LD scripts", () => {

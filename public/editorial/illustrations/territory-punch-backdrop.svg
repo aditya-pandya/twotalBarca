@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2400" role="img" aria-label="Barcelona football illustration with striped kit, football, and city skyline">
+  <defs>
+    <style>
+      .paper { fill: #f3e6da; }
+      .ink { fill: none; stroke: #101014; stroke-width: 14; stroke-linecap: round; stroke-linejoin: round; }
+      .thin { fill: none; stroke: #101014; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+      .soft { fill: none; stroke: #101014; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; opacity: .34; }
+      .blue { fill: #145faf; }
+      .garnet { fill: #a8233f; }
+      .gold { fill: #efc43a; }
+      .cyan { fill: #82c8c4; }
+      .coral { fill: #ef7e68; }
+      .black { fill: #101014; }
+      .cream { fill: #fff7ee; }
+    </style>
+  </defs>
+
+  <rect class="paper" width="1600" height="2400"/>
+
+  <!-- Barcelona city identity: Sagrada Família / skyline, hand-drawn not photo-literal. -->
+  <g opacity=".92" transform="translate(72 110)">
+    <path class="gold" opacity=".55" d="M0 390 C190 260 348 238 512 310 C682 385 828 365 1012 256 C1188 152 1350 168 1460 270 L1460 650 L0 650 Z"/>
+    <path class="thin" d="M132 590 L132 374 L196 302 L260 374 L260 590"/>
+    <path class="thin" d="M294 590 L294 290 L358 188 L422 290 L422 590"/>
+    <path class="thin" d="M466 590 L466 242 L540 118 L614 242 L614 590"/>
+    <path class="thin" d="M660 590 L660 282 L724 180 L788 282 L788 590"/>
+    <path class="thin" d="M846 590 L846 348 L910 278 L974 348 L974 590"/>
+    <path class="thin" d="M190 468 C322 432 462 432 610 468 C740 499 865 498 984 466"/>
+    <path class="soft" d="M1045 540 L1360 540 M1080 480 L1420 480 M1140 420 L1470 420"/>
+    <path class="thin" d="M1130 238 C1240 182 1342 198 1435 284"/>
+    <path class="thin" d="M470 356 C506 328 552 326 590 354 M662 352 C704 326 750 326 790 356" opacity=".72"/>
+    <path class="thin" d="M356 188 L334 150 M540 118 L540 70 M724 180 L746 140" opacity=".72"/>
+  </g>
+
+  <!-- Explicit city/club cues, drawn like poster lettering rather than official marks. -->
+  <text x="1120" y="575" fill="#efc43a" opacity=".78" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="150" font-weight="900" letter-spacing="10" transform="rotate(-7 1120 575)">BCN</text>
+  <text x="686" y="1205" fill="#fff7ee" opacity=".9" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="108" font-weight="900" letter-spacing="8" transform="rotate(-8 686 1205)">BARÇA</text>
+
+  <!-- A big unmistakable blaugrana shirt shape behind the text. No crest, just the colors. -->
+  <g transform="translate(430 680) rotate(-5 390 390)" opacity=".96">
+    <path class="cream" d="M190 160 C282 92 438 74 560 124 L720 250 L650 392 L570 338 L570 850 C460 908 318 910 194 858 L194 338 L106 392 L36 250 Z"/>
+    <path class="blue" d="M194 150 L300 112 L300 886 C264 882 228 873 194 858 Z"/>
+    <path class="garnet" d="M300 112 C344 98 394 94 442 100 L442 906 C392 912 343 908 300 886 Z"/>
+    <path class="blue" d="M442 100 C489 105 531 113 570 128 L570 850 C530 872 488 890 442 906 Z"/>
+    <path class="garnet" d="M570 128 L720 250 L650 392 L570 338 Z"/>
+    <path class="blue" d="M194 150 L36 250 L106 392 L194 338 Z"/>
+    <path class="ink" d="M190 160 C282 92 438 74 560 124 L720 250 L650 392 L570 338 L570 850 C460 908 318 910 194 858 L194 338 L106 392 L36 250 Z"/>
+    <path class="thin" d="M254 184 C348 140 445 137 542 176"/>
+  </g>
+
+  <!-- Clear footballer line, anchored to the striped shirt. -->
+  <g transform="translate(0 0)">
+    <path class="ink" d="M878 470c-92-36-204 6-250 93-48 90-11 206 78 249 82 40 191 7 242-72 48-74 32-176-38-229-66-50-167-48-230 5"/>
+    <path class="thin" d="M724 620c42-20 86-19 128 4M870 626c45-22 92-20 137 8"/>
+    <path class="thin" d="M775 728c61 36 130 35 194-4"/>
+    <path class="ink" d="M620 1010 C484 1092 383 1190 318 1304 C260 1405 235 1510 244 1620"/>
+    <path class="ink" d="M1005 1002 C1156 1074 1266 1166 1335 1277 C1393 1371 1415 1468 1400 1570"/>
+    <path class="ink" d="M760 1420 C648 1544 560 1688 496 1852"/>
+    <path class="ink" d="M940 1428 C1038 1560 1124 1724 1198 1920"/>
+    <path class="ink" d="M516 1840 C418 1912 342 2006 288 2122"/>
+    <path class="ink" d="M1126 1906 C1246 1938 1350 1984 1438 2044"/>
+    <path class="thin" d="M1244 2052 C1306 2062 1378 2080 1460 2106 C1498 2118 1516 2158 1496 2190 C1478 2220 1438 2228 1404 2212 C1326 2175 1247 2148 1168 2130"/>
+    <path class="thin" d="M328 2114 C244 2160 177 2220 126 2294"/>
+  </g>
+
+  <!-- The football is intentionally large and literal. -->
+  <g transform="translate(270 1935)">
+    <circle class="cream" cx="0" cy="0" r="170" stroke="#101014" stroke-width="14"/>
+    <path class="black" d="M-28-54 L38-54 L72 2 L34 62 L-34 62 L-72 2 Z"/>
+    <path class="thin" d="M-28-54 L-92-94 M38-54 L104-90 M72 2 L150 18 M34 62 L58 142 M-34 62 L-62 144 M-72 2 L-148 18"/>
+    <path class="thin" d="M-92-94 C-36-130 36-130 104-90M104-90 C152-58 170-20 150 18M150 18 C132 80 104 122 58 142M58 142 C6 170-38 170-62 144M-62 144 C-118 110-144 68-148 18M-148 18 C-148-30-130-70-92-94"/>
+  </g>
+
+  <!-- Barcelona surface language: Eixample blocks and pitch lanes, quiet but legible. -->
+  <g opacity=".44">
+    <path class="soft" d="M120 744 L1480 744 M120 870 L1480 870 M120 996 L1480 996"/>
+    <path class="soft" d="M230 660 L230 1070 M396 620 L396 1110 M562 604 L562 1126 M728 604 L728 1126 M894 620 L894 1110 M1060 660 L1060 1070"/>
+    <path class="thin" opacity=".56" d="M112 1496 C338 1422 588 1406 862 1448 C1112 1486 1326 1574 1504 1710"/>
+    <path class="thin" opacity=".48" d="M130 1650 C382 1608 626 1626 862 1704 C1057 1768 1232 1870 1388 2010"/>
+  </g>
+
+  <!-- Hand-lettered city cue. It will be partly veiled by the card tint, but survives as BCN identity. -->
+  <g transform="translate(1070 2240) rotate(-7)" opacity=".78">
+    <path class="thin" d="M0 0 C40-42 122-42 154 2 C178 36 160 78 108 92 C170 102 202 148 176 190 C140 246 42 242 0 194 Z"/>
+    <path class="thin" d="M264 12 C194 34 166 102 198 164 C230 226 306 244 366 204"/>
+    <path class="thin" d="M442 208 L442 18 L584 206 L584 16"/>
+  </g>
+
+  <rect x="36" y="36" width="1528" height="2328" rx="42" fill="none" stroke="#101014" stroke-width="6" opacity=".2"/>
+</svg>
