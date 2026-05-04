@@ -6,6 +6,8 @@ Last updated: 2026-05-03
 
 Use this when generating post-ready images for totalBarca dispatches or article surfaces.
 
+For the shipped May 4 reader package, real-photo manifest rules and maintenance steps live in `docs/weekly-dispatch-real-photo-package.md`.
+
 The winning direction is **not** website UI, not abstract SVG filler, not generic sports photography, and not AI-agency art. It is:
 
 - warm paper-collage editorial illustration
