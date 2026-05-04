@@ -91,6 +91,13 @@ describe("public weekly dispatch smoke tests", () => {
     expect(screen.queryByRole("heading", { name: "Lead read" })).not.toBeInTheDocument();
   });
 
+  it("renders away recent-match opponents without repeating Barcelona", () => {
+    render(<DispatchPage />);
+
+    expect(screen.getAllByText(/^vs Osasuna\.$/i).length).toBeGreaterThan(0);
+    expect(screen.queryByText(/Osasuna Barcelona/i)).not.toBeInTheDocument();
+  });
+
   it("renders local FC Barcelona Commons photos with compact credits in the dispatch reader", () => {
     render(<DispatchPage />);
 

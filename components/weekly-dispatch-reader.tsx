@@ -323,12 +323,12 @@ function trimPeriod(value: string) {
 function parseRecentMatch(entry?: MatchContextEntry): MatchView {
   const label = entry?.label ?? "Last match updating";
   const detail = entry?.detail ?? "The previous match capsule returns when the issue has current evidence.";
-  const result = label.match(/\d+\s*[–-]\s*\d+/)?.[0] ?? "—";
-  const opponent = label
-    .replace(/^Barcelona\s+/i, "")
-    .replace(result, "")
-    .replace(/^[·:|\s-]+/, "")
-    .trim() || label;
+  const scoreMatch = label.match(/\d+\s*[–-]\s*\d+/);
+  const result = scoreMatch?.[0] ?? "—";
+  const cleanSide = (value: string) => value.replace(/^[·:|\s-]+/, "").replace(/[·:|\s-]+$/, "").trim();
+  const [home = "", away = ""] = scoreMatch ? label.split(scoreMatch[0], 2).map(cleanSide) : [];
+  const fallbackOpponent = cleanSide((scoreMatch ? label.replace(scoreMatch[0], " ") : label).replace(/\s{2,}/g, " ")) || label;
+  const opponent = /^barcelona$/i.test(home) ? away : /^barcelona$/i.test(away) ? home : fallbackOpponent;
 
   return {
     opponent,
