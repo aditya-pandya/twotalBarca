@@ -333,73 +333,75 @@
   ],
   "dispatchIssues": [
     {
-      "editorsNote": "This week does not need dramatics; it needs order. Espanyol is the selection and rhythm test before Madrid, the attack question is about punch rather than volume, the Atlético split-screen keeps the tie football-sized, and the women's side already has Bayern on the horizon. These five pieces put the week back in sequence.",
-      "id": "dispatch-weekly-dispatch-april-10-2026",
+      "editorsNote": "This first issue is deliberately small: one recent league win, one coming Clásico, one Femení final, and two guardrails for how to read the noise around all of it. Barça do not need another feed shouting at the calendar. They need a cleaner weekly frame for what actually changes the football.",
+      "id": "dispatch-weekly-dispatch-may-4-2026",
       "issueNumber": 1,
-      "issueTitle": "Weekly Dispatch / April 10, 2026",
+      "issueTitle": "Weekly Dispatch No. 1 / Madrid Week Without the Noise",
       "items": [
         {
-          "headline": "Espanyol is the real selection test between the legs",
+          "commentary": "The first issue starts with the last result because it gives the week its floor. Osasuna 1, Barcelona 2 is not a grand statement; it is the practical result that lets the coming days be read from a position of control rather than recovery.",
+          "headline": "Osasuna was the useful kind of win",
           "itemType": "must-read",
-          "link": "/article/espanyol-between-the-legs",
-          "summary": "The derby matters because minute management, tempo, and attacking trust now decide how much of the tie survives into Madrid."
+          "link": "/dispatch",
+          "summary": "The 2-1 away win matters because it kept the league lead intact without turning every possession into ceremony.",
+          "take": "Not every important win has to become myth; Osasuna was useful because Barça got out with the argument still intact.",
+          "whyItMatters": "If the baseline is stable, the Madrid week can be judged on decisions and standards instead of panic management."
         },
         {
+          "commentary": "Barcelona vs Real Madrid on May 10 does not need extra voltage. The better frame is structural: how early Barça protect the ball, whether the midfield can slow the emotional tempo, and whether the front line turns territory into first contact before Madrid settle.",
+          "headline": "Madrid is the test of calm, not just status",
+          "itemType": "watchlist",
+          "link": "/dispatch",
+          "summary": "The May 10 home Clásico is the obvious headline, but the real question is whether Barça can keep the match in repeatable football.",
+          "take": "The Clásico only becomes useful if Barcelona refuse to let the occasion do the thinking.",
+          "whyItMatters": "A weekly dispatch should make the biggest fixture smaller and clearer, not inflate it into weather."
+        },
+        {
+          "commentary": "Barcelona surviving Bayern and reaching the UWCL final against OL Lyonnes changes the shape of the club's week. The useful read is not destiny language but standard: how a side carries dominance, late pressure, and expectation into the final.",
+          "headline": "Femení have earned the front page",
+          "itemType": "must-read",
+          "link": "/dispatch",
+          "summary": "The 4-2 win over Bayern, 5-3 on aggregate, put Barça Femení into another European final and deserves equal weight in the issue.",
+          "take": "The Femení final is not sidebar material; it is one of the club's central football stories this week.",
+          "whyItMatters": "A Barça publication that treats Femení as optional is already reading the club badly."
+        },
+        {
+          "commentary": "Across the recent run, the remaining concern is familiar: plenty of ball, plenty of territory, and not always enough clean damage at the end of the move. That is the thread connecting Osasuna, the Clásico buildup, and any European standard worth keeping.",
           "headline": "Territory still has to become punch",
           "itemType": "note",
-          "link": "/article/territory-without-punch",
-          "summary": "Barcelona had the ball, the shots, and the corners; the live repair job is turning that volume back into decisive threat."
+          "link": "/dispatch",
+          "summary": "The live attacking question is not whether Barça can have the ball, but whether possession arrives with enough threat before the match hardens.",
+          "take": "Control is only control when the next action scares somebody.",
+          "whyItMatters": "If the attack is sharp, the week opens. If it only circulates, every game becomes a referendum."
         },
         {
-          "headline": "Five points before the week narrows again",
+          "commentary": "The official and supporter conversation can tilt quickly toward who drops points where, and whether Barça can benefit without kicking a ball. That context matters, but it is not the story by itself. The story is whether the team looks like a champion in its own next ninety minutes.",
+          "headline": "Do not let the title arithmetic write the issue",
           "itemType": "note",
-          "link": "/brief",
-          "summary": "The Brief compresses selection, leverage, Femení context, and the only weekly line worth defending after the first leg."
-        },
-        {
-          "headline": "Atlético already showed the tie's two truths",
-          "itemType": "watchlist",
-          "link": "/article/one-opponent-four-days-two-different-truths",
-          "summary": "The recent meetings explain how the same opponent can produce one navigable match and one punishing one, depending on leverage."
-        },
-        {
-          "headline": "Femení already has Bayern in view",
-          "itemType": "watchlist",
-          "link": "/article/femen-bayern-pulse",
-          "summary": "Official scheduling and the Bonmatí conversation have already turned the semifinal into the next real benchmark for the side."
+          "link": "/dispatch",
+          "summary": "League permutations around Madrid and Espanyol belong in the background; the issue should keep its eyes on Barça's own football.",
+          "take": "Tables matter. Letting the table replace the performance is how a good week gets sloppy.",
+          "whyItMatters": "Publishing once a week only works if the issue refuses to become a scoreboard superstition machine."
         }
       ],
       "leadStorySlug": "espanyol-between-the-legs",
-      "publishDate": "April 10, 2026",
-      "slug": "weekly-dispatch-april-10-2026",
+      "publishDate": "May 4, 2026",
+      "slug": "weekly-dispatch-may-4-2026",
       "status": "published"
     }
   ],
   "frontPagePlan": {
-    "activePlanId": "frontpage-2026-04-10-live-rescue",
-    "briefArticleSlugs": [
-      "five-points-before-espanyol-and-madrid",
-      "espanyol-between-the-legs",
-      "territory-without-punch"
-    ],
-    "cultureStorySlugs": [
-      "territory-without-punch",
-      "one-opponent-four-days-two-different-truths",
-      "femen-bayern-pulse"
-    ],
-    "featuredDispatchSlug": "weekly-dispatch-april-10-2026",
-    "heroArticleSlug": "espanyol-between-the-legs",
+    "activePlanId": "frontpage-2026-05-04-public-issue-1",
+    "briefArticleSlugs": [],
+    "cultureStorySlugs": [],
+    "featuredDispatchSlug": "weekly-dispatch-may-4-2026",
     "isValid": true,
-    "notes": "Recovered the public front from the live Apr. 10-14 Barça signals: one current lead, one current five-point Brief, and one public Dispatch issue.",
-    "tickerArticleSlugs": [
-      "espanyol-between-the-legs",
-      "territory-without-punch",
-      "one-opponent-four-days-two-different-truths"
-    ],
-    "updatedAt": "2026-04-10T12:30:00.000Z",
+    "notes": "Dispatch-first public home for Issue 1 preview-local. Article promotion arrays stay empty while distribution remains deferred.",
+    "tickerArticleSlugs": [],
+    "updatedAt": "2026-05-03T20:30:00.000Z",
     "validationNotes": [],
     "vaultArticleSlugs": []
   },
-  "generatedAt": "2026-05-03T18:32:05.308Z",
+  "generatedAt": "2026-05-04T10:56:08.036Z",
   "sourceRoot": "newsroom"
 }

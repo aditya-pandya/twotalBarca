@@ -1,24 +1,10 @@
 {
-  "activePlanId": "frontpage-2026-04-10-live-rescue",
-  "updatedAt": "2026-04-10T12:30:00.000Z",
-  "heroArticleSlug": "espanyol-between-the-legs",
-  "tickerArticleSlugs": [
-    "espanyol-between-the-legs",
-    "territory-without-punch",
-    "one-opponent-four-days-two-different-truths"
-  ],
-  "cultureStorySlugs": [
-    "territory-without-punch",
-    "one-opponent-four-days-two-different-truths",
-    "femen-bayern-pulse"
-  ],
-  "briefArticleSlugs": [
-    "five-points-before-espanyol-and-madrid",
-    "espanyol-between-the-legs",
-    "territory-without-punch"
-  ],
+  "activePlanId": "frontpage-2026-05-04-public-issue-1",
+  "updatedAt": "2026-05-03T20:30:00.000Z",
+  "tickerArticleSlugs": [],
+  "cultureStorySlugs": [],
+  "briefArticleSlugs": [],
   "vaultArticleSlugs": [],
-  "featuredDispatchSlug": "weekly-dispatch-april-10-2026",
-  "notes": "Recovered the public front from the live Apr. 10-14 Barça signals: one current lead, one current five-point Brief, and one public Dispatch issue."
+  "featuredDispatchSlug": "weekly-dispatch-may-4-2026",
+  "notes": "Dispatch-first public home for Issue 1 preview-local. Article promotion arrays stay empty while distribution remains deferred."
 }
-

@@ -1,20 +1,15 @@
 {
-  "weekOf": "2026-04-10",
-  "updatedAt": "2026-04-10T12:30:00.000Z",
-  "focus": "Recover the public front page with live pieces around Espanyol, Madrid, and the Femení Bayern pulse while keeping the planning issue off public routes.",
+  "weekOf": "2026-05-04",
+  "updatedAt": "2026-05-03T20:30:00.000Z",
+  "focus": "Prepare the first public totalBarça issue for May 4 with one dispatch-first weekly frame, current match context, and no archive leakage from earlier rescue packets.",
   "priorities": [
-    "Publish the Espanyol selection file as the homepage lead",
-    "Publish a current five-point Brief from the live Apr. 10 desk",
-    "Publish one public Weekly Dispatch issue with exactly five safe links",
-    "Keep the planning dispatch slug internal and outbound distribution deferred"
+    "Keep Weekly Dispatch No. 1 as the only public featured issue",
+    "Frame Madrid week through football standards instead of title noise",
+    "Give the Femení UWCL final equal editorial weight inside the issue",
+    "Keep the internal planning slug separate from public publish states"
   ],
   "plannedAssignments": [
-    "assignment-espanyol-between-the-legs",
-    "assignment-territory-without-punch",
-    "assignment-one-opponent-four-days-two-different-truths",
-    "assignment-femen-bayern-pulse",
-    "assignment-five-points-before-espanyol-and-madrid",
-    "assignment-weekly-dispatch-april-10-2026",
+    "assignment-weekly-dispatch-may-4-2026",
     "assignment-weekly-dispatch-14"
   ],
   "plannedDispatchSlug": "week-in-blaugrana-14-planning"

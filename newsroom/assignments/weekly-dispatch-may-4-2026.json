@@ -1,0 +1,22 @@
+{
+  "approver": "editor-in-chief",
+  "brief": "Prepare the first public Weekly Dispatch issue for May 4 with exactly five dispatch-native takes, current match context, and no article-link dependency.",
+  "createdAt": "2026-05-03T20:20:00.000Z",
+  "deadline": "2026-05-04T09:00:00.000Z",
+  "deliverables": [
+    "One public Weekly Dispatch issue",
+    "Exactly five dispatch-native items",
+    "Front page set to dispatch-first preview state"
+  ],
+  "dependencies": [],
+  "id": "assignment-weekly-dispatch-may-4-2026",
+  "kind": "dispatch",
+  "owner": "editor-in-chief",
+  "priority": "critical",
+  "recordKind": "dispatch",
+  "slug": "weekly-dispatch-may-4-2026",
+  "status": "done",
+  "targetSlug": "weekly-dispatch-may-4-2026",
+  "title": "Weekly Dispatch No. 1 / Madrid Week Without the Noise",
+  "updatedAt": "2026-05-03T20:30:00.000Z"
+}

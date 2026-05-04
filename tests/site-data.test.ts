@@ -29,22 +29,22 @@ describe("public site data", () => {
   });
 
   it("keeps the latest public dispatch constrained to five takes", () => {
-    expect(getLatestDispatchIssue()?.slug).toBe("weekly-dispatch-april-10-2026");
+    expect(getLatestDispatchIssue()?.slug).toBe("weekly-dispatch-may-4-2026");
     expect(getLatestDispatchIssue()?.items).toHaveLength(5);
     expect(dispatchIssues).toHaveLength(1);
   });
 
-  it("keeps the public match context tied to the current Apr. 10-14 match window", () => {
+  it("keeps the public match context tied to the current May 2-10 match window", () => {
     expect(matchContext.recent).toEqual([
       {
-        label: "Barcelona 0-2 Atlético Madrid",
-        detail: "Apr 8, Champions League quarter-final first leg.",
+        label: "Osasuna 1-2 Barcelona",
+        detail: "May 2, La Liga — a practical away win before Madrid week.",
       },
     ]);
     expect(matchContext.upcoming).toEqual([
       {
-        label: "Barcelona vs Espanyol",
-        detail: "Apr 11, La Liga, 4:30 PM.",
+        label: "Barcelona vs Real Madrid",
+        detail: "May 10, La Liga, 7:00 PM.",
       },
     ]);
   });

@@ -112,6 +112,9 @@ export type DispatchItemRecord = {
   summary: string;
   link: string;
   itemType: "must-read" | "note" | "quote" | "stat" | "archive-pick" | "watchlist";
+  take?: string;
+  commentary?: string;
+  whyItMatters?: string;
 };
 
 export type DispatchRecord = EditorialRecordBase & {

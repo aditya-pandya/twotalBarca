@@ -62,19 +62,22 @@ describe("newsroom core", () => {
       "one-opponent-four-days-two-different-truths",
       "femen-bayern-pulse",
     ]);
-    expect(payload.dispatchIssues.map((entry) => entry.slug)).toEqual(["weekly-dispatch-april-10-2026"]);
-    expect(payload.frontPagePlan.heroArticleSlug).toBe("espanyol-between-the-legs");
-    expect(payload.frontPagePlan.briefArticleSlugs).toEqual([
-      "five-points-before-espanyol-and-madrid",
-      "espanyol-between-the-legs",
-      "territory-without-punch",
-    ]);
-    expect(payload.frontPagePlan.tickerArticleSlugs).toEqual([
-      "espanyol-between-the-legs",
-      "territory-without-punch",
-      "one-opponent-four-days-two-different-truths",
-    ]);
+    expect(payload.dispatchIssues.map((entry) => entry.slug)).toEqual(["weekly-dispatch-may-4-2026"]);
+    expect(payload.frontPagePlan.featuredDispatchSlug).toBe("weekly-dispatch-may-4-2026");
+    expect(payload.frontPagePlan.heroArticleSlug).toBeUndefined();
+    expect(payload.frontPagePlan.briefArticleSlugs).toEqual([]);
+    expect(payload.frontPagePlan.tickerArticleSlugs).toEqual([]);
+    expect(payload.frontPagePlan.cultureStorySlugs).toEqual([]);
+    expect(payload.frontPagePlan.vaultArticleSlugs).toEqual([]);
     expect(payload.frontPagePlan.isValid).toBe(true);
+    expect(payload.dispatchIssues[0]?.items[0]).toMatchObject({
+      headline: "Osasuna was the useful kind of win",
+      take: "Not every important win has to become myth; Osasuna was useful because Barça got out with the argument still intact.",
+      commentary:
+        "The first issue starts with the last result because it gives the week its floor. Osasuna 1, Barcelona 2 is not a grand statement; it is the practical result that lets the coming days be read from a position of control rather than recovery.",
+      whyItMatters:
+        "If the baseline is stable, the Madrid week can be judged on decisions and standards instead of panic management.",
+    });
   });
 
   it("blocks planning dispatches and hidden-route links from publishable dispatch states", async () => {

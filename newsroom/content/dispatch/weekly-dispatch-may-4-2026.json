@@ -1,0 +1,72 @@
+{
+  "approvalIds": [
+    "approval-dispatch-weekly-dispatch-may-4-2026-copy",
+    "approval-dispatch-weekly-dispatch-may-4-2026-editor"
+  ],
+  "assignmentIds": [
+    "assignment-weekly-dispatch-may-4-2026"
+  ],
+  "createdAt": "2026-05-03T20:25:00.000Z",
+  "distributionStatus": "deferred",
+  "editorsNote": "This first issue is deliberately small: one recent league win, one coming Clásico, one Femení final, and two guardrails for how to read the noise around all of it. Barça do not need another feed shouting at the calendar. They need a cleaner weekly frame for what actually changes the football.",
+  "id": "dispatch-weekly-dispatch-may-4-2026",
+  "issueNumber": 1,
+  "issueTitle": "Weekly Dispatch No. 1 / Madrid Week Without the Noise",
+  "items": [
+    {
+      "headline": "Osasuna was the useful kind of win",
+      "itemType": "must-read",
+      "link": "/dispatch",
+      "summary": "The 2-1 away win matters because it kept the league lead intact without turning every possession into ceremony.",
+      "take": "Not every important win has to become myth; Osasuna was useful because Barça got out with the argument still intact.",
+      "commentary": "The first issue starts with the last result because it gives the week its floor. Osasuna 1, Barcelona 2 is not a grand statement; it is the practical result that lets the coming days be read from a position of control rather than recovery.",
+      "whyItMatters": "If the baseline is stable, the Madrid week can be judged on decisions and standards instead of panic management."
+    },
+    {
+      "headline": "Madrid is the test of calm, not just status",
+      "itemType": "watchlist",
+      "link": "/dispatch",
+      "summary": "The May 10 home Clásico is the obvious headline, but the real question is whether Barça can keep the match in repeatable football.",
+      "take": "The Clásico only becomes useful if Barcelona refuse to let the occasion do the thinking.",
+      "commentary": "Barcelona vs Real Madrid on May 10 does not need extra voltage. The better frame is structural: how early Barça protect the ball, whether the midfield can slow the emotional tempo, and whether the front line turns territory into first contact before Madrid settle.",
+      "whyItMatters": "A weekly dispatch should make the biggest fixture smaller and clearer, not inflate it into weather."
+    },
+    {
+      "headline": "Femení have earned the front page",
+      "itemType": "must-read",
+      "link": "/dispatch",
+      "summary": "The 4-2 win over Bayern, 5-3 on aggregate, put Barça Femení into another European final and deserves equal weight in the issue.",
+      "take": "The Femení final is not sidebar material; it is one of the club's central football stories this week.",
+      "commentary": "Barcelona surviving Bayern and reaching the UWCL final against OL Lyonnes changes the shape of the club's week. The useful read is not destiny language but standard: how a side carries dominance, late pressure, and expectation into the final.",
+      "whyItMatters": "A Barça publication that treats Femení as optional is already reading the club badly."
+    },
+    {
+      "headline": "Territory still has to become punch",
+      "itemType": "note",
+      "link": "/dispatch",
+      "summary": "The live attacking question is not whether Barça can have the ball, but whether possession arrives with enough threat before the match hardens.",
+      "take": "Control is only control when the next action scares somebody.",
+      "commentary": "Across the recent run, the remaining concern is familiar: plenty of ball, plenty of territory, and not always enough clean damage at the end of the move. That is the thread connecting Osasuna, the Clásico buildup, and any European standard worth keeping.",
+      "whyItMatters": "If the attack is sharp, the week opens. If it only circulates, every game becomes a referendum."
+    },
+    {
+      "headline": "Do not let the title arithmetic write the issue",
+      "itemType": "note",
+      "link": "/dispatch",
+      "summary": "League permutations around Madrid and Espanyol belong in the background; the issue should keep its eyes on Barça's own football.",
+      "take": "Tables matter. Letting the table replace the performance is how a good week gets sloppy.",
+      "commentary": "The official and supporter conversation can tilt quickly toward who drops points where, and whether Barça can benefit without kicking a ball. That context matters, but it is not the story by itself. The story is whether the team looks like a champion in its own next ninety minutes.",
+      "whyItMatters": "Publishing once a week only works if the issue refuses to become a scoreboard superstition machine."
+    }
+  ],
+  "kind": "dispatch",
+  "leadStorySlug": "espanyol-between-the-legs",
+  "notes": "First public totalBarça dispatch issue prepared for preview-local only. Distribution remains deferred.",
+  "publishAt": "2026-05-04T09:00:00.000Z",
+  "publishDate": "May 4, 2026",
+  "publishedAt": "2026-05-04T09:00:00.000Z",
+  "schemaVersion": 1,
+  "slug": "weekly-dispatch-may-4-2026",
+  "status": "published",
+  "updatedAt": "2026-05-03T20:30:00.000Z"
+}

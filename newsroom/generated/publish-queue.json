@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-03T18:32:05.327Z",
+  "generatedAt": "2026-05-04T10:56:08.055Z",
   "items": [
     {
       "diagnostics": [
@@ -80,15 +80,15 @@
       "diagnostics": [
         "Missing latest draft binding."
       ],
-      "id": "publish-dispatch-weekly-dispatch-april-10-2026",
+      "id": "publish-dispatch-weekly-dispatch-may-4-2026",
       "maxRetries": 3,
-      "publishAt": "2026-04-10T11:30:00.000Z",
-      "publishedAt": "2026-04-10T11:30:00.000Z",
-      "recordId": "dispatch-weekly-dispatch-april-10-2026",
+      "publishAt": "2026-05-04T09:00:00.000Z",
+      "publishedAt": "2026-05-04T09:00:00.000Z",
+      "recordId": "dispatch-weekly-dispatch-may-4-2026",
       "recordKind": "dispatch",
       "retryCount": 0,
       "schemaVersion": 1,
-      "slug": "weekly-dispatch-april-10-2026",
+      "slug": "weekly-dispatch-may-4-2026",
       "status": "published"
     }
   ],

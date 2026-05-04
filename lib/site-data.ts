@@ -141,6 +141,9 @@ export type DispatchItem = {
   summary: string;
   link: string;
   itemType: "must-read" | "note" | "quote" | "stat" | "archive-pick" | "watchlist";
+  take?: string;
+  commentary?: string;
+  whyItMatters?: string;
 };
 
 export type DispatchIssue = {
@@ -666,14 +669,14 @@ const publicArticles = articles.filter((item) => !suppressedPublicArticleSlugs.h
 export const matchContext: { recent: MatchContextEntry[]; upcoming: MatchContextEntry[] } = {
   recent: [
     {
-      label: "Barcelona 0-2 Atlético Madrid",
-      detail: "Apr 8, Champions League quarter-final first leg.",
+      label: "Osasuna 1-2 Barcelona",
+      detail: "May 2, La Liga — a practical away win before Madrid week.",
     },
   ],
   upcoming: [
     {
-      label: "Barcelona vs Espanyol",
-      detail: "Apr 11, La Liga, 4:30 PM.",
+      label: "Barcelona vs Real Madrid",
+      detail: "May 10, La Liga, 7:00 PM.",
     },
   ],
 };
